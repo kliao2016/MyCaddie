@@ -187,7 +187,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3C4-BW-ezf" id="4pq-o2-rzh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Golf Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6X-Fx-km6">
@@ -524,7 +524,7 @@
         <!--Login Menu-->
         <scene sceneID="p47-xg-oAe">
             <objects>
-                <viewController title="Login Menu" id="f3Z-37-xw4" sceneMemberID="viewController">
+                <viewController title="Login Menu" id="f3Z-37-xw4" customClass="LoginViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rvY-TS-det"/>
                         <viewControllerLayoutGuide type="bottom" id="59Q-qn-3YE"/>
@@ -576,6 +576,7 @@
                                     <color key="titleColor" red="0.0619456305489543" green="0.15102539939858439" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="loginButton:" destination="f3Z-37-xw4" eventType="touchUpInside" id="TR6-DP-0fr"/>
                                     <segue destination="49e-Tb-3d3" kind="show" id="6j4-rW-OHo"/>
                                 </connections>
                             </button>
@@ -594,6 +595,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="InitialScreen"/>
                     </view>
+                    <connections>
+                        <outlet property="password" destination="DUk-J4-GMG" id="MGk-VI-DFP"/>
+                        <outlet property="username" destination="p83-NF-eic" id="ETj-Rf-EHI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXF-Hh-enW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

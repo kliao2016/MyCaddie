@@ -7,5 +7,6 @@ target 'MyCaddie' do
 
   # Pods for MyCaddie
   pod 'Firebase/Core'
-  
+  pod 'Firebase/Database'
+
 end
