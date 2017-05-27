@@ -1,0 +1,6 @@
+framework module Pods_MyCaddie {
+  umbrella header "Pods-MyCaddie-umbrella.h"
+
+  export *
+  module * { export * }
+}
