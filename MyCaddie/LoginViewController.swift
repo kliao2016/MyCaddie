@@ -8,27 +8,26 @@
 
 import Foundation
 import UIKit
-import FirebaseDatabase
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
-    var ref: DatabaseReference?
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var passTextField: UITextField!
     
-    @IBAction func loginButton(_ sender: Any) {
-        
-    }
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var signInLabel: UILabel!
+    
+    @IBOutlet weak var signInControl: UISegmentedControl!
+    
+    @IBOutlet weak var signInButton: UIButton!
+    
+    var isSignIn: Bool = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        ref = Database.database().reference()
-        
-        // Post data to Firebase
-        ref?.child("Users").child("Username").childByAutoId().setValue(username.text)
-        ref?.child("Users").child("Password").childByAutoId().setValue(password.text)
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,5 +35,59 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func selectorChange(_ sender: UISegmentedControl) {
+        
+        // Flip boolean
+        isSignIn = !isSignIn
+        
+        // Check boolean and change labels and button accordingly
+        if isSignIn {
+            signInLabel.text = "Sign In"
+            signInButton.setTitle("Sign In", for: .normal)
+        } else {
+            signInLabel.text = "Register"
+            signInButton.setTitle("Register", for: .normal)
+        }
+    }
+    
+    @IBAction func signInAction(_ sender: UIButton) {
+        
+        // TODO: Make sure email and password fields are valid
+        
+        
+        // Check if signing in or registering
+        if isSignIn {
+            // Log in the user with Firebase
+            Auth.auth().signIn(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
+                // Check that user isn't nil
+                if let u = user {
+                    // If user is found, go to main screen
+                    self.performSegue(withIdentifier: "mainSegue", sender: self)
+                } else {
+                    // Error
+                }
+                
+            })
+        } else {
+            // Create user in Firebase
+            Auth.auth().createUser(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
+                // Check that user isn't nil
+                if let u = user {
+                    // If user is found, go to main screen
+                    self.performSegue(withIdentifier: "mainSegue", sender: self)
+                } else {
+                    // Error
+                }
+            })
+        }
+    }
+
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        // Dismiss keyboard when view is tapped on
+        emailTextField.resignFirstResponder()
+        passTextField.resignFirstResponder()
+    }
     
 }

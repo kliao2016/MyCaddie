@@ -7,12 +7,45 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var courseTable: UITableView!
+    
+    // Reference to database
+    var ref: DatabaseReference?
+    
+    var tableData = [String]()
+    var databaseHandle: DatabaseHandle?
+    
+    @IBOutlet weak var welcomTitle: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        courseTable.delegate = self
+        courseTable.dataSource = self
+        
+        // Set Firebase Database
+        ref = Database.database().reference()
+        
+        // Retrieve data and listen for changes
+        databaseHandle = ref?.child("Users/User").observe(.childAdded, with: { (snapshot) in
+            
+            // Code that executes when a child is added under Users
+            let nameCheck = snapshot.value as? String
+            
+            // Change navigation bar title based on inputed user
+            if let name = nameCheck {
+                self.welcomTitle.title = "Welcome " + name + "!"
+            }
+            
+            // Reload tableview
+            self.courseTable.reloadData()
+            
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +53,16 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = courseTable.dequeueReusableCell(withIdentifier: "CourseCell")
+        cell?.textLabel?.text = tableData[indexPath.row]
+        return cell!
+    }
 }
 
