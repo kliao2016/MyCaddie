@@ -35,7 +35,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         
         // Uncomment Sign in user automatically
-        // GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().signIn()
         
         googleSignIn = GIDSignInButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     }
