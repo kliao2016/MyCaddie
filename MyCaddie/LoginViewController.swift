@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
+import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var passTextField: UITextField!
     
@@ -22,12 +24,20 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var signInButton: UIButton!
     
-    var isSignIn: Bool = true
+    @IBOutlet weak var googleSignIn: GIDSignInButton!
     
+    var isSignIn: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Set UI Delegate for GIDSignIn object
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
+        // Uncomment Sign in user automatically
+        // GIDSignIn.sharedInstance().signIn()
+        
+        googleSignIn = GIDSignInButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,11 +70,11 @@ class LoginViewController: UIViewController {
             // Log in the user with Firebase
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
                 // Check that user isn't nil
-                if let u = user {
+                if user != nil {
                     // If user is found, go to main screen
                     self.performSegue(withIdentifier: "mainSegue", sender: self)
                 } else {
-                    // Error
+                    
                 }
                 
             })
@@ -72,7 +82,7 @@ class LoginViewController: UIViewController {
             // Create user in Firebase
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
                 // Check that user isn't nil
-                if let u = user {
+                if user != nil {
                     // If user is found, go to main screen
                     self.performSegue(withIdentifier: "mainSegue", sender: self)
                 } else {
