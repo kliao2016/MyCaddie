@@ -69,9 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     // Methods to handle Google Sign-In process
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
-        if let err = error {
-            
-            // Display alert
+        if error == nil {
+            segueToMain()
             return
         }
         
@@ -80,8 +79,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let credentials = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
         Auth.auth().signIn(with: credentials) { (user, error) in
-            if let err = error {
-                // Display error alert
+            if error == nil {
+                self.segueToMain()
                 return
             }
         }
@@ -92,5 +91,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // ...
     }
     
+    func segueToMain() {
+        // Access the storyboard and fetch an instance of the view controller
+        let storyboard = UIStoryboard(name: "Main", bundle: nil);
+        let viewController: FirstViewController = storyboard.instantiateViewController(withIdentifier: "MainView") as! FirstViewController;
+        
+        // Push that view controller onto the navigation stack
+        let rootViewController = self.window!.rootViewController!;
+        rootViewController.show(viewController, sender: self)
+    }
 
 }
