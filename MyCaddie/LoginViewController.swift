@@ -104,7 +104,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     func displayAlert() {
-        let alertController = UIAlertController(title: "Error", message: "The username or password you entered is incorrect. Please trya gain.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Error", message: "The username or password you entered is incorrect. Please try again.", preferredStyle: .alert)
         
         let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
         alertController.addAction(defaultAction)
