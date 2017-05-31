@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Play-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController storyboardIdentifier="MainView" id="9pv-A4-QxB" customClass="FirstViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dKp-rm-88X" id="Cc4-Ug-wM4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -91,7 +91,7 @@
                             <constraint firstAttribute="trailing" secondItem="J5P-eV-6p2" secondAttribute="trailing" id="wgP-sL-jfZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Play" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="courseTable" destination="RX6-mQ-uaB" id="xrS-vU-UcX"/>
                         <outlet property="welcomTitle" destination="wxN-3z-LPi" id="ARm-Fu-dbl"/>
@@ -125,7 +125,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3C4-BW-ezf" id="4pq-o2-rzh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Golf Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6X-Fx-km6">
@@ -231,10 +231,10 @@
             </objects>
             <point key="canvasLocation" x="3734" y="-534"/>
         </scene>
-        <!--View Controller-->
+        <!--Create View Controller-->
         <scene sceneID="19V-Ia-BH8">
             <objects>
-                <viewController id="ZrT-Lh-E1R" sceneMemberID="viewController">
+                <viewController id="ZrT-Lh-E1R" customClass="CreateViewController" customModule="MyCaddie" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9NZ-tt-kbV"/>
                         <viewControllerLayoutGuide type="bottom" id="pcg-wd-5bf"/>
@@ -411,15 +411,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qM0-sS-nRH">
+                                <rect key="frame" x="138" y="558" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create Course"/>
+                                <connections>
+                                    <action selector="CreateCourse:" destination="ZrT-Lh-E1R" eventType="touchUpInside" id="6rq-Bk-zCM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyh-0G-89A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3733.5999999999999" y="145.27736131934034"/>
+            <point key="canvasLocation" x="3734" y="274"/>
         </scene>
-        <!--Second-->
+        <!--Profile-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
@@ -453,11 +461,49 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="461"/>
+            <point key="canvasLocation" x="1673" y="419"/>
+        </scene>
+        <!--Training Area-->
+        <scene sceneID="gMm-gB-WxB">
+            <objects>
+                <viewController id="ojs-6V-ETC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r0w-E1-yvP"/>
+                        <viewControllerLayoutGuide type="bottom" id="L3g-o7-t0e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J1n-kM-gjB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Thrd" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xDY-dM-53K">
+                                <rect key="frame" x="139" y="213" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Training Area" id="lAW-k8-ieE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pmI-Ar-A8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673" y="1246"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="0nK-GD-q4V">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="7jN-VM-9IB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" id="RqE-JL-Blv"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SAi-Ql-R3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673" y="2284"/>
         </scene>
         <!--Login Menu-->
         <scene sceneID="p47-xg-oAe">
@@ -593,6 +639,8 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="ojs-6V-ETC" kind="relationship" relationship="viewControllers" id="9Rt-nx-3QV"/>
+                        <segue destination="7jN-VM-9IB" kind="relationship" relationship="viewControllers" id="ddI-lu-dPr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -602,8 +650,8 @@
     </scenes>
     <resources>
         <image name="MyCaddypng" width="313" height="176"/>
-        <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
         <image name="temp" width="960" height="1280"/>
     </resources>
+    <color key="tintColor" red="0.87597160532994922" green="0.25432009347557794" blue="0.27649329258814836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
