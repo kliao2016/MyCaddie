@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // Configure Google Sign-In
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        
+        // Indicate when user is signed in
         GIDSignIn.sharedInstance().delegate = self
         
         return true
@@ -53,8 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
         -> Bool {
             return GIDSignIn.sharedInstance().handle(url,
-                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                     annotation: [:])
+                                                     sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                     annotation: [UIApplicationOpenURLOptionsKey.annotation])
     }
     
     // Necessary for app to run in ios 8 or later
@@ -67,15 +69,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     // Methods to handle Google Sign-In process
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
-        if let error = error {
-            // ...
+        if let err = error {
+            
+            // Display alert
             return
         }
         
+        // Get authentication tokens
         guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+        let credentials = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
-        // ...
+        Auth.auth().signIn(with: credentials) { (user, error) in
+            if let err = error {
+                // Display error alert
+                return
+            }
+        }
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
