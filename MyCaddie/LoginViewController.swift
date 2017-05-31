@@ -14,6 +14,15 @@ import Firebase
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
+    @IBAction func signOut(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
     @IBOutlet weak var passTextField: UITextField!
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -69,12 +78,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         if isSignIn {
             // Log in the user with Firebase
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
-                // Check that user isn't nil
-                if user != nil {
+                // Check that credentials are valid
+                if error != nil {
                     // If user is found, go to main screen
                     self.performSegue(withIdentifier: "mainSegue", sender: self)
                 } else {
-                    
+                    self.displayAlert()
                 }
                 
             })
@@ -82,11 +91,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             // Create user in Firebase
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
                 // Check that user isn't nil
-                if user != nil {
+                if error != nil {
                     // If user is found, go to main screen
                     self.performSegue(withIdentifier: "mainSegue", sender: self)
                 } else {
-                    // Error
+                    self.displayAlert()
                 }
             })
         }
@@ -98,6 +107,15 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         // Dismiss keyboard when view is tapped on
         emailTextField.resignFirstResponder()
         passTextField.resignFirstResponder()
+    }
+    
+    func displayAlert() {
+        let alertController = UIAlertController(title: "Error", message: "The username or password you entered is incorrect. Please trya gain.", preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
 }

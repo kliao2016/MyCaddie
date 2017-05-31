@@ -8,8 +8,19 @@
 
 import UIKit
 import FirebaseDatabase
+import Firebase
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBAction func signOut(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+        self.performSegue(withIdentifier: "BackSegue", sender: self)
+    }
 
     @IBOutlet weak var courseTable: UITableView!
     
