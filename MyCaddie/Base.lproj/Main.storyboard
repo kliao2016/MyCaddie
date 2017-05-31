@@ -460,9 +460,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="uVj-Tl-3bH">
-                                <rect key="frame" x="1" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="uVj-Tl-3bH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Xv0-A8-XKR">
                                 <rect key="frame" x="16" y="45" width="343" height="396"/>
@@ -543,10 +542,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="InitialScreen"/>
                         <constraints>
+                            <constraint firstItem="59Q-qn-3YE" firstAttribute="top" secondItem="uVj-Tl-3bH" secondAttribute="bottom" id="NFi-eR-cY8"/>
+                            <constraint firstAttribute="trailing" secondItem="uVj-Tl-3bH" secondAttribute="trailing" id="P87-k0-L0d"/>
+                            <constraint firstItem="uVj-Tl-3bH" firstAttribute="leading" secondItem="nsO-mq-f1K" secondAttribute="leading" id="Spc-y9-9oC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Xv0-A8-XKR" secondAttribute="trailing" id="Vrb-gA-Pik"/>
                             <constraint firstItem="sN7-w3-EYT" firstAttribute="trailing" secondItem="nsO-mq-f1K" secondAttribute="trailingMargin" id="WRj-D7-McO"/>
                             <constraint firstItem="Xv0-A8-XKR" firstAttribute="top" secondItem="rvY-TS-det" secondAttribute="bottom" constant="25" id="X0v-4y-kqF"/>
                             <constraint firstItem="sN7-w3-EYT" firstAttribute="leading" secondItem="nsO-mq-f1K" secondAttribute="leadingMargin" id="iag-dt-64H"/>
+                            <constraint firstItem="uVj-Tl-3bH" firstAttribute="top" secondItem="nsO-mq-f1K" secondAttribute="top" id="jJH-ps-Z8W"/>
                             <constraint firstItem="Xv0-A8-XKR" firstAttribute="leading" secondItem="nsO-mq-f1K" secondAttribute="leadingMargin" id="lwg-6B-JZM"/>
                             <constraint firstItem="sN7-w3-EYT" firstAttribute="top" secondItem="Xv0-A8-XKR" secondAttribute="bottom" constant="50" id="nu1-CK-XSw"/>
                             <constraint firstItem="59Q-qn-3YE" firstAttribute="top" secondItem="sN7-w3-EYT" secondAttribute="bottom" id="xc2-Wt-3xT"/>
