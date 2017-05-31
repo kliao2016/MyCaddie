@@ -18,13 +18,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     
-    @IBOutlet weak var signInLabel: UILabel!
-    
     @IBOutlet weak var signInControl: UISegmentedControl!
     
     @IBOutlet weak var signInButton: UIButton!
-    
-    @IBOutlet weak var googleSignIn: GIDSignInButton!
     
     @IBOutlet weak var nameTextField: UITextField!
     
@@ -41,7 +37,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         // Uncomment Sign in user automatically
         // GIDSignIn.sharedInstance().signIn()
         
-        googleSignIn = GIDSignInButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        signInButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
+        signInButton.layer.cornerRadius = 5
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,12 +53,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
         // Check boolean and change labels and button accordingly
         if isSignIn {
-            signInLabel.text = "Sign In"
             signInButton.setTitle("Sign In", for: .normal)
             nameTextField.isUserInteractionEnabled = false
             nameTextField.placeholder = "N/A"
         } else {
-            signInLabel.text = "Register"
             signInButton.setTitle("Register", for: .normal)
             nameTextField.isUserInteractionEnabled = true
             nameTextField.placeholder = "First and Last Name"
