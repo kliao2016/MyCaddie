@@ -16,6 +16,7 @@
 		10D595701EDA317B00572D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D5956F1EDA317B00572D38 /* Assets.xcassets */; };
 		10D595731EDA317B00572D38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D595711EDA317B00572D38 /* LaunchScreen.storyboard */; };
 		41B6BCB99C6A48BD03D4DC05 /* Pods_MyCaddie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */; };
+		99D6C8C91EDF5AA300FA55D0 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D6C8C81EDF5AA300FA55D0 /* CreateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		10D595741EDA317B00572D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FCF9886C273C092987DB59C /* Pods-MyCaddie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCaddie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCaddie/Pods-MyCaddie.debug.xcconfig"; sourceTree = "<group>"; };
 		44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCaddie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99D6C8C81EDF5AA300FA55D0 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		DFB69DC202FD3185EFE1A7C5 /* Pods-MyCaddie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCaddie.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCaddie/Pods-MyCaddie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 				10D595661EDA317B00572D38 /* AppDelegate.swift */,
 				10D595681EDA317B00572D38 /* FirstViewController.swift */,
 				10D5956A1EDA317B00572D38 /* SecondViewController.swift */,
+				99D6C8C81EDF5AA300FA55D0 /* CreateViewController.swift */,
 				103BA8701EDA332800054449 /* LoginViewController.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
 				10D5956F1EDA317B00572D38 /* Assets.xcassets */,
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D6C8C91EDF5AA300FA55D0 /* CreateViewController.swift in Sources */,
 				103BA8711EDA332800054449 /* LoginViewController.swift in Sources */,
 				10D5956B1EDA317B00572D38 /* SecondViewController.swift in Sources */,
 				10D595671EDA317B00572D38 /* AppDelegate.swift in Sources */,

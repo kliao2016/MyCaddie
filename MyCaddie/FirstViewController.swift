@@ -30,9 +30,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // Reference to database
     var ref: DatabaseReference?
+    var databaseHandle: DatabaseHandle?
     
     var tableData = [String]()
-    var databaseHandle: DatabaseHandle?
     
     @IBOutlet weak var welcomTitle: UINavigationItem!
     
@@ -47,15 +47,16 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         ref = Database.database().reference()
         
         // Retrieve data and listen for changes
-        databaseHandle = ref?.child("Users/User").observe(.childAdded, with: { (snapshot) in
+        databaseHandle = ref?.child("Golf Course Data").observe(.childAdded, with: { (snapshot) in
             
             // Code that executes when a child is added under Users
-            let nameCheck = snapshot.value as? String
+            let courseCheck = snapshot.key
+            self.tableData.append(courseCheck)
             
             // Change navigation bar title based on inputed user
-            if let name = nameCheck {
-                self.welcomTitle.title = "Welcome " + name + "!"
-            }
+            //if let course = courseCheck {
+            //      self.tableData.append(course)
+            //}
             
             // Reload tableview
             self.courseTable.reloadData()
