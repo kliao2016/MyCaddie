@@ -12,14 +12,84 @@ import FirebaseDatabase
 import UIKit
 
 
-class CreateViewController: UIViewController, UIPickerViewDelegate {
+class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let ref = Database.database().reference()
-    let Tees = ["Championship", "Men", "Women", "Senior"]
+    let tees = ["Championship", "Men", "Women", "Senior"]
+    var pars = ["4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4"]
+    
+    // Yardage textfields
+    @IBOutlet weak var y1: UITextField!
+    @IBOutlet weak var y2: UITextField!
+    @IBOutlet weak var y3: UITextField!
+    @IBOutlet weak var y4: UITextField!
+    @IBOutlet weak var y5: UITextField!
+    @IBOutlet weak var y6: UITextField!
+    @IBOutlet weak var y7: UITextField!
+    @IBOutlet weak var y8: UITextField!
+    @IBOutlet weak var y9: UITextField!
+    @IBOutlet weak var y10: UITextField!
+    @IBOutlet weak var y11: UITextField!
+    @IBOutlet weak var y12: UITextField!
+    @IBOutlet weak var y13: UITextField!
+    @IBOutlet weak var y14: UITextField!
+    @IBOutlet weak var y15: UITextField!
+    @IBOutlet weak var y16: UITextField!
+    @IBOutlet weak var y17: UITextField!
+    @IBOutlet weak var y18: UITextField!
+    
+    // Par segmented control
+    @IBAction func par1(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 3)
+            pars.insert("3", at: 2)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 3)
+            pars.insert("4", at: 2)
+        } else {
+            pars.remove(at: 3)
+            pars.insert("5", at: 2)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        teePicker.delegate = self
+        teePicker.dataSource = self
+        teePicker.backgroundColor = UIColor.white
+        
+        // Bind textfield to picker
+        dropTextBox.inputView = teePicker
+        
+        createCourseButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        // Dismiss keyboard when view is tapped on
+        y1.resignFirstResponder()
+        y2.resignFirstResponder()
+        y3.resignFirstResponder()
+        y4.resignFirstResponder()
+        y5.resignFirstResponder()
+        y6.resignFirstResponder()
+        y7.resignFirstResponder()
+        y8.resignFirstResponder()
+        y9.resignFirstResponder()
+        y10.resignFirstResponder()
+        y11.resignFirstResponder()
+        y12.resignFirstResponder()
+        y13.resignFirstResponder()
+        y14.resignFirstResponder()
+        y15.resignFirstResponder()
+        y16.resignFirstResponder()
+        y17.resignFirstResponder()
+        y18.resignFirstResponder()
+        courseName.resignFirstResponder()
+        courseRating.resignFirstResponder()
+        dropTextBox.resignFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,24 +98,20 @@ class CreateViewController: UIViewController, UIPickerViewDelegate {
     }
     
     // Drop Down Text Box Reference
-    @IBOutlet weak var DropTextBox: UITextField!
-    @IBOutlet weak var DropDown: UIPickerView!
+    @IBOutlet weak var dropTextBox: UITextField!
+    
+    @IBOutlet weak var createCourseButton: UIButton!
     
     // Outlets to Database
-    @IBOutlet weak var CourseName: UITextField!
+    @IBOutlet weak var courseName: UITextField!
     
-    @IBOutlet weak var CourseRating: UITextField!
-    
-    @IBOutlet weak var Hole1: UITextField!
-    
-    @IBOutlet weak var Hole2: UITextField!
-    
-    @IBOutlet weak var Hole3: UITextField!
+    @IBOutlet weak var courseRating: UITextField!
+    let teePicker = UIPickerView()
     
     
     // Push Button To Upload to Database
     @IBAction func createCourse(_ sender: Any) {
-        self.ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child("Championship").setValue(["Rating": CourseRating.text!])
+        self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child("Championship").setValue(["Rating": courseRating.text!])
         
         let prev = previousViewController()
         if !(prev is FirstViewController) {
@@ -78,15 +144,22 @@ class CreateViewController: UIViewController, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Tees.count
+        return tees.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Tees[row]
+        return tees[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let titleData = tees[row]
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 15.0)!, NSForegroundColorAttributeName:UIColor.blue])
+        return myTitle
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.DropTextBox.text = self.Tees[row]
-        self.DropDown.isHidden = true
+        self.dropTextBox.text = self.tees[row]
+        self.view.endEditing(false)
     }
+    
 }
