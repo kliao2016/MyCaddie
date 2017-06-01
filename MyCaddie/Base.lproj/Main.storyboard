@@ -460,6 +460,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcW-Cv-S70">
+                                <rect key="frame" x="49" y="142" width="310" height="103"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -474,6 +478,8 @@
                     <connections>
                         <outlet property="CourseName" destination="bxg-yc-svv" id="kNe-Ya-xup"/>
                         <outlet property="CourseRating" destination="n2Z-ZV-VeC" id="XlO-jD-AAh"/>
+                        <outlet property="DropDown" destination="lcW-Cv-S70" id="zsD-vJ-ZWX"/>
+                        <outlet property="DropTextBox" destination="9J1-P0-ZLN" id="JPn-qD-kee"/>
                         <outlet property="Hole1" destination="w2b-hj-lAg" id="WSL-dH-YEW"/>
                         <outlet property="Hole2" destination="RWV-hr-CTr" id="9A2-Ip-LPd"/>
                         <outlet property="Hole3" destination="7u6-zB-2fa" id="IRf-nJ-P4r"/>
@@ -482,7 +488,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyh-0G-89A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3689" y="-88"/>
+            <point key="canvasLocation" x="3688.8000000000002" y="-88.605697151424295"/>
         </scene>
         <!--Profile-->
         <scene sceneID="wg7-f3-ORb">
@@ -735,9 +741,9 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uCH-8B-svn"/>
-        <segue reference="j4n-95-sIJ"/>
+        <segue reference="mOa-fk-dAd"/>
         <segue reference="6r0-zd-dfW"/>
+        <segue reference="JyN-GS-nfu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.87597160532994922" green="0.25432009347557794" blue="0.27649329258814836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
