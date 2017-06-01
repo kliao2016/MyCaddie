@@ -39,8 +39,13 @@ class CreateViewController: UIViewController {
     
     
     // Push Button To Upload to Database
-    @IBAction func CreateCourse(_ sender: Any) {
+    @IBAction func createCourse(_ sender: Any) {
         self.ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child("Championship").setValue(["Rating": CourseRating.text!])
+        
+        let prev = previousViewController()
+        if !(prev is FirstViewController) {
+            self.performSegue(withIdentifier: "selectBackSegue", sender: self)
+        }
     }
     
     func displayAlert() {
@@ -50,5 +55,15 @@ class CreateViewController: UIViewController {
         alertController.addAction(defaultAction)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    ///Get previous view controller of the navigation stack
+    func previousViewController() -> UIViewController? {
+        
+        let length = self.childViewControllers.count
+        
+        let previousViewController: UIViewController? = length >= 2 ? self.childViewControllers[length - 2] : nil
+        
+        return previousViewController
     }
 }
