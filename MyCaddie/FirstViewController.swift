@@ -13,6 +13,8 @@ import GoogleSignIn
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var startRoundButton: UIButton!
+    
     @IBAction func signOut(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
@@ -62,6 +64,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.courseTable.reloadData()
             
         })
+        
+        startRoundButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
     }
 
     override func didReceiveMemoryWarning() {
