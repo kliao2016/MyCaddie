@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dKp-rm-88X" id="Cc4-Ug-wM4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -44,7 +44,7 @@
                                         <rect key="frame" x="8" y="17" width="117" height="30"/>
                                         <state key="normal" title="Start New Round"/>
                                         <connections>
-                                            <segue destination="vLX-Ba-DkS" kind="show" id="yS4-iL-61k"/>
+                                            <segue destination="vLX-Ba-DkS" kind="show" id="cqi-yN-Mb6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSx-dZ-mxH">
@@ -167,6 +167,7 @@
                             <constraint firstItem="qJb-c2-EBA" firstAttribute="leading" secondItem="kFh-J1-Xov" secondAttribute="leading" id="waP-er-PlI"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Lun-Me-hNZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hS9-sP-VWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -542,7 +543,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lp-d9-std">
                                         <rect key="frame" x="140.5" y="168" width="62" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Sign In"/>
+                                        <state key="normal" title="Sign In">
+                                            <color key="titleColor" red="0.0" green="0.91595914884715146" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="signInAction:" destination="f3Z-37-xw4" eventType="touchUpInside" id="KYZ-0t-wWa"/>
                                             <segue destination="49e-Tb-3d3" kind="show" identifier="mainSegue" id="6j4-rW-OHo"/>
@@ -553,6 +556,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
+                                <color key="tintColor" red="1" green="0.36110956419808216" blue="0.33327052138401991" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="pQh-xT-ffN" firstAttribute="leading" secondItem="Xv0-A8-XKR" secondAttribute="leadingMargin" id="Nkn-P3-hVd"/>
                                     <constraint firstItem="mgi-BT-fKq" firstAttribute="leading" secondItem="Xv0-A8-XKR" secondAttribute="leadingMargin" id="XWs-DM-wL2"/>

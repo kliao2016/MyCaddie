@@ -70,10 +70,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return tableData.count
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print(indexPath)
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = courseTable.dequeueReusableCell(withIdentifier: "CourseCell")
