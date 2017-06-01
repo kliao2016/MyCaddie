@@ -9,8 +9,10 @@
 import UIKit
 import FirebaseDatabase
 import Firebase
+import GoogleSignIn
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBAction func signOut(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
@@ -18,6 +20,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
+        
+        GIDSignIn.sharedInstance().signOut()
         
         self.performSegue(withIdentifier: "BackSegue", sender: self)
     }
