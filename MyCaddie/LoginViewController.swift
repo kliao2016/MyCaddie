@@ -14,31 +14,22 @@ import Firebase
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
-    @IBAction func signOut(_ sender: Any) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
-    
     @IBOutlet weak var passTextField: UITextField!
     
     @IBOutlet weak var emailTextField: UITextField!
-    
-    @IBOutlet weak var signInLabel: UILabel!
     
     @IBOutlet weak var signInControl: UISegmentedControl!
     
     @IBOutlet weak var signInButton: UIButton!
     
-    @IBOutlet weak var googleSignIn: GIDSignInButton!
+    @IBOutlet weak var nameTextField: UITextField!
     
     var isSignIn: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameTextField.isUserInteractionEnabled = false
         
         // Set UI Delegate for GIDSignIn object
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -46,7 +37,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         // Uncomment Sign in user automatically
         // GIDSignIn.sharedInstance().signIn()
         
-        googleSignIn = GIDSignInButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        signInButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
+        signInButton.layer.cornerRadius = 5
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,11 +53,13 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
         // Check boolean and change labels and button accordingly
         if isSignIn {
-            signInLabel.text = "Sign In"
             signInButton.setTitle("Sign In", for: .normal)
+            nameTextField.isUserInteractionEnabled = false
+            nameTextField.placeholder = "N/A"
         } else {
-            signInLabel.text = "Register"
             signInButton.setTitle("Register", for: .normal)
+            nameTextField.isUserInteractionEnabled = true
+            nameTextField.placeholder = "First and Last Name"
         }
     }
     
@@ -79,7 +73,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             // Log in the user with Firebase
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
                 // Check that credentials are valid
-                if error != nil {
+                if error == nil && user != nil{
                     // If user is found, go to main screen
                     self.performSegue(withIdentifier: "mainSegue", sender: self)
                 } else {
@@ -91,7 +85,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             // Create user in Firebase
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
                 // Check that user isn't nil
-                if error != nil {
+                if error == nil && user != nil{
                     // If user is found, go to main screen
                     self.performSegue(withIdentifier: "mainSegue", sender: self)
                 } else {
@@ -110,7 +104,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     func displayAlert() {
-        let alertController = UIAlertController(title: "Error", message: "The username or password you entered is incorrect. Please trya gain.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Error", message: "The username or password you entered is incorrect. Please try again.", preferredStyle: .alert)
         
         let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
         alertController.addAction(defaultAction)

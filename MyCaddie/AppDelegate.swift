@@ -69,21 +69,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     // Methods to handle Google Sign-In process
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
-        if error == nil {
-            segueToMain()
-            return
-        }
-        
-        // Get authentication tokens
-        guard let authentication = user.authentication else { return }
-        let credentials = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
-        Auth.auth().signIn(with: credentials) { (user, error) in
-            if error == nil {
-                self.segueToMain()
-                return
+        if error == nil && user != nil {
+            // Get authentication tokens
+            guard let authentication = user.authentication else { return }
+            let credentials = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                            accessToken: authentication.accessToken)
+            Auth.auth().signIn(with: credentials) { (user, error) in
+                if error == nil && user != nil {
+                    self.segueToMain()
+                    return
+                }
             }
         }
+        
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
