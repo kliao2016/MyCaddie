@@ -13,10 +13,25 @@ import UIKit
 
 class Scorecard: UIViewController {
     
+    // Overall Database Reference
     var ref = Database.database().reference()
     var databaseHandle: DatabaseHandle?
+    
+    // Yardage and Par Arrays
     var yardageData = [String]()
     var parData = [String]()
+    
+    // Label References
+    // Pars
+    @IBOutlet weak var Par1: UILabel!
+    @IBOutlet weak var Par2: UILabel!
+    @IBOutlet weak var Par3: UILabel!
+    @IBOutlet weak var Par4: UILabel!
+    // Yardages
+    @IBOutlet weak var Yardage1: UILabel!
+    @IBOutlet weak var Yardage2: UILabel!
+    @IBOutlet weak var Yardage3: UILabel!
+    @IBOutlet weak var Yardage4: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +59,10 @@ class Scorecard: UIViewController {
             self.parData.append(p3)
             self.parData.append(p4)
             print(self.parData)
+            self.Par1.text = self.parData[0]
+            self.Par2.text = self.parData[1]
+            self.Par3.text = self.parData[2]
+            self.Par4.text = self.parData[3]
             
         })
         
@@ -62,14 +81,19 @@ class Scorecard: UIViewController {
             self.yardageData.append(y3)
             self.yardageData.append(y4)
             print(self.yardageData)
-            
+            self.Yardage1.text = self.yardageData[0]
+            self.Yardage2.text = self.yardageData[1]
+            self.Yardage3.text = self.yardageData[2]
+            self.Yardage4.text = self.yardageData[3]
         })
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     
 }
