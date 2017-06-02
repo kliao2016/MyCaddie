@@ -41,16 +41,223 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // Par segmented control
     @IBAction func par1(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            pars.remove(at: 3)
+            pars.remove(at: 0)
+            pars.insert("3", at: 0)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 0)
+            pars.insert("4", at: 0)
+        } else {
+            pars.remove(at: 0)
+            pars.insert("5", at: 0)
+        }
+    }
+    @IBAction func par2(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 1)
+            pars.insert("3", at: 1)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 1)
+            pars.insert("4", at: 1)
+        } else {
+            pars.remove(at: 1)
+            pars.insert("5", at: 1)
+        }
+    }
+    @IBAction func par3(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 2)
             pars.insert("3", at: 2)
         } else if sender.selectedSegmentIndex == 1 {
-            pars.remove(at: 3)
+            pars.remove(at: 2)
             pars.insert("4", at: 2)
         } else {
-            pars.remove(at: 3)
+            pars.remove(at: 2)
             pars.insert("5", at: 2)
         }
     }
+    @IBAction func par4(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 3)
+            pars.insert("3", at: 3)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 3)
+            pars.insert("4", at: 3)
+        } else {
+            pars.remove(at: 3)
+            pars.insert("5", at: 3)
+        }
+    }
+    @IBAction func par5(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 4)
+            pars.insert("3", at: 4)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 4)
+            pars.insert("4", at: 4)
+        } else {
+            pars.remove(at: 4)
+            pars.insert("5", at: 4)
+        }
+        print(pars)
+    }
+    @IBAction func par6(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 5)
+            pars.insert("3", at: 5)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 5)
+            pars.insert("4", at: 5)
+        } else {
+            pars.remove(at: 5)
+            pars.insert("5", at: 5)
+        }
+    }
+    @IBAction func par7(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 6)
+            pars.insert("3", at: 6)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 6)
+            pars.insert("4", at: 6)
+        } else {
+            pars.remove(at: 6)
+            pars.insert("5", at: 6)
+        }
+    }
+    @IBAction func par8(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 7)
+            pars.insert("3", at: 7)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 7)
+            pars.insert("4", at: 7)
+        } else {
+            pars.remove(at: 7)
+            pars.insert("5", at: 7)
+        }
+    }
+    @IBAction func par9(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 8)
+            pars.insert("3", at: 8)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 8)
+            pars.insert("4", at: 8)
+        } else {
+            pars.remove(at: 8)
+            pars.insert("5", at: 8)
+        }
+    }
+    @IBAction func par10(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 9)
+            pars.insert("3", at: 9)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 9)
+            pars.insert("4", at: 9)
+        } else {
+            pars.remove(at: 9)
+            pars.insert("5", at: 9)
+        }
+    }
+    @IBAction func par11(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 10)
+            pars.insert("3", at: 10)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 10)
+            pars.insert("4", at: 10)
+        } else {
+            pars.remove(at: 10)
+            pars.insert("5", at: 10)
+        }
+    }
+    @IBAction func par12(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 11)
+            pars.insert("3", at: 11)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 11)
+            pars.insert("4", at: 11)
+        } else {
+            pars.remove(at: 11)
+            pars.insert("5", at: 11)
+        }
+    }
+    @IBAction func par13(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 12)
+            pars.insert("3", at: 12)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 12)
+            pars.insert("4", at: 12)
+        } else {
+            pars.remove(at: 12)
+            pars.insert("5", at: 12)
+        }
+    }
+    @IBAction func par14(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 13)
+            pars.insert("3", at: 13)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 13)
+            pars.insert("4", at: 13)
+        } else {
+            pars.remove(at: 13)
+            pars.insert("5", at: 13)
+        }
+    }
+    @IBAction func par15(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 14)
+            pars.insert("3", at: 14)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 14)
+            pars.insert("4", at: 14)
+        } else {
+            pars.remove(at: 14)
+            pars.insert("5", at: 14)
+        }
+    }
+    @IBAction func par16(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 15)
+            pars.insert("3", at: 15)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 15)
+            pars.insert("4", at: 15)
+        } else {
+            pars.remove(at: 15)
+            pars.insert("5", at: 15)
+        }
+    }
+    @IBAction func par17(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 16)
+            pars.insert("3", at: 16)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 16)
+            pars.insert("4", at: 16)
+        } else {
+            pars.remove(at: 16)
+            pars.insert("5", at: 16)
+        }
+    }
+    @IBAction func par18(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            pars.remove(at: 17)
+            pars.insert("3", at: 17)
+        } else if sender.selectedSegmentIndex == 1 {
+            pars.remove(at: 17)
+            pars.insert("4", at: 17)
+        } else {
+            pars.remove(at: 17)
+            pars.insert("5", at: 17)
+        }
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,16 +315,32 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var courseRating: UITextField!
     let teePicker = UIPickerView()
     
-    
-    // Push Button To Upload to Database
-    @IBAction func createCourse(_ sender: Any) {
-        self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child("Championship").setValue(["Rating": courseRating.text!])
+    // Uploading Course data to database
+    @IBAction func CreateCourse2(_ sender: Any) {
         
+        // Course Rating Upload
+        self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(["Rating": courseRating.text!])
+
+        // Hole Yardage Data Structure
+        let holeData : [String: AnyObject] = ["1": y1.text as AnyObject, "2": y2.text as AnyObject, "3": y3.text as AnyObject, "4": y4.text as AnyObject,"5": y5.text as AnyObject, "6": y6.text as AnyObject, "7": y7.text as AnyObject, "8": y7.text as AnyObject,"9": y9.text as AnyObject, "10": y10.text as AnyObject, "11": y11.text as AnyObject, "12": y12.text as AnyObject,"13": y3.text as AnyObject, "14": y14.text as AnyObject, "15": y15.text as AnyObject, "16": y16.text as AnyObject, "17": y17.text as AnyObject, "18": y18.text as AnyObject]
+        
+        // Yardage Upload
+        self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Holes").setValue(holeData)
+        
+        // Par Data Structure
+        let parData : [String: AnyObject] = ["1": pars[0] as AnyObject, "2": pars[1] as AnyObject, "3": pars[2] as AnyObject, "4": pars[3] as AnyObject,"5": pars[4] as AnyObject, "6": pars[5] as AnyObject, "7": pars[6] as AnyObject, "8": pars[7] as AnyObject,"9": pars[8] as AnyObject, "10": pars[9] as AnyObject, "11": pars[10] as AnyObject, "12": pars[11] as AnyObject,"13": pars[12] as AnyObject, "14": pars[13] as AnyObject, "15": pars[14] as AnyObject, "16": pars[15] as AnyObject, "17": pars[16] as AnyObject, "18": pars[17] as AnyObject]
+        
+        // Par Upload
+        self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
+        
+        /*
         let prev = previousViewController()
         if !(prev is FirstViewController) {
             self.performSegue(withIdentifier: "selectBackSegue", sender: self)
         }
+         */
     }
+    
     
     func displayAlert() {
         let alertController = UIAlertController(title: "Error", message: "Please Enter All Information", preferredStyle: .alert)
