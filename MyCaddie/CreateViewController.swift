@@ -12,11 +12,13 @@ import FirebaseDatabase
 import UIKit
 
 
-class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let ref = Database.database().reference()
     let tees = ["Championship", "Men", "Women", "Senior"]
     var pars = ["4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4"]
+    
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     // Yardage textfields
     @IBOutlet weak var y1: UITextField!
@@ -100,6 +102,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
         print(pars)
     }
+    
     @IBAction func par6(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             pars.remove(at: 5)
@@ -112,6 +115,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pars.insert("5", at: 5)
         }
     }
+    
     @IBAction func par7(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             pars.remove(at: 6)
@@ -124,6 +128,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pars.insert("5", at: 6)
         }
     }
+    
     @IBAction func par8(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             pars.remove(at: 7)
@@ -136,6 +141,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pars.insert("5", at: 7)
         }
     }
+    
     @IBAction func par9(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             pars.remove(at: 8)
@@ -148,6 +154,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pars.insert("5", at: 8)
         }
     }
+    
     @IBAction func par10(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             pars.remove(at: 9)
@@ -160,6 +167,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pars.insert("5", at: 9)
         }
     }
+    
     @IBAction func par11(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             pars.remove(at: 10)
@@ -172,6 +180,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pars.insert("5", at: 10)
         }
     }
+    
     @IBAction func par12(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             pars.remove(at: 11)
@@ -196,6 +205,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pars.insert("5", at: 12)
         }
     }
+    
     @IBAction func par14(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             pars.remove(at: 13)
@@ -208,6 +218,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pars.insert("5", at: 13)
         }
     }
+    
     @IBAction func par15(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             pars.remove(at: 14)
@@ -220,6 +231,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pars.insert("5", at: 14)
         }
     }
+    
     @IBAction func par16(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             pars.remove(at: 15)
@@ -232,6 +244,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pars.insert("5", at: 15)
         }
     }
+    
     @IBAction func par17(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             pars.remove(at: 16)
@@ -244,6 +257,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pars.insert("5", at: 16)
         }
     }
+    
     @IBAction func par18(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             pars.remove(at: 17)
@@ -257,8 +271,6 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -271,6 +283,15 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         dropTextBox.inputView = teePicker
         
         createCourseButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
+        navigationBar.barTintColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -297,6 +318,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         courseName.resignFirstResponder()
         courseRating.resignFirstResponder()
         dropTextBox.resignFirstResponder()
+        courseTextField.resignFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -310,13 +332,14 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var createCourseButton: UIButton!
     
     // Outlets to Database
+    @IBOutlet weak var courseTextField: UITextField!
     @IBOutlet weak var courseName: UITextField!
     
     @IBOutlet weak var courseRating: UITextField!
     let teePicker = UIPickerView()
     
     // Uploading Course data to database
-    @IBAction func CreateCourse2(_ sender: Any) {
+    @IBAction func createCourseAction(_ sender: Any) {
         
         // Course Rating Upload
         self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(["Rating": courseRating.text!])
@@ -332,15 +355,7 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         // Par Upload
         self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
-        
-        /*
-        let prev = previousViewController()
-        if !(prev is FirstViewController) {
-            self.performSegue(withIdentifier: "selectBackSegue", sender: self)
-        }
-         */
     }
-    
     
     func displayAlert() {
         let alertController = UIAlertController(title: "Error", message: "Please Enter All Information", preferredStyle: .alert)
@@ -349,16 +364,6 @@ class CreateViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         alertController.addAction(defaultAction)
         
         self.present(alertController, animated: true, completion: nil)
-    }
-    
-    ///Get previous view controller of the navigation stack
-    func previousViewController() -> UIViewController? {
-        
-        let length = self.childViewControllers.count
-        
-        let previousViewController: UIViewController? = length >= 2 ? self.childViewControllers[length - 2] : nil
-        
-        return previousViewController
     }
     
     // UI Picker Constructors

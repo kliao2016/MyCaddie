@@ -80,7 +80,7 @@
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="ieo-yP-jw7">
                                             <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <segue destination="ZrT-Lh-E1R" kind="presentation" id="6r0-zd-dfW"/>
+                                                <segue destination="ZrT-Lh-E1R" kind="presentation" id="KCE-TB-W1b"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -113,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1575" y="-304"/>
+            <point key="canvasLocation" x="980" y="-1230"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="x4g-6m-e6o">
@@ -149,7 +149,7 @@
                                     <navigationItem title="Select Course" id="Fcr-W6-1pc">
                                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="rewind" id="Foo-H5-VmI">
                                             <connections>
-                                                <segue destination="9pv-A4-QxB" kind="show" id="uCH-8B-svn"/>
+                                                <segue destination="49e-Tb-3d3" kind="show" id="viR-5E-yp0"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="xj7-5e-n6g">
@@ -172,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgO-MS-f5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2528.8000000000002" y="-304.4977511244378"/>
+            <point key="canvasLocation" x="3521" y="-1230"/>
         </scene>
         <!--Create View Controller-->
         <scene sceneID="19V-Ia-BH8">
@@ -188,6 +188,8 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1c-gE-dPU">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="Add Your Course" id="zOg-R5-8HU"/>
                                 </items>
@@ -196,7 +198,7 @@
                                 <rect key="frame" x="0.0" y="79" width="375" height="588"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="di1-O4-N2G">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="B0g-0k-xut">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -232,8 +234,25 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="EYX-to-Pkt">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="zTt-A1-jrW">
                                                 <rect key="frame" x="0.0" y="70" width="375" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slope:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7K-9M-bYc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Course Slope" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zOq-Js-5Ti">
+                                                        <rect key="frame" x="73" y="0.0" width="302" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="EYX-to-Pkt">
+                                                <rect key="frame" x="0.0" y="105" width="375" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tees:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0d-nc-ZME">
                                                         <rect key="frame" x="0.0" y="0.0" width="41" height="30"/>
@@ -252,7 +271,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="n2t-WB-vaT">
-                                        <rect key="frame" x="0.0" y="134.5" width="375" height="290.5"/>
+                                        <rect key="frame" x="0.0" y="184.5" width="375" height="290.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QrA-gU-HEw">
                                                 <rect key="frame" x="0.0" y="0.0" width="179.5" height="290.5"/>
@@ -768,35 +787,27 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-hQ-xVQ">
-                                        <rect key="frame" x="0.0" y="459.5" width="375" height="30"/>
-                                        <state key="normal" title="Create Course 2"/>
-                                        <connections>
-                                            <action selector="CreateCourse2:" destination="ZrT-Lh-E1R" eventType="touchUpInside" id="apy-rH-8yA"/>
-                                            <segue destination="xUr-Ie-Ofa" kind="show" id="cFz-XD-NlI"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNC-dX-3LU">
                                         <rect key="frame" x="0.0" y="524" width="375" height="64"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qM0-sS-nRH">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-hQ-xVQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                                 <state key="normal" title="Create Course">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="CreateCourse:" destination="ZrT-Lh-E1R" eventType="touchUpInside" id="6rq-Bk-zCM"/>
-                                                    <action selector="createCourse:" destination="ZrT-Lh-E1R" eventType="touchUpInside" id="PCB-Ke-pxe"/>
+                                                    <action selector="createCourseAction:" destination="ZrT-Lh-E1R" eventType="touchUpInside" id="BaQ-wX-eXj"/>
+                                                    <segue destination="49e-Tb-3d3" kind="show" id="ira-Ff-JBX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="zWg-hQ-xVQ" secondAttribute="bottom" id="9cq-iI-JEK"/>
                                             <constraint firstAttribute="height" constant="64" id="UhG-Rx-68Q"/>
-                                            <constraint firstItem="qM0-sS-nRH" firstAttribute="leading" secondItem="xNC-dX-3LU" secondAttribute="leading" id="W4n-zo-89J"/>
-                                            <constraint firstItem="qM0-sS-nRH" firstAttribute="top" secondItem="xNC-dX-3LU" secondAttribute="top" id="bME-XI-1St"/>
-                                            <constraint firstAttribute="trailing" secondItem="qM0-sS-nRH" secondAttribute="trailing" id="ctS-0D-4UQ"/>
-                                            <constraint firstAttribute="bottom" secondItem="qM0-sS-nRH" secondAttribute="bottom" id="qsa-Cz-eCx"/>
+                                            <constraint firstAttribute="trailing" secondItem="zWg-hQ-xVQ" secondAttribute="trailing" id="WxX-p8-4TD"/>
+                                            <constraint firstItem="zWg-hQ-xVQ" firstAttribute="leading" secondItem="xNC-dX-3LU" secondAttribute="leading" id="rzL-7n-Hox"/>
+                                            <constraint firstItem="zWg-hQ-xVQ" firstAttribute="top" secondItem="xNC-dX-3LU" secondAttribute="top" id="uDF-3C-UdR"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -817,8 +828,10 @@
                         <outlet property="DropTextBox" destination="Yyo-eP-esD" id="tKv-ym-EB2"/>
                         <outlet property="courseName" destination="gAb-Ym-HdK" id="r2V-1j-FO7"/>
                         <outlet property="courseRating" destination="iLc-79-4f9" id="A2x-5e-OYj"/>
-                        <outlet property="createCourseButton" destination="qM0-sS-nRH" id="6di-fO-hU6"/>
+                        <outlet property="courseTextField" destination="zOq-Js-5Ti" id="TAL-VW-wVX"/>
+                        <outlet property="createCourseButton" destination="zWg-hQ-xVQ" id="MRn-Ig-OqM"/>
                         <outlet property="dropTextBox" destination="Yyo-eP-esD" id="3XC-WO-70S"/>
+                        <outlet property="navigationBar" destination="O1c-gE-dPU" id="oaN-Sh-rGn"/>
                         <outlet property="y1" destination="QZ7-a8-c2g" id="w2G-wM-SbS"/>
                         <outlet property="y10" destination="KVE-4r-GMB" id="ZVr-7Z-HRC"/>
                         <outlet property="y11" destination="aVm-WA-Ezr" id="TCi-Al-YI6"/>
@@ -841,7 +854,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyh-0G-89A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3688.8000000000002" y="-88.605697151424295"/>
+            <point key="canvasLocation" x="3521" y="-43"/>
         </scene>
         <!--Scorecard-->
         <scene sceneID="A63-zy-u84">
@@ -1050,7 +1063,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAB-g0-E92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4629.6000000000004" y="-77.811094452773617"/>
+            <point key="canvasLocation" x="4686" y="-89"/>
         </scene>
         <!--Profile-->
         <scene sceneID="wg7-f3-ORb">
@@ -1143,7 +1156,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="uVj-Tl-3bH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xv0-A8-XKR">
                                 <rect key="frame" x="16" y="59" width="343" height="550"/>
@@ -1277,7 +1290,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabController" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="JVX-ku-Pzq"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
@@ -1304,8 +1317,8 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="u7Y-xg-7CH"/>
-        <segue reference="6r0-zd-dfW"/>
+        <segue reference="KCE-TB-W1b"/>
+        <segue reference="ira-Ff-JBX"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
