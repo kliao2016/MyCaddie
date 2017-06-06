@@ -334,16 +334,24 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
     // Outlets to Database
     @IBOutlet weak var courseTextField: UITextField!
     @IBOutlet weak var courseName: UITextField!
-    
     @IBOutlet weak var courseRating: UITextField!
+    @IBOutlet weak var slope: UITextField!
     let teePicker = UIPickerView()
     
     // Uploading Course data to database
     @IBAction func createCourseAction(_ sender: Any) {
         
+        let ratingData : [String: AnyObject] = ["Rating": courseRating.text as AnyObject, "Slope": slope.text as AnyObject]
+        self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(ratingData)
+        
+        /*
         // Course Rating Upload
         self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(["Rating": courseRating.text!])
-
+        
+        // Slope Upload
+        self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(["Slope": slope.text!])
+        */
+        
         // Hole Yardage Data Structure
         let holeData : [String: AnyObject] = ["1": y1.text as AnyObject, "2": y2.text as AnyObject, "3": y3.text as AnyObject, "4": y4.text as AnyObject,"5": y5.text as AnyObject, "6": y6.text as AnyObject, "7": y7.text as AnyObject, "8": y7.text as AnyObject,"9": y9.text as AnyObject, "10": y10.text as AnyObject, "11": y11.text as AnyObject, "12": y12.text as AnyObject,"13": y3.text as AnyObject, "14": y14.text as AnyObject, "15": y15.text as AnyObject, "16": y16.text as AnyObject, "17": y17.text as AnyObject, "18": y18.text as AnyObject]
         
