@@ -16,7 +16,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var startRoundButton: UIButton!
     
     @IBAction func signOut(_ sender: Any) {
-        handLogout()
+        handleLogout()
     }
 
     @IBOutlet weak var courseTable: UITableView!
@@ -27,7 +27,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var tableData = [String]()
     
-    @IBOutlet weak var welcomTitle: UINavigationItem!
+    @IBOutlet weak var welcomeTitle: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,20 +64,20 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser?.uid == nil {
-            performSelector(onMainThread: #selector(handLogout), with: nil, waitUntilDone: true)
+            performSelector(onMainThread: #selector(handleLogout), with: nil, waitUntilDone: true)
         } else {
             let uid = Auth.auth().currentUser?.uid
             self.databaseRef?.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
-                if let dictionary = snapshot.value as? [String: Any] {
+                if let dictionary = snapshot.value as? [String: AnyObject] {
                     let name = dictionary["name"] as? String
-                    self.welcomTitle.title = "Courses for " + name!
+                    self.welcomeTitle.title = "Courses for " + name!
                 }
 
             }, withCancel: nil)
         }
     }
 
-    func handLogout() {
+    func handleLogout() {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
@@ -88,11 +88,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         GIDSignIn.sharedInstance().signOut()
         
         self.performSegue(withIdentifier: "BackSegue", sender: self)
-    }
-    
-    func addNewCourse() {
-        let createCourseView = CreateViewController()
-        present(createCourseView, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

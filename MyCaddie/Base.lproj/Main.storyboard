@@ -104,7 +104,7 @@
                     <connections>
                         <outlet property="courseTable" destination="RX6-mQ-uaB" id="cAd-Ir-449"/>
                         <outlet property="startRoundButton" destination="lKi-A6-LAP" id="Vw2-5c-RTT"/>
-                        <outlet property="welcomTitle" destination="wxN-3z-LPi" id="ARm-Fu-dbl"/>
+                        <outlet property="welcomeTitle" destination="wxN-3z-LPi" id="zIT-hH-QJy"/>
                         <segue destination="f3Z-37-xw4" kind="show" identifier="BackSegue" id="eS5-j6-LSh"/>
                     </connections>
                 </viewController>
@@ -1337,7 +1337,7 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vRa-oL-kAJ"/>
+        <segue reference="ira-Ff-JBX"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
