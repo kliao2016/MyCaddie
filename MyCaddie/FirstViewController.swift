@@ -16,27 +16,18 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var startRoundButton: UIButton!
     
     @IBAction func signOut(_ sender: Any) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-        
-        GIDSignIn.sharedInstance().signOut()
-        
-        self.performSegue(withIdentifier: "BackSegue", sender: self)
+        handleLogout()
     }
 
     @IBOutlet weak var courseTable: UITableView!
     
     // Reference to database
-    var ref: DatabaseReference?
+    var databaseRef: DatabaseReference?
     var databaseHandle: DatabaseHandle?
     
     var tableData = [String]()
     
-    @IBOutlet weak var welcomTitle: UINavigationItem!
+    @IBOutlet weak var welcomeTitle: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,10 +37,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         courseTable.dataSource = self
         
         // Set Firebase Database
-        ref = Database.database().reference()
+        databaseRef = Database.database().reference()
         
         // Retrieve data and listen for changes
-        databaseHandle = ref?.child("Golf Course Data").observe(.childAdded, with: { (snapshot) in
+        databaseHandle = databaseRef?.child("Golf Course Data").observe(.childAdded, with: { (snapshot) in
             
             // Code that executes when a child is added under Users
             let courseCheck = snapshot.key
@@ -65,15 +56,40 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
         })
         
+        // Button customizations
         startRoundButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
+        
+        checkIfUserIsLoggedIn()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     
+    func checkIfUserIsLoggedIn() {
+        if Auth.auth().currentUser?.uid == nil {
+            performSelector(onMainThread: #selector(handleLogout), with: nil, waitUntilDone: true)
+        } else {
+            let uid = Auth.auth().currentUser?.uid
+            self.databaseRef?.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let name = dictionary["name"] as? String
+                    self.welcomeTitle.title = "Courses for " + name!
+                }
+
+            }, withCancel: nil)
+        }
+    }
+
+    func handleLogout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+        GIDSignIn.sharedInstance().signOut()
+        
+        self.performSegue(withIdentifier: "BackSegue", sender: self)
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.count
     }
@@ -84,5 +100,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell?.textLabel?.text = tableData[indexPath.row]
         return cell!
     }
+    
 }
 

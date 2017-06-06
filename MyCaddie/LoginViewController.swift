@@ -24,10 +24,15 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     
+    var databaseRef: DatabaseReference?
+    
     var isSignIn: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Reference to database
+        databaseRef = Database.database().reference()
         
         nameTextField.isUserInteractionEnabled = false
         
@@ -71,27 +76,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         // Check if signing in or registering
         if isSignIn {
             // Log in the user with Firebase
-            Auth.auth().signIn(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
-                // Check that credentials are valid
-                if error == nil && user != nil{
-                    // If user is found, go to main screen
-                    self.performSegue(withIdentifier: "mainSegue", sender: self)
-                } else {
-                    self.displayAlert()
-                }
-                
-            })
+            login()
         } else {
             // Create user in Firebase
-            Auth.auth().createUser(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
-                // Check that user isn't nil
-                if error == nil && user != nil{
-                    // If user is found, go to main screen
-                    self.performSegue(withIdentifier: "mainSegue", sender: self)
-                } else {
-                    self.displayAlert()
-                }
-            })
+            signUp()
         }
     }
 
@@ -101,6 +89,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         // Dismiss keyboard when view is tapped on
         emailTextField.resignFirstResponder()
         passTextField.resignFirstResponder()
+        nameTextField.resignFirstResponder()
     }
     
     func displayAlert() {
@@ -110,6 +99,57 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         alertController.addAction(defaultAction)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func displayAlert2() {
+        let alertController = UIAlertController(title: "Error", message: "You must sign up with a valid email and password!", preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // Login and Sign Up functions
+    func login() {
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
+            // Check that credentials are valid
+            if error == nil && user != nil{
+                // If user is found, go to main screen
+//                let mainView = FirstViewController()
+//                self.present(mainView, animated: true, completion: nil)
+                self.performSegue(withIdentifier: "mainSegue", sender: self)
+            } else {
+                self.displayAlert()
+            }
+        })
+    }
+    
+    func signUp() {
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
+            // Check that user isn't nil
+            if error == nil && user != nil{
+                // If user is found, go to main screen
+//                let mainView = FirstViewController()
+//                self.present(mainView, animated: true, completion: nil)
+                self.performSegue(withIdentifier: "mainSegue", sender: self)
+            } else {
+                self.displayAlert2()
+            }
+            
+            guard let uid = user?.uid else {
+                return
+            }
+            
+            let userReference = self.databaseRef?.child("users").child(uid)
+            let values = ["name": self.nameTextField.text, "email": self.emailTextField.text, "password": self.passTextField.text]
+            
+            userReference?.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    self.displayAlert2()
+                }
+            })
+        })
     }
     
 }

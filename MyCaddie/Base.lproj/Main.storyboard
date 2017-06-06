@@ -79,9 +79,6 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="ieo-yP-jw7">
                                             <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <segue destination="ZrT-Lh-E1R" kind="presentation" id="KCE-TB-W1b"/>
-                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -107,7 +104,7 @@
                     <connections>
                         <outlet property="courseTable" destination="RX6-mQ-uaB" id="cAd-Ir-449"/>
                         <outlet property="startRoundButton" destination="lKi-A6-LAP" id="Vw2-5c-RTT"/>
-                        <outlet property="welcomTitle" destination="wxN-3z-LPi" id="ARm-Fu-dbl"/>
+                        <outlet property="welcomeTitle" destination="wxN-3z-LPi" id="zIT-hH-QJy"/>
                         <segue destination="f3Z-37-xw4" kind="show" identifier="BackSegue" id="eS5-j6-LSh"/>
                     </connections>
                 </viewController>
@@ -195,7 +192,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="0Kb-qT-ofn">
-                                <rect key="frame" x="0.0" y="79" width="375" height="588"/>
+                                <rect key="frame" x="0.0" y="79" width="375" height="539"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="di1-O4-N2G">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
@@ -271,7 +268,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="n2t-WB-vaT">
-                                        <rect key="frame" x="0.0" y="184.5" width="375" height="290.5"/>
+                                        <rect key="frame" x="0.0" y="160" width="375" height="290.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QrA-gU-HEw">
                                                 <rect key="frame" x="0.0" y="0.0" width="179.5" height="290.5"/>
@@ -788,7 +785,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNC-dX-3LU">
-                                        <rect key="frame" x="0.0" y="524" width="375" height="64"/>
+                                        <rect key="frame" x="0.0" y="475" width="375" height="64"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-hQ-xVQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
@@ -1493,7 +1490,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ira-Ff-JBX"/>
-        <segue reference="KCE-TB-W1b"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
