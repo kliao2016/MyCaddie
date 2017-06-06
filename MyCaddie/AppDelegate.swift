@@ -92,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func segueToMain() {
         // Access the storyboard and fetch an instance of the view controller
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
-        let viewController: FirstViewController = storyboard.instantiateViewController(withIdentifier: "MainView") as! FirstViewController;
+        let viewController = storyboard.instantiateViewController(withIdentifier: "TabController")
         
         // Push that view controller onto the navigation stack
         let rootViewController = self.window!.rootViewController!;
