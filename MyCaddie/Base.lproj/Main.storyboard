@@ -13,7 +13,7 @@
         <!--Play-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController storyboardIdentifier="MainView" id="9pv-A4-QxB" customClass="FirstViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="FirstViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XWc-bI-lEE"/>
                         <viewControllerLayoutGuide type="bottom" id="QcM-ey-NOC"/>
@@ -859,7 +859,7 @@
         <!--Scorecard-->
         <scene sceneID="A63-zy-u84">
             <objects>
-                <viewController id="xUr-Ie-Ofa" customClass="Scorecard" customModule="MyCaddie" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FrontNine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xUr-Ie-Ofa" customClass="Scorecard" customModule="MyCaddie" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LN0-d8-YqZ"/>
                         <viewControllerLayoutGuide type="bottom" id="a63-zc-RHW"/>
@@ -1063,7 +1063,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAB-g0-E92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4686" y="-89"/>
+            <point key="canvasLocation" x="5121" y="748"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="djY-yQ-IGI">
+            <objects>
+                <viewController storyboardIdentifier="BackNine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="G6z-ja-H2b" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kok-ey-uNJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Vr-El-6Pq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="br5-gQ-wK0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KNn-LE-EZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5879" y="748"/>
+        </scene>
+        <!--Scorecard Scroll-->
+        <scene sceneID="Tsn-T1-YHj">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="2" navigationOrientation="horizontal" spineLocation="none" id="wH0-Ms-kE0" customClass="ScorecardScroll" customModule="MyCaddie" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SX7-oX-ABQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4290" y="753"/>
         </scene>
         <!--Profile-->
         <scene sceneID="wg7-f3-ORb">
@@ -1090,6 +1116,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOg-sn-Vgv">
+                                <rect key="frame" x="165" y="490" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="wH0-Ms-kE0" kind="show" id="sRi-Xs-udx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1133,16 +1167,6 @@
             </objects>
             <point key="canvasLocation" x="1673" y="1246"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="0nK-GD-q4V">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="7jN-VM-9IB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="RqE-JL-Blv"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SAi-Ql-R3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1673" y="2284"/>
-        </scene>
         <!--Login Menu-->
         <scene sceneID="p47-xg-oAe">
             <objects>
@@ -1156,9 +1180,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="uVj-Tl-3bH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xv0-A8-XKR">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xv0-A8-XKR">
                                 <rect key="frame" x="16" y="59" width="343" height="550"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dRp-cA-w4Y">
@@ -1241,7 +1265,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyCaddypng" translatesAutoresizingMaskIntoConstraints="NO" id="sN7-w3-EYT">
-                                        <rect key="frame" x="15" y="374" width="313" height="176"/>
+                                        <rect key="frame" x="0.0" y="374" width="343" height="176"/>
                                     </imageView>
                                 </subviews>
                                 <color key="tintColor" red="1" green="0.36110956419808216" blue="0.33327052138401991" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1302,7 +1326,6 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="ojs-6V-ETC" kind="relationship" relationship="viewControllers" id="9Rt-nx-3QV"/>
-                        <segue destination="7jN-VM-9IB" kind="relationship" relationship="viewControllers" id="ddI-lu-dPr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -1317,8 +1340,8 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="vRa-oL-kAJ"/>
         <segue reference="KCE-TB-W1b"/>
-        <segue reference="ira-Ff-JBX"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
