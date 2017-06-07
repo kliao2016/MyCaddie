@@ -192,7 +192,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="0Kb-qT-ofn">
-                                <rect key="frame" x="0.0" y="79" width="375" height="539"/>
+                                <rect key="frame" x="0.0" y="79" width="375" height="588"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="di1-O4-N2G">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
@@ -268,7 +268,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="n2t-WB-vaT">
-                                        <rect key="frame" x="0.0" y="160" width="375" height="290.5"/>
+                                        <rect key="frame" x="0.0" y="184.5" width="375" height="290.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QrA-gU-HEw">
                                                 <rect key="frame" x="0.0" y="0.0" width="179.5" height="290.5"/>
@@ -785,7 +785,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNC-dX-3LU">
-                                        <rect key="frame" x="0.0" y="475" width="375" height="64"/>
+                                        <rect key="frame" x="0.0" y="524" width="375" height="64"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-hQ-xVQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
@@ -1272,13 +1272,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Thrd" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xDY-dM-53K">
-                                <rect key="frame" x="139" y="213" width="97" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Third :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0C-pY-UWG">
+                                <rect key="frame" x="166" y="284" width="55" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cf-Ir-sQ2">
+                                <rect key="frame" x="239" y="484" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Stats"/>
+                                <connections>
+                                    <segue destination="MD8-tT-bZU" kind="show" id="uoa-jb-Y4e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1286,7 +1294,251 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmI-Ar-A8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1673" y="1246"/>
+            <point key="canvasLocation" x="1672.8" y="1245.4272863568217"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Us2-tq-5bb">
+            <objects>
+                <viewController id="hWo-8K-ANV" customClass="StatKeeper" customModule="MyCaddie" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zRG-CM-G6Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="IjC-Ns-x7Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RWe-Ri-5S5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1e-us-dqX">
+                                <rect key="frame" x="115" y="290" width="140" height="377"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.55558360564328702" green="1" blue="0.53631634232980274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Fairway"/>
+                                <connections>
+                                    <action selector="Fairway:" destination="hWo-8K-ANV" eventType="touchUpInside" id="Rji-sr-8GX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SV9-6b-Ge8">
+                                <rect key="frame" x="86" y="120" width="199" height="146"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.08643005015774774" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Green"/>
+                                <connections>
+                                    <action selector="Green:" destination="hWo-8K-ANV" eventType="touchUpInside" id="h6I-Yi-mge"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaS-s5-y7L">
+                                <rect key="frame" x="272" y="314" width="64" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.93467305300000003" blue="0.4520000703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Sand"/>
+                                <connections>
+                                    <action selector="FairwaySand:" destination="hWo-8K-ANV" eventType="touchUpInside" id="Vng-1U-uI1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zY-Ye-5hb">
+                                <rect key="frame" x="272" y="423" width="64" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.53666203426919934" green="0.91104759539732461" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Hazard"/>
+                                <connections>
+                                    <action selector="Hazard:" destination="hWo-8K-ANV" eventType="touchUpInside" id="c9K-6f-I8X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FqY-hW-Ufn">
+                                <rect key="frame" x="0.0" y="314" width="57" height="187"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.75372779187817263" green="0.74275212878009822" blue="0.73436346689663845" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="OB"/>
+                                <connections>
+                                    <action selector="OB:" destination="hWo-8K-ANV" eventType="touchUpInside" id="VkD-dO-1GD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lb7-g2-Ssb">
+                                <rect key="frame" x="272" y="550" width="87" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="R"/>
+                                <connections>
+                                    <action selector="Right:" destination="hWo-8K-ANV" eventType="touchUpInside" id="OYc-xn-6PH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJW-YU-Nqk">
+                                <rect key="frame" x="16" y="546" width="83" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="L"/>
+                                <connections>
+                                    <action selector="Left:" destination="hWo-8K-ANV" eventType="touchUpInside" id="YZK-UC-hE2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbg-DE-Qrx">
+                                <rect key="frame" x="86" y="98" width="199" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.29300169368894602" green="0.54982947335025389" blue="0.2278730865033651" alpha="0.61140839041095885" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Fringe"/>
+                                <connections>
+                                    <action selector="Fringe:" destination="hWo-8K-ANV" eventType="touchUpInside" id="lo7-Ad-Xfq"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wRR-2R-qh6">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Shot #?" id="aN1-zT-hba"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaF-nM-izi">
+                                <rect key="frame" x="295" y="150" width="64" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.93467305304315262" blue="0.45200007026613354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Sand"/>
+                                <connections>
+                                    <action selector="GreenSand:" destination="hWo-8K-ANV" eventType="touchUpInside" id="7hS-Th-BF2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="PUT-iy-RUe"/>
+                    <connections>
+                        <outlet property="Fairway" destination="e1e-us-dqX" id="ouT-KE-Abb"/>
+                        <outlet property="FairwaySand" destination="YaS-s5-y7L" id="ed1-YF-mOU"/>
+                        <outlet property="Fringe" destination="vbg-DE-Qrx" id="loE-n2-57m"/>
+                        <outlet property="Green" destination="SV9-6b-Ge8" id="0dp-up-0ne"/>
+                        <outlet property="GreenSand" destination="zaF-nM-izi" id="gns-NE-wML"/>
+                        <outlet property="Hazard" destination="4zY-Ye-5hb" id="vn4-dP-CaC"/>
+                        <outlet property="Left" destination="cJW-YU-Nqk" id="As3-vW-E2h"/>
+                        <outlet property="NavBar" destination="aN1-zT-hba" id="Wkt-FA-x7h"/>
+                        <outlet property="OB" destination="FqY-hW-Ufn" id="634-02-udp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7zs-ok-O7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2855" y="1118"/>
+        </scene>
+        <!--Stats2-->
+        <scene sceneID="0oW-SH-grB">
+            <objects>
+                <viewController id="MD8-tT-bZU" customClass="Stats2" customModule="MyCaddie" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fDt-Ky-Xuf"/>
+                        <viewControllerLayoutGuide type="bottom" id="lkA-Tz-acT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="17q-iz-hPM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5m-Lg-16i">
+                                <rect key="frame" x="123" y="290" width="140" height="377"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.55558360559999997" green="1" blue="0.53631634230000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Fairway"/>
+                                <connections>
+                                    <action selector="Fairway:" destination="hWo-8K-ANV" eventType="touchUpInside" id="nCZ-w6-0be"/>
+                                    <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="pTU-Ia-efV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEU-l5-fJi">
+                                <rect key="frame" x="94" y="120" width="199" height="146"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.086430050159999994" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Green"/>
+                                <connections>
+                                    <action selector="Green:" destination="MD8-tT-bZU" eventType="touchUpInside" id="LqE-4J-9pQ"/>
+                                    <action selector="Green:" destination="hWo-8K-ANV" eventType="touchUpInside" id="S7I-sB-MCA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJg-fb-TO3">
+                                <rect key="frame" x="303" y="150" width="64" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.93467305300000003" blue="0.4520000703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Sand"/>
+                                <connections>
+                                    <action selector="GreenSand:" destination="hWo-8K-ANV" eventType="touchUpInside" id="Nak-YG-N7c"/>
+                                    <action selector="GreenSand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="Q6c-H3-l6y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEt-GA-ePx">
+                                <rect key="frame" x="280" y="314" width="64" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.93467305300000003" blue="0.4520000703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Sand"/>
+                                <connections>
+                                    <action selector="FairwaySand:" destination="hWo-8K-ANV" eventType="touchUpInside" id="37Y-0p-kfn"/>
+                                    <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="KoB-oI-p8j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8u-lg-tBd">
+                                <rect key="frame" x="280" y="423" width="64" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.53666203430000003" green="0.91104759540000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Hazard"/>
+                                <connections>
+                                    <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="UgO-zP-gfX"/>
+                                    <action selector="Hazard:" destination="hWo-8K-ANV" eventType="touchUpInside" id="qVf-dB-sgY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Du-kO-7mG">
+                                <rect key="frame" x="8" y="314" width="57" height="187"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.75372779190000005" green="0.74275212879999997" blue="0.73436346689999998" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="OB"/>
+                                <connections>
+                                    <action selector="OB:" destination="hWo-8K-ANV" eventType="touchUpInside" id="C9z-mt-iog"/>
+                                    <action selector="OB:" destination="MD8-tT-bZU" eventType="touchUpInside" id="zhj-5u-J7B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zah-Gg-elz">
+                                <rect key="frame" x="280" y="550" width="87" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="R"/>
+                                <connections>
+                                    <action selector="Right:" destination="hWo-8K-ANV" eventType="touchUpInside" id="akx-sO-Dir"/>
+                                    <action selector="Right:" destination="MD8-tT-bZU" eventType="touchUpInside" id="maz-SE-gh3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XxG-8e-STv">
+                                <rect key="frame" x="24" y="546" width="83" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="L"/>
+                                <connections>
+                                    <action selector="Left:" destination="MD8-tT-bZU" eventType="touchUpInside" id="APz-kE-hnt"/>
+                                    <action selector="Left:" destination="hWo-8K-ANV" eventType="touchUpInside" id="bGc-kc-cif"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wtf-c2-xmB">
+                                <rect key="frame" x="94" y="98" width="199" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.29300169370000001" green="0.54982947339999999" blue="0.22787308649999999" alpha="0.61140839039999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Fringe"/>
+                                <connections>
+                                    <action selector="Fringe:" destination="MD8-tT-bZU" eventType="touchUpInside" id="KhV-UV-qir"/>
+                                    <action selector="Fringe:" destination="hWo-8K-ANV" eventType="touchUpInside" id="kcx-fb-xaY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shot #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEI-Gs-gYD">
+                                <rect key="frame" x="15" y="28" width="336" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Actual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTf-Uo-hKA">
+                                <rect key="frame" x="16" y="63" width="234" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="Actual" destination="tTf-Uo-hKA" id="zYw-2A-JQQ"/>
+                        <outlet property="ShotNumberText" destination="WEI-Gs-gYD" id="guQ-p1-4DQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y60-KU-K9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2836" y="1924.5877061469266"/>
         </scene>
         <!--Login Menu-->
         <scene sceneID="p47-xg-oAe">
