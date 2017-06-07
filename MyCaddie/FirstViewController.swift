@@ -39,8 +39,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Set Firebase Database
         databaseRef = Database.database().reference()
         
+        // Fetch current user
+        let uid = Auth.auth().currentUser?.uid
+        let userReference = self.databaseRef?.child("Users").child(uid!)
+        
         // Retrieve data and listen for changes
-        databaseHandle = databaseRef?.child("Golf Course Data").observe(.childAdded, with: { (snapshot) in
+        databaseHandle = userReference?.child("Courses").observe(.childAdded, with: { (snapshot) in
             
             // Code that executes when a child is added under Users
             let courseCheck = snapshot.key
@@ -67,12 +71,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             performSelector(onMainThread: #selector(handleLogout), with: nil, waitUntilDone: true)
         } else {
             let uid = Auth.auth().currentUser?.uid
-            self.databaseRef?.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+            self.databaseRef?.child("Users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject] {
-                    let name = dictionary["name"] as? String
-                    self.welcomeTitle.title = "Courses for " + name!
+                    let name = dictionary["Name"] as? String
+                    self.welcomeTitle.title = "\(name!)'s Courses"
                 }
-
             }, withCancel: nil)
         }
     }
