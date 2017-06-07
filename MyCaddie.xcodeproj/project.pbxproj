@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101483561EE77508005B5307 /* GeneralCourseSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101483551EE77508005B5307 /* GeneralCourseSelector.swift */; };
 		103BA8711EDA332800054449 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BA8701EDA332800054449 /* LoginViewController.swift */; };
 		103BA8731EDA37F100054449 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 103BA8721EDA37F100054449 /* GoogleService-Info.plist */; };
 		10D595671EDA317B00572D38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D595661EDA317B00572D38 /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		101483551EE77508005B5307 /* GeneralCourseSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralCourseSelector.swift; sourceTree = "<group>"; };
 		103BA8701EDA332800054449 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		103BA8721EDA37F100054449 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10D595631EDA317B00572D38 /* MyCaddie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCaddie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,7 @@
 				10D5956A1EDA317B00572D38 /* SecondViewController.swift */,
 				99D6C8C81EDF5AA300FA55D0 /* CreateViewController.swift */,
 				103BA8701EDA332800054449 /* LoginViewController.swift */,
+				101483551EE77508005B5307 /* GeneralCourseSelector.swift */,
 				999468751EE1B4E300DBEF91 /* Scorecard.swift */,
 				99B174181EE7637F00A76B9B /* Scorecard2.swift */,
 				10DC3C651EE70FE300CA2B70 /* ScorecardScroll.swift */,
@@ -251,6 +254,7 @@
 				10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */,
 				10D595691EDA317B00572D38 /* FirstViewController.swift in Sources */,
 				99B1741B1EE76C4400A76B9B /* StatKeeper.swift in Sources */,
+				101483561EE77508005B5307 /* GeneralCourseSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -141,8 +141,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                 return
             }
             
-            let userReference = self.databaseRef?.child("users").child(uid)
-            let values = ["name": self.nameTextField.text, "email": self.emailTextField.text, "password": self.passTextField.text]
+            let userReference = self.databaseRef?.child("Users").child(uid)
+            let values = ["Name": self.nameTextField.text, "Email": self.emailTextField.text, "Password": self.passTextField.text]
             
             userReference?.updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if error != nil {

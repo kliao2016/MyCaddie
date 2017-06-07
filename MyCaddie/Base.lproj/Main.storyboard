@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dKp-rm-88X" id="Cc4-Ug-wM4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -63,8 +63,8 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Select Course" id="wxN-3z-LPi">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="CoA-6W-Vyo">
+                                    <navigationItem title="User's Courses" id="wxN-3z-LPi">
+                                        <barButtonItem key="leftBarButtonItem" id="CoA-6W-Vyo">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qyG-F6-hmm">
                                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -77,8 +77,10 @@
                                             </button>
                                             <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="ieo-yP-jw7">
-                                            <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xuz-ea-keH">
+                                            <connections>
+                                                <segue destination="ZrT-Lh-E1R" kind="presentation" id="8C2-ku-y4H"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -112,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="980" y="-1230"/>
         </scene>
-        <!--View Controller-->
+        <!--General Course Selector-->
         <scene sceneID="x4g-6m-e6o">
             <objects>
-                <viewController id="ryV-Fe-OVm" sceneMemberID="viewController">
+                <viewController id="ryV-Fe-OVm" customClass="GeneralCourseSelector" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZkJ-B4-FJ6"/>
                         <viewControllerLayoutGuide type="bottom" id="o0S-mM-oU6"/>
@@ -129,11 +131,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CVP-oK-cO8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CourseCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CourseCell" id="CVP-oK-cO8">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CVP-oK-cO8" id="iZG-UN-RHM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -142,16 +144,17 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Eh-2B-xjy">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="Select Course" id="Fcr-W6-1pc">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="rewind" id="Foo-H5-VmI">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="Foo-H5-VmI">
                                             <connections>
-                                                <segue destination="49e-Tb-3d3" kind="show" id="viR-5E-yp0"/>
+                                                <segue destination="49e-Tb-3d3" kind="showDetail" id="viR-5E-yp0"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="xj7-5e-n6g">
                                             <connections>
-                                                <segue destination="ZrT-Lh-E1R" kind="show" id="W4o-v9-l7e"/>
+                                                <segue destination="ZrT-Lh-E1R" kind="presentation" id="Yl5-xu-nZ6"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -166,15 +169,18 @@
                             <constraint firstAttribute="bottom" secondItem="uhk-2Q-LfN" secondAttribute="bottom" id="v9x-pv-kvF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="courseTable" destination="uhk-2Q-LfN" id="ICN-bP-5zq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgO-MS-f5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3521" y="-1230"/>
+            <point key="canvasLocation" x="2289" y="-1230"/>
         </scene>
         <!--Create View Controller-->
         <scene sceneID="19V-Ia-BH8">
             <objects>
-                <viewController id="ZrT-Lh-E1R" customClass="CreateViewController" customModule="MyCaddie" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateCourseView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZrT-Lh-E1R" customClass="CreateViewController" customModule="MyCaddie" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9NZ-tt-kbV"/>
                         <viewControllerLayoutGuide type="bottom" id="pcg-wd-5bf"/>
@@ -188,7 +194,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <navigationItem title="Add Your Course" id="zOg-R5-8HU"/>
+                                    <navigationItem title="Add Your Course" id="zOg-R5-8HU">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4w8-uv-1pQ">
+                                            <connections>
+                                                <action selector="cancelAction:" destination="ZrT-Lh-E1R" id="mAu-b9-Dxy"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="0Kb-qT-ofn">
@@ -2063,7 +2075,8 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ira-Ff-JBX"/>
+        <segue reference="viR-5E-yp0"/>
+        <segue reference="Yl5-xu-nZ6"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
