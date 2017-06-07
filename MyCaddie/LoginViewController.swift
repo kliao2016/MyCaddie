@@ -40,7 +40,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         
         // Uncomment Sign in user automatically
-        // GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().signInSilently()
         
         signInButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
         signInButton.layer.cornerRadius = 5
@@ -62,7 +62,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             nameTextField.isUserInteractionEnabled = false
             nameTextField.placeholder = "N/A"
         } else {
-            signInButton.setTitle("Register", for: .normal)
+            signInButton.setTitle("Sign Up with Email", for: .normal)
             nameTextField.isUserInteractionEnabled = true
             nameTextField.placeholder = "First and Last Name"
         }
@@ -114,10 +114,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     func login() {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
             // Check that credentials are valid
-            if error == nil && user != nil{
-                // If user is found, go to main screen
-//                let mainView = FirstViewController()
-//                self.present(mainView, animated: true, completion: nil)
+            if error == nil && user != nil {
                 self.performSegue(withIdentifier: "mainSegue", sender: self)
             } else {
                 self.displayAlert()
@@ -129,9 +126,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
             // Check that user isn't nil
             if error == nil && user != nil{
-                // If user is found, go to main screen
-//                let mainView = FirstViewController()
-//                self.present(mainView, animated: true, completion: nil)
                 self.performSegue(withIdentifier: "mainSegue", sender: self)
             } else {
                 self.displayAlert2()

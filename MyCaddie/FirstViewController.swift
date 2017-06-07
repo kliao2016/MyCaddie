@@ -90,7 +90,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         GIDSignIn.sharedInstance().signOut()
         
-        self.performSegue(withIdentifier: "BackSegue", sender: self)
+        self.dismiss(animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

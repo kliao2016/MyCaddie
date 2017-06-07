@@ -23,7 +23,7 @@ class Stats2: UIViewController {
     
     func updateUI(){
         Actual.text = "Shots Hit: \(currentScore)"
-        ShotNumberText.text = "Where was your \(shotCount) shot"
+        ShotNumberText.text = "Where was your \(shotCount) shot?"
     }
 
     override func viewDidLoad() {

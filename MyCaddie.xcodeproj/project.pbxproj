@@ -17,6 +17,7 @@
 		10D595701EDA317B00572D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D5956F1EDA317B00572D38 /* Assets.xcassets */; };
 		10D595731EDA317B00572D38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D595711EDA317B00572D38 /* LaunchScreen.storyboard */; };
 		10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC3C651EE70FE300CA2B70 /* ScorecardScroll.swift */; };
+		10DF39CB1EE7BFFD003D8D6B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DF39CA1EE7BFFD003D8D6B /* AdSupport.framework */; };
 		41B6BCB99C6A48BD03D4DC05 /* Pods_MyCaddie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */; };
 		999468761EE1B4E300DBEF91 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999468751EE1B4E300DBEF91 /* Scorecard.swift */; };
 		99B174191EE7637F00A76B9B /* Scorecard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B174181EE7637F00A76B9B /* Scorecard2.swift */; };
@@ -38,6 +39,7 @@
 		10D595721EDA317B00572D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10D595741EDA317B00572D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10DC3C651EE70FE300CA2B70 /* ScorecardScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScorecardScroll.swift; sourceTree = "<group>"; };
+		10DF39CA1EE7BFFD003D8D6B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		2FCF9886C273C092987DB59C /* Pods-MyCaddie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCaddie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCaddie/Pods-MyCaddie.debug.xcconfig"; sourceTree = "<group>"; };
 		44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCaddie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		999468751EE1B4E300DBEF91 /* Scorecard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10DF39CB1EE7BFFD003D8D6B /* AdSupport.framework in Frameworks */,
 				41B6BCB99C6A48BD03D4DC05 /* Pods_MyCaddie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +116,7 @@
 		6DD53B28924A52011693CFBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10DF39CA1EE7BFFD003D8D6B /* AdSupport.framework */,
 				44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */,
 			);
 			name = Frameworks;
