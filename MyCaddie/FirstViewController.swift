@@ -74,9 +74,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.databaseRef?.child("Users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject] {
                     let name = dictionary["Name"] as? String
-                    self.welcomeTitle.title = name! + "'s Courses"
+                    self.welcomeTitle.title = "\(name!)'s Courses"
                 }
-
             }, withCancel: nil)
         }
     }
