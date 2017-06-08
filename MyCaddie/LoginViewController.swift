@@ -38,8 +38,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
         // Set UI Delegate for GIDSignIn object
         GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
         
-        // Uncomment Sign in user automatically
+        // Uncomment to Sign in user automatically
         GIDSignIn.sharedInstance().signInSilently()
         
         signInButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
