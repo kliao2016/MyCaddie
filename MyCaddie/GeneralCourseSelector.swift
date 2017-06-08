@@ -15,7 +15,7 @@ class GeneralCourseSelector: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var courseTable: UITableView!
     
-    var tableData = [String]()
+    var courses = [Course]()
     
     // Reference to database
     var databaseRef: DatabaseReference?
@@ -31,32 +31,53 @@ class GeneralCourseSelector: UIViewController, UITableViewDelegate, UITableViewD
         // Set Firebase Database
         databaseRef = Database.database().reference()
         
-        // Retrieve data and listen for changes
-        databaseHandle = databaseRef?.child("Golf Course Data").observe(.childAdded, with: { (snapshot) in
-            
-            // Code that executes when a child is added under Users
-            let courseCheck = snapshot.key
-            self.tableData.append(courseCheck)
-            
-            // Change navigation bar title based on inputed user
-            //if let course = courseCheck {
-            //      self.tableData.append(course)
-            //}
-            
-            // Reload tableview
-            self.courseTable.reloadData()
-            
-        })
+//        // Retrieve data and listen for changes
+//        databaseHandle = databaseRef?.child("Golf Course Data").observe(.childAdded, with: { (snapshot) in
+//            
+//            // Code that executes when a child is added under Users
+//            let courseCheck = snapshot.key
+//            self.tableData.append(courseCheck)
+//            
+//            // Reload tableview
+//            self.courseTable.reloadData()
+//            
+//        })
+        
+        fetchCourses()
 
     }
     
+    @IBAction func backToTabBar(_ sender: Any) {
+        self.performSegue(withIdentifier: "UnwindToTabBar", sender: self)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func fetchCourses() {
+        databaseRef?.child("Golf Course Data").observe(.childAdded, with: { (snapshot) in
+            let course = Course()
+            let courseName = snapshot.key
+            course.setName(name: courseName)
+            
+            self.courses.append(course)
+            
+            self.courseTable.reloadData()
+            
+        }, withCancel: nil)
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableData.count
+        return courses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = courseTable.dequeueReusableCell(withIdentifier: "CourseCell")
-        cell?.textLabel?.text = tableData[indexPath.row]
+        cell?.textLabel?.text = courses[indexPath.row].getName()
+        cell?.detailTextLabel?.text = "Tees: "
         return cell!
     }
 }

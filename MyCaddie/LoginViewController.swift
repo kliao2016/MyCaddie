@@ -51,6 +51,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
+    
     @IBAction func selectorChange(_ sender: UISegmentedControl) {
         
         // Flip boolean
@@ -92,7 +94,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         nameTextField.resignFirstResponder()
     }
     
-    func displayAlert() {
+    private func displayAlert() {
         let alertController = UIAlertController(title: "Error", message: "The username or password you entered is incorrect. Please try again.", preferredStyle: .alert)
         
         let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
@@ -101,7 +103,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func displayAlert2() {
+    private func displayAlert2() {
         let alertController = UIAlertController(title: "Error", message: "You must sign up with a valid email and password!", preferredStyle: .alert)
         
         let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
@@ -111,7 +113,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     // Login and Sign Up functions
-    func login() {
+    private func login() {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
             // Check that credentials are valid
             if error == nil && user != nil {
@@ -122,7 +124,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         })
     }
     
-    func signUp() {
+    private func signUp() {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
             // Check that user isn't nil
             if error == nil && user != nil{
