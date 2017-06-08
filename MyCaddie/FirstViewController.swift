@@ -67,12 +67,33 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             performSelector(onMainThread: #selector(handleLogout), with: nil, waitUntilDone: true)
         } else {
             let uid = Auth.auth().currentUser?.uid
-            self.databaseRef?.child("Users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
-                if let dictionary = snapshot.value as? [String: AnyObject] {
-                    let name = dictionary["Name"] as? String
-                    self.welcomeTitle.title = "\(name!)'s Courses"
-                }
-            }, withCancel: nil)
+            
+            var provider = ""
+            var providerName = ""
+            var providerEmail = ""
+            Auth.auth().currentUser?.providerData.forEach({ (profile) in
+                provider = profile.providerID
+                providerName = profile.displayName!
+                providerEmail = profile.email!
+            })
+            if provider != "google.com" {
+                self.databaseRef?.child("Users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let dictionary = snapshot.value as? [String: AnyObject] {
+                        let name = dictionary["Name"] as? String
+                        self.welcomeTitle.title = "\(name!)'s Courses"
+                    }
+                }, withCancel: nil)
+            } else {
+                self.databaseRef?.child("Users").child(uid!).child("Name").setValue(providerName)
+                self.databaseRef?.child("Users").child(uid!).child("Email").setValue(providerEmail)
+                self.databaseRef?.child("Users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let dictionary = snapshot.value as? [String: AnyObject] {
+                        let name = dictionary["Name"] as? String
+                        self.welcomeTitle.title = "\(name!)'s Courses"
+                    }
+                }, withCancel: nil)
+            }
+
         }
     }
 
