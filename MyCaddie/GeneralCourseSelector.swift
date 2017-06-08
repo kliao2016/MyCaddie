@@ -81,9 +81,8 @@ class GeneralCourseSelector: UIViewController, UITableViewDelegate, UITableViewD
         return cell!
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "statsSegue", sender: courses[indexPath.row])
-        print("Segue Successful")
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
