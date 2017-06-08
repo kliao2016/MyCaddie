@@ -40,7 +40,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         
         // Uncomment Sign in user automatically
-        // GIDSignIn.sharedInstance().signIn()
+        // Add if Statement
+        //GIDSignIn.sharedInstance().signInSilently()
         
         signInButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
         signInButton.layer.cornerRadius = 5
@@ -50,6 +51,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
     
     @IBAction func selectorChange(_ sender: UISegmentedControl) {
         
@@ -62,7 +65,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             nameTextField.isUserInteractionEnabled = false
             nameTextField.placeholder = "N/A"
         } else {
-            signInButton.setTitle("Register", for: .normal)
+            signInButton.setTitle("Sign Up with Email", for: .normal)
             nameTextField.isUserInteractionEnabled = true
             nameTextField.placeholder = "First and Last Name"
         }
@@ -92,7 +95,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         nameTextField.resignFirstResponder()
     }
     
-    func displayAlert() {
+    private func displayAlert() {
         let alertController = UIAlertController(title: "Error", message: "The username or password you entered is incorrect. Please try again.", preferredStyle: .alert)
         
         let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
@@ -101,7 +104,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func displayAlert2() {
+    private func displayAlert2() {
         let alertController = UIAlertController(title: "Error", message: "You must sign up with a valid email and password!", preferredStyle: .alert)
         
         let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
@@ -111,13 +114,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     // Login and Sign Up functions
-    func login() {
+    private func login() {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
             // Check that credentials are valid
-            if error == nil && user != nil{
-                // If user is found, go to main screen
-//                let mainView = FirstViewController()
-//                self.present(mainView, animated: true, completion: nil)
+            if error == nil && user != nil {
                 self.performSegue(withIdentifier: "mainSegue", sender: self)
             } else {
                 self.displayAlert()
@@ -125,13 +125,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         })
     }
     
-    func signUp() {
+    private func signUp() {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
             // Check that user isn't nil
             if error == nil && user != nil{
-                // If user is found, go to main screen
-//                let mainView = FirstViewController()
-//                self.present(mainView, animated: true, completion: nil)
                 self.performSegue(withIdentifier: "mainSegue", sender: self)
             } else {
                 self.displayAlert2()

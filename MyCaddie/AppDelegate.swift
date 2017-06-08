@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
-        // ...
+        
     }
     
     func segueToMain() {
@@ -96,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // Push that view controller onto the navigation stack
         let rootViewController = self.window!.rootViewController!;
-        rootViewController.show(viewController, sender: self)
+        rootViewController.present(viewController, animated: true, completion: nil)
     }
 
 }

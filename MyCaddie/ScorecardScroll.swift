@@ -30,6 +30,11 @@ class ScorecardScroll: UIPageViewController, UIPageViewControllerDataSource, UIP
         }
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         for view in self.view.subviews {
