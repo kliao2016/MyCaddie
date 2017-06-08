@@ -52,42 +52,33 @@ class Stats2: UIViewController {
             if !DataSnapshot.exists() { return }
             
             let currentYardage = DataSnapshot.childSnapshot(forPath: "\(self.currentHole + 1)").value as! String
-            print("Yardage: " + "\(currentYardage)")
+            //print("Yardage: " + "\(currentYardage)")
             self.HoleYardage.text = currentYardage
         })
         let ParRef2 = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Pars")
         ParRef2.observeSingleEvent(of: .value, with: {DataSnapshot in
             // Return if no data exists
             if !DataSnapshot.exists() { return }
-            print("Current Hole: " + "\(self.currentHole)")
+            //print("Current Hole: " + "\(self.currentHole)")
             let currentPar = DataSnapshot.childSnapshot(forPath: "\(self.currentHole + 1)").value as! String
-            print("Current Par: " + "\(currentPar)")
+            //print("Current Par: " + "\(currentPar)")
             self.HolePar.text = currentPar
         })
-        //HoleYardage.text =
-        
-        //self.ShotNumberText.text = "Where was your " + shotCount + " shot?"
-        //self.Actual.text = "Shot Count: " + "\(currentScore)"
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     func PuttPopUp() {
         let popUp = UIAlertController(title: "How many putts did you have?", message: nil, preferredStyle: .alert)
         popUp.addTextField { (textField) in
-            textField.text = "Putts"
+            textField.text = nil
         }
         
         popUp.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [popUp] (_) in
             let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
-            print("Putts: \(textField.text ?? "No")")
             self.putts = Int(textField.text!)!
             self.updateScore()
         }))
-        
-        //let action = UIAlertAction(title: "Enter", style: .default, handler: nil)
-        //popUp.addAction(action)
+
         self.present(popUp, animated: true, completion: nil)
-        //print("Putt Text Field: \(String(describing: textField.text))")
     }
     
     // Buttons
@@ -188,9 +179,9 @@ class Stats2: UIViewController {
         ParRef.observeSingleEvent(of: .value, with: {DataSnapshot in
             // Return if no data exists
             if !DataSnapshot.exists() { return }
-            print("Current Hole: " + "\(self.currentHole)")
+            //print("Current Hole: " + "\(self.currentHole)")
             let currentPar = DataSnapshot.childSnapshot(forPath: "\(self.currentHole + 1)").value as! String
-            print("Current Par: " + "\(currentPar)")
+            //print("Current Par: " + "\(currentPar)")
             self.HolePar.text = currentPar
         })
         YardageRef.observeSingleEvent(of: .value, with: {DataSnapshot in
@@ -198,17 +189,17 @@ class Stats2: UIViewController {
             if !DataSnapshot.exists() { return }
             
             let currentYardage = DataSnapshot.childSnapshot(forPath: "\(self.currentHole + 1)").value as! String
-            print("Yardage: " + "\(currentYardage)")
+            //print("Yardage: " + "\(currentYardage)")
             self.HoleYardage.text = currentYardage
         })
     }
     
     func updateScore(){
         holeScores[currentHole] = currentScore + putts
-        print("Non-Putts: " + "\(currentScore)")
-        print("Putts: " + "\(holeScores)")
+        print(holeScores)
+        //print("Non-Putts: " + "\(currentScore)")
         currentHole += 1
-        print("Current Hole: " + "\(currentHole)")
+        //print("Current Hole: " + "\(currentHole)")
         putts = 0
         currentScore = 0
         updateShotText()
