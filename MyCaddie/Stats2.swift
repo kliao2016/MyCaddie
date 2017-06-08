@@ -15,11 +15,15 @@ class Stats2: UIViewController {
     var ref = Database.database().reference()
     var databaseHandle: DatabaseHandle?
     
-    
+    var holeStatData = [HoleStats]()
+    // Initial Object
+    var holeStatistics = HoleStats()
     
     var shotCount = String()
     
     var holeScores = [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]
+    var parsOfCourse = [String]()
+    var yardagesOfCourse = [String]()
     
     // Label text to change every shot
     @IBOutlet weak var ShotNumberText: UILabel!
@@ -32,7 +36,7 @@ class Stats2: UIViewController {
     // Current Par
     @IBOutlet weak var HolePar: UILabel!
     
-    
+    // Variables
     var putts = Int ()
     var currentHole = Int()
     var currentScore = Int()
@@ -46,24 +50,27 @@ class Stats2: UIViewController {
         Actual.text = "Shots hit: 0"
         HoleNumber.text = "1"
         
-        let YardageRef2 = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Holes")
-        YardageRef2.observeSingleEvent(of: .value, with: {DataSnapshot in
-            // Return if no data exists
-            if !DataSnapshot.exists() { return }
-            
-            let currentYardage = DataSnapshot.childSnapshot(forPath: "\(self.currentHole + 1)").value as! String
-            //print("Yardage: " + "\(currentYardage)")
-            self.HoleYardage.text = currentYardage
-        })
-        let ParRef2 = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Pars")
-        ParRef2.observeSingleEvent(of: .value, with: {DataSnapshot in
-            // Return if no data exists
-            if !DataSnapshot.exists() { return }
-            //print("Current Hole: " + "\(self.currentHole)")
-            let currentPar = DataSnapshot.childSnapshot(forPath: "\(self.currentHole + 1)").value as! String
-            //print("Current Par: " + "\(currentPar)")
-            self.HolePar.text = currentPar
-        })
+        let YardageRef = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Holes")
+        let ParRef = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Pars")
+        
+        for i in 1 ..< 19 {
+            YardageRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+                // Return if no data exists
+                if !DataSnapshot.exists() { return }
+                let currentYardage = DataSnapshot.childSnapshot(forPath: "\(i)").value as! String
+                self.yardagesOfCourse.append(currentYardage)
+                self.HoleYardage.text = currentYardage
+            })
+        }
+        for j in 1 ..< 19 {
+            ParRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+                // Return if no data exists
+                if !DataSnapshot.exists() { return }
+                let currentPar = DataSnapshot.childSnapshot(forPath: "\(j)").value as! String
+                self.HolePar.text = currentPar
+                self.parsOfCourse.append(currentPar)
+            })
+        }
     }
     
     func PuttPopUp() {
@@ -76,6 +83,13 @@ class Stats2: UIViewController {
             let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
             self.putts = Int(textField.text!)!
             self.updateScore()
+            print("Fairway?: \(self.holeStatistics.fairways)")
+            print("Greens in Reg?: \(self.holeStatistics.greensInReg)")
+            print("Green Bunkers?: \(self.holeStatistics.greenBunkers)")
+            print("Fairway Bunkers?: \(self.holeStatistics.fairwayBunkers)")
+            self.holeStatData.append(self.holeStatistics)
+            self.resetHoleStats()
+            self.testPrint()
         }))
 
         self.present(popUp, animated: true, completion: nil)
@@ -83,45 +97,58 @@ class Stats2: UIViewController {
     
     // Buttons
     @IBAction func Green(_ sender: Any) {
+        holeStatistics.greensInReg = true
         currentScore += 1
         PuttPopUp()
     }
     @IBAction func Fringe(_ sender: Any) {
+        holeStatistics.fringes += 1
         currentScore += 1
         updateShotText()
         updateUI()
     }
     @IBAction func GreenSand(_ sender: Any) {
+        holeStatistics.greenBunkers += 1
         currentScore += 1
         updateShotText()
         updateUI()
     }
     @IBAction func FairwaySand(_ sender: Any) {
+        holeStatistics.fairwayBunkers += 1
         currentScore += 1
         updateShotText()
         updateUI()
     }
     @IBAction func Fairway(_ sender: Any) {
+        if currentScore == 0 {
+            holeStatistics.fairways = true
+        }
+        print(yardagesOfCourse)
+        print(parsOfCourse)
         currentScore += 1
         updateShotText()
         updateUI()
     }
     @IBAction func Hazard(_ sender: Any) {
+        holeStatistics.hazards += 1
         currentScore += 1
         updateShotText()
         updateUI()
     }
     @IBAction func OB(_ sender: Any) {
+        holeStatistics.obs += 1
         currentScore += 1
         updateShotText()
         updateUI()
     }
     @IBAction func Right(_ sender: Any) {
+        holeStatistics.rights = true
         currentScore += 1
         updateShotText()
         updateUI()
     }
     @IBAction func Left(_ sender: Any) {
+        holeStatistics.lefts = true
         currentScore += 1
         updateShotText()
         updateUI()
@@ -173,37 +200,37 @@ class Stats2: UIViewController {
         Actual.text = "Shots Hit: \(currentScore)"
         ShotNumberText.text = "Where was your \(shotCount) shot?"
         HoleNumber.text = "\(currentHole + 1)"
-        ref = Database.database().reference()
-        let ParRef = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Pars")
-        let YardageRef = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Holes")
-        ParRef.observeSingleEvent(of: .value, with: {DataSnapshot in
-            // Return if no data exists
-            if !DataSnapshot.exists() { return }
-            //print("Current Hole: " + "\(self.currentHole)")
-            let currentPar = DataSnapshot.childSnapshot(forPath: "\(self.currentHole + 1)").value as! String
-            //print("Current Par: " + "\(currentPar)")
-            self.HolePar.text = currentPar
-        })
-        YardageRef.observeSingleEvent(of: .value, with: {DataSnapshot in
-            // Return if no data exists
-            if !DataSnapshot.exists() { return }
-            
-            let currentYardage = DataSnapshot.childSnapshot(forPath: "\(self.currentHole + 1)").value as! String
-            //print("Yardage: " + "\(currentYardage)")
-            self.HoleYardage.text = currentYardage
-        })
+        self.HolePar.text = parsOfCourse[currentHole]
+        self.HoleYardage.text = yardagesOfCourse[currentHole]
     }
     
     func updateScore(){
         holeScores[currentHole] = currentScore + putts
         print(holeScores)
-        //print("Non-Putts: " + "\(currentScore)")
         currentHole += 1
-        //print("Current Hole: " + "\(currentHole)")
         putts = 0
         currentScore = 0
         updateShotText()
         updateUI()
+    }
+    
+    func resetHoleStats(){
+        holeStatistics.greenBunkers = 0
+        holeStatistics.fairwayBunkers = 0
+        holeStatistics.hazards = 0
+        holeStatistics.obs = 0
+        holeStatistics.rights = false
+        holeStatistics.lefts = false
+        holeStatistics.fringes = 0
+        holeStatistics.fairways = false
+        holeStatistics.greensInReg = false
+    }
+    
+    func testPrint(){
+        print("Fairway?: \(self.holeStatistics.fairways)")
+        print("Greens in Reg?: \(self.holeStatistics.greensInReg)")
+        print("Green Bunkers?: \(self.holeStatistics.greenBunkers)")
+        print("Fairway Bunkers?: \(self.holeStatistics.fairwayBunkers)")
     }
     
     
