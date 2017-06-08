@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f3Z-37-xw4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f3Z-37-xw4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Play-->
+        <!--First View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController storyboardIdentifier="MainView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="FirstViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,7 +62,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="ryV-Fe-OVm" kind="show" id="j4n-95-sIJ"/>
+                                            <segue destination="nKE-uq-Ijo" kind="show" id="b3V-jU-d68"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -118,7 +118,7 @@
                             <constraint firstItem="RX6-mQ-uaB" firstAttribute="width" secondItem="iKh-0z-ScS" secondAttribute="width" id="otg-PY-GQi"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Play" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="courseTable" destination="RX6-mQ-uaB" id="cAd-Ir-449"/>
                         <outlet property="startRoundButton" destination="lKi-A6-LAP" id="Vw2-5c-RTT"/>
@@ -129,12 +129,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
                 <exit id="sqH-gE-gJJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="980" y="-1230"/>
+            <point key="canvasLocation" x="-230" y="-1230"/>
         </scene>
-        <!--General Course Selector-->
+        <!--Select Course-->
         <scene sceneID="x4g-6m-e6o">
             <objects>
-                <viewController id="ryV-Fe-OVm" customClass="GeneralCourseSelector" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ryV-Fe-OVm" customClass="GeneralCourseSelector" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZkJ-B4-FJ6"/>
                         <viewControllerLayoutGuide type="bottom" id="o0S-mM-oU6"/>
@@ -144,57 +144,67 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uhk-2Q-LfN">
-                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CourseCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CourseCell" id="CVP-oK-cO8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CourseCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CourseCell" textLabel="6wF-ro-yov" detailTextLabel="Aq0-0G-cps" style="IBUITableViewCellStyleSubtitle" id="CVP-oK-cO8">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CVP-oK-cO8" id="iZG-UN-RHM">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6wF-ro-yov">
+                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Aq0-0G-cps">
+                                                    <rect key="frame" x="15" y="25.5" width="33" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Eh-2B-xjy">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <navigationItem title="Select Course" id="Fcr-W6-1pc">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="Foo-H5-VmI">
-                                            <connections>
-                                                <action selector="backToTabBar:" destination="ryV-Fe-OVm" id="opC-Ud-DqR"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xj7-5e-n6g">
-                                            <connections>
-                                                <segue destination="ZrT-Lh-E1R" kind="presentation" id="Yl5-xu-nZ6"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uhk-2Q-LfN" secondAttribute="trailing" id="Sh1-FD-dso"/>
-                            <constraint firstItem="uhk-2Q-LfN" firstAttribute="top" secondItem="ZkJ-B4-FJ6" secondAttribute="bottom" constant="46" id="c5i-Ha-aA6"/>
+                            <constraint firstItem="uhk-2Q-LfN" firstAttribute="top" secondItem="ZkJ-B4-FJ6" secondAttribute="bottom" id="c5i-Ha-aA6"/>
                             <constraint firstItem="uhk-2Q-LfN" firstAttribute="leading" secondItem="wPe-xY-iC1" secondAttribute="leading" id="dBD-fK-dvf"/>
                             <constraint firstAttribute="bottom" secondItem="uhk-2Q-LfN" secondAttribute="bottom" id="v9x-pv-kvF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Select Course" id="lNd-Qi-wmr">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="Foo-H5-VmI">
+                            <connections>
+                                <action selector="backToTabBar:" destination="ryV-Fe-OVm" id="opC-Ud-DqR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xj7-5e-n6g">
+                            <connections>
+                                <segue destination="ZrT-Lh-E1R" kind="presentation" id="Yl5-xu-nZ6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="courseTable" destination="uhk-2Q-LfN" id="ICN-bP-5zq"/>
                         <segue destination="0cK-is-mBG" kind="unwind" identifier="UnwindToTabBar" unwindAction="unwindToTabMenuWithSegue:" id="6CT-UY-L5q"/>
+                        <segue destination="MD8-tT-bZU" kind="show" identifier="statsSegue" id="pHN-Pu-Xs6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgO-MS-f5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0cK-is-mBG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2289" y="-1230"/>
+            <point key="canvasLocation" x="2708" y="-1230.1349325337333"/>
         </scene>
         <!--Create View Controller-->
         <scene sceneID="19V-Ia-BH8">
@@ -882,7 +892,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyh-0G-89A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3521" y="-43"/>
+            <point key="canvasLocation" x="820" y="-468"/>
         </scene>
         <!--Scorecard-->
         <scene sceneID="A63-zy-u84">
@@ -1232,7 +1242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAB-g0-E92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5120.8000000000002" y="747.9760119940031"/>
+            <point key="canvasLocation" x="3281" y="752"/>
         </scene>
         <!--Scorecard Scroll-->
         <scene sceneID="Tsn-T1-YHj">
@@ -1240,7 +1250,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="2" navigationOrientation="horizontal" spineLocation="none" id="wH0-Ms-kE0" customClass="ScorecardScroll" customModule="MyCaddie" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SX7-oX-ABQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4290" y="753"/>
+            <point key="canvasLocation" x="2167" y="752"/>
         </scene>
         <!--Profile-->
         <scene sceneID="wg7-f3-ORb">
@@ -1288,9 +1298,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1673" y="419"/>
+            <point key="canvasLocation" x="207" y="752"/>
         </scene>
-        <!--Training Area-->
+        <!--View Controller-->
         <scene sceneID="gMm-gB-WxB">
             <objects>
                 <viewController id="ojs-6V-ETC" sceneMemberID="viewController">
@@ -1317,11 +1327,11 @@
                             <constraint firstItem="7cf-Ir-sQ2" firstAttribute="top" secondItem="r0w-E1-yvP" secondAttribute="bottom" id="vAK-q1-1gh"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Training Area" id="lAW-k8-ieE"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="lAW-k8-ieE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmI-Ar-A8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672.8" y="1245.4272863568217"/>
+            <point key="canvasLocation" x="-1983" y="1419"/>
         </scene>
         <!--Stats2-->
         <scene sceneID="0oW-SH-grB">
@@ -1483,7 +1493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y60-KU-K9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2836" y="1924.5877061469266"/>
+            <point key="canvasLocation" x="2708" y="1418"/>
         </scene>
         <!--Login Menu-->
         <scene sceneID="p47-xg-oAe">
@@ -1632,7 +1642,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXF-Hh-enW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-836" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="-3362" y="-44"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1653,7 +1663,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-1982" y="-44"/>
         </scene>
         <!--Scorecard2-->
         <scene sceneID="GVM-8c-kKY">
@@ -2003,7 +2013,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BV8-3g-ddN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5988" y="748"/>
+            <point key="canvasLocation" x="4258" y="752"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="adN-Of-40Y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nKE-uq-Ijo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mom-XX-Ue7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ryV-Fe-OVm" kind="relationship" relationship="rootViewController" id="B58-l6-9FG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MDH-pV-uHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1768.8" y="-1230.1349325337333"/>
         </scene>
     </scenes>
     <resources>
@@ -2013,6 +2041,7 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pHN-Pu-Xs6"/>
         <segue reference="Yl5-xu-nZ6"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>

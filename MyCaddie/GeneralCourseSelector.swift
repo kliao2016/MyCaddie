@@ -80,4 +80,17 @@ class GeneralCourseSelector: UIViewController, UITableViewDelegate, UITableViewD
         cell?.detailTextLabel?.text = "Tees: "
         return cell!
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "statsSegue", sender: courses[indexPath.row])
+        print("Segue Successful")
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if (segue.identifier == "generalCourseSegue") {
+//            // Enable navigation bar
+//            navigationController?.setNavigationBarHidden(navigationController?.isNavigationBarHidden == false, animated: true)
+//        }
+//    }
+    
 }
