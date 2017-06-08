@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class Stats2: UIViewController {
+    
+    var ref = Database.database().reference()
+    var databaseHandle: DatabaseHandle?
+    
+    
     
     var shotCount = String()
     
@@ -18,6 +25,13 @@ class Stats2: UIViewController {
     @IBOutlet weak var ShotNumberText: UILabel!
     // currentScore Display
     @IBOutlet weak var Actual: UILabel!
+    // Current Hole
+    @IBOutlet weak var HoleNumber: UILabel!
+    // Current Yardage
+    @IBOutlet weak var HoleYardage: UILabel!
+    // Current Par
+    @IBOutlet weak var HolePar: UILabel!
+    
     
     var putts = Int ()
     var currentHole = Int()
@@ -26,11 +40,31 @@ class Stats2: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        currentHole = 1
         
         // Initial text
         ShotNumberText.text = "Where was your first shot?"
         Actual.text = "Shots hit: 0"
+        HoleNumber.text = "1"
+        
+        let YardageRef2 = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Holes")
+        YardageRef2.observeSingleEvent(of: .value, with: {DataSnapshot in
+            // Return if no data exists
+            if !DataSnapshot.exists() { return }
+            
+            let currentYardage = DataSnapshot.childSnapshot(forPath: "\(self.currentHole + 1)").value as! String
+            print("Yardage: " + "\(currentYardage)")
+            self.HoleYardage.text = currentYardage
+        })
+        let ParRef2 = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Pars")
+        ParRef2.observeSingleEvent(of: .value, with: {DataSnapshot in
+            // Return if no data exists
+            if !DataSnapshot.exists() { return }
+            print("Current Hole: " + "\(self.currentHole)")
+            let currentPar = DataSnapshot.childSnapshot(forPath: "\(self.currentHole + 1)").value as! String
+            print("Current Par: " + "\(currentPar)")
+            self.HolePar.text = currentPar
+        })
+        //HoleYardage.text =
         
         //self.ShotNumberText.text = "Where was your " + shotCount + " shot?"
         //self.Actual.text = "Shot Count: " + "\(currentScore)"
@@ -147,13 +181,34 @@ class Stats2: UIViewController {
     func updateUI(){
         Actual.text = "Shots Hit: \(currentScore)"
         ShotNumberText.text = "Where was your \(shotCount) shot?"
+        HoleNumber.text = "\(currentHole + 1)"
+        ref = Database.database().reference()
+        let ParRef = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Pars")
+        let YardageRef = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Holes")
+        ParRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+            // Return if no data exists
+            if !DataSnapshot.exists() { return }
+            print("Current Hole: " + "\(self.currentHole)")
+            let currentPar = DataSnapshot.childSnapshot(forPath: "\(self.currentHole + 1)").value as! String
+            print("Current Par: " + "\(currentPar)")
+            self.HolePar.text = currentPar
+        })
+        YardageRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+            // Return if no data exists
+            if !DataSnapshot.exists() { return }
+            
+            let currentYardage = DataSnapshot.childSnapshot(forPath: "\(self.currentHole + 1)").value as! String
+            print("Yardage: " + "\(currentYardage)")
+            self.HoleYardage.text = currentYardage
+        })
     }
     
     func updateScore(){
-        holeScores[currentHole - 1] = currentScore + putts
+        holeScores[currentHole] = currentScore + putts
         print("Non-Putts: " + "\(currentScore)")
         print("Putts: " + "\(holeScores)")
         currentHole += 1
+        print("Current Hole: " + "\(currentHole)")
         putts = 0
         currentScore = 0
         updateShotText()
