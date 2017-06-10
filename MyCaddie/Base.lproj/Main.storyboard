@@ -184,13 +184,54 @@
                     <connections>
                         <outlet property="courseTable" destination="uhk-2Q-LfN" id="ICN-bP-5zq"/>
                         <segue destination="0cK-is-mBG" kind="unwind" identifier="UnwindToTabBar" unwindAction="unwindToTabMenuWithSegue:" id="6CT-UY-L5q"/>
-                        <segue destination="MD8-tT-bZU" kind="show" identifier="statsSegue" id="pHN-Pu-Xs6"/>
+                        <segue destination="8Om-aI-Kc3" kind="show" identifier="teeSegue" id="g6G-uR-eqq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgO-MS-f5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0cK-is-mBG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2708" y="-1230.1349325337333"/>
+        </scene>
+        <!--General Tee Selector-->
+        <scene sceneID="QxL-ms-IRw">
+            <objects>
+                <tableViewController id="8Om-aI-Kc3" customClass="GeneralTeeSelector" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="M7A-bc-p6A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TeeCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeeCell" textLabel="CnU-Rm-mCX" style="IBUITableViewCellStyleDefault" id="CjJ-Ki-2dk">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CjJ-Ki-2dk" id="lCT-zt-LvM">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CnU-Rm-mCX">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8Om-aI-Kc3" id="HP9-ed-SBL"/>
+                            <outlet property="delegate" destination="8Om-aI-Kc3" id="5KL-hF-dpM"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="teeTable" destination="M7A-bc-p6A" id="zU5-w0-QMn"/>
+                        <segue destination="MD8-tT-bZU" kind="show" identifier="statsSegue" id="bpj-QW-GpS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qfX-cC-5W5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3610" y="-1230"/>
         </scene>
         <!--Create View Controller-->
         <scene sceneID="19V-Ia-BH8">
@@ -2006,7 +2047,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nKE-uq-Ijo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mom-XX-Ue7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mom-XX-Ue7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2027,8 +2068,8 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pHN-Pu-Xs6"/>
         <segue reference="Yl5-xu-nZ6"/>
+        <segue reference="bpj-QW-GpS"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
