@@ -15,7 +15,7 @@ class GeneralCourseSelector: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var courseTable: UITableView!
     
-    var courses = [Course]()
+    var courses = [String]()
     
     // Reference to database
     var databaseRef: DatabaseReference?
@@ -58,11 +58,9 @@ class GeneralCourseSelector: UIViewController, UITableViewDelegate, UITableViewD
     
     func fetchCourses() {
         databaseRef?.child("Golf Course Data").observe(.childAdded, with: { (snapshot) in
-            let course = Course()
             let courseName = snapshot.key
-            course.setName(name: courseName)
             
-            self.courses.append(course)
+            self.courses.append(courseName)
             
             self.courseTable.reloadData()
             
@@ -76,8 +74,7 @@ class GeneralCourseSelector: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = courseTable.dequeueReusableCell(withIdentifier: "CourseCell")
-        cell?.textLabel?.text = courses[indexPath.row].getName()
-        cell?.detailTextLabel?.text = "Tees: "
+        cell?.textLabel?.text = courses[indexPath.row]
         return cell!
     }
     

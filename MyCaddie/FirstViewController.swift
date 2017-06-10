@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseStorage
 import Firebase
 import GoogleSignIn
 
@@ -24,7 +25,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // Reference to database
     var databaseRef: DatabaseReference?
     
-    var courses = [Course]()
+    var courses = [String]()
     
     @IBOutlet weak var welcomeTitle: UINavigationItem!
     
@@ -114,16 +115,29 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let uid = Auth.auth().currentUser?.uid
         let userReference = self.databaseRef?.child("Users").child(uid!)
         userReference?.child("Courses").observe(.childAdded, with: { (snapshot) in
-            let course = Course()
             let courseName = snapshot.key
-            course.setName(name: courseName)
             
-            self.courses.append(course)
+            self.courses.append(courseName)
             
             self.courseTable.reloadData()
             
         }, withCancel: nil)
         
+    }
+    
+    func deleteCourse(courseName: String) {
+        let storageRef = Storage.storage().reference()
+        let uid = Auth.auth().currentUser?.uid
+        let userCourseDataRef = storageRef.child("Users").child(uid!).child("Courses").child(courseName)
+        userCourseDataRef.delete { (error) in
+            if let error = error {
+                // Uh-oh, an error occurred!
+                print("Cannot delete")
+            } else {
+                // File deleted successfully
+                print("Delete successful")
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,10 +147,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = courseTable.dequeueReusableCell(withIdentifier: "CourseCell")
-        cell?.textLabel?.text = courses[indexPath.row].getName()
-        cell?.detailTextLabel?.text = "Tees: "
+        cell?.textLabel?.text = courses[indexPath.row]
         
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.courses.remove(at: indexPath.row)
+            self.courseTable.deleteRows(at: [indexPath], with: .fade)
+            self.deleteCourse(courseName: courses[indexPath.row])
+        }
     }
     
 }
