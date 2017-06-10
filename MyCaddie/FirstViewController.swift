@@ -126,17 +126,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func deleteCourse(courseName: String) {
-        let storageRef = Storage.storage().reference()
-        let uid = Auth.auth().currentUser?.uid
-        let userCourseDataRef = storageRef.child("Users").child(uid!).child("Courses").child(courseName)
-        userCourseDataRef.delete { (error) in
-            if let error = error {
-                // Uh-oh, an error occurred!
-                print("Cannot delete")
-            } else {
-                // File deleted successfully
-                print("Delete successful")
-            }
+        if Auth.auth().currentUser != nil {
+            let uid = Auth.auth().currentUser?.uid
+            let userReference = self.databaseRef?.child("Users").child(uid!)
+            let userCourseDataRef = userReference?.child("Courses").child(courseName)
+            userCourseDataRef?.removeValue()
         }
     }
 
@@ -154,9 +148,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            self.deleteCourse(courseName: courses[indexPath.row])
             self.courses.remove(at: indexPath.row)
             self.courseTable.deleteRows(at: [indexPath], with: .fade)
-            self.deleteCourse(courseName: courses[indexPath.row])
         }
     }
     
