@@ -170,7 +170,7 @@ class Scorecard: UIViewController {
         })
         
         // Reading Score Data from database
-        ScoreRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+        scoreRef.observeSingleEvent(of: .value, with: {DataSnapshot in
             // Return if no data exists
             if !DataSnapshot.exists() { return }
             
