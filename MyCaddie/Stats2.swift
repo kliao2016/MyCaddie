@@ -7,19 +7,24 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseDatabase
+import FirebaseStorage
+import Firebase
+import GoogleSignIn
 
 class Stats2: UIViewController {
     
     var ref = Database.database().reference()
     var databaseHandle: DatabaseHandle?
     
+    
+    // Stores Round Data
     var holeStatData = [HoleStats]()
     // Initial Object
     var holeStatistics = HoleStats()
     
     var shotCount = String()
+    var counter = 0
     
     var holeScores = [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]
     var parsOfCourse = [String]()
@@ -83,11 +88,12 @@ class Stats2: UIViewController {
             let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
             self.putts = Int(textField.text!)!
             self.updateScore()
-            print("Fairway?: \(self.holeStatistics.fairways)")
-            print("Greens in Reg?: \(self.holeStatistics.greensInReg)")
-            print("Green Bunkers?: \(self.holeStatistics.greenBunkers)")
-            print("Fairway Bunkers?: \(self.holeStatistics.fairwayBunkers)")
-            self.holeStatData.append(self.holeStatistics)
+            //print("Fairway?: \(self.holeStatistics.fairways)")
+            //print("Greens in Reg?: \(self.holeStatistics.greensInReg)")
+            //print("Green Bunkers?: \(self.holeStatistics.greenBunkers)")
+            //print("Fairway Bunkers?: \(self.holeStatistics.fairwayBunkers)")
+            self.holeStatistics.putt = self.putts
+            self.updateHoleData()
             self.resetHoleStats()
             self.testPrint()
         }))
@@ -99,6 +105,7 @@ class Stats2: UIViewController {
     @IBAction func Green(_ sender: Any) {
         holeStatistics.greensInReg = true
         currentScore += 1
+        updateUI()
         PuttPopUp()
     }
     @IBAction func Fringe(_ sender: Any) {
@@ -123,8 +130,8 @@ class Stats2: UIViewController {
         if currentScore == 0 {
             holeStatistics.fairways = true
         }
-        print(yardagesOfCourse)
-        print(parsOfCourse)
+        //print(yardagesOfCourse)
+        //print(parsOfCourse)
         currentScore += 1
         updateShotText()
         updateUI()
@@ -208,22 +215,14 @@ class Stats2: UIViewController {
         holeScores[currentHole] = currentScore + putts
         print(holeScores)
         currentHole += 1
-        putts = 0
         currentScore = 0
         updateShotText()
         updateUI()
     }
     
     func resetHoleStats(){
-        holeStatistics.greenBunkers = 0
-        holeStatistics.fairwayBunkers = 0
-        holeStatistics.hazards = 0
-        holeStatistics.obs = 0
-        holeStatistics.rights = false
-        holeStatistics.lefts = false
-        holeStatistics.fringes = 0
-        holeStatistics.fairways = false
-        holeStatistics.greensInReg = false
+        holeStatistics = HoleStats()
+        putts = 0
     }
     
     func testPrint(){
@@ -232,6 +231,60 @@ class Stats2: UIViewController {
         print("Green Bunkers?: \(self.holeStatistics.greenBunkers)")
         print("Fairway Bunkers?: \(self.holeStatistics.fairwayBunkers)")
     }
+    
+    func updateHoleData(){
+        holeStatData.append(holeStatistics)
+        currentCourseUpload(counter: counter)
+        counter += 1
+        
+         
+        for i in 0 ..< holeStatData.count {
+            print("Greenside Bunkers \(i) : \(holeStatData[i].greenBunkers)")
+        }
+        for i in 0 ..< holeStatData.count {
+            print("Fairway Bunkers \(i) : \(holeStatData[i].fairwayBunkers)")
+        }
+        for i in 0 ..< holeStatData.count {
+            print("Hazards \(i) : \(holeStatData[i].hazards)")
+        }
+        for i in 0 ..< holeStatData.count {
+            print("OBS \(i) : \(holeStatData[i].obs)")
+        }
+        for i in 0 ..< holeStatData.count {
+            print("R \(i) : \(holeStatData[i].rights)")
+        }
+        for i in 0 ..< holeStatData.count {
+            print("L \(i) : \(holeStatData[i].lefts)")
+        }
+        for i in 0 ..< holeStatData.count {
+            print("Fringes \(i) : \(holeStatData[i].fringes)")
+        }
+        for i in 0 ..< holeStatData.count {
+            print("Fairways \(i) : \(holeStatData[i].fairways)")
+        }
+        for i in 0 ..< holeStatData.count {
+            print("GIR \(i) : \(holeStatData[i].greensInReg)")
+        }
+        for i in 0 ..< holeStatData.count {
+            print("Putts \(i) : \(holeStatData[i].putt)")
+        }
+    }
+    
+    func currentCourseUpload(counter: Int){
+        
+        // Par Branch Reference
+        let uid = Auth.auth().currentUser?.uid
+        let userReference = Database.database().reference().child("Users").child(uid!)
+        //let greenBunkerData = [String: AnyObject] =
+        userReference.child("GreensideBunkers").setValue(holeStatData[counter].greenBunkers)
+        //userReference.child("CurrentRound").setValue
+        /*
+         let parData : [String: AnyObject] = ["1": pars[0] as AnyObject, "2": pars[1] as AnyObject, "3": pars[2] as AnyObject, "4": pars[3] as AnyObject,"5": pars[4] as AnyObject, "6": pars[5] as AnyObject, "7": pars[6] as AnyObject, "8": pars[7] as AnyObject,"9": pars[8] as AnyObject, "10": pars[9] as AnyObject, "11": pars[10] as AnyObject, "12": pars[11] as AnyObject,"13": pars[12] as AnyObject, "14": pars[13] as AnyObject, "15": pars[14] as AnyObject, "16": pars[15] as AnyObject, "17": pars[16] as AnyObject, "18": pars[17] as AnyObject]
+         
+         // Par Upload    userReference.child("Courses").child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
+         */
+    }
+    
     
     
 }

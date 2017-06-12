@@ -20,6 +20,7 @@ class Scorecard: UIViewController {
     // Yardage and Par Arrays
     var yardageData = [String]()
     var parData = [String]()
+    var scoreData = [String]()
     
     // Label References
     
@@ -51,6 +52,18 @@ class Scorecard: UIViewController {
     @IBOutlet weak var Yardage8: UILabel!
     @IBOutlet weak var Yardage9: UILabel!
     
+    // User Scores
+    @IBOutlet weak var Score1: UILabel!
+    @IBOutlet weak var Score2: UILabel!
+    @IBOutlet weak var Score3: UILabel!
+    @IBOutlet weak var Score4: UILabel!
+    @IBOutlet weak var Score5: UILabel!
+    @IBOutlet weak var Score6: UILabel!
+    @IBOutlet weak var Score7: UILabel!
+    @IBOutlet weak var Score8: UILabel!
+    @IBOutlet weak var Score9: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -62,6 +75,8 @@ class Scorecard: UIViewController {
         let ParRef = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Pars")
         // Yardage Branch Reference
         let YardageRef = Database.database().reference().child("Golf Course Data").child("okay").child("Tees").child("Championship").child("Holes")
+        // Score Reference
+        let ScoreRef = Database.database().reference().child("Golf Course Data").child("okay").child("Tees").child("Championship").child("Scores")
         
         // Slope and Rating Reference and Output
         let SlopeRef = Database.database().reference().child("Golf Course Data").child("okay").child("Tees").child("Championship")
@@ -151,6 +166,60 @@ class Scorecard: UIViewController {
             self.Yardage7.text = self.yardageData[6]
             self.Yardage8.text = self.yardageData[7]
             self.Yardage9.text = self.yardageData[8]
+        })
+        
+        // Reading Score Data from database
+        ScoreRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+            // Return if no data exists
+            if !DataSnapshot.exists() { return }
+            
+            //
+            if DataSnapshot.hasChild("1") {
+                let s1 = DataSnapshot.childSnapshot(forPath: "1").value as! String
+                self.scoreData.append(s1)
+                self.Score1.text = self.scoreData[0]
+            }
+            if DataSnapshot.hasChild("2") {
+                let s2 = DataSnapshot.childSnapshot(forPath: "2").value as! String
+                self.scoreData.append(s2)
+                self.Score2.text = self.scoreData[1]
+            }
+
+            if DataSnapshot.hasChild("3") {
+                let s3 = DataSnapshot.childSnapshot(forPath: "3").value as! String
+                self.scoreData.append(s3)
+                self.Score3.text = self.scoreData[2]
+            }
+            if DataSnapshot.hasChild("4") {
+                let s4 = DataSnapshot.childSnapshot(forPath: "4").value as! String
+                self.scoreData.append(s4)
+                self.Score4.text = self.scoreData[3]
+            }
+            if DataSnapshot.hasChild("5") {
+                let s5 = DataSnapshot.childSnapshot(forPath: "4").value as! String
+                self.scoreData.append(s5)
+                self.Score5.text = self.scoreData[4]
+            }
+            if DataSnapshot.hasChild("6") {
+                let s6 = DataSnapshot.childSnapshot(forPath: "6").value as! String
+                self.scoreData.append(s6)
+                self.Score6.text = self.scoreData[5]
+            }
+            if DataSnapshot.hasChild("7") {
+                let s7 = DataSnapshot.childSnapshot(forPath: "7").value as! String
+                self.scoreData.append(s7)
+                self.Score7.text = self.scoreData[6]
+            }
+            if DataSnapshot.hasChild("8") {
+                let s8 = DataSnapshot.childSnapshot(forPath: "8").value as! String
+                self.scoreData.append(s8)
+                self.Score8.text = self.scoreData[7]
+            }
+            if DataSnapshot.hasChild("9") {
+                let s9 = DataSnapshot.childSnapshot(forPath: "9").value as! String
+                self.scoreData.append(s9)
+                self.Score9.text = self.scoreData[8]
+            }
         })
         
     }
