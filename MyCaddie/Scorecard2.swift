@@ -22,7 +22,7 @@ class Scorecard2: UIViewController {
     // Yardage and Par Arrays
     var yardageData = [String]()
     var parData = [String]()
-    var scoreData = [String]()
+    var scoreData = ["","","","","","","","","","","","","","","","","",""]
     
     // Label References
     
