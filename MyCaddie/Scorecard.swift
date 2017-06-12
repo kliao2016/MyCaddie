@@ -13,6 +13,8 @@ import UIKit
 
 class Scorecard: UIViewController {
     
+    var tees = ""
+    
     // Overall Database Reference
     var ref = Database.database().reference()
     var databaseHandle: DatabaseHandle?
@@ -59,14 +61,14 @@ class Scorecard: UIViewController {
         ref = Database.database().reference()
         
         // Par Branch Reference
-        let ParRef = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Pars")
+        let parRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees).child("Pars")
         // Yardage Branch Reference
-        let YardageRef = Database.database().reference().child("Golf Course Data").child("okay").child("Tees").child("Championship").child("Holes")
+        let yardageRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees).child("Holes")
         
         // Slope and Rating Reference and Output
-        let SlopeRef = Database.database().reference().child("Golf Course Data").child("okay").child("Tees").child("Championship")
+        let slopeRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees)
         
-        SlopeRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+        slopeRef.observeSingleEvent(of: .value, with: {DataSnapshot in
             if !DataSnapshot.exists() { return }
             
             let slopeHold = DataSnapshot.childSnapshot(forPath: "Slope").value as! String
@@ -81,7 +83,7 @@ class Scorecard: UIViewController {
         // Player Name Reference
         
         // Reading Par Data from Course
-        ParRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+        parRef.observeSingleEvent(of: .value, with: {DataSnapshot in
             // Return if no data exists
             if !DataSnapshot.exists() { return }
             
@@ -118,7 +120,7 @@ class Scorecard: UIViewController {
         })
         
         // Reading Yardage Data from Course
-        YardageRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+        yardageRef.observeSingleEvent(of: .value, with: {DataSnapshot in
             // Return if no data exists
             if !DataSnapshot.exists() { return }
             
@@ -158,6 +160,10 @@ class Scorecard: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func dismissScorecard(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     

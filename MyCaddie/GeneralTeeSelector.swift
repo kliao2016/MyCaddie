@@ -69,4 +69,15 @@ class GeneralTeeSelector: UITableViewController {
         self.performSegue(withIdentifier: "statsSegue", sender: tees[indexPath.row])
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "statsSegue" {
+            let statsView = segue.destination as! Stats2
+            
+            statsView.courseName = self.teeParentCourseName
+            
+            let indexPath = self.teeTable.indexPathForSelectedRow
+            statsView.tees = tees[(indexPath?.row)!]
+        }
+    }
+    
 }

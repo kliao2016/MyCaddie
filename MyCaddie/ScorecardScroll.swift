@@ -25,7 +25,7 @@ class ScorecardScroll: UIPageViewController, UIPageViewControllerDataSource, UIP
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
-        if let firstScroll = VCArray.first{
+        if let firstScroll = VCArray.first {
             setViewControllers([firstScroll], direction: .forward, animated: true, completion: nil)
         }
     }

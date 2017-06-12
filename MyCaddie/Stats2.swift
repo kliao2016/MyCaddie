@@ -12,6 +12,9 @@ import FirebaseDatabase
 
 class Stats2: UIViewController {
     
+    var courseName = ""
+    var tees = ""
+    
     var ref = Database.database().reference()
     var databaseHandle: DatabaseHandle?
     
@@ -62,6 +65,7 @@ class Stats2: UIViewController {
                 self.HoleYardage.text = currentYardage
             })
         }
+        
         for j in 1 ..< 19 {
             ParRef.observeSingleEvent(of: .value, with: {DataSnapshot in
                 // Return if no data exists
@@ -71,6 +75,9 @@ class Stats2: UIViewController {
                 self.parsOfCourse.append(currentPar)
             })
         }
+        
+        // Navigation Bar
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View Scorecard", style: .plain, target: self, action: #selector(displayScorecard))
     }
     
     func PuttPopUp() {
@@ -95,11 +102,16 @@ class Stats2: UIViewController {
         self.present(popUp, animated: true, completion: nil)
     }
     
+    func displayScorecard() {
+        self.performSegue(withIdentifier: "scorecardSegue", sender: self)
+    }
+    
     // Buttons
     @IBAction func Green(_ sender: Any) {
         holeStatistics.greensInReg = true
         currentScore += 1
         PuttPopUp()
+        uploadToDatabase()
     }
     @IBAction func Fringe(_ sender: Any) {
         holeStatistics.fringes += 1
@@ -233,5 +245,26 @@ class Stats2: UIViewController {
         print("Fairway Bunkers?: \(self.holeStatistics.fairwayBunkers)")
     }
     
+    func uploadToDatabase() {
+        let uid = Auth.auth().currentUser?.uid
+        let userRef = ref.child("Users").child(uid!)
+        userRef.child("Courses").child(courseName).child("Tees").child(tees).child("Holes").child(HoleNumber.text!).setValue(currentScore)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "scorecardSegue" {
+            let scrollView = segue.destination as! ScorecardScroll
+            let scorecard1 = Scorecard()
+            let scorecard2 = Scorecard2()
+            
+            scorecard1.CourseName.text = self.courseName
+            scorecard2.CourseName.text = self.courseName
+            scorecard1.tees = self.tees
+            scorecard2.tees = self.tees
+            
+            scorecard1.restorationIdentifier = "FrontNine"
+            scorecard2.restorationIdentifier = "BackNine"
+        }
+    }
     
 }

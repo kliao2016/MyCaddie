@@ -924,7 +924,7 @@
         <!--Scorecard-->
         <scene sceneID="A63-zy-u84">
             <objects>
-                <viewController storyboardIdentifier="FrontNine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xUr-Ie-Ofa" customClass="Scorecard" customModule="MyCaddie" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FrontNine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xUr-Ie-Ofa" customClass="Scorecard" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LN0-d8-YqZ"/>
                         <viewControllerLayoutGuide type="bottom" id="a63-zc-RHW"/>
@@ -1200,6 +1200,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRK-3A-PFJ">
+                                <rect key="frame" x="160" y="31" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Dismiss">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissScorecard:" destination="xUr-Ie-Ofa" eventType="touchUpInside" id="oFa-7P-7WB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1269,7 +1279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAB-g0-E92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3281" y="752"/>
+            <point key="canvasLocation" x="3476" y="752"/>
         </scene>
         <!--Scorecard Scroll-->
         <scene sceneID="Tsn-T1-YHj">
@@ -1516,11 +1526,12 @@
                         <outlet property="HolePar" destination="TBs-B5-nOg" id="wbA-Pr-Bny"/>
                         <outlet property="HoleYardage" destination="7Zu-jX-xCA" id="0he-2e-E5T"/>
                         <outlet property="ShotNumberText" destination="WEI-Gs-gYD" id="guQ-p1-4DQ"/>
+                        <segue destination="wH0-Ms-kE0" kind="presentation" identifier="scorecardSegue" id="Fq5-mz-vad"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y60-KU-K9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2708" y="1417.2413793103449"/>
+            <point key="canvasLocation" x="2910" y="1583"/>
         </scene>
         <!--Login Menu-->
         <scene sceneID="p47-xg-oAe">
@@ -1971,6 +1982,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtq-Z5-DhO">
+                                <rect key="frame" x="160" y="31" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Dismiss">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissScorecard:" destination="OMi-cU-rKN" eventType="touchUpInside" id="uaK-Tm-v0D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2047,7 +2068,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nKE-uq-Ijo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mom-XX-Ue7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mom-XX-Ue7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2068,8 +2089,9 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yl5-xu-nZ6"/>
         <segue reference="bpj-QW-GpS"/>
+        <segue reference="8C2-ku-y4H"/>
+        <segue reference="Fq5-mz-vad"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

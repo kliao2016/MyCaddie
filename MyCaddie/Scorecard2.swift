@@ -13,6 +13,8 @@ import UIKit
 
 class Scorecard2: UIViewController {
     
+    var tees = ""
+    
     // Overall Database Reference
     var ref = Database.database().reference()
     var databaseHandle: DatabaseHandle?
@@ -59,14 +61,14 @@ class Scorecard2: UIViewController {
         ref = Database.database().reference()
         
         // Par Branch Reference
-        let ParRef = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Pars")
+        let parRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees).child("Pars")
         // Yardage Branch Reference
-        let YardageRef = Database.database().reference().child("Golf Course Data").child("okay").child("Tees").child("Championship").child("Holes")
+        let yardageRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees).child("Holes")
         
         // Slope and Rating Reference and Output
-        let SlopeRef = Database.database().reference().child("Golf Course Data").child("okay").child("Tees").child("Championship")
+        let slopeRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees)
         
-        SlopeRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+        slopeRef.observeSingleEvent(of: .value, with: {DataSnapshot in
             if !DataSnapshot.exists() { return }
             
             let slopeHold = DataSnapshot.childSnapshot(forPath: "Slope").value as! String
@@ -81,29 +83,29 @@ class Scorecard2: UIViewController {
         // Player Name Reference
         
         // Reading Par Data from Course
-        ParRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+        parRef.observeSingleEvent(of: .value, with: {DataSnapshot in
             // Return if no data exists
             if !DataSnapshot.exists() { return }
             
             //
-            let p10 = DataSnapshot.childSnapshot(forPath: "10").value as! String
-            let p11 = DataSnapshot.childSnapshot(forPath: "11").value as! String
-            let p12 = DataSnapshot.childSnapshot(forPath: "12").value as! String
-            let p13 = DataSnapshot.childSnapshot(forPath: "13").value as! String
-            let p14 = DataSnapshot.childSnapshot(forPath: "14").value as! String
-            let p15 = DataSnapshot.childSnapshot(forPath: "15").value as! String
-            let p16 = DataSnapshot.childSnapshot(forPath: "16").value as! String
-            let p17 = DataSnapshot.childSnapshot(forPath: "17").value as! String
-            let p18 = DataSnapshot.childSnapshot(forPath: "18").value as! String
-            self.parData.append(p10)
-            self.parData.append(p11)
-            self.parData.append(p12)
-            self.parData.append(p13)
-            self.parData.append(p14)
-            self.parData.append(p15)
-            self.parData.append(p16)
-            self.parData.append(p17)
-            self.parData.append(p18)
+            let p1 = DataSnapshot.childSnapshot(forPath: "10").value as! String
+            let p2 = DataSnapshot.childSnapshot(forPath: "11").value as! String
+            let p3 = DataSnapshot.childSnapshot(forPath: "12").value as! String
+            let p4 = DataSnapshot.childSnapshot(forPath: "13").value as! String
+            let p5 = DataSnapshot.childSnapshot(forPath: "14").value as! String
+            let p6 = DataSnapshot.childSnapshot(forPath: "15").value as! String
+            let p7 = DataSnapshot.childSnapshot(forPath: "16").value as! String
+            let p8 = DataSnapshot.childSnapshot(forPath: "17").value as! String
+            let p9 = DataSnapshot.childSnapshot(forPath: "18").value as! String
+            self.parData.append(p1)
+            self.parData.append(p2)
+            self.parData.append(p3)
+            self.parData.append(p4)
+            self.parData.append(p5)
+            self.parData.append(p6)
+            self.parData.append(p7)
+            self.parData.append(p8)
+            self.parData.append(p9)
             print(self.parData)
             self.Par10.text = self.parData[0]
             self.Par11.text = self.parData[1]
@@ -118,7 +120,7 @@ class Scorecard2: UIViewController {
         })
         
         // Reading Yardage Data from Course
-        YardageRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+        yardageRef.observeSingleEvent(of: .value, with: {DataSnapshot in
             // Return if no data exists
             if !DataSnapshot.exists() { return }
             
@@ -152,12 +154,16 @@ class Scorecard2: UIViewController {
             self.Yardage17.text = self.yardageData[7]
             self.Yardage18.text = self.yardageData[8]
         })
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func dismissScorecard(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     
