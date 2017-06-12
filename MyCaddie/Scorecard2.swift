@@ -13,6 +13,7 @@ import UIKit
 
 class Scorecard2: UIViewController {
     
+    var parentCourseName = ""
     var tees = ""
     
     // Overall Database Reference
@@ -22,7 +23,7 @@ class Scorecard2: UIViewController {
     // Yardage and Par Arrays
     var yardageData = [String]()
     var parData = [String]()
-    var scoreData = [String]()
+    var scoreData = ["","","","","","","","","","","","","","","","","",""]
     
     // Label References
     
@@ -69,17 +70,21 @@ class Scorecard2: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.CourseName.text = self.parentCourseName
+        
         // Set Firebase Database
         ref = Database.database().reference()
+        let uid = Auth.auth().currentUser?.uid
+        let userRef = ref.child("Users").child(uid!)
         
         // Par Branch Reference
-        let parRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees).child("Pars")
+        let parRef = ref.child("Golf Course Data").child(parentCourseName).child("Tees").child(tees).child("Pars")
         // Yardage Branch Reference
-        let yardageRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees).child("Holes")
-        let scoreRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees).child("Scores")
+        let yardageRef = ref.child("Golf Course Data").child(parentCourseName).child("Tees").child(tees).child("Holes")
+        let scoreRef = ref.child("Golf Course Data").child(parentCourseName).child("Tees").child(tees).child("Scores")
         
         // Slope and Rating Reference and Output
-        let slopeRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees)
+        let slopeRef = userRef.child("Courses").child(parentCourseName).child("Tees").child(tees)
         
         slopeRef.observeSingleEvent(of: .value, with: {DataSnapshot in
             if !DataSnapshot.exists() { return }
@@ -174,52 +179,53 @@ class Scorecard2: UIViewController {
             
             //
             if DataSnapshot.hasChild("10") {
-                let s10 = DataSnapshot.childSnapshot(forPath: "10").value as! String
-                self.scoreData.append(s10)
+                let s1 = DataSnapshot.childSnapshot(forPath: "10").value as! String
+                self.scoreData[0] = s1
                 self.Score10.text = self.scoreData[0]
             }
             if DataSnapshot.hasChild("11") {
-                let s11 = DataSnapshot.childSnapshot(forPath: "11").value as! String
-                self.scoreData.append(s11)
+                let s2 = DataSnapshot.childSnapshot(forPath: "11").value as! String
+                self.scoreData[1] = s2
                 self.Score11.text = self.scoreData[1]
             }
             
             if DataSnapshot.hasChild("12") {
-                let s12 = DataSnapshot.childSnapshot(forPath: "12").value as! String
-                self.scoreData.append(s12)
+                let s3 = DataSnapshot.childSnapshot(forPath: "12").value as! String
+                self.scoreData[2] = s3
                 self.Score12.text = self.scoreData[2]
             }
             if DataSnapshot.hasChild("13") {
-                let s13 = DataSnapshot.childSnapshot(forPath: "13").value as! String
-                self.scoreData.append(s13)
+                let s4 = DataSnapshot.childSnapshot(forPath: "13").value as! String
+                self.scoreData[3] = s4
                 self.Score13.text = self.scoreData[3]
             }
             if DataSnapshot.hasChild("14") {
-                let s14 = DataSnapshot.childSnapshot(forPath: "14").value as! String
-                self.scoreData.append(s14)
+                let s5 = DataSnapshot.childSnapshot(forPath: "14").value as! String
+                self.scoreData[4] = s5
                 self.Score14.text = self.scoreData[4]
             }
             if DataSnapshot.hasChild("15") {
-                let s15 = DataSnapshot.childSnapshot(forPath: "15").value as! String
-                self.scoreData.append(s15)
+                let s6 = DataSnapshot.childSnapshot(forPath: "15").value as! String
+                self.scoreData[5] = s6
                 self.Score15.text = self.scoreData[5]
             }
             if DataSnapshot.hasChild("16") {
-                let s16 = DataSnapshot.childSnapshot(forPath: "16").value as! String
-                self.scoreData.append(s16)
+                let s7 = DataSnapshot.childSnapshot(forPath: "16").value as! String
+                self.scoreData[6] = s7
                 self.Score16.text = self.scoreData[6]
             }
             if DataSnapshot.hasChild("17") {
-                let s17 = DataSnapshot.childSnapshot(forPath: "17").value as! String
-                self.scoreData.append(s17)
+                let s8 = DataSnapshot.childSnapshot(forPath: "17").value as! String
+                self.scoreData[7] = s8
                 self.Score17.text = self.scoreData[7]
             }
             if DataSnapshot.hasChild("18") {
-                let s18 = DataSnapshot.childSnapshot(forPath: "18").value as! String
-                self.scoreData.append(s18)
+                let s9 = DataSnapshot.childSnapshot(forPath: "18").value as! String
+                self.scoreData[8] = s9
                 self.Score18.text = self.scoreData[8]
             }
         })
+
     }
     
     override func didReceiveMemoryWarning() {

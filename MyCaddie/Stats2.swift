@@ -274,16 +274,11 @@ class Stats2: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "scorecardSegue" {
             let scrollView = segue.destination as! ScorecardScroll
-            let scorecard1 = Scorecard()
-            let scorecard2 = Scorecard2()
             
-            scorecard1.CourseName.text = self.courseName
-            scorecard2.CourseName.text = self.courseName
-            scorecard1.tees = self.tees
-            scorecard2.tees = self.tees
-            
-            scorecard1.restorationIdentifier = "FrontNine"
-            scorecard2.restorationIdentifier = "BackNine"
+            scrollView.scorecard1.parentCourseName = self.courseName
+            scrollView.scorecard2.parentCourseName = self.courseName
+            scrollView.scorecard1.tees = self.tees
+            scrollView.scorecard2.tees = self.tees
         }
     }
   
