@@ -246,9 +246,11 @@ class Stats2: UIViewController {
     }
     
     func uploadToDatabase() {
-        let uid = Auth.auth().currentUser?.uid
-        let userRef = ref.child("Users").child(uid!)
-        userRef.child("Courses").child(courseName).child("Tees").child(tees).child("Holes").child(HoleNumber.text!).setValue(currentScore)
+        if Auth.auth().currentUser != nil {
+            let uid = Auth.auth().currentUser?.uid
+            let userRef = ref.child("Users").child(uid!)
+            userRef.child("Courses").child(courseName).child("Tees").child(tees).child("Holes").child(HoleNumber.text!).setValue(currentScore)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
