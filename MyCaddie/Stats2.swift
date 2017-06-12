@@ -53,27 +53,31 @@ class Stats2: UIViewController {
         Actual.text = "Shots hit: 0"
         HoleNumber.text = "1"
         
-        let YardageRef = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Holes")
-        let ParRef = Database.database().reference().child("Golf Course Data").child("www").child("Tees").child("Championship").child("Pars")
+        let yardageRef = ref.child("Golf Course Data").child(courseName).child("Tees").child(tees).child("Holes")
+        let parRef = ref.child("Golf Course Data").child(courseName).child("Tees").child(tees).child("Pars")
         
-        for i in 1 ..< 19 {
-            YardageRef.observeSingleEvent(of: .value, with: {DataSnapshot in
-                // Return if no data exists
-                if !DataSnapshot.exists() { return }
-                let currentYardage = DataSnapshot.childSnapshot(forPath: "\(i)").value as! String
-                self.yardagesOfCourse.append(currentYardage)
-                self.HoleYardage.text = currentYardage
-            })
+        if yardageRef != nil {
+            for i in 1 ..< 19 {
+                yardageRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+                    // Return if no data exists
+                    if !DataSnapshot.exists() { return }
+                    let currentYardage = DataSnapshot.childSnapshot(forPath: "\(i)").value as! String
+                    self.yardagesOfCourse.append(currentYardage)
+                    self.HoleYardage.text = currentYardage
+                })
+            }
         }
         
-        for j in 1 ..< 19 {
-            ParRef.observeSingleEvent(of: .value, with: {DataSnapshot in
-                // Return if no data exists
-                if !DataSnapshot.exists() { return }
-                let currentPar = DataSnapshot.childSnapshot(forPath: "\(j)").value as! String
-                self.HolePar.text = currentPar
-                self.parsOfCourse.append(currentPar)
-            })
+        if parRef != nil {
+            for j in 1 ..< 19 {
+                parRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+                    // Return if no data exists
+                    if !DataSnapshot.exists() { return }
+                    let currentPar = DataSnapshot.childSnapshot(forPath: "\(j)").value as! String
+                    self.HolePar.text = currentPar
+                    self.parsOfCourse.append(currentPar)
+                })
+            }
         }
         
         // Navigation Bar
@@ -249,7 +253,7 @@ class Stats2: UIViewController {
         if Auth.auth().currentUser != nil {
             let uid = Auth.auth().currentUser?.uid
             let userRef = ref.child("Users").child(uid!)
-            userRef.child("Courses").child(courseName).child("Tees").child(tees).child("Holes").child(HoleNumber.text!).setValue(currentScore)
+            userRef.child("Courses").child(courseName).child("Tees").child(tees).child("Scores").child(HoleNumber.text!).setValue(currentScore)
         }
     }
     
