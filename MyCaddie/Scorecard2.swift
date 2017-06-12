@@ -22,6 +22,7 @@ class Scorecard2: UIViewController {
     // Yardage and Par Arrays
     var yardageData = [String]()
     var parData = [String]()
+    var scoreData = [String]()
     
     // Label References
     
@@ -53,6 +54,17 @@ class Scorecard2: UIViewController {
     @IBOutlet weak var Yardage17: UILabel!
     @IBOutlet weak var Yardage18: UILabel!
     
+    // Scores
+    @IBOutlet weak var Score10: UILabel!
+    @IBOutlet weak var Score11: UILabel!
+    @IBOutlet weak var Score12: UILabel!
+    @IBOutlet weak var Score13: UILabel!
+    @IBOutlet weak var Score14: UILabel!
+    @IBOutlet weak var Score15: UILabel!
+    @IBOutlet weak var Score16: UILabel!
+    @IBOutlet weak var Score17: UILabel!
+    @IBOutlet weak var Score18: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -64,6 +76,7 @@ class Scorecard2: UIViewController {
         let parRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees).child("Pars")
         // Yardage Branch Reference
         let yardageRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees).child("Holes")
+        let scoreRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees).child("Scores")
         
         // Slope and Rating Reference and Output
         let slopeRef = ref.child("Golf Course Data").child(CourseName.text!).child("Tees").child(tees)
@@ -153,6 +166,59 @@ class Scorecard2: UIViewController {
             self.Yardage16.text = self.yardageData[6]
             self.Yardage17.text = self.yardageData[7]
             self.Yardage18.text = self.yardageData[8]
+        })
+      
+        scoreRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+            // Return if no data exists
+            if !DataSnapshot.exists() { return }
+            
+            //
+            if DataSnapshot.hasChild("10") {
+                let s10 = DataSnapshot.childSnapshot(forPath: "10").value as! String
+                self.scoreData.append(s10)
+                self.Score10.text = self.scoreData[0]
+            }
+            if DataSnapshot.hasChild("11") {
+                let s11 = DataSnapshot.childSnapshot(forPath: "11").value as! String
+                self.scoreData.append(s11)
+                self.Score11.text = self.scoreData[1]
+            }
+            
+            if DataSnapshot.hasChild("12") {
+                let s12 = DataSnapshot.childSnapshot(forPath: "12").value as! String
+                self.scoreData.append(s12)
+                self.Score12.text = self.scoreData[2]
+            }
+            if DataSnapshot.hasChild("13") {
+                let s13 = DataSnapshot.childSnapshot(forPath: "13").value as! String
+                self.scoreData.append(s13)
+                self.Score13.text = self.scoreData[3]
+            }
+            if DataSnapshot.hasChild("14") {
+                let s14 = DataSnapshot.childSnapshot(forPath: "14").value as! String
+                self.scoreData.append(s14)
+                self.Score14.text = self.scoreData[4]
+            }
+            if DataSnapshot.hasChild("15") {
+                let s15 = DataSnapshot.childSnapshot(forPath: "15").value as! String
+                self.scoreData.append(s15)
+                self.Score15.text = self.scoreData[5]
+            }
+            if DataSnapshot.hasChild("16") {
+                let s16 = DataSnapshot.childSnapshot(forPath: "16").value as! String
+                self.scoreData.append(s16)
+                self.Score16.text = self.scoreData[6]
+            }
+            if DataSnapshot.hasChild("17") {
+                let s17 = DataSnapshot.childSnapshot(forPath: "17").value as! String
+                self.scoreData.append(s17)
+                self.Score17.text = self.scoreData[7]
+            }
+            if DataSnapshot.hasChild("18") {
+                let s18 = DataSnapshot.childSnapshot(forPath: "18").value as! String
+                self.scoreData.append(s18)
+                self.Score18.text = self.scoreData[8]
+            }
         })
     }
     
