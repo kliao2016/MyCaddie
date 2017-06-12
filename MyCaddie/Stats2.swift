@@ -24,6 +24,7 @@ class Stats2: UIViewController {
     var holeStatistics = HoleStats()
     
     var shotCount = String()
+    var counter = 0
     
     var holeScores = [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]
     var parsOfCourse = [String]()
@@ -233,7 +234,8 @@ class Stats2: UIViewController {
     
     func updateHoleData(){
         holeStatData.append(holeStatistics)
-        currentCourseUpload()
+        currentCourseUpload(counter: counter)
+        counter += 1
         
          
         for i in 0 ..< holeStatData.count {
@@ -268,19 +270,18 @@ class Stats2: UIViewController {
         }
     }
     
-    func currentCourseUpload(){
+    func currentCourseUpload(counter: Int){
         
         // Par Branch Reference
         let uid = Auth.auth().currentUser?.uid
         let userReference = Database.database().reference().child("Users").child(uid!)
         //let greenBunkerData = [String: AnyObject] =
-        userReference.child("GreensideBunkers").setValue(holeStatData[0].greenBunkers)
+        userReference.child("GreensideBunkers").setValue(holeStatData[counter].greenBunkers)
         //userReference.child("CurrentRound").setValue
         /*
          let parData : [String: AnyObject] = ["1": pars[0] as AnyObject, "2": pars[1] as AnyObject, "3": pars[2] as AnyObject, "4": pars[3] as AnyObject,"5": pars[4] as AnyObject, "6": pars[5] as AnyObject, "7": pars[6] as AnyObject, "8": pars[7] as AnyObject,"9": pars[8] as AnyObject, "10": pars[9] as AnyObject, "11": pars[10] as AnyObject, "12": pars[11] as AnyObject,"13": pars[12] as AnyObject, "14": pars[13] as AnyObject, "15": pars[14] as AnyObject, "16": pars[15] as AnyObject, "17": pars[16] as AnyObject, "18": pars[17] as AnyObject]
          
-         // Par Upload
-         userReference.child("Courses").child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
+         // Par Upload    userReference.child("Courses").child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
          */
     }
     
