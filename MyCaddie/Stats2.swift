@@ -16,7 +16,6 @@ class Stats2: UIViewController {
     var tees = ""
     
     var ref = Database.database().reference()
-    var databaseHandle: DatabaseHandle?
     
     var holeStatData = [HoleStats]()
     // Initial Object
@@ -56,32 +55,30 @@ class Stats2: UIViewController {
         let yardageRef = ref.child("Golf Course Data").child(courseName).child("Tees").child(tees).child("Holes")
         let parRef = ref.child("Golf Course Data").child(courseName).child("Tees").child(tees).child("Pars")
         
-        if yardageRef != nil {
-            for i in 1 ..< 19 {
-                yardageRef.observeSingleEvent(of: .value, with: {DataSnapshot in
-                    // Return if no data exists
-                    if !DataSnapshot.exists() { return }
-                    let currentYardage = DataSnapshot.childSnapshot(forPath: "\(i)").value as! String
-                    self.yardagesOfCourse.append(currentYardage)
-                    self.HoleYardage.text = currentYardage
-                })
-            }
+        for i in 1 ..< 19 {
+            yardageRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+                // Return if no data exists
+                if !DataSnapshot.exists() { return }
+                let currentYardage = DataSnapshot.childSnapshot(forPath: "\(i)").value as! String
+                self.yardagesOfCourse.append(currentYardage)
+                self.HoleYardage.text = currentYardage
+            })
         }
         
-        if parRef != nil {
-            for j in 1 ..< 19 {
-                parRef.observeSingleEvent(of: .value, with: {DataSnapshot in
-                    // Return if no data exists
-                    if !DataSnapshot.exists() { return }
-                    let currentPar = DataSnapshot.childSnapshot(forPath: "\(j)").value as! String
-                    self.HolePar.text = currentPar
-                    self.parsOfCourse.append(currentPar)
-                })
-            }
+        for j in 1 ..< 19 {
+            parRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+                // Return if no data exists
+                if !DataSnapshot.exists() { return }
+                let currentPar = DataSnapshot.childSnapshot(forPath: "\(j)").value as! String
+                self.HolePar.text = currentPar
+                self.parsOfCourse.append(currentPar)
+            })
         }
         
         // Navigation Bar
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View Scorecard", style: .plain, target: self, action: #selector(displayScorecard))
+        
+        self.navigationItem.leftBarButtonItem?.action = #selector(checkIfUserWantsToCancelRound)
     }
     
     func PuttPopUp() {
@@ -103,6 +100,23 @@ class Stats2: UIViewController {
             self.testPrint()
         }))
 
+        self.present(popUp, animated: true, completion: nil)
+    }
+    
+    func checkIfUserWantsToCancelRound() {
+        let popUp = UIAlertController(title: "Are you sure you want to go back? Going back will delete your data for this current round.", message: nil, preferredStyle: .alert)
+        
+        popUp.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [popUp] (_) in
+            let uid = Auth.auth().currentUser?.uid
+            let userRef = self.ref.child("Users").child(uid!)
+            let scoreRef = userRef.child("Courses").child(self.courseName).child("Tees").child(self.tees).child("Scores")
+            scoreRef.removeValue()
+        }))
+        
+        popUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [popUp] (_) in
+            popUp.dismiss(animated: true, completion: nil)
+        }))
+        
         self.present(popUp, animated: true, completion: nil)
     }
     
