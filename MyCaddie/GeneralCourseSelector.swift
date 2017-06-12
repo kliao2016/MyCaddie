@@ -15,11 +15,10 @@ class GeneralCourseSelector: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var courseTable: UITableView!
     
-    var courses = [Course]()
+    var courses = [String]()
     
     // Reference to database
     var databaseRef: DatabaseReference?
-    var databaseHandle: DatabaseHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,18 +29,6 @@ class GeneralCourseSelector: UIViewController, UITableViewDelegate, UITableViewD
         
         // Set Firebase Database
         databaseRef = Database.database().reference()
-        
-//        // Retrieve data and listen for changes
-//        databaseHandle = databaseRef?.child("Golf Course Data").observe(.childAdded, with: { (snapshot) in
-//            
-//            // Code that executes when a child is added under Users
-//            let courseCheck = snapshot.key
-//            self.tableData.append(courseCheck)
-//            
-//            // Reload tableview
-//            self.courseTable.reloadData()
-//            
-//        })
         
         fetchCourses()
 
@@ -58,11 +45,9 @@ class GeneralCourseSelector: UIViewController, UITableViewDelegate, UITableViewD
     
     func fetchCourses() {
         databaseRef?.child("Golf Course Data").observe(.childAdded, with: { (snapshot) in
-            let course = Course()
             let courseName = snapshot.key
-            course.setName(name: courseName)
             
-            self.courses.append(course)
+            self.courses.append(courseName)
             
             self.courseTable.reloadData()
             
@@ -76,20 +61,23 @@ class GeneralCourseSelector: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = courseTable.dequeueReusableCell(withIdentifier: "CourseCell")
-        cell?.textLabel?.text = courses[indexPath.row].getName()
-        cell?.detailTextLabel?.text = "Tees: "
+        cell?.textLabel?.text = courses[indexPath.row]
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "statsSegue", sender: courses[indexPath.row])
+        self.performSegue(withIdentifier: "teeSegue", sender: courses[indexPath.row])
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == "generalCourseSegue") {
-//            // Enable navigation bar
-//            navigationController?.setNavigationBarHidden(navigationController?.isNavigationBarHidden == false, animated: true)
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "teeSegue") {
+            
+            let teeTableView = segue.destination as! GeneralTeeSelector
+            
+            let indexPath = self.courseTable.indexPathForSelectedRow
+            
+            teeTableView.teeParentCourseName = courses[(indexPath?.row)!]
+        }
+    }
     
 }
