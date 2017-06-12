@@ -1,15 +1,19 @@
 //
-//  HoleStats.swift
+//  Round.swift
 //  MyCaddie
 //
-//  Created by Weston Mauz on 6/8/17.
+//  Created by Weston Mauz on 6/12/17.
 //  Copyright © 2017 Liao & Mauz. All rights reserved.
 //
 
 import Foundation
 
-class HoleStats: NSObject {
+class CourseRound: NSObject {
     
+    var holeStats = HoleStats()
+    
+    var courseName = ""
+    var tees = ""
     var greenBunkers = 0
     var fairwayBunkers = 0
     var hazards = 0
@@ -19,6 +23,5 @@ class HoleStats: NSObject {
     var fringes = 0
     var fairways = false
     var greensInReg = false
-    var putt = 0
     
 }
