@@ -20,5 +20,6 @@ class HoleStats: NSObject {
     var fairways = false
     var greensInReg = false
     var putt = 0
+    var score = 0
     
 }
