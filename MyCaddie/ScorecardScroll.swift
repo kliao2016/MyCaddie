@@ -13,8 +13,11 @@ import UIKit
 
 class ScorecardScroll: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
+    var scorecard1 = Scorecard()
+    var scorecard2 = Scorecard2()
+    
     lazy var VCArray: [UIViewController] = {
-        return [self.VCInstance(name: "FrontNine"), self.VCInstance(name: "BackNine")]
+        return [self.scorecard1, self.scorecard2]
     }()
     
     private func VCInstance(name: String) -> UIViewController {
