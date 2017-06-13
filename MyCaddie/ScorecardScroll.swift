@@ -20,9 +20,9 @@ class ScorecardScroll: UIPageViewController, UIPageViewControllerDataSource, UIP
         return [self.scorecard1, self.scorecard2]
     }()
     
-//    private func VCInstance(name: String) -> UIViewController {
-//        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name)
-//    }
+    private func VCInstance(name: String) -> UIViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -275,10 +275,15 @@ class Stats2: UIViewController {
         if segue.identifier == "scorecardSegue" {
             let scrollView = segue.destination as! ScorecardScroll
             
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            scrollView.scorecard1 = storyboard.instantiateViewController(withIdentifier: "FrontNine") as! Scorecard
+            scrollView.scorecard2 = storyboard.instantiateViewController(withIdentifier: "BackNine") as! Scorecard2
             scrollView.scorecard1.parentCourseName = self.courseName
             scrollView.scorecard2.parentCourseName = self.courseName
             scrollView.scorecard1.tees = self.tees
             scrollView.scorecard2.tees = self.tees
+            
         }
     }
   
