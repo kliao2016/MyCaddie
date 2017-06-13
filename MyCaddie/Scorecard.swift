@@ -185,7 +185,7 @@ class Scorecard: UIViewController {
                     self.Score1.text = "\(s1)"
                 }
             } else {
-                self.Score1.text = ""
+                self.Score1.text = " "
             }
             
             if DataSnapshot.hasChild("2") {
@@ -193,7 +193,7 @@ class Scorecard: UIViewController {
                     self.Score2.text = "\(s2)"
                 }
             } else {
-                self.Score2.text = ""
+                self.Score2.text = " "
             }
             
             if DataSnapshot.hasChild("3") {
@@ -201,7 +201,7 @@ class Scorecard: UIViewController {
                     self.Score3.text = "\(s3)"
                 }
             } else {
-                self.Score3.text = ""
+                self.Score3.text = " "
             }
             
             if DataSnapshot.hasChild("4") {
@@ -209,7 +209,7 @@ class Scorecard: UIViewController {
                     self.Score4.text = "\(s4)"
                 }
             } else {
-                self.Score4.text = ""
+                self.Score4.text = " "
             }
             
             if DataSnapshot.hasChild("5") {
@@ -217,7 +217,7 @@ class Scorecard: UIViewController {
                     self.Score5.text = "\(s5)"
                 }
             } else {
-                self.Score5.text = ""
+                self.Score5.text = " "
             }
             
             if DataSnapshot.hasChild("6") {
@@ -225,7 +225,7 @@ class Scorecard: UIViewController {
                     self.Score6.text = "\(s6)"
                 }
             } else {
-                self.Score6.text = ""
+                self.Score6.text = " "
             }
             
             if DataSnapshot.hasChild("7") {
@@ -233,7 +233,7 @@ class Scorecard: UIViewController {
                     self.Score7.text = "\(s7)"
                 }
             } else {
-                self.Score7.text = ""
+                self.Score7.text = " "
             }
             
             if DataSnapshot.hasChild("8") {
@@ -241,7 +241,7 @@ class Scorecard: UIViewController {
                     self.Score8.text = "\(s8)"
                 }
             } else {
-                self.Score8.text = ""
+                self.Score8.text = " "
             }
             
             if DataSnapshot.hasChild("9") {
@@ -249,7 +249,7 @@ class Scorecard: UIViewController {
                     self.Score9.text = "\(s9)"
                 }
             } else {
-                self.Score9.text = ""
+                self.Score9.text = " "
             }
         })
         
