@@ -86,7 +86,7 @@ class Stats2: UIViewController {
         self.navigationItem.leftBarButtonItem?.action = #selector(checkIfUserWantsToCancelRound)
     }
     
-    func PuttPopUp() {
+    func puttPopUp() {
         let popUp = UIAlertController(title: "How many putts did you have?", message: nil, preferredStyle: .alert)
         popUp.addTextField { (textField) in
             textField.text = nil
@@ -137,7 +137,7 @@ class Stats2: UIViewController {
         }
         currentScore += 1
         updateUI()
-        PuttPopUp()
+        puttPopUp()
         uploadToDatabase()
         if currentHole == 2 {
             endRound()

@@ -23,7 +23,6 @@ class Scorecard2: UIViewController {
     // Yardage and Par Arrays
     var yardageData = [String]()
     var parData = [String]()
-    var scoreData = ["","","","","","","","","","","","","","","","","",""]
     
     // Label References
     
@@ -180,65 +179,74 @@ class Scorecard2: UIViewController {
             //
             if DataSnapshot.hasChild("10") {
                 if let s10 = DataSnapshot.childSnapshot(forPath: "10").value as? NSNumber {
-                    self.scoreData[0] = "\(s10)"
-                    self.Score10.text = self.scoreData[0]
+                    self.Score10.text = "\(s10)"
                 }
+            } else {
+                self.Score10.text = ""
             }
             
             if DataSnapshot.hasChild("11") {
                 if let s11 = DataSnapshot.childSnapshot(forPath: "11").value as? NSNumber {
-                    self.scoreData[0] = "\(s11)"
-                    self.Score11.text = self.scoreData[1]
+                    self.Score11.text = "\(s11)"
                 }
+            } else {
+                self.Score11.text = ""
             }
             
             if DataSnapshot.hasChild("12") {
                 if let s12 = DataSnapshot.childSnapshot(forPath: "12").value as? NSNumber {
-                    self.scoreData[0] = "\(s12)"
-                    self.Score12.text = self.scoreData[2]
+                    self.Score12.text = "\(s12)"
                 }
+            } else {
+                self.Score12.text = ""
             }
             
             if DataSnapshot.hasChild("13") {
                 if let s13 = DataSnapshot.childSnapshot(forPath: "13").value as? NSNumber {
-                    self.scoreData[0] = "\(s13)"
-                    self.Score13.text = self.scoreData[3]
+                    self.Score13.text = "\(s13)"
                 }
+            } else {
+                self.Score13.text = ""
             }
             
             if DataSnapshot.hasChild("14") {
                 if let s14 = DataSnapshot.childSnapshot(forPath: "14").value as? NSNumber {
-                    self.scoreData[0] = "\(s14)"
-                    self.Score14.text = self.scoreData[4]
+                    self.Score14.text = "\(s14)"
                 }
+            } else {
+                self.Score14.text = ""
             }
             
             if DataSnapshot.hasChild("15") {
                 if let s15 = DataSnapshot.childSnapshot(forPath: "15").value as? NSNumber {
-                    self.scoreData[0] = "\(s15)"
-                    self.Score15.text = self.scoreData[5]
+                    self.Score15.text = "\(s15)"
                 }
+            } else {
+                self.Score15.text = ""
             }
             
             if DataSnapshot.hasChild("16") {
                 if let s16 = DataSnapshot.childSnapshot(forPath: "16").value as? NSNumber {
-                    self.scoreData[0] = "\(s16)"
-                    self.Score16.text = self.scoreData[6]
+                    self.Score16.text = "\(s16)"
                 }
+            } else {
+                self.Score16.text = ""
             }
             
             if DataSnapshot.hasChild("17") {
                 if let s17 = DataSnapshot.childSnapshot(forPath: "17").value as? NSNumber {
-                    self.scoreData[0] = "\(s17)"
-                    self.Score17.text = self.scoreData[7]
+                    self.Score17.text = "\(s17)"
                 }
+            } else {
+                self.Score17.text = ""
             }
             
             if DataSnapshot.hasChild("18") {
                 if let s18 = DataSnapshot.childSnapshot(forPath: "18").value as? NSNumber {
-                    self.scoreData[0] = "\(s18)"
-                    self.Score18.text = self.scoreData[8]
+                    self.Score18.text = "\(s18)"
                 }
+            } else {
+                self.Score18.text = ""
             }
         })
 
