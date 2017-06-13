@@ -401,9 +401,9 @@ class Stats2: UIViewController {
                 }
             }
             print(totalFairwayBunkers)
+            let courseReference = Database.database().reference().child("Golf Course Data").child(self.courseName)
+            courseReference.child("Round 1").child("Fairwayyyy Bunkers").setValue(totalFairwayBunkers)
         })
         
-//        let courseReference = Database.database().reference().child("Golf Course Data").child(courseName)
-//        courseReference.child("Round 1").child("Fairwayyyy Bunkers").setValue(totalFairwayBunkers)
     }
 }
