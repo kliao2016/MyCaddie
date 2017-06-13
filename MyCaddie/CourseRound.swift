@@ -22,6 +22,5 @@ class CourseRound: NSObject {
     var lefts = false
     var fringes = 0
     var fairways = false
-    var greensInReg = false
-    
+    var greensInReg = false    
 }
