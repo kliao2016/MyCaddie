@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f3Z-37-xw4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f3Z-37-xw4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1303,6 +1303,9 @@
                     </view>
                     <connections>
                         <outlet property="CourseName" destination="znF-aO-bq1" id="jY3-Ms-sDe"/>
+                        <outlet property="Front9Pars" destination="C8r-L8-TTw" id="mFo-s5-gAu"/>
+                        <outlet property="Front9Score" destination="NS5-mM-jEF" id="LaW-8V-cq0"/>
+                        <outlet property="Front9Yards" destination="aco-JF-1Dc" id="jfE-D1-HNB"/>
                         <outlet property="Par1" destination="SeI-Na-1Wx" id="piG-yC-ngH"/>
                         <outlet property="Par2" destination="XZw-Xj-r6h" id="tvz-bN-c2A"/>
                         <outlet property="Par3" destination="ajw-zP-PJK" id="BbN-V7-Ten"/>
@@ -2183,7 +2186,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nKE-uq-Ijo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mom-XX-Ue7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mom-XX-Ue7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
