@@ -244,9 +244,7 @@ class Stats2: UIViewController {
             self.HolePar.text = parsOfCourse[currentHole]
             self.HoleYardage.text = yardagesOfCourse[currentHole]
         } else if currentHole == 18 {
-            self.HoleNumber.text = "Done"
-            self.HolePar.text = "0"
-            self.HoleYardage.text = "0"
+            return
         }
     }
     
