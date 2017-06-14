@@ -30,7 +30,7 @@ class Scorecard2: UIViewController {
     @IBOutlet weak var CourseName: UILabel!
     @IBOutlet weak var Slope: UILabel!
     @IBOutlet weak var Rating: UILabel!
-    @IBOutlet weak var PlayerName: UILabel!
+    @IBOutlet weak var Back9Score: UILabel!
     
     // Pars
     @IBOutlet weak var Par10: UILabel!
@@ -197,7 +197,7 @@ class Scorecard2: UIViewController {
             }
             self.Back9Yards.text = "\(totalYards)"
         })
-      
+        
         scoreRef.observeSingleEvent(of: .value, with: {DataSnapshot in
             // Return if no data exists
             if !DataSnapshot.exists() { return }
@@ -275,6 +275,23 @@ class Scorecard2: UIViewController {
                 self.Score18.text = " "
             }
         })
+        
+        // Dynamic Score
+        var dynamicScore = 0
+        
+        //          Dynamic Score Allocation
+        let userRoundRef = ref.child("Users").child(uid!).child("Current Round")
+        userRoundRef.observe(.childAdded, with: { (snapshot) in
+            for child in snapshot.children {
+                let tag = child as! DataSnapshot
+                if tag.key == "Score" {
+                    dynamicScore += tag.value as! Int
+                }
+            }
+            print(dynamicScore)
+            self.Back9Score.text = "\(dynamicScore)"
+        })
+        
 
     }
     

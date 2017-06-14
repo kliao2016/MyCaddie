@@ -282,8 +282,8 @@ class Scorecard: UIViewController {
         
         // Dynamic Score
         var dynamicScore = 0
-        
-//          Dynamic Score Allocation
+      
+        // Dynamic Score Allocation
         let userRoundRef = ref.child("Users").child(uid!).child("Current Round")
         userRoundRef.observe(.childAdded, with: { (snapshot) in
             for child in snapshot.children {
@@ -295,19 +295,6 @@ class Scorecard: UIViewController {
             print(dynamicScore)
             self.Front9Score.text = "\(dynamicScore)"
         })
-        /*
-        let CourseDataRef = ref.child("Golf Course Data").child(parentCourseName).child("Tees").child(tees).child("Holes")
-        userRoundRef.observe(.childAdded, with: { (snapshot) in
-            for child in snapshot.children {
-                let tag = child as! DataSnapshot
-                if tag.key == "Score" {
-                    dynamicScore += tag.value as! Int
-                }
-            }
-            print(dynamicScore)
-            self.Front9Score.text = "\(dynamicScore)"
-        })
- */
         
     }
     

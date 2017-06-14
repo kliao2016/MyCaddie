@@ -110,8 +110,6 @@ class Stats2: UIViewController {
         popUp.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [popUp] (_) in
             let uid = Auth.auth().currentUser?.uid
             let userRef = self.ref.child("Users").child(uid!)
-            let scoreRef = userRef.child("Courses").child(self.courseName).child("Tees").child(self.tees).child("Scores")
-            scoreRef.removeValue()
         }))
         
         popUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [popUp] (_) in
@@ -133,7 +131,9 @@ class Stats2: UIViewController {
         currentScore += 1
         updateUI()
         puttPopUp()
-        uploadToDatabase()
+        if parsOfCourse.count == 18 {
+            endRound()
+        }
     }
     @IBAction func Fringe(_ sender: Any) {
         holeStatistics.fringes += 1
@@ -231,16 +231,20 @@ class Stats2: UIViewController {
     func updateUI(){
         Actual.text = "Shots Hit: \(currentScore)"
         ShotNumberText.text = "Where was your \(shotCount) shot?"
-        HoleNumber.text = "\(currentHole + 1)"
-        self.HolePar.text = parsOfCourse[currentHole]
-        self.HoleYardage.text = yardagesOfCourse[currentHole]
+        if currentHole < 18 {
+            HoleNumber.text = "\(currentHole + 1)"
+            self.HolePar.text = parsOfCourse[currentHole]
+            self.HoleYardage.text = yardagesOfCourse[currentHole]
+        }
     }
     
     func updateScore(){
-        holeScores[currentHole] = currentScore + putts
-        holeStatistics.score = currentScore + putts
-        print(holeScores)
-        currentHole += 1
+        if currentHole < 18 {
+            holeScores[currentHole] = currentScore + putts
+            holeStatistics.score = currentScore + putts
+            print(holeScores)
+            currentHole += 1
+        }
         currentScore = 0
         updateShotText()
         updateUI()
@@ -249,18 +253,6 @@ class Stats2: UIViewController {
     func resetHoleStats(){
         holeStatistics = HoleStats()
         putts = 0
-    }
-    
-
-    func uploadToDatabase() {
-        if Auth.auth().currentUser != nil {
-            let uid = Auth.auth().currentUser?.uid
-            let userRef = ref.child("Users").child(uid!)
-            userRef.child("Courses").child(courseName).child("Tees").child(tees).child("Scores").child(HoleNumber.text!).setValue(currentScore)
-        }
-        if currentHole == 2 {
-            endRound()
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
