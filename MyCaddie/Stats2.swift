@@ -242,7 +242,7 @@ class Stats2: UIViewController {
         if currentHole < 18 {
             holeScores[currentHole] = currentScore + putts
             holeStatistics.score = currentScore + putts
-            print(holeScores)
+            //print(holeScores)
             currentHole += 1
         }
         currentScore = 0
