@@ -96,14 +96,9 @@ class Stats2: UIViewController {
             let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
             self.putts = Int(textField.text!)!
             self.updateScore()
-            //print("Fairway?: \(self.holeStatistics.fairways)")
-            //print("Greens in Reg?: \(self.holeStatistics.greensInReg)")
-            //print("Green Bunkers?: \(self.holeStatistics.greenBunkers)")
-            //print("Fairway Bunkers?: \(self.holeStatistics.fairwayBunkers)")
             self.holeStatistics.putt = self.putts
             self.updateHoleData()
             self.resetHoleStats()
-            //self.testPrint()
         }))
 
         self.present(popUp, animated: true, completion: nil)
@@ -133,15 +128,12 @@ class Stats2: UIViewController {
     // Buttons
     @IBAction func Green(_ sender: Any) {
         if currentScore < (Int(parsOfCourse[currentHole])! - 2){
-            holeStatistics.greensInReg = true
+            holeStatistics.greensInReg = 1
         }
         currentScore += 1
         updateUI()
         puttPopUp()
         uploadToDatabase()
-        if currentHole == 2 {
-            endRound()
-        }
     }
     @IBAction func Fringe(_ sender: Any) {
         holeStatistics.fringes += 1
@@ -163,7 +155,7 @@ class Stats2: UIViewController {
     }
     @IBAction func Fairway(_ sender: Any) {
         if currentScore == 0 {
-            holeStatistics.fairways = true
+            holeStatistics.fairways = 1
         }
         currentScore += 1
         updateShotText()
@@ -182,13 +174,13 @@ class Stats2: UIViewController {
         updateUI()
     }
     @IBAction func Right(_ sender: Any) {
-        holeStatistics.rights = true
+        holeStatistics.rights = 1
         currentScore += 1
         updateShotText()
         updateUI()
     }
     @IBAction func Left(_ sender: Any) {
-        holeStatistics.lefts = true
+        holeStatistics.lefts = 1
         currentScore += 1
         updateShotText()
         updateUI()
@@ -259,21 +251,15 @@ class Stats2: UIViewController {
         putts = 0
     }
     
-    /*
-    func testPrint(){
-        print("Fairway?: \(self.holeStatistics.fairways)")
-        print("Greens in Reg?: \(self.holeStatistics.greensInReg)")
-        print("Green Bunkers?: \(self.holeStatistics.greenBunkers)")
-        print("Fairway Bunkers?: \(self.holeStatistics.fairwayBunkers)")
-    }
- */
-    
 
     func uploadToDatabase() {
         if Auth.auth().currentUser != nil {
             let uid = Auth.auth().currentUser?.uid
             let userRef = ref.child("Users").child(uid!)
             userRef.child("Courses").child(courseName).child("Tees").child(tees).child("Scores").child(HoleNumber.text!).setValue(currentScore)
+        }
+        if currentHole == 2 {
+            endRound()
         }
     }
     
@@ -359,13 +345,17 @@ class Stats2: UIViewController {
         var totalGreenBunkers = 0
         var totalHazards = 0
         var totalOBs = 0
-        var rights = false
-        var lefts = false
-        var fringes = 0
-        var fairways = false
-        var greensInReg = false
-        var putt = 0
-        var score = 0
+        //var totalRights = false
+        //var totalLefts = false
+        var totalRights = 0
+        var totalLefts = 0
+        var totalFringes = 0
+        //var totalFairways = false
+        //var totalGreensInReg = false
+        var totalFairways = 0
+        var totalGreensInReg = 0
+        var totalPutts = 0
+        var totalScore = 0
         
         let uid = Auth.auth().currentUser?.uid
         
@@ -399,11 +389,58 @@ class Stats2: UIViewController {
                 if fbCount.key == "Fairway Bunkers" {
                     totalFairwayBunkers += fbCount.value as! Int
                 }
+                if fbCount.key == "GreenSide Bunkers" {
+                    totalGreenBunkers += fbCount.value as! Int
+                }
+                if fbCount.key == "Hazards" {
+                    totalHazards += fbCount.value as! Int
+                }
+                if fbCount.key == "OBs" {
+                    totalOBs += fbCount.value as! Int
+                }
+                if fbCount.key == "Putts" {
+                    totalPutts += fbCount.value as! Int
+                }
+                if fbCount.key == "Score" {
+                    totalScore += fbCount.value as! Int
+                }
+                if fbCount.key == "Fringes" {
+                    totalFringes += fbCount.value as! Int
+                }
+                if fbCount.key == "Fairways" {
+                    totalFairways += fbCount.value as! Int
+                }
+                if fbCount.key == "Greens" {
+                    totalGreensInReg += fbCount.value as! Int
+                }
+                if fbCount.key == "Rights" {
+                    totalRights += fbCount.value as! Int
+                }
+                if fbCount.key == "Lefts" {
+                    totalLefts += fbCount.value as! Int
+                }
+                
             }
-            print(totalFairwayBunkers)
-            let courseReference = Database.database().reference().child("Golf Course Data").child(self.courseName)
-            courseReference.child("Round 1").child("Fairwayyyy Bunkers").setValue(totalFairwayBunkers)
+            print(totalGreenBunkers)
+            let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
+            courseReference.child("Round 1").child("Fairway Bunkers").setValue(totalFairwayBunkers)
+            courseReference.child("Round 1").child("GreenSide Bunkers").setValue(totalGreenBunkers)
+            courseReference.child("Round 1").child("Hazards").setValue(totalHazards)
+            courseReference.child("Round 1").child("OBs").setValue(totalOBs)
+            courseReference.child("Round 1").child("Putts").setValue(totalPutts)
+            courseReference.child("Round 1").child("Score").setValue(totalScore)
+            courseReference.child("Round 1").child("Fringes").setValue(totalFringes)
+            courseReference.child("Round 1").child("Fairways").setValue(totalFairways)
+            courseReference.child("Round 1").child("Greens").setValue(totalGreensInReg)
+            courseReference.child("Round 1").child("Rights").setValue(totalRights)
+            courseReference.child("Round 1").child("Lefts").setValue(totalLefts)
+            //courseReference.child("Round 1").child("Scores").setValue()
         })
+        // Score Data Structure
+        let scoreData : [String: AnyObject] = ["1": holeScores[0] as AnyObject, "2": holeScores[1] as AnyObject, "3": holeScores[2] as AnyObject, "4": holeScores[3] as AnyObject,"5": holeScores[4] as AnyObject, "6": holeScores[5] as AnyObject, "7": holeScores[6] as AnyObject, "8": holeScores[7] as AnyObject,"9": holeScores[8] as AnyObject, "10": holeScores[9] as AnyObject, "11": holeScores[10] as AnyObject, "12": holeScores[11] as AnyObject,"13": holeScores[12] as AnyObject, "14": holeScores[13] as AnyObject, "15": holeScores[14] as AnyObject, "16": holeScores[15] as AnyObject, "17": holeScores[16] as AnyObject, "18": holeScores[17] as AnyObject]
         
+        // Score Upload
+        let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
+        courseReference.child("Round 1").child("Scores").setValue(scoreData)
     }
 }
