@@ -73,6 +73,11 @@ class Scorecard: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Total Variables
+        var totalYards = 0
+        var totalPars = 0
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         self.CourseName?.text = self.parentCourseName
@@ -135,11 +140,19 @@ class Scorecard: UIViewController {
             self.Par3.text = self.parData[2]
             self.Par4.text = self.parData[3]
             self.Par5.text = self.parData[4]
-            self.Par6.text = self.parData[6]
-            self.Par7.text = self.parData[7]
+            self.Par6.text = self.parData[5]
+            self.Par7.text = self.parData[6]
             self.Par8.text = self.parData[7]
             self.Par9.text = self.parData[8]
             
+            // Total Par
+            print(self.parData)
+            for i in 0 ..< 9 {
+                totalPars += Int(self.parData[i])!
+                print(totalPars)
+            }
+            //print(totalYards)
+            self.Front9Pars.text = "\(totalPars)"
         })
         
         // Reading Yardage Data from Course
@@ -157,6 +170,7 @@ class Scorecard: UIViewController {
             let y7 = DataSnapshot.childSnapshot(forPath: "7").value as! String
             let y8 = DataSnapshot.childSnapshot(forPath: "8").value as! String
             let y9 = DataSnapshot.childSnapshot(forPath: "9").value as! String
+            
             self.yardageData.append(y1)
             self.yardageData.append(y2)
             self.yardageData.append(y3)
@@ -176,6 +190,15 @@ class Scorecard: UIViewController {
             self.Yardage7.text = self.yardageData[6]
             self.Yardage8.text = self.yardageData[7]
             self.Yardage9.text = self.yardageData[8]
+            
+            // Total Yardage
+            print(self.yardageData)
+            for i in 0 ..< 9 {
+                totalYards += Int(self.yardageData[i])!
+                print(totalYards)
+            }
+            self.Front9Yards.text = "\(totalYards)"
+            
         })
         
         // Reading Score Data from database
@@ -259,8 +282,8 @@ class Scorecard: UIViewController {
         
         // Dynamic Score
         var dynamicScore = 0
-        
-        //          Dynamic Score Allocation
+      
+        // Dynamic Score Allocation
         let userRoundRef = ref.child("Users").child(uid!).child("Current Round")
         userRoundRef.observe(.childAdded, with: { (snapshot) in
             for child in snapshot.children {
@@ -272,7 +295,6 @@ class Scorecard: UIViewController {
             print(dynamicScore)
             self.Front9Score.text = "\(dynamicScore)"
         })
-
         
     }
     

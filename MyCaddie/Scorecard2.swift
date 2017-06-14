@@ -65,9 +65,18 @@ class Scorecard2: UIViewController {
     @IBOutlet weak var Score17: UILabel!
     @IBOutlet weak var Score18: UILabel!
     
+    // Totals
+    @IBOutlet weak var Back9Pars: UILabel!
+    @IBOutlet weak var Back9Yards: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Total Variables
+        var totalYards = 0
+        var totalPars = 0
         
         self.CourseName.text = self.parentCourseName
         
@@ -129,10 +138,19 @@ class Scorecard2: UIViewController {
             self.Par12.text = self.parData[2]
             self.Par13.text = self.parData[3]
             self.Par14.text = self.parData[4]
-            self.Par15.text = self.parData[6]
-            self.Par16.text = self.parData[7]
+            self.Par15.text = self.parData[5]
+            self.Par16.text = self.parData[6]
             self.Par17.text = self.parData[7]
             self.Par18.text = self.parData[8]
+            
+            // Total Par
+            print(self.parData)
+            for i in 0 ..< 9 {
+                totalPars += Int(self.parData[i])!
+                print(totalPars)
+            }
+            //print(totalYards)
+            self.Back9Pars.text = "\(totalPars)"
             
         })
         
@@ -170,6 +188,14 @@ class Scorecard2: UIViewController {
             self.Yardage16.text = self.yardageData[6]
             self.Yardage17.text = self.yardageData[7]
             self.Yardage18.text = self.yardageData[8]
+            
+            // Total Yardage
+            print(self.yardageData)
+            for i in 0 ..< 9 {
+                totalYards += Int(self.yardageData[i])!
+                print(totalYards)
+            }
+            self.Back9Yards.text = "\(totalYards)"
         })
         
         scoreRef.observeSingleEvent(of: .value, with: {DataSnapshot in
