@@ -80,7 +80,7 @@ class Scorecard2: UIViewController {
         let parRef = ref.child("Golf Course Data").child(parentCourseName).child("Tees").child(tees).child("Pars")
         // Yardage Branch Reference
         let yardageRef = ref.child("Golf Course Data").child(parentCourseName).child("Tees").child(tees).child("Holes")
-        let scoreRef = userRef.child("Courses").child(parentCourseName).child("Tees").child(tees).child("Scores")
+        let scoreRef = userRef.child("Current Round")
         
         // Slope and Rating Reference and Output
         let slopeRef = ref.child("Golf Course Data").child(parentCourseName).child("Tees").child(tees)
@@ -90,8 +90,8 @@ class Scorecard2: UIViewController {
             
             let slopeHold = DataSnapshot.childSnapshot(forPath: "Slope").value as! String
             let ratingHold = DataSnapshot.childSnapshot(forPath: "Rating").value as! String
-            self.Slope.text = slopeHold
-            self.Rating.text = ratingHold
+            self.Slope.text = "Slope: \(slopeHold)"
+            self.Rating.text = "Rating: \(ratingHold)"
         })
         
         // Course Name Reference
@@ -178,75 +178,75 @@ class Scorecard2: UIViewController {
             
             //
             if DataSnapshot.hasChild("10") {
-                if let s10 = DataSnapshot.childSnapshot(forPath: "10").value as? NSNumber {
+                if let s10 = DataSnapshot.childSnapshot(forPath: "10/Score").value as? NSNumber {
                     self.Score10.text = "\(s10)"
                 }
             } else {
-                self.Score10.text = ""
+                self.Score10.text = " "
             }
             
             if DataSnapshot.hasChild("11") {
-                if let s11 = DataSnapshot.childSnapshot(forPath: "11").value as? NSNumber {
+                if let s11 = DataSnapshot.childSnapshot(forPath: "11/Score").value as? NSNumber {
                     self.Score11.text = "\(s11)"
                 }
             } else {
-                self.Score11.text = ""
+                self.Score11.text = " "
             }
             
             if DataSnapshot.hasChild("12") {
-                if let s12 = DataSnapshot.childSnapshot(forPath: "12").value as? NSNumber {
+                if let s12 = DataSnapshot.childSnapshot(forPath: "12/Score").value as? NSNumber {
                     self.Score12.text = "\(s12)"
                 }
             } else {
-                self.Score12.text = ""
+                self.Score12.text = " "
             }
             
             if DataSnapshot.hasChild("13") {
-                if let s13 = DataSnapshot.childSnapshot(forPath: "13").value as? NSNumber {
+                if let s13 = DataSnapshot.childSnapshot(forPath: "13/Score").value as? NSNumber {
                     self.Score13.text = "\(s13)"
                 }
             } else {
-                self.Score13.text = ""
+                self.Score13.text = " "
             }
             
             if DataSnapshot.hasChild("14") {
-                if let s14 = DataSnapshot.childSnapshot(forPath: "14").value as? NSNumber {
+                if let s14 = DataSnapshot.childSnapshot(forPath: "14/Score").value as? NSNumber {
                     self.Score14.text = "\(s14)"
                 }
             } else {
-                self.Score14.text = ""
+                self.Score14.text = " "
             }
             
             if DataSnapshot.hasChild("15") {
-                if let s15 = DataSnapshot.childSnapshot(forPath: "15").value as? NSNumber {
+                if let s15 = DataSnapshot.childSnapshot(forPath: "15/Score").value as? NSNumber {
                     self.Score15.text = "\(s15)"
                 }
             } else {
-                self.Score15.text = ""
+                self.Score15.text = " "
             }
             
             if DataSnapshot.hasChild("16") {
-                if let s16 = DataSnapshot.childSnapshot(forPath: "16").value as? NSNumber {
+                if let s16 = DataSnapshot.childSnapshot(forPath: "16/Score").value as? NSNumber {
                     self.Score16.text = "\(s16)"
                 }
             } else {
-                self.Score16.text = ""
+                self.Score16.text = " "
             }
             
             if DataSnapshot.hasChild("17") {
-                if let s17 = DataSnapshot.childSnapshot(forPath: "17").value as? NSNumber {
+                if let s17 = DataSnapshot.childSnapshot(forPath: "17/Score").value as? NSNumber {
                     self.Score17.text = "\(s17)"
                 }
             } else {
-                self.Score17.text = ""
+                self.Score17.text = " "
             }
             
             if DataSnapshot.hasChild("18") {
-                if let s18 = DataSnapshot.childSnapshot(forPath: "18").value as? NSNumber {
+                if let s18 = DataSnapshot.childSnapshot(forPath: "18/Score").value as? NSNumber {
                     self.Score18.text = "\(s18)"
                 }
             } else {
-                self.Score18.text = ""
+                self.Score18.text = " "
             }
         })
 
