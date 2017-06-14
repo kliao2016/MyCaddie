@@ -99,9 +99,20 @@ class Stats2: UIViewController {
             self.holeStatistics.putt = self.putts
             self.updateHoleData()
             self.resetHoleStats()
+            if self.currentHole >= 18 {
+                self.endRound()
+                self.deleteCurrentRound()
+                self.showMainView()
+            }
         }))
 
         self.present(popUp, animated: true, completion: nil)
+    }
+    
+    func showMainView() {
+        let mainView = storyboard?.instantiateViewController(withIdentifier: "TabController")
+        
+        self.present(mainView!, animated: true, completion: nil)
     }
     
     func checkIfUserWantsToCancelRound() {
@@ -131,9 +142,6 @@ class Stats2: UIViewController {
         currentScore += 1
         updateUI()
         puttPopUp()
-        if parsOfCourse.count == 18 {
-            endRound()
-        }
     }
     @IBAction func Fringe(_ sender: Any) {
         holeStatistics.fringes += 1
@@ -232,9 +240,13 @@ class Stats2: UIViewController {
         Actual.text = "Shots Hit: \(currentScore)"
         ShotNumberText.text = "Where was your \(shotCount) shot?"
         if currentHole < 18 {
-            HoleNumber.text = "\(currentHole + 1)"
+            self.HoleNumber.text = "\(currentHole + 1)"
             self.HolePar.text = parsOfCourse[currentHole]
             self.HoleYardage.text = yardagesOfCourse[currentHole]
+        } else if currentHole == 18 {
+            self.HoleNumber.text = "Done"
+            self.HolePar.text = "0"
+            self.HoleYardage.text = "0"
         }
     }
     
@@ -296,6 +308,18 @@ class Stats2: UIViewController {
         userReference.child("Current Round").child("\(currentHole)").child("Putts").setValue(holeStatData[counter].putt)
         userReference.child("Current Round").child("\(currentHole)").child("Score").setValue(holeStatData[counter].score)
         
+    }
+    
+    func deleteCurrentRound() {
+        if Auth.auth().currentUser != nil {
+            let uid = Auth.auth().currentUser?.uid
+            let userReference = self.ref.child("Users").child(uid!)
+            userReference.observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.hasChild("Current Round") {
+                    userReference.child("Current Round").removeValue()
+                }
+            })
+        }
     }
     
     func endRound(){
