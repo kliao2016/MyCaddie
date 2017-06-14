@@ -82,7 +82,7 @@ class Scorecard: UIViewController {
         let parRef = ref.child("Golf Course Data").child(parentCourseName).child("Tees").child(tees).child("Pars")
         // Yardage Branch Reference
         let yardageRef = ref.child("Golf Course Data").child(parentCourseName).child("Tees").child(tees).child("Holes")
-        let scoreRef = userRef.child("Courses").child(parentCourseName).child("Tees").child(tees).child("Scores")
+        let scoreRef = userRef.child("Current Round")
         
         // Slope and Rating Reference and Output
         let slopeRef = ref.child("Golf Course Data").child(parentCourseName).child("Tees").child(tees)
@@ -92,8 +92,8 @@ class Scorecard: UIViewController {
             
             let slopeHold = DataSnapshot.childSnapshot(forPath: "Slope").value as! String
             let ratingHold = DataSnapshot.childSnapshot(forPath: "Rating").value as! String
-            self.Slope?.text = slopeHold
-            self.Rating?.text = ratingHold
+            self.Slope.text = "Slope: \(slopeHold)"
+            self.Rating.text = "Rating: \(ratingHold)"
         })
         
         // Course Name Reference
@@ -181,7 +181,7 @@ class Scorecard: UIViewController {
             
             //
             if DataSnapshot.hasChild("1") {
-                if let s1 = DataSnapshot.childSnapshot(forPath: "1").value as? NSNumber {
+                if let s1 = DataSnapshot.childSnapshot(forPath: "1/Score").value as? NSNumber {
                     self.Score1.text = "\(s1)"
                 }
             } else {
@@ -189,7 +189,7 @@ class Scorecard: UIViewController {
             }
             
             if DataSnapshot.hasChild("2") {
-                if let s2 = DataSnapshot.childSnapshot(forPath: "2").value as? NSNumber {
+                if let s2 = DataSnapshot.childSnapshot(forPath: "2/Score").value as? NSNumber {
                     self.Score2.text = "\(s2)"
                 }
             } else {
@@ -197,7 +197,7 @@ class Scorecard: UIViewController {
             }
             
             if DataSnapshot.hasChild("3") {
-                if let s3 = DataSnapshot.childSnapshot(forPath: "3").value as? NSNumber {
+                if let s3 = DataSnapshot.childSnapshot(forPath: "3/Score").value as? NSNumber {
                     self.Score3.text = "\(s3)"
                 }
             } else {
@@ -205,7 +205,7 @@ class Scorecard: UIViewController {
             }
             
             if DataSnapshot.hasChild("4") {
-                if let s4 = DataSnapshot.childSnapshot(forPath: "4").value as? NSNumber {
+                if let s4 = DataSnapshot.childSnapshot(forPath: "4/Score").value as? NSNumber {
                     self.Score4.text = "\(s4)"
                 }
             } else {
@@ -213,7 +213,7 @@ class Scorecard: UIViewController {
             }
             
             if DataSnapshot.hasChild("5") {
-                if let s5 = DataSnapshot.childSnapshot(forPath: "5").value as? NSNumber {
+                if let s5 = DataSnapshot.childSnapshot(forPath: "5/Score").value as? NSNumber {
                     self.Score5.text = "\(s5)"
                 }
             } else {
@@ -221,7 +221,7 @@ class Scorecard: UIViewController {
             }
             
             if DataSnapshot.hasChild("6") {
-                if let s6 = DataSnapshot.childSnapshot(forPath: "6").value as? NSNumber {
+                if let s6 = DataSnapshot.childSnapshot(forPath: "6/Score").value as? NSNumber {
                     self.Score6.text = "\(s6)"
                 }
             } else {
@@ -229,7 +229,7 @@ class Scorecard: UIViewController {
             }
             
             if DataSnapshot.hasChild("7") {
-                if let s7 = DataSnapshot.childSnapshot(forPath: "7").value as? NSNumber {
+                if let s7 = DataSnapshot.childSnapshot(forPath: "7/Score").value as? NSNumber {
                     self.Score7.text = "\(s7)"
                 }
             } else {
@@ -237,7 +237,7 @@ class Scorecard: UIViewController {
             }
             
             if DataSnapshot.hasChild("8") {
-                if let s8 = DataSnapshot.childSnapshot(forPath: "8").value as? NSNumber {
+                if let s8 = DataSnapshot.childSnapshot(forPath: "8/Score").value as? NSNumber {
                     self.Score8.text = "\(s8)"
                 }
             } else {
@@ -245,7 +245,7 @@ class Scorecard: UIViewController {
             }
             
             if DataSnapshot.hasChild("9") {
-                if let s9 = DataSnapshot.childSnapshot(forPath: "9").value as? NSNumber {
+                if let s9 = DataSnapshot.childSnapshot(forPath: "9/Score").value as? NSNumber {
                     self.Score9.text = "\(s9)"
                 }
             } else {
