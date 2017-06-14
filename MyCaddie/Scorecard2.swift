@@ -262,5 +262,14 @@ class Scorecard2: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    // Constrain view to be only portrait
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
 }
 

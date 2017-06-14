@@ -95,5 +95,13 @@ class ScorecardScroll: UIPageViewController, UIPageViewControllerDataSource, UIP
         return firstViewControllerIndex
     }
     
+    // Constrain view to be only portrait
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
     
 }

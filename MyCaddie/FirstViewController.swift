@@ -53,6 +53,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Button customizations
         startRoundButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
+        startRoundButton.addTarget(self, action: #selector(deleteCurrentRound), for: UIControlEvents.touchUpInside)
         
         checkIfUserIsLoggedIn()
         fetchCourses()
@@ -131,6 +132,18 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let userReference = self.databaseRef?.child("Users").child(uid!)
             let userCourseDataRef = userReference?.child("Courses").child(courseName)
             userCourseDataRef?.removeValue()
+        }
+    }
+    
+    func deleteCurrentRound() {
+        if Auth.auth().currentUser != nil {
+            let uid = Auth.auth().currentUser?.uid
+            let userReference = self.databaseRef?.child("Users").child(uid!)
+            userReference?.observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.hasChild("Current Round") {
+                    userReference?.child("Current Round").removeValue()
+                }
+            })
         }
     }
 
