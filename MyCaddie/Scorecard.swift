@@ -66,6 +66,10 @@ class Scorecard: UIViewController {
     @IBOutlet weak var Score8: UILabel!
     @IBOutlet weak var Score9: UILabel!
     
+    // Totals
+    @IBOutlet weak var Front9Yards: UILabel!
+    @IBOutlet weak var Front9Pars: UILabel!
+    @IBOutlet weak var Front9Score: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,7 +129,7 @@ class Scorecard: UIViewController {
             self.parData.append(p7)
             self.parData.append(p8)
             self.parData.append(p9)
-            print(self.parData)
+            //print(self.parData)
             self.Par1.text = self.parData[0]
             self.Par2.text = self.parData[1]
             self.Par3.text = self.parData[2]
@@ -162,7 +166,7 @@ class Scorecard: UIViewController {
             self.yardageData.append(y7)
             self.yardageData.append(y8)
             self.yardageData.append(y9)
-            print(self.yardageData)
+            //print(self.yardageData)
             self.Yardage1.text = self.yardageData[0]
             self.Yardage2.text = self.yardageData[1]
             self.Yardage3.text = self.yardageData[2]
@@ -253,7 +257,24 @@ class Scorecard: UIViewController {
             }
         })
         
+       // Dynamic Score
+       var dynamicScore = 0
+        
+//          Dynamic Score Allocation
+       let userRoundRef = ref.child("Users").child(uid!).child("Current Round")
+        userRoundRef.observe(.childAdded, with: { (snapshot) in
+            for child in snapshot.children {
+                let tag = child as! DataSnapshot
+                if tag.key == "Score" {
+                    dynamicScore += tag.value as! Int
+                }
+            }
+            print(dynamicScore)
+            self.Front9Score.text = "\(dynamicScore)"
+        })
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

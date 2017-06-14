@@ -283,39 +283,6 @@ class Stats2: UIViewController {
         holeStatData.append(holeStatistics)
         currentCourseUpload(counter: counter)
         counter += 1
-        
-         /*
-        for i in 0 ..< holeStatData.count {
-            print("Greenside Bunkers \(i) : \(holeStatData[i].greenBunkers)")
-        }
-        for i in 0 ..< holeStatData.count {
-            print("Fairway Bunkers \(i) : \(holeStatData[i].fairwayBunkers)")
-        }
-        for i in 0 ..< holeStatData.count {
-            print("Hazards \(i) : \(holeStatData[i].hazards)")
-        }
-        for i in 0 ..< holeStatData.count {
-            print("OBS \(i) : \(holeStatData[i].obs)")
-        }
-        for i in 0 ..< holeStatData.count {
-            print("R \(i) : \(holeStatData[i].rights)")
-        }
-        for i in 0 ..< holeStatData.count {
-            print("L \(i) : \(holeStatData[i].lefts)")
-        }
-        for i in 0 ..< holeStatData.count {
-            print("Fringes \(i) : \(holeStatData[i].fringes)")
-        }
-        for i in 0 ..< holeStatData.count {
-            print("Fairways \(i) : \(holeStatData[i].fairways)")
-        }
-        for i in 0 ..< holeStatData.count {
-            print("GIR \(i) : \(holeStatData[i].greensInReg)")
-        }
-        for i in 0 ..< holeStatData.count {
-            print("Putts \(i) : \(holeStatData[i].putt)")
-        }
-        */
     }
     
     func currentCourseUpload(counter: Int){
@@ -340,18 +307,15 @@ class Stats2: UIViewController {
     }
     
     func endRound(){
+        
         // Variables
         var totalFairwayBunkers = 0
         var totalGreenBunkers = 0
         var totalHazards = 0
         var totalOBs = 0
-        //var totalRights = false
-        //var totalLefts = false
         var totalRights = 0
         var totalLefts = 0
         var totalFringes = 0
-        //var totalFairways = false
-        //var totalGreensInReg = false
         var totalFairways = 0
         var totalGreensInReg = 0
         var totalPutts = 0
@@ -359,29 +323,7 @@ class Stats2: UIViewController {
         
         let uid = Auth.auth().currentUser?.uid
         
-//        for i in 1 ..< 4 {
-//            //let holeRef = self.ref.child("Users").child(uid!).child("Current Round").child("\(i)")
-//            let holeRef = self.ref.child("Users").child(uid!).child("Current Round")
-//            holeRef.observeSingleEvent(of: .value, with: {DataSnapshot in
-//                let fb = DataSnapshot.childSnapshot(forPath: "Fairway Bunkers").value as! NSNumber
-//                print(fb)
-//                totalFairwayBunkers += Int(fb)
-//                print(totalFairwayBunkers)
-//                let gb = DataSnapshot.childSnapshot(forPath: "GreenSide Bunkers").value as! NSNumber
-//                totalGreenBunkers += Int(gb)
-//                let hz = DataSnapshot.childSnapshot(forPath: "Hazards").value as! NSNumber
-//                totalHazards += Int(hz)
-//                let ob = DataSnapshot.childSnapshot(forPath: "OBs").value as! NSNumber
-//                totalOBs += Int(ob)
-//            })
-//            print("Iteration")
-//            print(totalFairwayBunkers)
-//        }
-//        print("WHY THO")
-//        print(totalFairwayBunkers)
-        
         let holeRef = self.ref.child("Users").child(uid!).child("Current Round")
-//        holeRef.observe(of: .childAdded, with: { (snapshot) in
         holeRef.observe(.childAdded, with: { (snapshot) in
             
             for child in snapshot.children {
@@ -421,7 +363,6 @@ class Stats2: UIViewController {
                 }
                 
             }
-            print(totalGreenBunkers)
             let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
             courseReference.child("Round 1").child("Fairway Bunkers").setValue(totalFairwayBunkers)
             courseReference.child("Round 1").child("GreenSide Bunkers").setValue(totalGreenBunkers)
@@ -434,7 +375,6 @@ class Stats2: UIViewController {
             courseReference.child("Round 1").child("Greens").setValue(totalGreensInReg)
             courseReference.child("Round 1").child("Rights").setValue(totalRights)
             courseReference.child("Round 1").child("Lefts").setValue(totalLefts)
-            //courseReference.child("Round 1").child("Scores").setValue()
         })
         // Score Data Structure
         let scoreData : [String: AnyObject] = ["1": holeScores[0] as AnyObject, "2": holeScores[1] as AnyObject, "3": holeScores[2] as AnyObject, "4": holeScores[3] as AnyObject,"5": holeScores[4] as AnyObject, "6": holeScores[5] as AnyObject, "7": holeScores[6] as AnyObject, "8": holeScores[7] as AnyObject,"9": holeScores[8] as AnyObject, "10": holeScores[9] as AnyObject, "11": holeScores[10] as AnyObject, "12": holeScores[11] as AnyObject,"13": holeScores[12] as AnyObject, "14": holeScores[13] as AnyObject, "15": holeScores[14] as AnyObject, "16": holeScores[15] as AnyObject, "17": holeScores[16] as AnyObject, "18": holeScores[17] as AnyObject]
