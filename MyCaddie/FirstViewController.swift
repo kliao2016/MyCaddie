@@ -23,6 +23,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var courseTable: UITableView!
     
     // Reference to database
+    var ref = Database.database().reference()
     var databaseRef: DatabaseReference?
     
     var courses = [String]()
@@ -50,6 +51,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //            self.courseTable.reloadData()
 //            
 //        })
+        
+        checkCurrentRound()
+        
         
         // Button customizations
         startRoundButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
@@ -167,5 +171,160 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    func checkCurrentRound() {
+        ref = Database.database().reference()
+        let uid = Auth.auth().currentUser?.uid
+        let userRef = ref.child("Users").child(uid!)
+        userRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+            // Return if no data exists
+            if !DataSnapshot.exists() { return }
+            
+            if DataSnapshot.hasChild("Current Round") {
+                print("Happiness")
+                self.promptReturn()
+            } else {
+                print("Sadness")
+            }
+            
+        })
+
+    }
+    
+    func promptReturn(){
+            let promptPopUp = UIAlertController(title: "Would you like to continue your previous round?", message: nil, preferredStyle: .alert)
+            
+            promptPopUp.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [promptPopUp] (_) in
+                promptPopUp.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "mainToStatsSegue", sender: self)
+                print("yay")
+            }))
+            promptPopUp.addAction(UIAlertAction(title: "No", style: .default, handler: { [promptPopUp] (_) in
+                promptPopUp.dismiss(animated: true, completion: nil)
+                print("nay")
+            }))
+            
+            self.present(promptPopUp, animated: true, completion: nil)
+
+    }
+ 
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mainToStatsSegue" {
+            // Create a variable that you want to send
+            
+            let uid = Auth.auth().currentUser?.uid
+            let userReference = Database.database().reference().child("Users").child(uid!).child("Current Round")
+            
+            var c1Ref = ""
+            var t1Ref = ""
+            var currentHoleNumberRef = 0
+            
+            userReference.observeSingleEvent(of: .value, with: {DataSnapshot in
+                // Return if no data exists
+                //if !DataSnapshot.exists() { return }
+                var c1 = ""
+                c1 = DataSnapshot.childSnapshot(forPath: "Course Name").value as! String
+                var t1 = ""
+                t1 = DataSnapshot.childSnapshot(forPath: "Tees").value as! String
+                var currentHole = 0
+                currentHole = DataSnapshot.childSnapshot(forPath: "Current Hole").value as! Int
+                currentHole += 1
+                print("I hate this app so much :)")
+                print(c1)
+                print(t1)
+                print(currentHole)
+                
+                if (c1 != ""){
+                    c1Ref = c1
+                    t1Ref = t1
+                    currentHoleNumberRef = currentHole
+                    print("Struct References:")
+                    print(c1Ref)
+                    print(t1Ref)
+                    print(currentHoleNumberRef)
+                }
+                
+            })
+            var ccc = "Cherry Hills"
+            
+            print(c1Ref)
+            print(t1Ref)
+            print(currentHoleNumberRef)
+                
+            let newProgramVar = Program(cName: ccc, tName: "Championship", currentHoleNumber: 4)
+            // Create a new variable to store the instance of PlayerTableViewController
+            let destinationVC = segue.destination as! Stats2
+            destinationVC.programVar = newProgramVar
+            print("Save This Spot")
+
+            /*
+            if (c1 != ""){
+                let newProgramVar = Program(cName: c1, tName: "Championship", currentHoleNumber: 4)
+                // Create a new variable to store the instance of PlayerTableViewController
+                let destinationVC = segue.destination as! Stats2
+                destinationVC.programVar = newProgramVar
+                print("Save This Spot")
+            }
+            else {
+                let newProgramVar = Program(cName: "Cherry Hills", tName: "Championship", currentHoleNumber: 3)
+                // Create a new variable to store the instance of PlayerTableViewController
+                let destinationVC = segue.destination as! Stats2
+                destinationVC.programVar = newProgramVar
+                print("Watwatwat")
+            }
+ */
+        }
+    }
+
+    
 }
 
+struct Program {
+    let cName: String
+    let tName: String
+    let currentHoleNumber: Int
+}
+
+
+
+/*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mainToStatsSegue" {
+            
+            
+            let statsView = storyboard?.instantiateViewController(withIdentifier: "StatsView") as! Stats2
+            
+            ref = Database.database().reference()
+            let uid = Auth.auth().currentUser?.uid
+            let userRef = ref.child("Users").child(uid!).child("Current Round")
+            
+            //var courseName = ""
+            //var tees = ""
+            let destinationVC = segue.destination as! Stats2
+            let newProgramVar = Program(cName: "Cherry Hills", tName: "Championship")
+            destinationVC.programVar = newProgramVar
+            
+            print("Hellloooooo")
+            statsView.courseName = "Cherry Hills"
+            statsView.tees = "Championship"
+            }
+        }
+}
+ */
+            
+            /*
+            userRef.observeSingleEvent(of: .value, with: {DataSnapshot in
+                // Return if no data exists
+                if !DataSnapshot.exists() { return }
+                
+                courseName = DataSnapshot.childSnapshot(forPath: "Course Name").value as! String
+                tees = DataSnapshot.childSnapshot(forPath: "Tees").value as! String
+                
+            })
+            
+
+
+        }
+    }
+*/

@@ -14,6 +14,9 @@ import GoogleSignIn
 
 class Stats2: UIViewController {
     
+    var programVar : Program?
+    
+    
     var courseName = ""
     var tees = ""
     
@@ -55,8 +58,27 @@ class Stats2: UIViewController {
         // Initial text
         ShotNumberText.text = "Where was your first shot?"
         Actual.text = "Shots hit: 0"
+        
         HoleNumber.text = "1"
         
+        print(programVar?.cName)
+        print(programVar?.tName)
+        print(programVar?.currentHoleNumber)
+        
+        //let courseName2 = programVar?.cName
+        //var tees2 = programVar?.tName as! String
+        
+        
+        if (programVar?.cName != nil) {
+            courseName = (programVar?.cName)!
+            tees = (programVar?.tName)!
+            currentHole = (programVar?.currentHoleNumber)!
+            HoleNumber.text = "\(currentHole+1)"
+        }
+        /*
+        let yardageRef = ref.child("Golf Course Data").child(courseName2!).child("Tees").child(tees2).child("Holes")
+        let parRef = ref.child("Golf Course Data").child(courseName2!).child("Tees").child(tees2).child("Pars")
+        */
         let yardageRef = ref.child("Golf Course Data").child(courseName).child("Tees").child(tees).child("Holes")
         let parRef = ref.child("Golf Course Data").child(courseName).child("Tees").child(tees).child("Pars")
         
@@ -66,7 +88,11 @@ class Stats2: UIViewController {
                 if !DataSnapshot.exists() { return }
                 let currentYardage = DataSnapshot.childSnapshot(forPath: "\(i)").value as! String
                 self.yardagesOfCourse.append(currentYardage)
-                self.HoleYardage.text = currentYardage
+                //self.HoleYardage.text = currentYardage
+                //print("Oh Yeah")
+                if (self.yardagesOfCourse.count > self.currentHole){
+                    self.HoleYardage.text = self.yardagesOfCourse[self.currentHole]
+                }
             })
         }
         
@@ -75,10 +101,25 @@ class Stats2: UIViewController {
                 // Return if no data exists
                 if !DataSnapshot.exists() { return }
                 let currentPar = DataSnapshot.childSnapshot(forPath: "\(j)").value as! String
-                self.HolePar.text = currentPar
                 self.parsOfCourse.append(currentPar)
+                //self.HolePar.text = currentPar
+                //print("No, God, No")
+                if (self.parsOfCourse.count > self.currentHole){
+                    self.HolePar.text = self.parsOfCourse[self.currentHole]
+                }
             })
         }
+        
+        
+        print(yardagesOfCourse)
+        print(parsOfCourse)
+        if (yardagesOfCourse.count != 0){
+            HoleYardage.text = yardagesOfCourse[currentHole]
+            HolePar.text = parsOfCourse[currentHole]
+        }
+        print(yardagesOfCourse)
+        print(parsOfCourse)
+        
         
         // Navigation Bar
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View Scorecard", style: .plain, target: self, action: #selector(displayScorecard))
@@ -284,6 +325,7 @@ class Stats2: UIViewController {
         let userReference = Database.database().reference().child("Users").child(uid!)
         userReference.child("Current Round").child("Course Name").setValue(courseName)
         userReference.child("Current Round").child("Tees").setValue(tees)
+        //userReference.child("Current Round").child("Current Hole").setValue(currentHole)
         userReference.child("Current Round").child("\(currentHole)").child("GreenSide Bunkers").setValue(holeStatData[counter].greenBunkers)
         userReference.child("Current Round").child("\(currentHole)").child("Fairway Bunkers").setValue(holeStatData[counter].fairwayBunkers)
         userReference.child("Current Round").child("\(currentHole)").child("Hazards").setValue(holeStatData[counter].hazards)
@@ -375,4 +417,10 @@ class Stats2: UIViewController {
         let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
         courseReference.child("Round 1").child("Scores").setValue(scoreData)
     }
+    
+//    init(courseName: String, teeName: String) {
+//        self.courseName = courseName
+//        self.tees = teeName
+//    }
+    
 }
