@@ -16,17 +16,16 @@ class LoadingScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let a = stringPassed
-        print("Ayo")
-        print(stringPassed)
-        print(a)
-        
-        print("Maybe")
+        print("first")
         print(programVar?.cName)
-        print(programVar?.tName)
-        print(programVar?.currentHoleNumber)
         
-        
+        let when = DispatchTime.now() + 3 // change 2 to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            print("Maybe")
+            print(self.programVar?.cName)
+            print(self.programVar?.tName)
+            print(self.programVar?.currentHoleNumber)
+        }
         
     }
     /*

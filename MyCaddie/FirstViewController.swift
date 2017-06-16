@@ -216,10 +216,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let uid = Auth.auth().currentUser?.uid
             let userReference = Database.database().reference().child("Users").child(uid!).child("Current Round")
             
-            var c1Ref = ""
-            var t1Ref = ""
-            var currentHoleNumberRef = 0
-            
             userReference.observeSingleEvent(of: .value, with: {DataSnapshot in
                 // Return if no data exists
                 //if !DataSnapshot.exists() { return }
@@ -234,29 +230,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 print(c1)
                 print(t1)
                 print(currentHole)
-                
-                if (c1 != ""){
-                    c1Ref = c1
-                    t1Ref = t1
-                    currentHoleNumberRef = currentHole
-                    print("Struct References:")
-                    print(c1Ref)
-                    print(t1Ref)
-                    print(currentHoleNumberRef)
-                }
+                let newProgramVar = Program(cName: c1, tName: t1, currentHoleNumber: currentHole)
+                // Create a new variable to store the instance of PlayerTableViewController
+                let destinationVC = segue.destination as! LoadingScreen
+                destinationVC.programVar = newProgramVar
                 
             })
-            var ccc = "Cherry Hills"
             
-            print(c1Ref)
-            print(t1Ref)
-            print(currentHoleNumberRef)
                 
-            let newProgramVar = Program(cName: ccc, tName: "Championship", currentHoleNumber: 4)
-            // Create a new variable to store the instance of PlayerTableViewController
-            let destinationVC = segue.destination as! LoadingScreen
-            destinationVC.programVar = newProgramVar
-            print("Save This Spot")
+//            let newProgramVar = Program(cName: ccc, tName: "Championship", currentHoleNumber: 4)
+//            // Create a new variable to store the instance of PlayerTableViewController
+//            let destinationVC = segue.destination as! LoadingScreen
+//            destinationVC.programVar = newProgramVar
+//            print("Save This Spot")
 
             /*
             if (c1 != ""){
@@ -285,8 +271,6 @@ struct Program {
     let tName: String
     let currentHoleNumber: Int
 }
-
-
 
 /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
