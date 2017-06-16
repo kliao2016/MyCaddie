@@ -254,7 +254,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
             let newProgramVar = Program(cName: ccc, tName: "Championship", currentHoleNumber: 4)
             // Create a new variable to store the instance of PlayerTableViewController
-            let destinationVC = segue.destination as! Stats2
+            let destinationVC = segue.destination as! LoadingScreen
             destinationVC.programVar = newProgramVar
             print("Save This Spot")
 
