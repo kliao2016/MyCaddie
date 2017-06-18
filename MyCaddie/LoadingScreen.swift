@@ -43,6 +43,7 @@ class LoadingScreen: UIViewController {
             destinationVC.programVar = newProgramVar
             
         }
+        
     }
     
     func showMainView() {
