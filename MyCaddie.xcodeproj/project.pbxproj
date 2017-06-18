@@ -25,6 +25,7 @@
 		991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FA8841EF3528900289D63 /* LoadingScreen.swift */; };
 		991FA8871EF3539A00289D63 /* CurrentRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FA8861EF3539A00289D63 /* CurrentRound.swift */; };
 		994229761EE9F67300F303A5 /* HoleStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994229751EE9F67300F303A5 /* HoleStats.swift */; };
+		9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998724891EF607B000CF2FCA /* StatsViewController.swift */; };
 		999468761EE1B4E300DBEF91 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999468751EE1B4E300DBEF91 /* Scorecard.swift */; };
 		99B174191EE7637F00A76B9B /* Scorecard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B174181EE7637F00A76B9B /* Scorecard2.swift */; };
 		99B1741D1EE7755700A76B9B /* Stats2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1741C1EE7755700A76B9B /* Stats2.swift */; };
@@ -54,6 +55,7 @@
 		991FA8841EF3528900289D63 /* LoadingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		991FA8861EF3539A00289D63 /* CurrentRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentRound.swift; sourceTree = "<group>"; };
 		994229751EE9F67300F303A5 /* HoleStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoleStats.swift; sourceTree = "<group>"; };
+		998724891EF607B000CF2FCA /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		999468751EE1B4E300DBEF91 /* Scorecard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
 		99B174181EE7637F00A76B9B /* Scorecard2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard2.swift; sourceTree = "<group>"; };
 		99B1741C1EE7755700A76B9B /* Stats2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats2.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				100E28FA1EE8BC4A00D16376 /* TabBarController.swift */,
 				10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */,
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
+				998724891EF607B000CF2FCA /* StatsViewController.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
 				10D5956F1EDA317B00572D38 /* Assets.xcassets */,
 				10D595711EDA317B00572D38 /* LaunchScreen.storyboard */,
@@ -290,6 +293,7 @@
 				991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */,
 				100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */,
 				99B633111EEEDA0300160704 /* CourseRound.swift in Sources */,
+				9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */,
 				101483561EE77508005B5307 /* GeneralCourseSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
