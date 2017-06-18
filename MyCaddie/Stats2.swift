@@ -68,12 +68,14 @@ class Stats2: UIViewController {
         //let courseName2 = programVar?.cName
         //var tees2 = programVar?.tName as! String
         
-        
+        // If continuing previous round
         if (programVar?.cName != nil) {
             courseName = (programVar?.cName)!
             tees = (programVar?.tName)!
             currentHole = (programVar?.currentHoleNumber)!
             HoleNumber.text = "\(currentHole+1)"
+            
+            getHoleScores()
         }
         
         let yardageRef = ref.child("Golf Course Data").child(courseName).child("Tees").child(tees).child("Holes")
@@ -437,6 +439,26 @@ class Stats2: UIViewController {
         // Score Upload
         let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
         courseReference.child("Round 1").child("Scores").setValue(scoreData)
+    }
+    
+    func getHoleScores(){
+        
+        var dynamicScore = 0
+        var count = 0
+        
+        let uid = Auth.auth().currentUser?.uid
+        let userRoundRef = ref.child("Users").child(uid!).child("Current Round")
+        userRoundRef.observe(.childAdded, with: { (snapshot) in
+            for child in snapshot.children {
+                let tag = child as! DataSnapshot
+                if tag.key == "Score" {
+                    dynamicScore = tag.value as! Int
+                    self.holeScores[count] = dynamicScore
+                    count += 1
+                }
+            }
+            //print(self.holeScores)
+        })
     }
     
 }

@@ -23,7 +23,7 @@ class LoadingScreen: UIViewController {
         print("first")
         print(programVar?.cName)
         
-        let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+        let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             print("Maybe")
             print(self.programVar?.cName)
@@ -39,11 +39,11 @@ class LoadingScreen: UIViewController {
             // Create a variable that you want to send
             let newProgramVar = Program(cName: (programVar?.cName)!, tName: (programVar?.tName)!, currentHoleNumber: (programVar?.currentHoleNumber)!)
             // Create a new variable to store the instance of PlayerTableViewController
-            let destinationVC = segue.destination as! Stats3
+            let destinationVC = segue.destination as! Stats2
             destinationVC.programVar = newProgramVar
+            print("Final Segue")
             
         }
-        
     }
     
     func showMainView() {
