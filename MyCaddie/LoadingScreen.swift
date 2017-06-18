@@ -23,7 +23,7 @@ class LoadingScreen: UIViewController {
         print("first")
         print(programVar?.cName)
         
-        let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+        let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             print("Maybe")
             print(self.programVar?.cName)
