@@ -39,7 +39,7 @@ class LoadingScreen: UIViewController {
             // Create a variable that you want to send
             let newProgramVar = Program(cName: (programVar?.cName)!, tName: (programVar?.tName)!, currentHoleNumber: (programVar?.currentHoleNumber)!)
             // Create a new variable to store the instance of PlayerTableViewController
-            let destinationVC = segue.destination as! Stats2
+            let destinationVC = segue.destination as! Stats3
             destinationVC.programVar = newProgramVar
             print("Final Segue")
             
