@@ -16,7 +16,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var startRoundButton: UIButton!
     
-    @IBAction func signOut(_ sender: Any) {
+    @IBAction func signOut(_ sender: Any) {88
         handleLogout()
     }
 
@@ -195,7 +195,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             promptPopUp.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [promptPopUp] (_) in
                 promptPopUp.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "mainToStatsSegue", sender: self)
+                self.performSegue(withIdentifier: "mainToLoadSegue", sender: self)
                 print("yay")
             }))
             promptPopUp.addAction(UIAlertAction(title: "No", style: .default, handler: { [promptPopUp] (_) in
@@ -210,7 +210,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "mainToStatsSegue" {
+        if segue.identifier == "mainToLoadSegue" {
             // Create a variable that you want to send
             
             let uid = Auth.auth().currentUser?.uid
@@ -225,41 +225,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 t1 = DataSnapshot.childSnapshot(forPath: "Tees").value as! String
                 var currentHole = 0
                 currentHole = DataSnapshot.childSnapshot(forPath: "Current Hole").value as! Int
-                //currentHole += 1
-                print("I hate this app so much :)")
-                print(c1)
-                print(t1)
-                print(currentHole)
                 let newProgramVar = Program(cName: c1, tName: t1, currentHoleNumber: currentHole)
                 // Create a new variable to store the instance of PlayerTableViewController
                 let destinationVC = segue.destination as! LoadingScreen
                 destinationVC.programVar = newProgramVar
                 
             })
-            
-                
-//            let newProgramVar = Program(cName: ccc, tName: "Championship", currentHoleNumber: 4)
-//            // Create a new variable to store the instance of PlayerTableViewController
-//            let destinationVC = segue.destination as! LoadingScreen
-//            destinationVC.programVar = newProgramVar
-//            print("Save This Spot")
-
-            /*
-            if (c1 != ""){
-                let newProgramVar = Program(cName: c1, tName: "Championship", currentHoleNumber: 4)
-                // Create a new variable to store the instance of PlayerTableViewController
-                let destinationVC = segue.destination as! Stats2
-                destinationVC.programVar = newProgramVar
-                print("Save This Spot")
-            }
-            else {
-                let newProgramVar = Program(cName: "Cherry Hills", tName: "Championship", currentHoleNumber: 3)
-                // Create a new variable to store the instance of PlayerTableViewController
-                let destinationVC = segue.destination as! Stats2
-                destinationVC.programVar = newProgramVar
-                print("Watwatwat")
-            }
- */
         }
     }
 
@@ -271,44 +242,3 @@ struct Program {
     let tName: String
     let currentHoleNumber: Int
 }
-
-/*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "mainToStatsSegue" {
-            
-            
-            let statsView = storyboard?.instantiateViewController(withIdentifier: "StatsView") as! Stats2
-            
-            ref = Database.database().reference()
-            let uid = Auth.auth().currentUser?.uid
-            let userRef = ref.child("Users").child(uid!).child("Current Round")
-            
-            //var courseName = ""
-            //var tees = ""
-            let destinationVC = segue.destination as! Stats2
-            let newProgramVar = Program(cName: "Cherry Hills", tName: "Championship")
-            destinationVC.programVar = newProgramVar
-            
-            print("Hellloooooo")
-            statsView.courseName = "Cherry Hills"
-            statsView.tees = "Championship"
-            }
-        }
-}
- */
-            
-            /*
-            userRef.observeSingleEvent(of: .value, with: {DataSnapshot in
-                // Return if no data exists
-                if !DataSnapshot.exists() { return }
-                
-                courseName = DataSnapshot.childSnapshot(forPath: "Course Name").value as! String
-                tees = DataSnapshot.childSnapshot(forPath: "Tees").value as! String
-                
-            })
-            
-
-
-        }
-    }
-*/

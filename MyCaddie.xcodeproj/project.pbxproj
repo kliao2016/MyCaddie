@@ -13,6 +13,7 @@
 		103BA8731EDA37F100054449 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 103BA8721EDA37F100054449 /* GoogleService-Info.plist */; };
 		10896FC41EE8D1B000C7B66E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10896FC31EE8D1B000C7B66E /* Course.swift */; };
 		10C5B6871EEBB30D0057D0C4 /* GeneralTeeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */; };
+		10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6BDD51EF615AA00C6E576 /* Stats3.swift */; };
 		10D595671EDA317B00572D38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D595661EDA317B00572D38 /* AppDelegate.swift */; };
 		10D595691EDA317B00572D38 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D595681EDA317B00572D38 /* FirstViewController.swift */; };
 		10D5956B1EDA317B00572D38 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D5956A1EDA317B00572D38 /* SecondViewController.swift */; };
@@ -40,6 +41,7 @@
 		103BA8721EDA37F100054449 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10896FC31EE8D1B000C7B66E /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTeeSelector.swift; sourceTree = "<group>"; };
+		10C6BDD51EF615AA00C6E576 /* Stats3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats3.swift; sourceTree = "<group>"; };
 		10D595631EDA317B00572D38 /* MyCaddie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCaddie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D595661EDA317B00572D38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10D595681EDA317B00572D38 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				99B174181EE7637F00A76B9B /* Scorecard2.swift */,
 				10DC3C651EE70FE300CA2B70 /* ScorecardScroll.swift */,
 				99B1741C1EE7755700A76B9B /* Stats2.swift */,
+				10C6BDD51EF615AA00C6E576 /* Stats3.swift */,
 				100E28FA1EE8BC4A00D16376 /* TabBarController.swift */,
 				10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */,
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
@@ -294,6 +297,7 @@
 				100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */,
 				99B633111EEEDA0300160704 /* CourseRound.swift in Sources */,
 				9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */,
+				10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */,
 				101483561EE77508005B5307 /* GeneralCourseSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  Stats2.swift
+//  Stats3.swift
 //  MyCaddie
 //
 //  Created by Weston Mauz on 6/6/17.
@@ -12,7 +12,7 @@ import FirebaseStorage
 import Firebase
 import GoogleSignIn
 
-class Stats2: UIViewController {
+class Stats3: UIViewController {
     
     var programVar : Program?
     
@@ -50,7 +50,7 @@ class Stats2: UIViewController {
     var putts = Int ()
     var currentHole = Int()
     var currentScore = Int()
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -68,14 +68,12 @@ class Stats2: UIViewController {
         //let courseName2 = programVar?.cName
         //var tees2 = programVar?.tName as! String
         
-        // If continuing previous round
+        
         if (programVar?.cName != nil) {
             courseName = (programVar?.cName)!
             tees = (programVar?.tName)!
             currentHole = (programVar?.currentHoleNumber)!
             HoleNumber.text = "\(currentHole+1)"
-            
-            getHoleScores()
         }
         
         let yardageRef = ref.child("Golf Course Data").child(courseName).child("Tees").child(tees).child("Holes")
@@ -119,11 +117,6 @@ class Stats2: UIViewController {
         print(yardagesOfCourse)
         print(parsOfCourse)
         
-        
-        // Navigation Bar
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View Scorecard", style: .plain, target: self, action: #selector(displayScorecard))
-        
-        self.navigationItem.leftBarButtonItem?.action = #selector(checkIfUserWantsToCancelRound)
     }
     
     func puttPopUp() {
@@ -145,8 +138,12 @@ class Stats2: UIViewController {
                 self.showMainView()
             }
         }))
-
+        
         self.present(popUp, animated: true, completion: nil)
+    }
+    
+    @IBAction func exitStatsScreen(_ sender: Any) {
+        checkIfUserWantsToCancelRound()
     }
     
     func showMainView() {
@@ -159,8 +156,8 @@ class Stats2: UIViewController {
         let popUp = UIAlertController(title: "Are you sure you want to go back? Going back will delete your data for this current round.", message: nil, preferredStyle: .alert)
         
         popUp.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [popUp] (_) in
-            let uid = Auth.auth().currentUser?.uid
-            let userRef = self.ref.child("Users").child(uid!)
+            self.deleteCurrentRound()
+            self.showMainView()
         }))
         
         popUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [popUp] (_) in
@@ -320,7 +317,7 @@ class Stats2: UIViewController {
             
         }
     }
-  
+    
     func updateHoleData(){
         holeStatData.append(holeStatistics)
         currentCourseUpload(counter: counter)
@@ -439,26 +436,6 @@ class Stats2: UIViewController {
         // Score Upload
         let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
         courseReference.child("Round 1").child("Scores").setValue(scoreData)
-    }
-    
-    func getHoleScores(){
-        
-        var dynamicScore = 0
-        var count = 0
-        
-        let uid = Auth.auth().currentUser?.uid
-        let userRoundRef = ref.child("Users").child(uid!).child("Current Round")
-        userRoundRef.observe(.childAdded, with: { (snapshot) in
-            for child in snapshot.children {
-                let tag = child as! DataSnapshot
-                if tag.key == "Score" {
-                    dynamicScore = tag.value as! Int
-                    self.holeScores[count] = dynamicScore
-                    count += 1
-                }
-            }
-            //print(self.holeScores)
-        })
     }
     
 }
