@@ -68,12 +68,14 @@ class Stats2: UIViewController {
         //let courseName2 = programVar?.cName
         //var tees2 = programVar?.tName as! String
         
-        
+        // If continuing previous round
         if (programVar?.cName != nil) {
             courseName = (programVar?.cName)!
             tees = (programVar?.tName)!
             currentHole = (programVar?.currentHoleNumber)!
             HoleNumber.text = "\(currentHole+1)"
+            
+            getHoleScores()
         }
         /*
         let yardageRef = ref.child("Golf Course Data").child(courseName2!).child("Tees").child(tees2).child("Holes")
@@ -432,6 +434,9 @@ class Stats2: UIViewController {
             courseReference.child("Round 1").child("Rights").setValue(totalRights)
             courseReference.child("Round 1").child("Lefts").setValue(totalLefts)
         })
+        
+        
+        
         // Score Data Structure
         let scoreData : [String: AnyObject] = ["1": holeScores[0] as AnyObject, "2": holeScores[1] as AnyObject, "3": holeScores[2] as AnyObject, "4": holeScores[3] as AnyObject,"5": holeScores[4] as AnyObject, "6": holeScores[5] as AnyObject, "7": holeScores[6] as AnyObject, "8": holeScores[7] as AnyObject,"9": holeScores[8] as AnyObject, "10": holeScores[9] as AnyObject, "11": holeScores[10] as AnyObject, "12": holeScores[11] as AnyObject,"13": holeScores[12] as AnyObject, "14": holeScores[13] as AnyObject, "15": holeScores[14] as AnyObject, "16": holeScores[15] as AnyObject, "17": holeScores[16] as AnyObject, "18": holeScores[17] as AnyObject]
         
@@ -440,9 +445,24 @@ class Stats2: UIViewController {
         courseReference.child("Round 1").child("Scores").setValue(scoreData)
     }
     
-//    init(courseName: String, teeName: String) {
-//        self.courseName = courseName
-//        self.tees = teeName
-//    }
+    func getHoleScores(){
+        
+        var dynamicScore = 0
+        var count = 0
+        
+        let uid = Auth.auth().currentUser?.uid
+        let userRoundRef = ref.child("Users").child(uid!).child("Current Round")
+        userRoundRef.observe(.childAdded, with: { (snapshot) in
+            for child in snapshot.children {
+                let tag = child as! DataSnapshot
+                if tag.key == "Score" {
+                    dynamicScore = tag.value as! Int
+                    self.holeScores[count] = dynamicScore
+                    count += 1
+                }
+            }
+            //print(self.holeScores)
+        })
+    }
     
 }
