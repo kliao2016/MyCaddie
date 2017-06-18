@@ -325,7 +325,7 @@ class Stats2: UIViewController {
         let userReference = Database.database().reference().child("Users").child(uid!)
         userReference.child("Current Round").child("Course Name").setValue(courseName)
         userReference.child("Current Round").child("Tees").setValue(tees)
-        //userReference.child("Current Round").child("Current Hole").setValue(currentHole)
+        userReference.child("Current Round").child("Current Hole").setValue(currentHole)
         userReference.child("Current Round").child("\(currentHole)").child("GreenSide Bunkers").setValue(holeStatData[counter].greenBunkers)
         userReference.child("Current Round").child("\(currentHole)").child("Fairway Bunkers").setValue(holeStatData[counter].fairwayBunkers)
         userReference.child("Current Round").child("\(currentHole)").child("Hazards").setValue(holeStatData[counter].hazards)

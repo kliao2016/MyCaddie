@@ -225,7 +225,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 t1 = DataSnapshot.childSnapshot(forPath: "Tees").value as! String
                 var currentHole = 0
                 currentHole = DataSnapshot.childSnapshot(forPath: "Current Hole").value as! Int
-                currentHole += 1
+                //currentHole += 1
                 print("I hate this app so much :)")
                 print(c1)
                 print(t1)
