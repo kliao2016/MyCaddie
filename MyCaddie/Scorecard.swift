@@ -146,10 +146,9 @@ class Scorecard: UIViewController {
             self.Par9.text = self.parData[8]
             
             // Total Par
-            print(self.parData)
+            //print(self.parData)
             for i in 0 ..< 9 {
                 totalPars += Int(self.parData[i])!
-                print(totalPars)
             }
             //print(totalYards)
             self.Front9Pars.text = "\(totalPars)"
@@ -192,10 +191,9 @@ class Scorecard: UIViewController {
             self.Yardage9.text = self.yardageData[8]
             
             // Total Yardage
-            print(self.yardageData)
+            //print(self.yardageData)
             for i in 0 ..< 9 {
                 totalYards += Int(self.yardageData[i])!
-                print(totalYards)
             }
             self.Front9Yards.text = "\(totalYards)"
             
@@ -292,7 +290,7 @@ class Scorecard: UIViewController {
                     dynamicScore += tag.value as! Int
                 }
             }
-            print(dynamicScore)
+            //print(dynamicScore)
             self.Front9Score.text = "\(dynamicScore)"
         })
         
