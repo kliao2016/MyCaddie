@@ -37,13 +37,11 @@ class LoadingScreen: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "loadingToStats" {
             // Create a variable that you want to send
-
-            
-                        let newProgramVar = Program(cName: (programVar?.cName)!, tName: (programVar?.tName)!, currentHoleNumber: (programVar?.currentHoleNumber)!)
-                        // Create a new variable to store the instance of PlayerTableViewController
-                        let destinationVC = segue.destination as! Stats2
-                        destinationVC.programVar = newProgramVar
-                        print("Final Segue")
+            let newProgramVar = Program(cName: (programVar?.cName)!, tName: (programVar?.tName)!, currentHoleNumber: (programVar?.currentHoleNumber)!)
+            // Create a new variable to store the instance of PlayerTableViewController
+            let destinationVC = segue.destination as! Stats2
+            destinationVC.programVar = newProgramVar
+            print("Final Segue")
             
         }
     }
