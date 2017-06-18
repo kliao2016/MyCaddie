@@ -12,6 +12,7 @@
 		103BA8711EDA332800054449 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BA8701EDA332800054449 /* LoginViewController.swift */; };
 		103BA8731EDA37F100054449 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 103BA8721EDA37F100054449 /* GoogleService-Info.plist */; };
 		10896FC41EE8D1B000C7B66E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10896FC31EE8D1B000C7B66E /* Course.swift */; };
+		108CCE2D1EF73DEE00DF5D90 /* RoundSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */; };
 		10C5B6871EEBB30D0057D0C4 /* GeneralTeeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */; };
 		10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6BDD51EF615AA00C6E576 /* Stats3.swift */; };
 		10D595671EDA317B00572D38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D595661EDA317B00572D38 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		103BA8701EDA332800054449 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		103BA8721EDA37F100054449 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10896FC31EE8D1B000C7B66E /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundSelector.swift; sourceTree = "<group>"; };
 		10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTeeSelector.swift; sourceTree = "<group>"; };
 		10C6BDD51EF615AA00C6E576 /* Stats3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats3.swift; sourceTree = "<group>"; };
 		10D595631EDA317B00572D38 /* MyCaddie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCaddie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +127,7 @@
 				10C6BDD51EF615AA00C6E576 /* Stats3.swift */,
 				100E28FA1EE8BC4A00D16376 /* TabBarController.swift */,
 				10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */,
+				108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */,
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
@@ -189,7 +192,7 @@
 				TargetAttributes = {
 					10D595621EDA317B00572D38 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = SD3HFF44RZ;
+						DevelopmentTeam = 3535BPJH56;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -299,6 +302,7 @@
 				9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */,
 				10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */,
 				101483561EE77508005B5307 /* GeneralCourseSelector.swift in Sources */,
+				108CCE2D1EF73DEE00DF5D90 /* RoundSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SD3HFF44RZ;
+				DEVELOPMENT_TEAM = 3535BPJH56;
 				INFOPLIST_FILE = MyCaddie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
@@ -441,7 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SD3HFF44RZ;
+				DEVELOPMENT_TEAM = 3535BPJH56;
 				INFOPLIST_FILE = MyCaddie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;

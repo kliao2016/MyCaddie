@@ -16,7 +16,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var startRoundButton: UIButton!
     
-    @IBAction func signOut(_ sender: Any) {88
+    @IBAction func signOut(_ sender: Any) {
         handleLogout()
     }
 
@@ -171,6 +171,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "userRoundsSegue", sender: courses[indexPath.row])
+    }
+    
     func checkCurrentRound() {
         ref = Database.database().reference()
         let uid = Auth.auth().currentUser?.uid
@@ -180,12 +184,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if !DataSnapshot.exists() { return }
             
             if DataSnapshot.hasChild("Current Round") {
-                print("Happiness")
                 self.promptReturn()
-            } else {
-                print("Sadness")
             }
-            
         })
 
     }
@@ -196,18 +196,15 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             promptPopUp.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [promptPopUp] (_) in
                 promptPopUp.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "mainToLoadSegue", sender: self)
-                print("yay")
             }))
             promptPopUp.addAction(UIAlertAction(title: "No", style: .default, handler: { [promptPopUp] (_) in
                 promptPopUp.dismiss(animated: true, completion: nil)
-                print("nay")
+                self.deleteCurrentRound()
             }))
             
             self.present(promptPopUp, animated: true, completion: nil)
 
     }
- 
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mainToLoadSegue" {
@@ -231,6 +228,14 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 destinationVC.programVar = newProgramVar
                 
             })
+        }
+        
+        if segue.identifier == "userRoundsSegue" {
+            let roundsView = segue.destination as! RoundSelector
+            
+            let indexPath = self.courseTable.indexPathForSelectedRow
+            
+            roundsView.roundParentCourseName = courses[(indexPath?.row)!]
         }
     }
 

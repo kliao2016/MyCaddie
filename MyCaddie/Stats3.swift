@@ -135,7 +135,11 @@ class Stats3: UIViewController {
             if self.currentHole >= 18 {
                 self.endRound()
                 self.deleteCurrentRound()
-                self.showMainView()
+                
+                let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    self.showMainView()
+                }
             }
         }))
         
@@ -157,7 +161,11 @@ class Stats3: UIViewController {
         
         popUp.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [popUp] (_) in
             self.deleteCurrentRound()
-            self.showMainView()
+            
+            let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                self.showMainView()
+            }
         }))
         
         popUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [popUp] (_) in
@@ -358,6 +366,19 @@ class Stats3: UIViewController {
         }
     }
     
+    func getRoundCount() -> Int {
+        var count = 1
+        let uid = Auth.auth().currentUser?.uid
+        let courseReference = ref.child("Users").child(uid!).child("Courses").child(self.courseName)
+        courseReference.observe(.childAdded, with: { (snapshot) in
+            if snapshot.key != nil {
+                count += 1
+            }
+        }, withCancel: nil)
+        
+        return count
+    }
+    
     func endRound(){
         
         // Variables
@@ -374,6 +395,7 @@ class Stats3: UIViewController {
         var totalScore = 0
         
         let uid = Auth.auth().currentUser?.uid
+        let currentRound = self.getRoundCount() + 1
         
         let holeRef = self.ref.child("Users").child(uid!).child("Current Round")
         holeRef.observe(.childAdded, with: { (snapshot) in
@@ -417,17 +439,17 @@ class Stats3: UIViewController {
             }
             
             let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-            courseReference.child("Round 1").child("Fairway Bunkers").setValue(totalFairwayBunkers)
-            courseReference.child("Round 1").child("GreenSide Bunkers").setValue(totalGreenBunkers)
-            courseReference.child("Round 1").child("Hazards").setValue(totalHazards)
-            courseReference.child("Round 1").child("OBs").setValue(totalOBs)
-            courseReference.child("Round 1").child("Putts").setValue(totalPutts)
-            courseReference.child("Round 1").child("Score").setValue(totalScore)
-            courseReference.child("Round 1").child("Fringes").setValue(totalFringes)
-            courseReference.child("Round 1").child("Fairways").setValue(totalFairways)
-            courseReference.child("Round 1").child("Greens").setValue(totalGreensInReg)
-            courseReference.child("Round 1").child("Rights").setValue(totalRights)
-            courseReference.child("Round 1").child("Lefts").setValue(totalLefts)
+            courseReference.child("Round \(currentRound)").child("Fairway Bunkers").setValue(totalFairwayBunkers)
+            courseReference.child("Round \(currentRound)").child("GreenSide Bunkers").setValue(totalGreenBunkers)
+            courseReference.child("Round \(currentRound)").child("Hazards").setValue(totalHazards)
+            courseReference.child("Round \(currentRound)").child("OBs").setValue(totalOBs)
+            courseReference.child("Round \(currentRound)").child("Putts").setValue(totalPutts)
+            courseReference.child("Round \(currentRound)").child("Score").setValue(totalScore)
+            courseReference.child("Round \(currentRound)").child("Fringes").setValue(totalFringes)
+            courseReference.child("Round \(currentRound)").child("Fairways").setValue(totalFairways)
+            courseReference.child("Round \(currentRound)").child("Greens").setValue(totalGreensInReg)
+            courseReference.child("Round \(currentRound)").child("Rights").setValue(totalRights)
+            courseReference.child("Round \(currentRound)").child("Lefts").setValue(totalLefts)
         })
         
         // Score Data Structure
@@ -435,7 +457,7 @@ class Stats3: UIViewController {
         
         // Score Upload
         let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-        courseReference.child("Round 1").child("Scores").setValue(scoreData)
+        courseReference.child("Round \(currentRound)").child("Scores").setValue(scoreData)
     }
     
 }
