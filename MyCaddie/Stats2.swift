@@ -19,6 +19,7 @@ class Stats2: UIViewController {
     
     var courseName = ""
     var tees = ""
+    var currentRound = 0
     
     var ref = Database.database().reference()
     
@@ -135,7 +136,7 @@ class Stats2: UIViewController {
             self.holeStatistics.putt = self.putts
             self.updateHoleData()
             self.resetHoleStats()
-            if self.currentHole >= 18 {
+            if self.currentHole >= 2 {
                 self.endRound()
                 self.deleteCurrentRound()
                 
@@ -381,7 +382,9 @@ class Stats2: UIViewController {
         var totalScore = 0
         
         let uid = Auth.auth().currentUser?.uid
-        let currentRound = self.getRoundCount() + 1
+        //let currentRound = self.getRoundCount() + 1
+        
+        getCount()
         
         let holeRef = self.ref.child("Users").child(uid!).child("Current Round")
         holeRef.observe(.childAdded, with: { (snapshot) in
@@ -425,18 +428,23 @@ class Stats2: UIViewController {
             }
             
             
-            let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-            courseReference.child("Round \(currentRound)").child("Fairway Bunkers").setValue(totalFairwayBunkers)
-            courseReference.child("Round \(currentRound)").child("Greenside Bunkers").setValue(totalGreenBunkers)
-            courseReference.child("Round \(currentRound)").child("Hazards").setValue(totalHazards)
-            courseReference.child("Round \(currentRound)").child("OBs").setValue(totalOBs)
-            courseReference.child("Round \(currentRound)").child("Putts").setValue(totalPutts)
-            courseReference.child("Round \(currentRound)").child("Score").setValue(totalScore)
-            courseReference.child("Round \(currentRound)").child("Fringes").setValue(totalFringes)
-            courseReference.child("Round \(currentRound)").child("Fairways").setValue(totalFairways)
-            courseReference.child("Round \(currentRound)").child("Greens").setValue(totalGreensInReg)
-            courseReference.child("Round \(currentRound)").child("Rights").setValue(totalRights)
-            courseReference.child("Round \(currentRound)").child("Lefts").setValue(totalLefts)
+            
+            let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                print("Maybe")
+                let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
+                courseReference.child("Round \(self.currentRound)").child("Fairway Bunkers").setValue(totalFairwayBunkers)
+                courseReference.child("Round \(self.currentRound)").child("Greenside Bunkers").setValue(totalGreenBunkers)
+                courseReference.child("Round \(self.currentRound)").child("Hazards").setValue(totalHazards)
+                courseReference.child("Round \(self.currentRound)").child("OBs").setValue(totalOBs)
+                courseReference.child("Round \(self.currentRound)").child("Putts").setValue(totalPutts)
+                courseReference.child("Round \(self.currentRound)").child("Score").setValue(totalScore)
+                courseReference.child("Round \(self.currentRound)").child("Fringes").setValue(totalFringes)
+                courseReference.child("Round \(self.currentRound)").child("Fairways").setValue(totalFairways)
+                courseReference.child("Round \(self.currentRound)").child("Greens").setValue(totalGreensInReg)
+                courseReference.child("Round \(self.currentRound)").child("Rights").setValue(totalRights)
+                courseReference.child("Round \(self.currentRound)").child("Lefts").setValue(totalLefts)
+            }
         })
         
         // Score Data Structure
@@ -444,18 +452,32 @@ class Stats2: UIViewController {
         
         // Score Upload
         let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-        courseReference.child("Round \(currentRound)").child("Scores").setValue(scoreData)
+        let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            courseReference.child("Round \(self.currentRound)").child("Scores").setValue(scoreData)
+        }
     }
     
-    func getRoundCount() -> Int {
-        var count = 0
+    func getCount(){
+        var count = 1
         let uid = Auth.auth().currentUser?.uid
-        let courseReference = ref.child("Users").child(uid!).child("Courses").child(self.courseName)
-        courseReference.observe(.childAdded, with: { (snapshot) in
-            count = Int(snapshot.childrenCount)
-        }, withCancel: nil)
+        let courseReference = self.ref.child("Users").child(uid!).child("Courses").child(self.courseName)
         
-        return count
+        courseReference.observeSingleEvent(of: .value, with: {DataSnapshot in
+            // Return if no data exists
+            //print(DataSnapshot.childrenCount)
+            
+            if  DataSnapshot.exists() {
+                print("Else section")
+                count = Int(DataSnapshot.childrenCount)
+            }
+            else {
+                count = 1
+            }
+            self.currentRound = count
+            print(self.currentRound)
+            
+        })
     }
     
     func getHoleScores(){

@@ -80,6 +80,7 @@ class RoundSelector: UITableViewController {
             
             let statsView = segue.destination as! StatsViewController
             
+
             userRoundRef?.observeSingleEvent(of: .value, with: { (snapshot) in
                 
                 if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -112,4 +113,6 @@ class RoundSelector: UITableViewController {
         }
     }
     
+}
+
 }

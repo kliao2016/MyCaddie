@@ -921,6 +921,24 @@
                         <outlet property="createCourseButton" destination="zWg-hQ-xVQ" id="MRn-Ig-OqM"/>
                         <outlet property="dropTextBox" destination="Yyo-eP-esD" id="3XC-WO-70S"/>
                         <outlet property="navigationBar" destination="O1c-gE-dPU" id="oaN-Sh-rGn"/>
+                        <outlet property="seg1" destination="8TF-ih-QFf" id="DqC-mv-B6B"/>
+                        <outlet property="seg10" destination="poC-lR-H9d" id="w5M-12-tos"/>
+                        <outlet property="seg11" destination="pVa-il-kdg" id="Avu-9j-Tca"/>
+                        <outlet property="seg12" destination="Xgv-vj-3tb" id="oDD-x0-d3b"/>
+                        <outlet property="seg13" destination="S5d-Op-O5e" id="62z-3m-9gx"/>
+                        <outlet property="seg14" destination="4gg-q5-Noi" id="yeu-O4-WXy"/>
+                        <outlet property="seg15" destination="mpW-0d-Mpf" id="Psv-hb-chN"/>
+                        <outlet property="seg16" destination="qI6-g1-THi" id="RNx-aK-auW"/>
+                        <outlet property="seg17" destination="OEk-dW-Tyw" id="9Rh-cY-H2i"/>
+                        <outlet property="seg18" destination="soE-ot-urh" id="AhR-Wa-EdC"/>
+                        <outlet property="seg2" destination="JVI-Yb-ThA" id="1nE-Zz-mA2"/>
+                        <outlet property="seg3" destination="ZVF-S3-KkL" id="MAP-jp-bRT"/>
+                        <outlet property="seg4" destination="KZg-pG-boT" id="NMo-Nk-Dom"/>
+                        <outlet property="seg5" destination="ey7-KQ-HOa" id="5Jl-JH-K01"/>
+                        <outlet property="seg6" destination="6CH-i6-38w" id="9VD-be-lXK"/>
+                        <outlet property="seg7" destination="TIK-J5-4C3" id="1av-ak-hEp"/>
+                        <outlet property="seg8" destination="Nql-Tm-bZF" id="Bl4-2r-5tt"/>
+                        <outlet property="seg9" destination="MMp-Wf-bWW" id="KIw-rl-9as"/>
                         <outlet property="y1" destination="QZ7-a8-c2g" id="w2G-wM-SbS"/>
                         <outlet property="y10" destination="KVE-4r-GMB" id="ZVr-7Z-HRC"/>
                         <outlet property="y11" destination="aVm-WA-Ezr" id="TCi-Al-YI6"/>

@@ -40,6 +40,28 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
     @IBOutlet weak var y17: UITextField!
     @IBOutlet weak var y18: UITextField!
     
+    // Segmented Controls
+    @IBOutlet weak var seg1: UISegmentedControl!
+    @IBOutlet weak var seg2: UISegmentedControl!
+    @IBOutlet weak var seg3: UISegmentedControl!
+    @IBOutlet weak var seg4: UISegmentedControl!
+    @IBOutlet weak var seg5: UISegmentedControl!
+    @IBOutlet weak var seg6: UISegmentedControl!
+    @IBOutlet weak var seg7: UISegmentedControl!
+    @IBOutlet weak var seg8: UISegmentedControl!
+    @IBOutlet weak var seg9: UISegmentedControl!
+    @IBOutlet weak var seg10: UISegmentedControl!
+    @IBOutlet weak var seg11: UISegmentedControl!
+    @IBOutlet weak var seg12: UISegmentedControl!
+    @IBOutlet weak var seg13: UISegmentedControl!
+    @IBOutlet weak var seg14: UISegmentedControl!
+    @IBOutlet weak var seg15: UISegmentedControl!
+    @IBOutlet weak var seg16: UISegmentedControl!
+    @IBOutlet weak var seg17: UISegmentedControl!
+    @IBOutlet weak var seg18: UISegmentedControl!
+    
+    
+    
     
     
     @IBAction func cancelAction(_ sender: Any) {
@@ -284,6 +306,27 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         teePicker.delegate = self
         teePicker.dataSource = self
         teePicker.backgroundColor = UIColor.white
+        
+        self.seg1.selectedSegmentIndex = 1
+        self.seg2.selectedSegmentIndex = 1
+        self.seg3.selectedSegmentIndex = 1
+        self.seg4.selectedSegmentIndex = 1
+        self.seg5.selectedSegmentIndex = 1
+        self.seg6.selectedSegmentIndex = 1
+        self.seg7.selectedSegmentIndex = 1
+        self.seg8.selectedSegmentIndex = 1
+        self.seg9.selectedSegmentIndex = 1
+        self.seg10.selectedSegmentIndex = 1
+        self.seg11.selectedSegmentIndex = 1
+        self.seg12.selectedSegmentIndex = 1
+        self.seg13.selectedSegmentIndex = 1
+        self.seg14.selectedSegmentIndex = 1
+        self.seg15.selectedSegmentIndex = 1
+        self.seg16.selectedSegmentIndex = 1
+        self.seg17.selectedSegmentIndex = 1
+        self.seg18.selectedSegmentIndex = 1
+        
+        
         
         // Bind textfield to picker
         dropTextBox.inputView = teePicker
