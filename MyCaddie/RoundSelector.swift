@@ -80,18 +80,29 @@ class RoundSelector: UITableViewController {
             
             let statsView = segue.destination as! StatsViewController
             
-            statsView.scoreStr = userRoundRef?.value(forKey: "Score") as! String
-            statsView.fairwaysStr = userRoundRef?.value(forKey: "Fairways") as! String
-            statsView.greensStr = userRoundRef?.value(forKey: "Greens") as! String
-            statsView.puttsStr = userRoundRef?.value(forKey: "Putts") as! String
-            statsView.fringesStr = userRoundRef?.value(forKey: "Fringes") as! String
-            statsView.hazardsStr = userRoundRef?.value(forKey: "Hazards") as! String
-            statsView.leftStr = userRoundRef?.value(forKey: "Lefts") as! String
-            statsView.rightStr = userRoundRef?.value(forKey: "Rights") as! String
-            statsView.fbunkersStr = userRoundRef?.value(forKey: "Fairway Bunkers") as! String
-            statsView.gbunkersStr = userRoundRef?.value(forKey: "Greenside Bunkers") as! String
-            statsView.obsStr = userRoundRef?.value(forKey: "OBs") as! String
-        }
+            
+             userRoundRef?.observeSingleEvent(of: .value, with: {DataSnapshot in
+             // Return if no data exists
+             if !DataSnapshot.exists() { return }
+                
+                let p1 = DataSnapshot.childSnapshot(forPath: "Score").value as! String
+                
+//                statsView.scoreStr = userRoundRef?.value(forKey: "Score") as! String
+//                statsView.fairwaysStr = userRoundRef?.value(forKey: "Fairways") as! String
+//                statsView.greensStr = userRoundRef?.value(forKey: "Greens") as! String
+//                statsView.puttsStr = userRoundRef?.value(forKey: "Putts") as! String
+//                statsView.fringesStr = userRoundRef?.value(forKey: "Fringes") as! String
+//                statsView.hazardsStr = userRoundRef?.value(forKey: "Hazards") as! String
+//                statsView.leftStr = userRoundRef?.value(forKey: "Lefts") as! String
+//                statsView.rightStr = userRoundRef?.value(forKey: "Rights") as! String
+//                statsView.fbunkersStr = userRoundRef?.value(forKey: "Fairway Bunkers") as! String
+//                statsView.gbunkersStr = userRoundRef?.value(forKey: "Greenside Bunkers") as! String
+//                statsView.obsStr = userRoundRef?.value(forKey: "OBs") as! String
+             
+            
+        })
     }
     
+}
+
 }
