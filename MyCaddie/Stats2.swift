@@ -106,21 +106,21 @@ class Stats2: UIViewController {
             })
         }
         
-        
-        print(yardagesOfCourse)
-        print(parsOfCourse)
         if (yardagesOfCourse.count != 0){
             HoleYardage.text = yardagesOfCourse[currentHole]
             HolePar.text = parsOfCourse[currentHole]
         }
-        print(yardagesOfCourse)
-        print(parsOfCourse)
         
         
         // Navigation Bar
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View Scorecard", style: .plain, target: self, action: #selector(displayScorecard))
-        
-        self.navigationItem.leftBarButtonItem?.action = #selector(checkIfUserWantsToCancelRound)
+    }
+    
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
+        if parent == nil {
+            checkIfUserWantsToCancelRound()
+        }
     }
     
     
@@ -128,6 +128,7 @@ class Stats2: UIViewController {
         
         let popUp = UIAlertController(title: "How many putts did you have?", message: nil, preferredStyle: .alert)
         popUp.addTextField { (textField) in
+            textField.keyboardType = UIKeyboardType.numberPad
             textField.text = nil
         }
 
@@ -441,8 +442,6 @@ class Stats2: UIViewController {
                 
             }
             
-            
-            
             let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when) {
                 let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
@@ -487,7 +486,7 @@ class Stats2: UIViewController {
         })
     }
     
-    func getHoleScores(){
+    func getHoleScores() {
         
         var dynamicScore = 0
         var count = 0

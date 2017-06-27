@@ -1392,7 +1392,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="2" navigationOrientation="horizontal" spineLocation="none" id="wH0-Ms-kE0" customClass="ScorecardScroll" customModule="MyCaddie" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SX7-oX-ABQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2167" y="752"/>
+            <point key="canvasLocation" x="2166" y="778"/>
         </scene>
         <!--Loading Screen-->
         <scene sceneID="8yI-OP-vT0">
