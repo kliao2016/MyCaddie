@@ -106,21 +106,21 @@ class Stats2: UIViewController {
             })
         }
         
-        
-        print(yardagesOfCourse)
-        print(parsOfCourse)
         if (yardagesOfCourse.count != 0){
             HoleYardage.text = yardagesOfCourse[currentHole]
             HolePar.text = parsOfCourse[currentHole]
         }
-        print(yardagesOfCourse)
-        print(parsOfCourse)
         
         
         // Navigation Bar
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View Scorecard", style: .plain, target: self, action: #selector(displayScorecard))
-        
-        self.navigationItem.leftBarButtonItem?.action = #selector(checkIfUserWantsToCancelRound)
+    }
+    
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
+        if parent == nil {
+            checkIfUserWantsToCancelRound()
+        }
     }
     
     func puttPopUp() {
@@ -427,8 +427,6 @@ class Stats2: UIViewController {
                 }
                 
             }
-            
-            
             
             let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when) {
