@@ -123,28 +123,43 @@ class Stats2: UIViewController {
         self.navigationItem.leftBarButtonItem?.action = #selector(checkIfUserWantsToCancelRound)
     }
     
+    
     func puttPopUp() {
+        
         let popUp = UIAlertController(title: "How many putts did you have?", message: nil, preferredStyle: .alert)
         popUp.addTextField { (textField) in
             textField.text = nil
         }
+
         
         popUp.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [popUp] (_) in
-            let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
-            self.putts = Int(textField.text!)!
-            self.updateScore()
-            self.holeStatistics.putt = self.putts
-            self.updateHoleData()
-            self.resetHoleStats()
-            if self.currentHole >= 2 {
-                self.endRound()
-                self.deleteCurrentRound()
-                
-                let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
-                DispatchQueue.main.asyncAfter(deadline: when) {
-                    self.showMainView()
+            
+//            if popUp.textFields?[0] == nil {
+//                print ("Yes")
+//                self.puttPopUp()
+//            }
+            
+            //let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
+            
+            let textField = popUp.textFields?[0]
+            let actualText = Int((textField?.text)!)
+            
+            if (actualText != nil){
+                self.putts = Int((textField?.text!)!)!
+                self.updateScore()
+                self.holeStatistics.putt = self.putts
+                self.updateHoleData()
+                self.resetHoleStats()
+                if self.currentHole >= 2 {
+                    self.endRound()
+                    self.deleteCurrentRound()
                 }
             }
+            else {
+                self.puttPopUp()
+            }
+            
+            
         }))
 
         self.present(popUp, animated: true, completion: nil)
@@ -382,7 +397,6 @@ class Stats2: UIViewController {
         var totalScore = 0
         
         let uid = Auth.auth().currentUser?.uid
-        //let currentRound = self.getRoundCount() + 1
         
         getCount()
         
@@ -431,7 +445,6 @@ class Stats2: UIViewController {
             
             let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when) {
-                print("Maybe")
                 let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
                 courseReference.child("Round \(self.currentRound)").child("Fairway Bunkers").setValue(totalFairwayBunkers)
                 courseReference.child("Round \(self.currentRound)").child("Greenside Bunkers").setValue(totalGreenBunkers)
