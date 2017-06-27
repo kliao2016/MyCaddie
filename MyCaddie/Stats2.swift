@@ -467,13 +467,7 @@ class Stats2: UIViewController {
             // Return if no data exists
             //print(DataSnapshot.childrenCount)
             
-            if  DataSnapshot.exists() {
-                print("Else section")
-                count = Int(DataSnapshot.childrenCount)
-            }
-            else {
-                count = 1
-            }
+            count = Int(DataSnapshot.childrenCount)+1
             self.currentRound = count
             print(self.currentRound)
             
