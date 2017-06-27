@@ -70,15 +70,28 @@ class RoundSelector: UITableViewController {
         self.performSegue(withIdentifier: "userStatsSegue", sender: rounds[indexPath.row])
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "userStatsSegue" {
-//            let statsView = segue.destination as! StatsViewController
-//            
-//            statsView.courseName = self.roundParentCourseName
-//            
-//            let indexPath = self.roundTable.indexPathForSelectedRow
-//            statsView.tees = rounds[(indexPath?.row)!]
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "userStatsSegue" {
+            
+            let indexPath = self.roundTable.indexPathForSelectedRow
+            
+            let uid = Auth.auth().currentUser?.uid
+            let userRoundRef = databaseRef?.child("Users").child(uid!).child("Courses").child(self.roundParentCourseName).child(rounds[(indexPath?.row)!])
+            
+            let statsView = segue.destination as! StatsViewController
+            
+            statsView.scoreStr = userRoundRef?.value(forKey: "Score") as! String
+            statsView.fairwaysStr = userRoundRef?.value(forKey: "Fairways") as! String
+            statsView.greensStr = userRoundRef?.value(forKey: "Greens") as! String
+            statsView.puttsStr = userRoundRef?.value(forKey: "Putts") as! String
+            statsView.fringesStr = userRoundRef?.value(forKey: "Fringes") as! String
+            statsView.hazardsStr = userRoundRef?.value(forKey: "Hazards") as! String
+            statsView.leftStr = userRoundRef?.value(forKey: "Lefts") as! String
+            statsView.rightStr = userRoundRef?.value(forKey: "Rights") as! String
+            statsView.fbunkersStr = userRoundRef?.value(forKey: "Fairway Bunkers") as! String
+            statsView.gbunkersStr = userRoundRef?.value(forKey: "Greenside Bunkers") as! String
+            statsView.obsStr = userRoundRef?.value(forKey: "OBs") as! String
+        }
+    }
     
 }

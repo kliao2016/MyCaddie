@@ -61,10 +61,6 @@ class Stats2: UIViewController {
         
         HoleNumber.text = "1"
         
-        print(programVar?.cName)
-        print(programVar?.tName)
-        print(programVar?.currentHoleNumber)
-        
         //let courseName2 = programVar?.cName
         //var tees2 = programVar?.tName as! String
         
@@ -163,8 +159,12 @@ class Stats2: UIViewController {
         let popUp = UIAlertController(title: "Are you sure you want to go back? Going back will delete your data for this current round.", message: nil, preferredStyle: .alert)
         
         popUp.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [popUp] (_) in
-            let uid = Auth.auth().currentUser?.uid
-            let userRef = self.ref.child("Users").child(uid!)
+            self.deleteCurrentRound()
+            
+            let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                self.showMainView()
+            }
         }))
         
         popUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [popUp] (_) in
@@ -339,7 +339,7 @@ class Stats2: UIViewController {
         userReference.child("Current Round").child("Course Name").setValue(courseName)
         userReference.child("Current Round").child("Tees").setValue(tees)
         userReference.child("Current Round").child("Current Hole").setValue(currentHole)
-        userReference.child("Current Round").child("\(currentHole)").child("GreenSide Bunkers").setValue(holeStatData[counter].greenBunkers)
+        userReference.child("Current Round").child("\(currentHole)").child("Greenside Bunkers").setValue(holeStatData[counter].greenBunkers)
         userReference.child("Current Round").child("\(currentHole)").child("Fairway Bunkers").setValue(holeStatData[counter].fairwayBunkers)
         userReference.child("Current Round").child("\(currentHole)").child("Hazards").setValue(holeStatData[counter].hazards)
         userReference.child("Current Round").child("\(currentHole)").child("OBs").setValue(holeStatData[counter].obs)
@@ -391,7 +391,7 @@ class Stats2: UIViewController {
                 if fbCount.key == "Fairway Bunkers" {
                     totalFairwayBunkers += fbCount.value as! Int
                 }
-                if fbCount.key == "GreenSide Bunkers" {
+                if fbCount.key == "Greenside Bunkers" {
                     totalGreenBunkers += fbCount.value as! Int
                 }
                 if fbCount.key == "Hazards" {
@@ -427,7 +427,7 @@ class Stats2: UIViewController {
             
             let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
             courseReference.child("Round \(currentRound)").child("Fairway Bunkers").setValue(totalFairwayBunkers)
-            courseReference.child("Round \(currentRound)").child("GreenSide Bunkers").setValue(totalGreenBunkers)
+            courseReference.child("Round \(currentRound)").child("Greenside Bunkers").setValue(totalGreenBunkers)
             courseReference.child("Round \(currentRound)").child("Hazards").setValue(totalHazards)
             courseReference.child("Round \(currentRound)").child("OBs").setValue(totalOBs)
             courseReference.child("Round \(currentRound)").child("Putts").setValue(totalPutts)
@@ -448,13 +448,11 @@ class Stats2: UIViewController {
     }
     
     func getRoundCount() -> Int {
-        var count = 1
+        var count = 0
         let uid = Auth.auth().currentUser?.uid
         let courseReference = ref.child("Users").child(uid!).child("Courses").child(self.courseName)
         courseReference.observe(.childAdded, with: { (snapshot) in
-            if snapshot.key != nil {
-                count += 1
-            }
+            count = Int(snapshot.childrenCount)
         }, withCancel: nil)
         
         return count
@@ -476,7 +474,6 @@ class Stats2: UIViewController {
                     count += 1
                 }
             }
-            //print(self.holeScores)
         })
     }
     

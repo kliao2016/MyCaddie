@@ -10,6 +10,18 @@ import UIKit
 
 class StatsViewController: UIViewController {
     
+    var scoreStr = ""
+    var fairwaysStr = ""
+    var greensStr = ""
+    var puttsStr = ""
+    var fringesStr = ""
+    var hazardsStr = ""
+    var leftStr = ""
+    var rightStr = ""
+    var fbunkersStr = ""
+    var gbunkersStr = ""
+    var obsStr = ""
+    
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var fairways: UILabel!
     @IBOutlet weak var greens: UILabel!
@@ -25,6 +37,18 @@ class StatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        score.text = scoreStr
+        fairways.text = fairwaysStr
+        greens.text = greensStr
+        putts.text = puttsStr
+        fringes.text = fringesStr
+        hazards.text = hazardsStr
+        left.text = leftStr
+        right.text = rightStr
+        fbunkers.text = fbunkersStr
+        gbunkers.text = gbunkersStr
+        obs.text = obsStr
     }
     
     override func didReceiveMemoryWarning() {

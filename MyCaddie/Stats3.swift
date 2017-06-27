@@ -61,10 +61,6 @@ class Stats3: UIViewController {
         
         HoleNumber.text = "1"
         
-        print(programVar?.cName)
-        print(programVar?.tName)
-        print(programVar?.currentHoleNumber)
-        
         //let courseName2 = programVar?.cName
         //var tees2 = programVar?.tName as! String
         
@@ -340,7 +336,7 @@ class Stats3: UIViewController {
         userReference.child("Current Round").child("Course Name").setValue(courseName)
         userReference.child("Current Round").child("Tees").setValue(tees)
         userReference.child("Current Round").child("Current Hole").setValue(currentHole)
-        userReference.child("Current Round").child("\(currentHole)").child("GreenSide Bunkers").setValue(holeStatData[counter].greenBunkers)
+        userReference.child("Current Round").child("\(currentHole)").child("Greenside Bunkers").setValue(holeStatData[counter].greenBunkers)
         userReference.child("Current Round").child("\(currentHole)").child("Fairway Bunkers").setValue(holeStatData[counter].fairwayBunkers)
         userReference.child("Current Round").child("\(currentHole)").child("Hazards").setValue(holeStatData[counter].hazards)
         userReference.child("Current Round").child("\(currentHole)").child("OBs").setValue(holeStatData[counter].obs)
@@ -371,7 +367,9 @@ class Stats3: UIViewController {
         let uid = Auth.auth().currentUser?.uid
         let courseReference = ref.child("Users").child(uid!).child("Courses").child(self.courseName)
         courseReference.observe(.childAdded, with: { (snapshot) in
-            if snapshot.key != nil {
+            if !(snapshot.hasChild("Round 1")) {
+                count = 0
+            } else if snapshot.hasChild("Round \(count)") {
                 count += 1
             }
         }, withCancel: nil)
@@ -405,7 +403,7 @@ class Stats3: UIViewController {
                 if fbCount.key == "Fairway Bunkers" {
                     totalFairwayBunkers += fbCount.value as! Int
                 }
-                if fbCount.key == "GreenSide Bunkers" {
+                if fbCount.key == "Greenside Bunkers" {
                     totalGreenBunkers += fbCount.value as! Int
                 }
                 if fbCount.key == "Hazards" {
