@@ -126,6 +126,7 @@ class Stats2: UIViewController {
     func puttPopUp() {
         let popUp = UIAlertController(title: "How many putts did you have?", message: nil, preferredStyle: .alert)
         popUp.addTextField { (textField) in
+            textField.keyboardType = UIKeyboardType.numberPad
             textField.text = nil
         }
         
@@ -474,7 +475,7 @@ class Stats2: UIViewController {
         })
     }
     
-    func getHoleScores(){
+    func getHoleScores() {
         
         var dynamicScore = 0
         var count = 0
