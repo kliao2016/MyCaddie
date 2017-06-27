@@ -1843,7 +1843,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="bunkers" destination="GzT-Zp-m6s" id="0db-nz-1UZ"/>
                         <outlet property="fairways" destination="QS3-0i-0Yd" id="pE6-wi-ZeE"/>
                         <outlet property="fbunkers" destination="GzT-Zp-m6s" id="bbj-Ac-kGU"/>
                         <outlet property="fringes" destination="H3o-dL-gQc" id="Oo0-3c-EVJ"/>
