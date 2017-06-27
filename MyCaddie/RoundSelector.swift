@@ -80,17 +80,35 @@ class RoundSelector: UITableViewController {
             
             let statsView = segue.destination as! StatsViewController
             
-            statsView.scoreStr = userRoundRef?.value(forKey: "Score") as! String
-            statsView.fairwaysStr = userRoundRef?.value(forKey: "Fairways") as! String
-            statsView.greensStr = userRoundRef?.value(forKey: "Greens") as! String
-            statsView.puttsStr = userRoundRef?.value(forKey: "Putts") as! String
-            statsView.fringesStr = userRoundRef?.value(forKey: "Fringes") as! String
-            statsView.hazardsStr = userRoundRef?.value(forKey: "Hazards") as! String
-            statsView.leftStr = userRoundRef?.value(forKey: "Lefts") as! String
-            statsView.rightStr = userRoundRef?.value(forKey: "Rights") as! String
-            statsView.fbunkersStr = userRoundRef?.value(forKey: "Fairway Bunkers") as! String
-            statsView.gbunkersStr = userRoundRef?.value(forKey: "Greenside Bunkers") as! String
-            statsView.obsStr = userRoundRef?.value(forKey: "OBs") as! String
+            userRoundRef?.observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    
+                    let fbunkers = dictionary["Fairway Bunkers"] as! Int
+                    let fairways = dictionary["Fairways"] as! Int
+                    let fringes = dictionary["Fringes"] as! Int
+                    let greens = dictionary["Greens"] as! Int
+                    let gbunkers = dictionary["Greenside Bunkers"] as! Int
+                    let hazards = dictionary["Hazards"] as! Int
+                    let lefts = dictionary["Lefts"] as! Int
+                    let obs = dictionary["OBs"] as! Int
+                    let putts = dictionary["Putts"] as! Int
+                    let rights = dictionary["Rights"] as! Int
+                    let score = dictionary["Score"] as! Int
+                    statsView.fbunkers.text = String(fbunkers)
+                    statsView.fairways.text = String(fairways)
+                    statsView.fringes.text = String(fringes)
+                    statsView.greens.text = String(greens)
+                    statsView.gbunkers.text = String(gbunkers)
+                    statsView.hazards.text = String(hazards)
+                    statsView.left.text = String(lefts)
+                    statsView.obs.text = String(obs)
+                    statsView.putts.text = String(putts)
+                    statsView.right.text = String(rights)
+                    statsView.score.text = String(score)
+                }
+            }, withCancel: nil)
+            
         }
     }
     
