@@ -29,6 +29,9 @@
 		994229761EE9F67300F303A5 /* HoleStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994229751EE9F67300F303A5 /* HoleStats.swift */; };
 		9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998724891EF607B000CF2FCA /* StatsViewController.swift */; };
 		999468761EE1B4E300DBEF91 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999468751EE1B4E300DBEF91 /* Scorecard.swift */; };
+		99AFCF461F1FF1280012FAD1 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF451F1FF1280012FAD1 /* SWRevealViewController.m */; };
+		99AFCF481F1FF3EC0012FAD1 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF471F1FF3EC0012FAD1 /* SwipeViewController.swift */; };
+		99AFCF4C1F200DCC0012FAD1 /* Test2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF4B1F200DCC0012FAD1 /* Test2ViewController.swift */; };
 		99B174191EE7637F00A76B9B /* Scorecard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B174181EE7637F00A76B9B /* Scorecard2.swift */; };
 		99B1741D1EE7755700A76B9B /* Stats2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1741C1EE7755700A76B9B /* Stats2.swift */; };
 		99B633111EEEDA0300160704 /* CourseRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B633101EEEDA0300160704 /* CourseRound.swift */; };
@@ -61,6 +64,11 @@
 		994229751EE9F67300F303A5 /* HoleStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoleStats.swift; sourceTree = "<group>"; };
 		998724891EF607B000CF2FCA /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		999468751EE1B4E300DBEF91 /* Scorecard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
+		99AFCF431F1FF1270012FAD1 /* MyCaddie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyCaddie-Bridging-Header.h"; sourceTree = "<group>"; };
+		99AFCF441F1FF1280012FAD1 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		99AFCF451F1FF1280012FAD1 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		99AFCF471F1FF3EC0012FAD1 /* SwipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
+		99AFCF4B1F200DCC0012FAD1 /* Test2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test2ViewController.swift; sourceTree = "<group>"; };
 		99B174181EE7637F00A76B9B /* Scorecard2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard2.swift; sourceTree = "<group>"; };
 		99B1741C1EE7755700A76B9B /* Stats2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats2.swift; sourceTree = "<group>"; };
 		99B633101EEEDA0300160704 /* CourseRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseRound.swift; sourceTree = "<group>"; };
@@ -130,11 +138,16 @@
 				108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */,
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
+				99AFCF441F1FF1280012FAD1 /* SWRevealViewController.h */,
+				99AFCF451F1FF1280012FAD1 /* SWRevealViewController.m */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
+				99AFCF471F1FF3EC0012FAD1 /* SwipeViewController.swift */,
+				99AFCF4B1F200DCC0012FAD1 /* Test2ViewController.swift */,
 				10D5956F1EDA317B00572D38 /* Assets.xcassets */,
 				10D595711EDA317B00572D38 /* LaunchScreen.storyboard */,
 				10D595741EDA317B00572D38 /* Info.plist */,
 				103BA8721EDA37F100054449 /* GoogleService-Info.plist */,
+				99AFCF431F1FF1270012FAD1 /* MyCaddie-Bridging-Header.h */,
 			);
 			path = MyCaddie;
 			sourceTree = "<group>";
@@ -295,12 +308,15 @@
 				99B1741D1EE7755700A76B9B /* Stats2.swift in Sources */,
 				10C5B6871EEBB30D0057D0C4 /* GeneralTeeSelector.swift in Sources */,
 				10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */,
+				99AFCF4C1F200DCC0012FAD1 /* Test2ViewController.swift in Sources */,
 				10D595691EDA317B00572D38 /* FirstViewController.swift in Sources */,
 				991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */,
+				99AFCF461F1FF1280012FAD1 /* SWRevealViewController.m in Sources */,
 				100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */,
 				99B633111EEEDA0300160704 /* CourseRound.swift in Sources */,
 				9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */,
 				10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */,
+				99AFCF481F1FF3EC0012FAD1 /* SwipeViewController.swift in Sources */,
 				101483561EE77508005B5307 /* GeneralCourseSelector.swift in Sources */,
 				108CCE2D1EF73DEE00DF5D90 /* RoundSelector.swift in Sources */,
 			);
@@ -434,6 +450,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyCaddie/MyCaddie-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -450,6 +467,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyCaddie/MyCaddie-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

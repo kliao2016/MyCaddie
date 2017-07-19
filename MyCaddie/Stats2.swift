@@ -238,7 +238,7 @@ class Stats2: UIViewController {
     }
     @IBAction func OB(_ sender: Any) {
         holeStatistics.obs += 1
-        currentScore += 1
+        currentScore += 2
         updateShotText()
         updateUI()
     }
