@@ -70,7 +70,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser?.uid == nil {
-            performSelector(onMainThread: #selector(handleLogout), with: nil, waitUntilDone: true)
+            perform(#selector(handleLogout), with: nil, afterDelay: 0)
         } else {
             let uid = Auth.auth().currentUser?.uid
             

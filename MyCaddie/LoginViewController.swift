@@ -9,10 +9,15 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
 import GoogleSignIn
 import Firebase
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var profileImage: UIImage?
+    
+    @IBOutlet weak var appLogo: UIImageView!
     
     @IBOutlet weak var passTextField: UITextField!
     
@@ -45,6 +50,37 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
         signInButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
         signInButton.layer.cornerRadius = 5
+        
+        appLogo.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
+        appLogo.isUserInteractionEnabled = true
+    }
+    
+    func handleSelectProfileImage() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        var selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] {
+            selectedImageFromPicker = editedImage as? UIImage
+        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] {
+            selectedImageFromPicker = originalImage as? UIImage
+        }
+        
+        if let selectedImage = selectedImageFromPicker {
+            profileImage = selectedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -138,6 +174,16 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                 return
             }
             
+            let storageRef = Storage.storage().reference()
+            if let imageUpload = UIImagePNGRepresentation(self.profileImage!) {
+                storageRef.putData(imageUpload, metadata: nil, completion: { (metadata, error) in
+                    if error != nil {
+                        print(error)
+                        return
+                    }
+                })
+            }
+            
             let userReference = self.databaseRef?.child("Users").child(uid)
             let values = ["Name": self.nameTextField.text, "Email": self.emailTextField.text, "Password": self.passTextField.text]
             
@@ -146,6 +192,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                     self.displayAlert2()
                 }
             })
+            
+            
+            
         })
     }
     
