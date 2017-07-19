@@ -1,5 +1,5 @@
 //
-//  SwipeViewController.swift
+//  SettingsViewController.swift
 //  MyCaddie
 //
 //  Created by Weston Mauz on 7/19/17.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class Test2ViewController: UIViewController {
-    
+class SettingsViewController: UIViewController {
+
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var alertButton: UIBarButtonItem!
     
@@ -48,5 +48,5 @@ class Test2ViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 255/255, green: 87/255, blue: 55/255, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
-    
+
 }
