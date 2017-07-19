@@ -2007,6 +2007,7 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="appLogo" destination="sN7-w3-EYT" id="acJ-pa-aX9"/>
                         <outlet property="emailTextField" destination="p83-NF-eic" id="3HI-AE-e29"/>
                         <outlet property="nameTextField" destination="5Y6-W5-VwP" id="Toi-yb-f9c"/>
                         <outlet property="passTextField" destination="DUk-J4-GMG" id="UY9-tl-Udc"/>
@@ -2357,6 +2358,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3E-SB-DQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-783.20000000000005" y="1635.832083958021"/>
+        </scene>
+        <!--Main Table View Controller-->
+        <scene sceneID="trz-Ng-pZA">
+            <objects>
+                <tableViewController storyboardIdentifier="MainTableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RUF-jN-6A8" customClass="MainTableViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="118" sectionHeaderHeight="28" sectionFooterHeight="28" id="zac-IO-ash">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="wGV-XG-SDw">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ov-C4-bi9">
+                                    <rect key="frame" x="166" y="52" width="42" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.25882352939999997" green="0.95686274510000002" blue="0.58431372550000005" alpha="0.38067208899999999" colorSpace="calibratedRGB"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" alpha="0.29999999999999999" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTableViewCell" rowHeight="118" id="sOc-Ka-cQ5" customClass="MainTableViewCell" customModule="MyCaddie" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="153" width="375" height="118"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sOc-Ka-cQ5" id="VNs-rJ-52U">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="117.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RUF-jN-6A8" id="9yV-y0-AGi"/>
+                            <outlet property="delegate" destination="RUF-jN-6A8" id="Lo5-60-zcF"/>
+                        </connections>
+                    </tableView>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="6Ov-C4-bi9" id="UdO-h6-ChH"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h6p-II-5ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1778.4000000000001" y="-1821.1394302848578"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -3202,7 +3251,7 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yl5-xu-nZ6"/>
+        <segue reference="8C2-ku-y4H"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

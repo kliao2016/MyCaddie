@@ -23,6 +23,8 @@
 		10D595731EDA317B00572D38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D595711EDA317B00572D38 /* LaunchScreen.storyboard */; };
 		10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC3C651EE70FE300CA2B70 /* ScorecardScroll.swift */; };
 		10DF39CB1EE7BFFD003D8D6B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DF39CA1EE7BFFD003D8D6B /* AdSupport.framework */; };
+		10FC4EBE1F1FECDB006F4B79 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC4EBD1F1FECDB006F4B79 /* MainTableViewController.swift */; };
+		10FC4EC11F1FEF2D006F4B79 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC4EC01F1FEF2D006F4B79 /* MainTableViewCell.swift */; };
 		41B6BCB99C6A48BD03D4DC05 /* Pods_MyCaddie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */; };
 		991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FA8841EF3528900289D63 /* LoadingScreen.swift */; };
 		991FA8871EF3539A00289D63 /* CurrentRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FA8861EF3539A00289D63 /* CurrentRound.swift */; };
@@ -61,6 +63,8 @@
 		10D595741EDA317B00572D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10DC3C651EE70FE300CA2B70 /* ScorecardScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScorecardScroll.swift; sourceTree = "<group>"; };
 		10DF39CA1EE7BFFD003D8D6B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		10FC4EBD1F1FECDB006F4B79 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		10FC4EC01F1FEF2D006F4B79 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		2FCF9886C273C092987DB59C /* Pods-MyCaddie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCaddie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCaddie/Pods-MyCaddie.debug.xcconfig"; sourceTree = "<group>"; };
 		44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCaddie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		991FA8841EF3528900289D63 /* LoadingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 		10D595651EDA317B00572D38 /* MyCaddie */ = {
 			isa = PBXGroup;
 			children = (
+				10FC4EBF1F1FEF18006F4B79 /* Custom */,
 				10896FC21EE8D19400C7B66E /* Model */,
 				10D595661EDA317B00572D38 /* AppDelegate.swift */,
 				10D595681EDA317B00572D38 /* FirstViewController.swift */,
@@ -146,6 +151,7 @@
 				108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */,
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
+				10FC4EBD1F1FECDB006F4B79 /* MainTableViewController.swift */,
 				99AFCF441F1FF1280012FAD1 /* SWRevealViewController.h */,
 				99AFCF451F1FF1280012FAD1 /* SWRevealViewController.m */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
@@ -158,6 +164,14 @@
 				99AFCF431F1FF1270012FAD1 /* MyCaddie-Bridging-Header.h */,
 			);
 			path = MyCaddie;
+			sourceTree = "<group>";
+		};
+		10FC4EBF1F1FEF18006F4B79 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				10FC4EC01F1FEF2D006F4B79 /* MainTableViewCell.swift */,
+			);
+			name = Custom;
 			sourceTree = "<group>";
 		};
 		1C465B15AB3FB1B3F34C4237 /* Pods */ = {
@@ -316,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10FC4EC11F1FEF2D006F4B79 /* MainTableViewCell.swift in Sources */,
 				999468761EE1B4E300DBEF91 /* Scorecard.swift in Sources */,
 				991FA8871EF3539A00289D63 /* CurrentRound.swift in Sources */,
 				99D6C8C91EDF5AA300FA55D0 /* CreateViewController.swift in Sources */,
@@ -333,6 +348,7 @@
 				10C5B6871EEBB30D0057D0C4 /* GeneralTeeSelector.swift in Sources */,
 				10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */,
 				10D595691EDA317B00572D38 /* FirstViewController.swift in Sources */,
+				10FC4EBE1F1FECDB006F4B79 /* MainTableViewController.swift in Sources */,
 				991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */,
 				99AFCF461F1FF1280012FAD1 /* SWRevealViewController.m in Sources */,
 				100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */,
