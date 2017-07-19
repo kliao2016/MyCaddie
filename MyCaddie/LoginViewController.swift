@@ -198,4 +198,17 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         })
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    // Constrain view to be only portrait
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
 }

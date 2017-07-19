@@ -31,6 +31,13 @@
 		994229761EE9F67300F303A5 /* HoleStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994229751EE9F67300F303A5 /* HoleStats.swift */; };
 		9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998724891EF607B000CF2FCA /* StatsViewController.swift */; };
 		999468761EE1B4E300DBEF91 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999468751EE1B4E300DBEF91 /* Scorecard.swift */; };
+		99AFCF461F1FF1280012FAD1 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF451F1FF1280012FAD1 /* SWRevealViewController.m */; };
+		99AFCF481F1FF3EC0012FAD1 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF471F1FF3EC0012FAD1 /* SwipeViewController.swift */; };
+		99AFCF4E1F2017620012FAD1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF4D1F2017620012FAD1 /* ProfileViewController.swift */; };
+		99AFCF501F20177C0012FAD1 /* MyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF4F1F20177C0012FAD1 /* MyCoursesViewController.swift */; };
+		99AFCF541F20179F0012FAD1 /* MyStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF531F20179F0012FAD1 /* MyStatsViewController.swift */; };
+		99AFCF561F2017B50012FAD1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF551F2017B50012FAD1 /* SettingsViewController.swift */; };
+		99AFCF5B1F201ACC0012FAD1 /* CreateCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF5A1F201ACC0012FAD1 /* CreateCourseViewController.swift */; };
 		99B174191EE7637F00A76B9B /* Scorecard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B174181EE7637F00A76B9B /* Scorecard2.swift */; };
 		99B1741D1EE7755700A76B9B /* Stats2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1741C1EE7755700A76B9B /* Stats2.swift */; };
 		99B633111EEEDA0300160704 /* CourseRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B633101EEEDA0300160704 /* CourseRound.swift */; };
@@ -65,6 +72,15 @@
 		994229751EE9F67300F303A5 /* HoleStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoleStats.swift; sourceTree = "<group>"; };
 		998724891EF607B000CF2FCA /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		999468751EE1B4E300DBEF91 /* Scorecard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
+		99AFCF431F1FF1270012FAD1 /* MyCaddie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyCaddie-Bridging-Header.h"; sourceTree = "<group>"; };
+		99AFCF441F1FF1280012FAD1 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		99AFCF451F1FF1280012FAD1 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		99AFCF471F1FF3EC0012FAD1 /* SwipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
+		99AFCF4D1F2017620012FAD1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		99AFCF4F1F20177C0012FAD1 /* MyCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCoursesViewController.swift; sourceTree = "<group>"; };
+		99AFCF531F20179F0012FAD1 /* MyStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStatsViewController.swift; sourceTree = "<group>"; };
+		99AFCF551F2017B50012FAD1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		99AFCF5A1F201ACC0012FAD1 /* CreateCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCourseViewController.swift; sourceTree = "<group>"; };
 		99B174181EE7637F00A76B9B /* Scorecard2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard2.swift; sourceTree = "<group>"; };
 		99B1741C1EE7755700A76B9B /* Stats2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats2.swift; sourceTree = "<group>"; };
 		99B633101EEEDA0300160704 /* CourseRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseRound.swift; sourceTree = "<group>"; };
@@ -136,11 +152,16 @@
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
 				10FC4EBD1F1FECDB006F4B79 /* MainTableViewController.swift */,
+				99AFCF441F1FF1280012FAD1 /* SWRevealViewController.h */,
+				99AFCF451F1FF1280012FAD1 /* SWRevealViewController.m */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
+				99AFCF471F1FF3EC0012FAD1 /* SwipeViewController.swift */,
+				99AFCF571F2017EF0012FAD1 /* Slide Bar Pages */,
 				10D5956F1EDA317B00572D38 /* Assets.xcassets */,
 				10D595711EDA317B00572D38 /* LaunchScreen.storyboard */,
 				10D595741EDA317B00572D38 /* Info.plist */,
 				103BA8721EDA37F100054449 /* GoogleService-Info.plist */,
+				99AFCF431F1FF1270012FAD1 /* MyCaddie-Bridging-Header.h */,
 			);
 			path = MyCaddie;
 			sourceTree = "<group>";
@@ -169,6 +190,18 @@
 				44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99AFCF571F2017EF0012FAD1 /* Slide Bar Pages */ = {
+			isa = PBXGroup;
+			children = (
+				99AFCF4D1F2017620012FAD1 /* ProfileViewController.swift */,
+				99AFCF4F1F20177C0012FAD1 /* MyCoursesViewController.swift */,
+				99AFCF5A1F201ACC0012FAD1 /* CreateCourseViewController.swift */,
+				99AFCF531F20179F0012FAD1 /* MyStatsViewController.swift */,
+				99AFCF551F2017B50012FAD1 /* SettingsViewController.swift */,
+			);
+			name = "Slide Bar Pages";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,19 +337,26 @@
 				10896FC41EE8D1B000C7B66E /* Course.swift in Sources */,
 				103BA8711EDA332800054449 /* LoginViewController.swift in Sources */,
 				99B174191EE7637F00A76B9B /* Scorecard2.swift in Sources */,
+				99AFCF4E1F2017620012FAD1 /* ProfileViewController.swift in Sources */,
 				994229761EE9F67300F303A5 /* HoleStats.swift in Sources */,
 				10D5956B1EDA317B00572D38 /* SecondViewController.swift in Sources */,
+				99AFCF501F20177C0012FAD1 /* MyCoursesViewController.swift in Sources */,
+				99AFCF5B1F201ACC0012FAD1 /* CreateCourseViewController.swift in Sources */,
 				10D595671EDA317B00572D38 /* AppDelegate.swift in Sources */,
+				99AFCF541F20179F0012FAD1 /* MyStatsViewController.swift in Sources */,
 				99B1741D1EE7755700A76B9B /* Stats2.swift in Sources */,
 				10C5B6871EEBB30D0057D0C4 /* GeneralTeeSelector.swift in Sources */,
 				10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */,
 				10D595691EDA317B00572D38 /* FirstViewController.swift in Sources */,
 				10FC4EBE1F1FECDB006F4B79 /* MainTableViewController.swift in Sources */,
 				991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */,
+				99AFCF461F1FF1280012FAD1 /* SWRevealViewController.m in Sources */,
 				100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */,
 				99B633111EEEDA0300160704 /* CourseRound.swift in Sources */,
 				9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */,
+				99AFCF561F2017B50012FAD1 /* SettingsViewController.swift in Sources */,
 				10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */,
+				99AFCF481F1FF3EC0012FAD1 /* SwipeViewController.swift in Sources */,
 				101483561EE77508005B5307 /* GeneralCourseSelector.swift in Sources */,
 				108CCE2D1EF73DEE00DF5D90 /* RoundSelector.swift in Sources */,
 			);
@@ -450,6 +490,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyCaddie/MyCaddie-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -466,6 +507,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyCaddie/MyCaddie-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
