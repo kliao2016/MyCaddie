@@ -152,10 +152,8 @@
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
 				10FC4EBD1F1FECDB006F4B79 /* MainTableViewController.swift */,
-				99AFCF441F1FF1280012FAD1 /* SWRevealViewController.h */,
-				99AFCF451F1FF1280012FAD1 /* SWRevealViewController.m */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
-				99AFCF471F1FF3EC0012FAD1 /* SwipeViewController.swift */,
+				99D313CD1F2125A90051B3BE /* Swipe Control */,
 				99AFCF571F2017EF0012FAD1 /* Slide Bar Pages */,
 				10D5956F1EDA317B00572D38 /* Assets.xcassets */,
 				10D595711EDA317B00572D38 /* LaunchScreen.storyboard */,
@@ -202,6 +200,16 @@
 				99AFCF551F2017B50012FAD1 /* SettingsViewController.swift */,
 			);
 			name = "Slide Bar Pages";
+			sourceTree = "<group>";
+		};
+		99D313CD1F2125A90051B3BE /* Swipe Control */ = {
+			isa = PBXGroup;
+			children = (
+				99AFCF441F1FF1280012FAD1 /* SWRevealViewController.h */,
+				99AFCF451F1FF1280012FAD1 /* SWRevealViewController.m */,
+				99AFCF471F1FF3EC0012FAD1 /* SwipeViewController.swift */,
+			);
+			name = "Swipe Control";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
