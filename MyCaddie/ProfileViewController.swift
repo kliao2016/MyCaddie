@@ -17,12 +17,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var alertButton: UIBarButtonItem!
+    @IBOutlet weak var profileImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sideMenus()
         customizeNavBar()
+        
+        profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
+        profileImage.isUserInteractionEnabled = true
         
         // Do any additional setup after loading the view.
     }
@@ -54,11 +58,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
-    // Handle adding Profile Picture
-    @IBAction func addProfileImage(_ sender: Any) {
-        handleSelectProfileImage()
-    }
-    
     func handleSelectProfileImage() {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -77,6 +76,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
         if let selectedImage = selectedImageFromPicker {
+            self.profileImage.image = selectedImage
             self.uploadProfileImageToDataBase(selectedImage: selectedImage)
         }
         

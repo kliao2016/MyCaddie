@@ -2240,18 +2240,6 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N0T-6P-ddK">
                                 <rect key="frame" x="0.0" y="325" width="375" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvC-UG-sjj">
-                                <rect key="frame" x="114" y="251" width="146" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Profile Picture"/>
-                                <connections>
-                                    <action selector="addProfileImage:" destination="Yk5-Sc-OJ6" eventType="touchUpInside" id="QAm-zj-NX8"/>
-                                </connections>
-                            </button>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zKJ-6m-0Yi">
@@ -2334,6 +2322,7 @@
                     <connections>
                         <outlet property="alertButton" destination="gX0-k9-bHc" id="Qya-ie-lxY"/>
                         <outlet property="menuButton" destination="7sF-9c-I7M" id="gaI-PU-xba"/>
+                        <outlet property="profileImage" destination="2NU-NV-Uop" id="gde-mu-Th4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzz-wf-cmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
