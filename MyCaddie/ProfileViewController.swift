@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import FirebaseStorage
+import Firebase
+import FirebaseAuth
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var databaseRef = Database.database().reference()
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var alertButton: UIBarButtonItem!
@@ -47,6 +52,61 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
         navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 1/255, green: 132/255, blue: 72/255, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+    }
+    
+    // Handle adding Profile Picture
+    @IBAction func addProfileImage(_ sender: Any) {
+        handleSelectProfileImage()
+    }
+    
+    func handleSelectProfileImage() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        var selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] {
+            selectedImageFromPicker = editedImage as? UIImage
+        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] {
+            selectedImageFromPicker = originalImage as? UIImage
+        }
+        
+        if let selectedImage = selectedImageFromPicker {
+            self.uploadProfileImageToDataBase(selectedImage: selectedImage)
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func uploadProfileImageToDataBase(selectedImage: UIImage) {
+        let uid = Auth.auth().currentUser?.uid
+        let storageRef = Storage.storage().reference().child("\(uid!).png")
+        if let imageUpload = UIImagePNGRepresentation(selectedImage) {
+            storageRef.putData(imageUpload, metadata: nil, completion: { (metadata, error) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                
+                if let profileImageURL = metadata?.downloadURL()?.absoluteString {
+                    self.registerUserImageToDatabaseWithUID(uid: uid!, profileImageURL: profileImageURL)
+                }
+            })
+        }
+    }
+    
+    private func registerUserImageToDatabaseWithUID(uid: String, profileImageURL: String) {
+        let userRef = databaseRef.child("Users").child(uid)
+        userRef.child("ProfileImageURL").setValue(profileImageURL)
     }
 
 }
