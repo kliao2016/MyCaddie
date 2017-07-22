@@ -14,12 +14,11 @@ import FirebaseAuth
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var databaseRef = Database.database().reference()
-    var user = User()
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var alertButton: UIBarButtonItem!
     @IBOutlet weak var profileImage: UIImageView!
-    
+    @IBOutlet weak var userName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,10 +117,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.profileImage.clipsToBounds = true
         if let uid = Auth.auth().currentUser?.uid {
             let user = databaseRef.child("Users").child(uid)
-            user.child("ProfileImageURL").observeSingleEvent(of: .value, with: { (snapshot) in
-                let userProfileLink = snapshot.value
-                if let profileImageUrl = userProfileLink {
-                    self.profileImage.loadImagesUsingCacheWithUrlString(urlString: profileImageUrl as! String)
+            user.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let userProfileLink = dictionary["ProfileImageURL"]
+                    if let profileImageUrl = userProfileLink {
+                        self.profileImage.loadImagesUsingCacheWithUrlString(urlString: profileImageUrl as! String)
+                    }
+                    self.userName.text = dictionary["Name"] as? String
                 }
             }, withCancel: nil)
         }
