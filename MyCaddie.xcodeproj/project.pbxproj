@@ -13,6 +13,8 @@
 		103BA8731EDA37F100054449 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 103BA8721EDA37F100054449 /* GoogleService-Info.plist */; };
 		10896FC41EE8D1B000C7B66E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10896FC31EE8D1B000C7B66E /* Course.swift */; };
 		108CCE2D1EF73DEE00DF5D90 /* RoundSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */; };
+		1090B9871F22F764002F678E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090B9861F22F764002F678E /* Extensions.swift */; };
+		1090B98B1F22FE53002F678E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090B98A1F22FE53002F678E /* User.swift */; };
 		10C5B6871EEBB30D0057D0C4 /* GeneralTeeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */; };
 		10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6BDD51EF615AA00C6E576 /* Stats3.swift */; };
 		10D595671EDA317B00572D38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D595661EDA317B00572D38 /* AppDelegate.swift */; };
@@ -51,6 +53,8 @@
 		103BA8721EDA37F100054449 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10896FC31EE8D1B000C7B66E /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundSelector.swift; sourceTree = "<group>"; };
+		1090B9861F22F764002F678E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1090B98A1F22FE53002F678E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTeeSelector.swift; sourceTree = "<group>"; };
 		10C6BDD51EF615AA00C6E576 /* Stats3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats3.swift; sourceTree = "<group>"; };
 		10D595631EDA317B00572D38 /* MyCaddie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCaddie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +116,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		1090B9851F22F753002F678E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1090B9861F22F764002F678E /* Extensions.swift */,
+				1090B98A1F22FE53002F678E /* User.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		10D5955A1EDA317B00572D38 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +146,7 @@
 		10D595651EDA317B00572D38 /* MyCaddie */ = {
 			isa = PBXGroup;
 			children = (
+				1090B9851F22F753002F678E /* Helpers */,
 				10FC4EBF1F1FEF18006F4B79 /* Custom */,
 				10896FC21EE8D19400C7B66E /* Model */,
 				10D595661EDA317B00572D38 /* AppDelegate.swift */,
@@ -342,6 +356,7 @@
 				999468761EE1B4E300DBEF91 /* Scorecard.swift in Sources */,
 				991FA8871EF3539A00289D63 /* CurrentRound.swift in Sources */,
 				99D6C8C91EDF5AA300FA55D0 /* CreateViewController.swift in Sources */,
+				1090B98B1F22FE53002F678E /* User.swift in Sources */,
 				10896FC41EE8D1B000C7B66E /* Course.swift in Sources */,
 				103BA8711EDA332800054449 /* LoginViewController.swift in Sources */,
 				99B174191EE7637F00A76B9B /* Scorecard2.swift in Sources */,
@@ -363,6 +378,7 @@
 				99B633111EEEDA0300160704 /* CourseRound.swift in Sources */,
 				9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */,
 				99AFCF561F2017B50012FAD1 /* SettingsViewController.swift in Sources */,
+				1090B9871F22F764002F678E /* Extensions.swift in Sources */,
 				10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */,
 				99AFCF481F1FF3EC0012FAD1 /* SwipeViewController.swift in Sources */,
 				101483561EE77508005B5307 /* GeneralCourseSelector.swift in Sources */,

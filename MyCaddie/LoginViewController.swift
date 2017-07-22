@@ -147,9 +147,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
                     self.displayAlert2()
                 }
             })
-            
-            
-            
         })
     }
     

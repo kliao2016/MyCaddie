@@ -14,10 +14,12 @@ import FirebaseAuth
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var databaseRef = Database.database().reference()
+    var user = User()
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var alertButton: UIBarButtonItem!
     @IBOutlet weak var profileImage: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
-    func sideMenus(){
+    func sideMenus() {
         
         if revealViewController() != nil {
             
@@ -111,26 +113,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func pullImageFromDatabase() {
+        self.profileImage.contentMode = .scaleAspectFill
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+        self.profileImage.clipsToBounds = true
         if let uid = Auth.auth().currentUser?.uid {
             let user = databaseRef.child("Users").child(uid)
-            self.profileImage.contentMode = .scaleAspectFill
-            self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
-            self.profileImage.clipsToBounds = true
             user.child("ProfileImageURL").observeSingleEvent(of: .value, with: { (snapshot) in
                 let userProfileLink = snapshot.value
                 if let profileImageUrl = userProfileLink {
-                    let url = URL(string: profileImageUrl as! String )
-                    let request = URLRequest(url: url!)
-                    URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-                        if error != nil {
-                            print(error!)
-                            return
-                        }
-                        
-                        DispatchQueue.main.async {
-                            self.profileImage.image = UIImage(data: data!)
-                        }
-                    }).resume()
+                    self.profileImage.loadImagesUsingCacheWithUrlString(urlString: profileImageUrl as! String)
                 }
             }, withCancel: nil)
         }
