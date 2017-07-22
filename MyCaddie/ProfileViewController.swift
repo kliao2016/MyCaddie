@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var alertButton: UIBarButtonItem!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
         profileImage.isUserInteractionEnabled = true
         
-        // Do any additional setup after loading the view.
+        pullImageFromDatabase()
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,7 +37,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
-    func sideMenus(){
+    func sideMenus() {
         
         if revealViewController() != nil {
             
@@ -54,7 +55,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func customizeNavBar(){
         navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
-        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 1/255, green: 132/255, blue: 72/255, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
@@ -88,25 +89,44 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func uploadProfileImageToDataBase(selectedImage: UIImage) {
-        let uid = Auth.auth().currentUser?.uid
-        let storageRef = Storage.storage().reference().child("\(uid!).png")
-        if let imageUpload = UIImagePNGRepresentation(selectedImage) {
-            storageRef.putData(imageUpload, metadata: nil, completion: { (metadata, error) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                
-                if let profileImageURL = metadata?.downloadURL()?.absoluteString {
-                    self.registerUserImageToDatabaseWithUID(uid: uid!, profileImageURL: profileImageURL)
-                }
-            })
+        if let uid = Auth.auth().currentUser?.uid {
+            let storageRef = Storage.storage().reference().child("\(uid).png")
+            if let imageUpload = UIImagePNGRepresentation(selectedImage) {
+                storageRef.putData(imageUpload, metadata: nil, completion: { (metadata, error) in
+                    if error != nil {
+                        print(error!)
+                        return
+                    }
+                    
+                    if let profileImageURL = metadata?.downloadURL()?.absoluteString {
+                        self.registerUserImageToDatabaseWithUID(uid: uid, profileImageURL: profileImageURL)
+                    }
+                })
+            }
         }
     }
     
     private func registerUserImageToDatabaseWithUID(uid: String, profileImageURL: String) {
         let userRef = databaseRef.child("Users").child(uid)
         userRef.child("ProfileImageURL").setValue(profileImageURL)
+    }
+    
+    func pullImageFromDatabase() {
+        self.profileImage.contentMode = .scaleAspectFill
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+        self.profileImage.clipsToBounds = true
+        if let uid = Auth.auth().currentUser?.uid {
+            let user = databaseRef.child("Users").child(uid)
+            user.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let userProfileLink = dictionary["ProfileImageURL"]
+                    if let profileImageUrl = userProfileLink {
+                        self.profileImage.loadImagesUsingCacheWithUrlString(urlString: profileImageUrl as! String)
+                    }
+                    self.userName.text = dictionary["Name"] as? String
+                }
+            }, withCancel: nil)
+        }
     }
 
 }
