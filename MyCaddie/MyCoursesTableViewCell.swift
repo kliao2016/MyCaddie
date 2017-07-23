@@ -1,18 +1,14 @@
 //
-//  MainTableViewCell.swift
+//  MyCoursesTableViewCell.swift
 //  MyCaddie
 //
-//  Created by Kevin Liao on 7/19/17.
+//  Created by Kevin Liao on 7/22/17.
 //  Copyright © 2017 Liao & Mauz. All rights reserved.
 //
 
 import UIKit
-import FirebaseDatabase
-import FirebaseStorage
-import Firebase
-import GoogleSignIn
 
-class MainTableViewCell: UITableViewCell {
+class MyCoursesTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -1,28 +1,19 @@
 //
-//  MainTableViewController.swift
+//  SlideBarTableViewController.swift
 //  MyCaddie
 //
-//  Created by Kevin Liao on 7/19/17.
+//  Created by Kevin Liao on 7/22/17.
 //  Copyright © 2017 Liao & Mauz. All rights reserved.
 //
 
 import UIKit
-import FirebaseDatabase
-import FirebaseStorage
-import Firebase
-import GoogleSignIn
 
-class MainTableViewController: UITableViewController {
-    
-    var databaseRef = Database.database().reference()
-    // IB Outlets
-    @IBOutlet weak var nameLabel: UILabel!
-    
+class SlideBarTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkIfUserIsLoggedIn()
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,61 +25,12 @@ class MainTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-    
-    // Logout functions
-    func handleLogout() {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-        
-        GIDSignIn.sharedInstance().signOut()
-        
-        // self.performSegue(withIdentifier: "UnwindToLogin", sender: self)
-    }
-    
-    // Login functions
-    func checkIfUserIsLoggedIn() {
-        if Auth.auth().currentUser?.uid == nil {
-            perform(#selector(handleLogout), with: nil, afterDelay: 0)
-        } else {
-            let uid = Auth.auth().currentUser?.uid
-            
-            var provider = ""
-            var providerName = ""
-            var providerEmail = ""
-            Auth.auth().currentUser?.providerData.forEach({ (profile) in
-                provider = profile.providerID
-                providerName = profile.displayName!
-                providerEmail = profile.email!
-            })
-            if provider != "google.com" {
-                self.databaseRef.child("Users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
-                    if let dictionary = snapshot.value as? [String: AnyObject] {
-                        let name = dictionary["Name"] as? String
-                        self.nameLabel.text = "\(name!)'s Courses"
-                    }
-                }, withCancel: nil)
-            } else {
-                self.databaseRef.child("Users").child(uid!).child("Name").setValue(providerName)
-                self.databaseRef.child("Users").child(uid!).child("Email").setValue(providerEmail)
-                self.databaseRef.child("Users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
-                    if let dictionary = snapshot.value as? [String: AnyObject] {
-                        let name = dictionary["Name"] as? String
-                        self.nameLabel.text = "\(name!)'s Courses"
-                    }
-                }, withCancel: nil)
-            }
-        }
+        return 6
     }
 
     /*
