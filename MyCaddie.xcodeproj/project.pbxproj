@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100E28FA1EE8BC4A00D16376 /* TabBarController.swift */; };
 		101483561EE77508005B5307 /* GeneralCourseSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101483551EE77508005B5307 /* GeneralCourseSelector.swift */; };
+		1015B6001F23F1D800628816 /* SlideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1015B5FF1F23F1D800628816 /* SlideBarTableViewController.swift */; };
+		101CA7161F2434DB00C61B07 /* MyCoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101CA7151F2434DB00C61B07 /* MyCoursesTableViewCell.swift */; };
 		103BA8711EDA332800054449 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BA8701EDA332800054449 /* LoginViewController.swift */; };
 		103BA8731EDA37F100054449 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 103BA8721EDA37F100054449 /* GoogleService-Info.plist */; };
 		10896FC41EE8D1B000C7B66E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10896FC31EE8D1B000C7B66E /* Course.swift */; };
@@ -26,8 +28,6 @@
 		10DC0D201F23A0E5007036F8 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC0D1F1F23A0E5007036F8 /* ProfileTableViewController.swift */; };
 		10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC3C651EE70FE300CA2B70 /* ScorecardScroll.swift */; };
 		10DF39CB1EE7BFFD003D8D6B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DF39CA1EE7BFFD003D8D6B /* AdSupport.framework */; };
-		10FC4EBE1F1FECDB006F4B79 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC4EBD1F1FECDB006F4B79 /* MainTableViewController.swift */; };
-		10FC4EC11F1FEF2D006F4B79 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC4EC01F1FEF2D006F4B79 /* MainTableViewCell.swift */; };
 		41B6BCB99C6A48BD03D4DC05 /* Pods_MyCaddie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */; };
 		991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FA8841EF3528900289D63 /* LoadingScreen.swift */; };
 		991FA8871EF3539A00289D63 /* CurrentRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FA8861EF3539A00289D63 /* CurrentRound.swift */; };
@@ -50,6 +50,8 @@
 /* Begin PBXFileReference section */
 		100E28FA1EE8BC4A00D16376 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		101483551EE77508005B5307 /* GeneralCourseSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralCourseSelector.swift; sourceTree = "<group>"; };
+		1015B5FF1F23F1D800628816 /* SlideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideBarTableViewController.swift; sourceTree = "<group>"; };
+		101CA7151F2434DB00C61B07 /* MyCoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCoursesTableViewCell.swift; sourceTree = "<group>"; };
 		103BA8701EDA332800054449 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		103BA8721EDA37F100054449 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10896FC31EE8D1B000C7B66E /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
@@ -69,8 +71,6 @@
 		10DC0D1F1F23A0E5007036F8 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		10DC3C651EE70FE300CA2B70 /* ScorecardScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScorecardScroll.swift; sourceTree = "<group>"; };
 		10DF39CA1EE7BFFD003D8D6B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		10FC4EBD1F1FECDB006F4B79 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
-		10FC4EC01F1FEF2D006F4B79 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		2FCF9886C273C092987DB59C /* Pods-MyCaddie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCaddie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCaddie/Pods-MyCaddie.debug.xcconfig"; sourceTree = "<group>"; };
 		44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCaddie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		991FA8841EF3528900289D63 /* LoadingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
@@ -167,7 +167,6 @@
 				108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */,
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
-				10FC4EBD1F1FECDB006F4B79 /* MainTableViewController.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
 				99D313CD1F2125A90051B3BE /* Swipe Control */,
 				99AFCF571F2017EF0012FAD1 /* Slide Bar Pages */,
@@ -183,8 +182,8 @@
 		10FC4EBF1F1FEF18006F4B79 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				10FC4EC01F1FEF2D006F4B79 /* MainTableViewCell.swift */,
 				10DC0D1F1F23A0E5007036F8 /* ProfileTableViewController.swift */,
+				101CA7151F2434DB00C61B07 /* MyCoursesTableViewCell.swift */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -215,6 +214,7 @@
 				99AFCF5A1F201ACC0012FAD1 /* CreateCourseViewController.swift */,
 				99AFCF531F20179F0012FAD1 /* MyStatsViewController.swift */,
 				99AFCF551F2017B50012FAD1 /* SettingsViewController.swift */,
+				1015B5FF1F23F1D800628816 /* SlideBarTableViewController.swift */,
 			);
 			name = "Slide Bar Pages";
 			sourceTree = "<group>";
@@ -355,11 +355,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10FC4EC11F1FEF2D006F4B79 /* MainTableViewCell.swift in Sources */,
 				999468761EE1B4E300DBEF91 /* Scorecard.swift in Sources */,
 				991FA8871EF3539A00289D63 /* CurrentRound.swift in Sources */,
 				99D6C8C91EDF5AA300FA55D0 /* CreateViewController.swift in Sources */,
 				1090B98B1F22FE53002F678E /* User.swift in Sources */,
+				101CA7161F2434DB00C61B07 /* MyCoursesTableViewCell.swift in Sources */,
 				10896FC41EE8D1B000C7B66E /* Course.swift in Sources */,
 				10DC0D201F23A0E5007036F8 /* ProfileTableViewController.swift in Sources */,
 				103BA8711EDA332800054449 /* LoginViewController.swift in Sources */,
@@ -375,8 +375,8 @@
 				10C5B6871EEBB30D0057D0C4 /* GeneralTeeSelector.swift in Sources */,
 				10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */,
 				10D595691EDA317B00572D38 /* FirstViewController.swift in Sources */,
-				10FC4EBE1F1FECDB006F4B79 /* MainTableViewController.swift in Sources */,
 				991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */,
+				1015B6001F23F1D800628816 /* SlideBarTableViewController.swift in Sources */,
 				99AFCF461F1FF1280012FAD1 /* SWRevealViewController.m in Sources */,
 				100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */,
 				99B633111EEEDA0300160704 /* CourseRound.swift in Sources */,

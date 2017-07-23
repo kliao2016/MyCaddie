@@ -90,8 +90,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func uploadProfileImageToDataBase(selectedImage: UIImage) {
         if let uid = Auth.auth().currentUser?.uid {
-            let storageRef = Storage.storage().reference().child("\(uid).png")
-            if let imageUpload = UIImagePNGRepresentation(selectedImage) {
+            let storageRef = Storage.storage().reference().child("profile_images").child("\(uid).jpg")
+            if let imageUpload = UIImageJPEGRepresentation(selectedImage, 0.1) {
                 storageRef.putData(imageUpload, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
                         print(error!)
