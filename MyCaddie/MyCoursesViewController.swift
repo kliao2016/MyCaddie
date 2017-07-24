@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseStorage
+import Firebase
+import FirebaseAuth
 
 class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -14,6 +17,10 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var alertButton: UIBarButtonItem!
     @IBOutlet weak var myCoursesNavigationView: UIView!
     @IBOutlet weak var myCoursesTable: UITableView!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    
+    var databaseRef = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +30,9 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         self.myCoursesTable.delegate = self
         self.myCoursesTable.dataSource = self
+        
+        createFAB()
+        loadProfileImage()
         
     }
     
@@ -61,6 +71,38 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = self.myCoursesTable.dequeueReusableCell(withIdentifier: "myCoursesCell")
         
         return cell!
+    }
+    
+    func loadProfileImage() {
+        self.profileImage.contentMode = .scaleAspectFill
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+        self.profileImage.clipsToBounds = true
+        if let uid = Auth.auth().currentUser?.uid {
+            let user = databaseRef.child("Users").child(uid)
+            user.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let userProfileLink = dictionary["ProfileImageURL"]
+                    if let profileImageUrl = userProfileLink {
+                        self.profileImage.loadImagesUsingCacheWithUrlString(urlString: profileImageUrl as! String)
+                    }
+                    self.userName.text = dictionary["Name"] as? String
+                }
+            }, withCancel: nil)
+        }
+    }
+    
+    func createFAB() {
+        let floatyNewOptionsButton = Floaty()
+        floatyNewOptionsButton.buttonColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
+        let newRoundOption = FloatyItem()
+        newRoundOption.buttonColor = UIColor.green
+        newRoundOption.title = "Add New Round"
+        let newCourseOption = FloatyItem()
+        newCourseOption.buttonColor = UIColor.blue
+        newCourseOption.title = "Add New Course"
+        floatyNewOptionsButton.addItem(item: newRoundOption)
+        floatyNewOptionsButton.addItem(item: newCourseOption)
+        self.view.addSubview(floatyNewOptionsButton)
     }
 
 }

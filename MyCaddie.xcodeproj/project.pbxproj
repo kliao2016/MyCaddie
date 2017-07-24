@@ -13,6 +13,15 @@
 		101CA7161F2434DB00C61B07 /* MyCoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101CA7151F2434DB00C61B07 /* MyCoursesTableViewCell.swift */; };
 		103BA8711EDA332800054449 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BA8701EDA332800054449 /* LoginViewController.swift */; };
 		103BA8731EDA37F100054449 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 103BA8721EDA37F100054449 /* GoogleService-Info.plist */; };
+		106375A41F2674FF006B4538 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106375961F2674FF006B4538 /* Floaty.swift */; };
+		106375A51F2674FF006B4538 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106375971F2674FF006B4538 /* FloatyDelegate.swift */; };
+		106375A61F2674FF006B4538 /* FloatyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106375981F2674FF006B4538 /* FloatyItem.swift */; };
+		106375A71F2674FF006B4538 /* FloatyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106375991F2674FF006B4538 /* FloatyManager.swift */; };
+		106375A81F2674FF006B4538 /* FloatyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063759A1F2674FF006B4538 /* FloatyViewController.swift */; };
+		106375A91F2674FF006B4538 /* FloatyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063759B1F2674FF006B4538 /* FloatyWindow.swift */; };
+		106375AA1F2674FF006B4538 /* Floaty.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1063759D1F2674FF006B4538 /* Floaty.xcconfig */; };
+		106375AB1F2674FF006B4538 /* Floaty-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1063759E1F2674FF006B4538 /* Floaty-dummy.m */; };
+		106375AC1F2674FF006B4538 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 106375A11F2674FF006B4538 /* Info.plist */; };
 		10896FC41EE8D1B000C7B66E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10896FC31EE8D1B000C7B66E /* Course.swift */; };
 		108CCE2D1EF73DEE00DF5D90 /* RoundSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */; };
 		1090B9871F22F764002F678E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090B9861F22F764002F678E /* Extensions.swift */; };
@@ -54,6 +63,18 @@
 		101CA7151F2434DB00C61B07 /* MyCoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCoursesTableViewCell.swift; sourceTree = "<group>"; };
 		103BA8701EDA332800054449 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		103BA8721EDA37F100054449 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		106375961F2674FF006B4538 /* Floaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Floaty.swift; path = Sources/Floaty.swift; sourceTree = "<group>"; };
+		106375971F2674FF006B4538 /* FloatyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatyDelegate.swift; path = Sources/FloatyDelegate.swift; sourceTree = "<group>"; };
+		106375981F2674FF006B4538 /* FloatyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatyItem.swift; path = Sources/FloatyItem.swift; sourceTree = "<group>"; };
+		106375991F2674FF006B4538 /* FloatyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatyManager.swift; path = Sources/FloatyManager.swift; sourceTree = "<group>"; };
+		1063759A1F2674FF006B4538 /* FloatyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatyViewController.swift; path = Sources/FloatyViewController.swift; sourceTree = "<group>"; };
+		1063759B1F2674FF006B4538 /* FloatyWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatyWindow.swift; path = Sources/FloatyWindow.swift; sourceTree = "<group>"; };
+		1063759C1F2674FF006B4538 /* Floaty.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = Floaty.modulemap; sourceTree = "<group>"; };
+		1063759D1F2674FF006B4538 /* Floaty.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Floaty.xcconfig; sourceTree = "<group>"; };
+		1063759E1F2674FF006B4538 /* Floaty-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Floaty-dummy.m"; sourceTree = "<group>"; };
+		1063759F1F2674FF006B4538 /* Floaty-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Floaty-prefix.pch"; sourceTree = "<group>"; };
+		106375A01F2674FF006B4538 /* Floaty-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Floaty-umbrella.h"; sourceTree = "<group>"; };
+		106375A11F2674FF006B4538 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10896FC31EE8D1B000C7B66E /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundSelector.swift; sourceTree = "<group>"; };
 		1090B9861F22F764002F678E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -107,6 +128,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		106375A21F2674FF006B4538 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1063759C1F2674FF006B4538 /* Floaty.modulemap */,
+				1063759D1F2674FF006B4538 /* Floaty.xcconfig */,
+				1063759E1F2674FF006B4538 /* Floaty-dummy.m */,
+				1063759F1F2674FF006B4538 /* Floaty-prefix.pch */,
+				106375A01F2674FF006B4538 /* Floaty-umbrella.h */,
+				106375A11F2674FF006B4538 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Floaty";
+			sourceTree = "<group>";
+		};
+		106375A31F2674FF006B4538 /* Floaty */ = {
+			isa = PBXGroup;
+			children = (
+				106375961F2674FF006B4538 /* Floaty.swift */,
+				106375971F2674FF006B4538 /* FloatyDelegate.swift */,
+				106375981F2674FF006B4538 /* FloatyItem.swift */,
+				106375991F2674FF006B4538 /* FloatyManager.swift */,
+				1063759A1F2674FF006B4538 /* FloatyViewController.swift */,
+				1063759B1F2674FF006B4538 /* FloatyWindow.swift */,
+				106375A21F2674FF006B4538 /* Support Files */,
+			);
+			name = Floaty;
+			path = ../Pods/Floaty;
+			sourceTree = "<group>";
+		};
 		10896FC21EE8D19400C7B66E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +220,7 @@
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
 				99D313CD1F2125A90051B3BE /* Swipe Control */,
 				99AFCF571F2017EF0012FAD1 /* Slide Bar Pages */,
+				106375A31F2674FF006B4538 /* Floaty */,
 				10D5956F1EDA317B00572D38 /* Assets.xcassets */,
 				10D595711EDA317B00572D38 /* LaunchScreen.storyboard */,
 				10D595741EDA317B00572D38 /* Info.plist */,
@@ -295,8 +346,10 @@
 			files = (
 				10D595731EDA317B00572D38 /* LaunchScreen.storyboard in Resources */,
 				103BA8731EDA37F100054449 /* GoogleService-Info.plist in Resources */,
+				106375AC1F2674FF006B4538 /* Info.plist in Resources */,
 				10D595701EDA317B00572D38 /* Assets.xcassets in Resources */,
 				10D5956E1EDA317B00572D38 /* Main.storyboard in Resources */,
+				106375AA1F2674FF006B4538 /* Floaty.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				106375A71F2674FF006B4538 /* FloatyManager.swift in Sources */,
 				999468761EE1B4E300DBEF91 /* Scorecard.swift in Sources */,
 				991FA8871EF3539A00289D63 /* CurrentRound.swift in Sources */,
 				99D6C8C91EDF5AA300FA55D0 /* CreateViewController.swift in Sources */,
@@ -364,15 +418,20 @@
 				10DC0D201F23A0E5007036F8 /* ProfileTableViewController.swift in Sources */,
 				103BA8711EDA332800054449 /* LoginViewController.swift in Sources */,
 				99B174191EE7637F00A76B9B /* Scorecard2.swift in Sources */,
+				106375A91F2674FF006B4538 /* FloatyWindow.swift in Sources */,
+				106375A41F2674FF006B4538 /* Floaty.swift in Sources */,
 				99AFCF4E1F2017620012FAD1 /* ProfileViewController.swift in Sources */,
+				106375AB1F2674FF006B4538 /* Floaty-dummy.m in Sources */,
 				994229761EE9F67300F303A5 /* HoleStats.swift in Sources */,
 				10D5956B1EDA317B00572D38 /* SecondViewController.swift in Sources */,
+				106375A61F2674FF006B4538 /* FloatyItem.swift in Sources */,
 				99AFCF501F20177C0012FAD1 /* MyCoursesViewController.swift in Sources */,
 				99AFCF5B1F201ACC0012FAD1 /* CreateCourseViewController.swift in Sources */,
 				10D595671EDA317B00572D38 /* AppDelegate.swift in Sources */,
 				99AFCF541F20179F0012FAD1 /* MyStatsViewController.swift in Sources */,
 				99B1741D1EE7755700A76B9B /* Stats2.swift in Sources */,
 				10C5B6871EEBB30D0057D0C4 /* GeneralTeeSelector.swift in Sources */,
+				106375A51F2674FF006B4538 /* FloatyDelegate.swift in Sources */,
 				10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */,
 				10D595691EDA317B00572D38 /* FirstViewController.swift in Sources */,
 				991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */,
@@ -381,6 +440,7 @@
 				100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */,
 				99B633111EEEDA0300160704 /* CourseRound.swift in Sources */,
 				9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */,
+				106375A81F2674FF006B4538 /* FloatyViewController.swift in Sources */,
 				99AFCF561F2017B50012FAD1 /* SettingsViewController.swift in Sources */,
 				1090B9871F22F764002F678E /* Extensions.swift in Sources */,
 				10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */,
