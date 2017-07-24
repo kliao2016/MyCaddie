@@ -19,6 +19,9 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
     var pars = ["4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4"]
     
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var alertButton: UIBarButtonItem!
+    
     
     // Yardage textfields
     @IBOutlet weak var y1: UITextField!
@@ -326,13 +329,11 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         self.seg17.selectedSegmentIndex = 1
         self.seg18.selectedSegmentIndex = 1
         
-        
+        sideMenus()
+        customizeNavBar()
         
         // Bind textfield to picker
         dropTextBox.inputView = teePicker
-        
-        createCourseButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
-        navigationBar.barTintColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -454,6 +455,28 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.dropTextBox.text = self.tees[row]
         self.view.endEditing(false)
+    }
+    
+    func sideMenus(){
+        
+        if revealViewController() != nil {
+            
+            menuButton.target = revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController().rearViewRevealWidth = 275
+            revealViewController().rightViewRevealWidth = 160
+            
+            alertButton.target = revealViewController()
+            alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
+            
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
+    
+    func customizeNavBar(){
+        navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
 }
