@@ -21,6 +21,8 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
         sideMenus()
         customizeNavBar()
         
+        self.myCoursesTable.delegate = self
+        self.myCoursesTable.dataSource = self
         
     }
     
@@ -56,7 +58,7 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.myCoursesTable.dequeueReusableCell(withIdentifier: "mCoursesCell")
+        let cell = self.myCoursesTable.dequeueReusableCell(withIdentifier: "myCoursesCell")
         
         return cell!
     }
