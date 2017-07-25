@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
 class ProfileTableViewController: UITableViewController {
     
@@ -30,6 +32,25 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 5
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 4 {
+            handleLogout()
+        }
+    }
+    
+    func handleLogout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+        GIDSignIn.sharedInstance().signOut()
+        
+        self.performSegue(withIdentifier: "profileToLogin", sender: self)
     }
 
     /*
