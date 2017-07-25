@@ -50,7 +50,7 @@ class ProfileTableViewController: UITableViewController {
         
         GIDSignIn.sharedInstance().signOut()
         
-        self.performSegue(withIdentifier: "profileToLogin", sender: self)
+        self.performSegue(withIdentifier: "unwindToLoginFromProfile", sender: self)
     }
 
     /*
