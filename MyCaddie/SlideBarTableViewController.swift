@@ -8,14 +8,23 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import GoogleSignIn
+import FirebaseDatabase
 
 class SlideBarTableViewController: UITableViewController {
+    
+    @IBOutlet weak var slideBarView: UIView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    var databaseRef = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.tableFooterView = UIView(frame: .zero)
+        loadProfileImage()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,8 +60,25 @@ class SlideBarTableViewController: UITableViewController {
         }
         
         GIDSignIn.sharedInstance().signOut()
-        
-        self.performSegue(withIdentifier: "slideToLogin", sender: self)
+        self.performSegue(withIdentifier: "unwindToLoginMenu", sender: self)
+    }
+    
+    func loadProfileImage() {
+        self.profileImage.contentMode = .scaleAspectFill
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+        self.profileImage.clipsToBounds = true
+        if let uid = Auth.auth().currentUser?.uid {
+            let user = databaseRef.child("Users").child(uid)
+            user.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let userProfileLink = dictionary["ProfileImageURL"]
+                    if let profileImageUrl = userProfileLink {
+                        self.profileImage.loadImagesUsingCacheWithUrlString(urlString: profileImageUrl as! String)
+                    }
+                    self.userName.text = dictionary["Name"] as? String
+                }
+            }, withCancel: nil)
+        }
     }
 
     /*
