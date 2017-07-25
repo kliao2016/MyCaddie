@@ -20,6 +20,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
