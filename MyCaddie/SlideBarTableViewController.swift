@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
 class SlideBarTableViewController: UITableViewController {
 
@@ -31,6 +33,26 @@ class SlideBarTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 6
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 5 {
+            handleLogout()
+        }
+    }
+    
+    func handleLogout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+        GIDSignIn.sharedInstance().signOut()
+        
+        self.performSegue(withIdentifier: "slideToLogin", sender: self)
     }
 
     /*
