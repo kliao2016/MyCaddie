@@ -19,6 +19,14 @@ class MyStatsViewController: UIViewController {
         sideMenus()
         customizeNavBar()
         
+        let rect = CGRect(x: 115, y: 100, width: 120, height: 120)
+        let rect2 = CGRect(x: 115, y: 200, width: 120, height: 120)
+        let cp = CirclePath(frame: rect)
+        let cp2 = CirclePath(frame: rect2)
+        view.addSubview(cp)
+        view.addSubview(cp2)
+        
+        
         // Do any additional setup after loading the view.
     }
     

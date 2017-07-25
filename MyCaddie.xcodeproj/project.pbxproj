@@ -40,6 +40,7 @@
 		41B6BCB99C6A48BD03D4DC05 /* Pods_MyCaddie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */; };
 		991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FA8841EF3528900289D63 /* LoadingScreen.swift */; };
 		991FA8871EF3539A00289D63 /* CurrentRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FA8861EF3539A00289D63 /* CurrentRound.swift */; };
+		9927EA3D1F27E51900DD1901 /* CirclePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9927EA3C1F27E51900DD1901 /* CirclePath.swift */; };
 		994229761EE9F67300F303A5 /* HoleStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994229751EE9F67300F303A5 /* HoleStats.swift */; };
 		9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998724891EF607B000CF2FCA /* StatsViewController.swift */; };
 		999468761EE1B4E300DBEF91 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999468751EE1B4E300DBEF91 /* Scorecard.swift */; };
@@ -95,6 +96,7 @@
 		44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCaddie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		991FA8841EF3528900289D63 /* LoadingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		991FA8861EF3539A00289D63 /* CurrentRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentRound.swift; sourceTree = "<group>"; };
+		9927EA3C1F27E51900DD1901 /* CirclePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePath.swift; sourceTree = "<group>"; };
 		994229751EE9F67300F303A5 /* HoleStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoleStats.swift; sourceTree = "<group>"; };
 		998724891EF607B000CF2FCA /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		999468751EE1B4E300DBEF91 /* Scorecard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
+				9927EA3C1F27E51900DD1901 /* CirclePath.swift */,
 				99D313CD1F2125A90051B3BE /* Swipe Control */,
 				99AFCF571F2017EF0012FAD1 /* Slide Bar Pages */,
 				106375A31F2674FF006B4538 /* Floaty */,
@@ -417,6 +420,7 @@
 				99B174191EE7637F00A76B9B /* Scorecard2.swift in Sources */,
 				106375A91F2674FF006B4538 /* FloatyWindow.swift in Sources */,
 				106375A41F2674FF006B4538 /* Floaty.swift in Sources */,
+				9927EA3D1F27E51900DD1901 /* CirclePath.swift in Sources */,
 				99AFCF4E1F2017620012FAD1 /* ProfileViewController.swift in Sources */,
 				106375AB1F2674FF006B4538 /* Floaty-dummy.m in Sources */,
 				994229761EE9F67300F303A5 /* HoleStats.swift in Sources */,
