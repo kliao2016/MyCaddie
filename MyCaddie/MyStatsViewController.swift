@@ -20,14 +20,28 @@ class MyStatsViewController: UIViewController {
         customizeNavBar()
         
         // Top Top Left
-        let rect0 = CGRect(x: 70, y: 75, width: 110, height: 110)
-        let cp0 = CirclePath(frame: rect0)
+        let rect0 = CGRect(x: 75, y: 75, width: 100, height: 100)
+        let cp0 = CirclePath5(frame: rect0)
         view.addSubview(cp0)
         
+        let label0 = UILabel(frame: CGRect(x: 0, y: 0, width: 110, height: 21))
+        label0.center = CGPoint(x: 127, y: 175)
+        label0.textAlignment = .center
+        label0.text = "Lifetime Ave."
+        label0.textColor = UIColor.white
+        self.view.addSubview(label0)
+        
         // Top Top Right
-        let rect00 = CGRect(x: 195, y: 75, width: 110, height: 110)
-        let cp00 = CirclePath(frame: rect00)
+        let rect00 = CGRect(x: 205, y: 75, width: 100, height: 100)
+        let cp00 = CirclePath5(frame: rect00)
         view.addSubview(cp00)
+        
+        let label00 = UILabel(frame: CGRect(x: 0, y: 0, width: 110, height: 21))
+        label00.center = CGPoint(x: 254, y: 175)
+        label00.textAlignment = .center
+        label00.text = "All-Time Low"
+        label00.textColor = UIColor.white
+        self.view.addSubview(label00)
         
         // Top Left
         let rect = CGRect(x: 25, y: 200, width: 80, height: 80)
@@ -66,70 +80,112 @@ class MyStatsViewController: UIViewController {
         self.view.addSubview(label3)
         
         // Middle Left
-        let rect4 = CGRect(x: 25, y: 325, width: 80, height: 80)
-        let cp4 = CirclePath(frame: rect4)
+        let rect4 = CGRect(x: 25, y: 315, width: 80, height: 80)
+        let cp4 = CirclePath2(frame: rect4)
         view.addSubview(cp4)
         
         let label4 = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
-        label4.center = CGPoint(x: 63, y: 410)
+        label4.center = CGPoint(x: 63, y: 400)
         label4.textAlignment = .center
-        label4.text = "Par 3 Ave."
+        label4.text = "Pars"
         label4.textColor = UIColor.white
         self.view.addSubview(label4)
         
         // Middle Middle
-        let rect5 = CGRect(x: 150, y: 325, width: 80, height: 80)
-        let cp5 = CirclePath(frame: rect5)
+        let rect5 = CGRect(x: 150, y: 315, width: 80, height: 80)
+        let cp5 = CirclePath2(frame: rect5)
         view.addSubview(cp5)
         
         let label5 = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
-        label5.center = CGPoint(x: 192, y: 410)
+        label5.center = CGPoint(x: 192, y: 400)
         label5.textAlignment = .center
-        label5.text = "Par 4 Ave."
+        label5.text = "Birdies"
         label5.textColor = UIColor.white
         self.view.addSubview(label5)
         
         // Middle Right
-        let rect6 = CGRect(x: 275, y: 325, width: 80, height: 80)
-        let cp6 = CirclePath(frame: rect6)
+        let rect6 = CGRect(x: 275, y: 315, width: 80, height: 80)
+        let cp6 = CirclePath2(frame: rect6)
         view.addSubview(cp6)
         
         let label6 = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
-        label6.center = CGPoint(x: 315, y: 410)
+        label6.center = CGPoint(x: 315, y: 400)
         label6.textAlignment = .center
-        label6.text = "Par 5 Ave."
+        label6.text = "Eagles"
         label6.textColor = UIColor.white
         self.view.addSubview(label6)
         
         // Botom Left
-        let rect7 = CGRect(x: 25, y: 450, width: 80, height: 80)
-        let cp7 = CirclePath(frame: rect7)
+        let rect7 = CGRect(x: 25, y: 430, width: 80, height: 80)
+        let cp7 = CirclePath3(frame: rect7)
         view.addSubview(cp7)
         
+        let label7 = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
+        label7.center = CGPoint(x: 63, y: 515)
+        label7.textAlignment = .center
+        label7.text = "Par 3 Ave."
+        label7.textColor = UIColor.white
+        self.view.addSubview(label7)
+        
         // Bottom Middle
-        let rect8 = CGRect(x: 150, y: 450, width: 80, height: 80)
-        let cp8 = CirclePath(frame: rect8)
+        let rect8 = CGRect(x: 150, y: 430, width: 80, height: 80)
+        let cp8 = CirclePath3(frame: rect8)
         view.addSubview(cp8)
         
+        let label8 = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
+        label8.center = CGPoint(x: 192, y: 515)
+        label8.textAlignment = .center
+        label8.text = "Par 4 Ave."
+        label8.textColor = UIColor.white
+        self.view.addSubview(label8)
+        
         // Bottom Right
-        let rect9 = CGRect(x: 275, y: 450, width: 80, height: 80)
-        let cp9 = CirclePath(frame: rect9)
+        let rect9 = CGRect(x: 275, y: 430, width: 80, height: 80)
+        let cp9 = CirclePath3(frame: rect9)
         view.addSubview(cp9)
         
+        let label9 = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
+        label9.center = CGPoint(x: 315, y: 515)
+        label9.textAlignment = .center
+        label9.text = "Par 5 Ave."
+        label9.textColor = UIColor.white
+        self.view.addSubview(label9)
+        
         // Super Botom Left
-        let rect10 = CGRect(x: 25, y: 575, width: 80, height: 80)
-        let cp10 = CirclePath(frame: rect10)
+        let rect10 = CGRect(x: 25, y: 545, width: 80, height: 80)
+        let cp10 = CirclePath4(frame: rect10)
         view.addSubview(cp10)
         
+        let label10 = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
+        label10.center = CGPoint(x: 63, y: 630)
+        label10.textAlignment = .center
+        label10.text = "Bogeys"
+        label10.textColor = UIColor.white
+        self.view.addSubview(label10)
+        
         // Super Bottom Middle
-        let rect11 = CGRect(x: 150, y: 575, width: 80, height: 80)
-        let cp11 = CirclePath(frame: rect11)
+        let rect11 = CGRect(x: 150, y: 545, width: 80, height: 80)
+        let cp11 = CirclePath4(frame: rect11)
         view.addSubview(cp11)
         
+        let label11 = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
+        label11.center = CGPoint(x: 192, y: 630)
+        label11.textAlignment = .center
+        label11.text = "Doubles"
+        label11.textColor = UIColor.white
+        self.view.addSubview(label11)
+        
         // Super Bottom Right
-        let rect12 = CGRect(x: 275, y: 575, width: 80, height: 80)
-        let cp12 = CirclePath(frame: rect12)
+        let rect12 = CGRect(x: 275, y: 545, width: 80, height: 80)
+        let cp12 = CirclePath4(frame: rect12)
         view.addSubview(cp12)
+        
+        let label12 = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 21))
+        label12.center = CGPoint(x: 315, y: 630)
+        label12.textAlignment = .center
+        label12.text = "Triples +"
+        label12.textColor = UIColor.white
+        self.view.addSubview(label12)
         
         // Do any additional setup after loading the view.
     }

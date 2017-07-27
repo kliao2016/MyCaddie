@@ -53,6 +53,10 @@
 		99B174191EE7637F00A76B9B /* Scorecard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B174181EE7637F00A76B9B /* Scorecard2.swift */; };
 		99B1741D1EE7755700A76B9B /* Stats2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1741C1EE7755700A76B9B /* Stats2.swift */; };
 		99B633111EEEDA0300160704 /* CourseRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B633101EEEDA0300160704 /* CourseRound.swift */; };
+		99BCD8251F2A5CFB007E09C0 /* CirclePath2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCD8241F2A5CFB007E09C0 /* CirclePath2.swift */; };
+		99BCD8271F2A5E3E007E09C0 /* CirclePath3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCD8261F2A5E3E007E09C0 /* CirclePath3.swift */; };
+		99BCD8291F2A5EFC007E09C0 /* CirclePath4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCD8281F2A5EFC007E09C0 /* CirclePath4.swift */; };
+		99BCD82B1F2A605F007E09C0 /* CirclePath5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCD82A1F2A605F007E09C0 /* CirclePath5.swift */; };
 		99D6C8C91EDF5AA300FA55D0 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D6C8C81EDF5AA300FA55D0 /* CreateViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +115,10 @@
 		99B174181EE7637F00A76B9B /* Scorecard2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard2.swift; sourceTree = "<group>"; };
 		99B1741C1EE7755700A76B9B /* Stats2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats2.swift; sourceTree = "<group>"; };
 		99B633101EEEDA0300160704 /* CourseRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseRound.swift; sourceTree = "<group>"; };
+		99BCD8241F2A5CFB007E09C0 /* CirclePath2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePath2.swift; sourceTree = "<group>"; };
+		99BCD8261F2A5E3E007E09C0 /* CirclePath3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePath3.swift; sourceTree = "<group>"; };
+		99BCD8281F2A5EFC007E09C0 /* CirclePath4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePath4.swift; sourceTree = "<group>"; };
+		99BCD82A1F2A605F007E09C0 /* CirclePath5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePath5.swift; sourceTree = "<group>"; };
 		99D6C8C81EDF5AA300FA55D0 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		DFB69DC202FD3185EFE1A7C5 /* Pods-MyCaddie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCaddie.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCaddie/Pods-MyCaddie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,7 +225,7 @@
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
-				9927EA3C1F27E51900DD1901 /* CirclePath.swift */,
+				99BCD82C1F2A853D007E09C0 /* Animation */,
 				99D313CD1F2125A90051B3BE /* Swipe Control */,
 				99AFCF571F2017EF0012FAD1 /* Slide Bar Pages */,
 				106375A31F2674FF006B4538 /* Floaty */,
@@ -268,6 +276,18 @@
 				1015B5FF1F23F1D800628816 /* SlideBarTableViewController.swift */,
 			);
 			name = "Slide Bar Pages";
+			sourceTree = "<group>";
+		};
+		99BCD82C1F2A853D007E09C0 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				99BCD82A1F2A605F007E09C0 /* CirclePath5.swift */,
+				9927EA3C1F27E51900DD1901 /* CirclePath.swift */,
+				99BCD8241F2A5CFB007E09C0 /* CirclePath2.swift */,
+				99BCD8261F2A5E3E007E09C0 /* CirclePath3.swift */,
+				99BCD8281F2A5EFC007E09C0 /* CirclePath4.swift */,
+			);
+			name = Animation;
 			sourceTree = "<group>";
 		};
 		99D313CD1F2125A90051B3BE /* Swipe Control */ = {
@@ -423,18 +443,21 @@
 				9927EA3D1F27E51900DD1901 /* CirclePath.swift in Sources */,
 				99AFCF4E1F2017620012FAD1 /* ProfileViewController.swift in Sources */,
 				106375AB1F2674FF006B4538 /* Floaty-dummy.m in Sources */,
+				99BCD8291F2A5EFC007E09C0 /* CirclePath4.swift in Sources */,
 				994229761EE9F67300F303A5 /* HoleStats.swift in Sources */,
 				10D5956B1EDA317B00572D38 /* SecondViewController.swift in Sources */,
 				106375A61F2674FF006B4538 /* FloatyItem.swift in Sources */,
 				99AFCF501F20177C0012FAD1 /* MyCoursesViewController.swift in Sources */,
 				10D595671EDA317B00572D38 /* AppDelegate.swift in Sources */,
 				99AFCF541F20179F0012FAD1 /* MyStatsViewController.swift in Sources */,
+				99BCD8271F2A5E3E007E09C0 /* CirclePath3.swift in Sources */,
 				99B1741D1EE7755700A76B9B /* Stats2.swift in Sources */,
 				10C5B6871EEBB30D0057D0C4 /* GeneralTeeSelector.swift in Sources */,
 				106375A51F2674FF006B4538 /* FloatyDelegate.swift in Sources */,
 				10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */,
 				10D595691EDA317B00572D38 /* FirstViewController.swift in Sources */,
 				991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */,
+				99BCD82B1F2A605F007E09C0 /* CirclePath5.swift in Sources */,
 				1015B6001F23F1D800628816 /* SlideBarTableViewController.swift in Sources */,
 				99AFCF461F1FF1280012FAD1 /* SWRevealViewController.m in Sources */,
 				100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */,
@@ -445,6 +468,7 @@
 				1090B9871F22F764002F678E /* Extensions.swift in Sources */,
 				10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */,
 				99AFCF481F1FF3EC0012FAD1 /* SwipeViewController.swift in Sources */,
+				99BCD8251F2A5CFB007E09C0 /* CirclePath2.swift in Sources */,
 				101483561EE77508005B5307 /* GeneralCourseSelector.swift in Sources */,
 				108CCE2D1EF73DEE00DF5D90 /* RoundSelector.swift in Sources */,
 			);
