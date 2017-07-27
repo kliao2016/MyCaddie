@@ -2436,12 +2436,6 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to MyCaddie!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ua-WH-HHJ">
-                                <rect key="frame" x="68" y="189" width="239" height="27.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0000001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpY-T2-QYa">
                                 <rect key="frame" x="116.5" y="605" width="142" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2457,8 +2451,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2ua-WH-HHJ" firstAttribute="centerX" secondItem="7pt-6Y-4IK" secondAttribute="centerX" id="29t-nG-gf2"/>
-                            <constraint firstItem="2ua-WH-HHJ" firstAttribute="top" secondItem="OA3-1o-8Wu" secondAttribute="bottom" constant="125" id="7sc-vv-HaB"/>
                             <constraint firstItem="Rsk-9Z-5zS" firstAttribute="centerX" secondItem="7pt-6Y-4IK" secondAttribute="centerX" id="EXa-qk-9iF"/>
                             <constraint firstItem="Rsk-9Z-5zS" firstAttribute="top" secondItem="wpY-T2-QYa" secondAttribute="bottom" id="Two-28-Jqj"/>
                             <constraint firstItem="af5-n1-qd9" firstAttribute="top" secondItem="Rsk-9Z-5zS" secondAttribute="bottom" constant="20" id="d5n-eR-hEh"/>
