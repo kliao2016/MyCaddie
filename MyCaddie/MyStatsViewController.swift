@@ -19,6 +19,13 @@ class MyStatsViewController: UIViewController {
         sideMenus()
         customizeNavBar()
         
+        //self.view.backgroundColor = UIColor.red
+        
+        // Background
+        let back = CGRect(x: 0, y: 0, width: 500, height: 800)
+        let ground = backgroundGradient(frame: back)
+        view.addSubview(ground)
+        
         // Top Top Left
         let rect0 = CGRect(x: 75, y: 75, width: 100, height: 100)
         let cp0 = CirclePath5(frame: rect0)

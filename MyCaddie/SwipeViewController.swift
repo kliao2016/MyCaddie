@@ -18,14 +18,16 @@ class SwipeViewController: UIViewController {
         
         sideMenus()
         customizeNavBar()
+    
         
-        let rect0 = CGRect(x: 60, y: 185, width: 250, height: 30)
+        let rect0 = CGRect(x: 70, y: 185, width: 250, height: 30)
         let cp0 = mainScreenAnimation(frame: rect0)
         view.addSubview(cp0)
         
-        let rect1 = CGRect(x: 120, y: 250, width: 120, height: 30)
-        let cp1 = mainScreenButton(frame: rect1)
-        view.addSubview(cp1)
+        // Start New Round Button
+        let rect5 = CGRect(x: 140, y: 490, width: 100, height: 100)
+        let cp5 = mainScreenButton(frame: rect5)
+        view.addSubview(cp5)
 
         // Do any additional setup after loading the view.
     }
