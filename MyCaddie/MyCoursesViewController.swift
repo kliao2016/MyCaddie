@@ -14,11 +14,13 @@ import FirebaseAuth
 class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var alertButton: UIBarButtonItem!
     @IBOutlet weak var myCoursesNavigationView: UIView!
     @IBOutlet weak var myCoursesTable: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var numCourses: UILabel!
+    
+    var courses = [String]()
     
     var databaseRef = Database.database().reference()
     
@@ -33,6 +35,7 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         createFAB()
         loadProfileImage()
+        fetchCourses()
         
     }
     
@@ -66,13 +69,15 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        self.numCourses.text = "\(self.courses.count) Courses Played"
+        return courses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.myCoursesTable.dequeueReusableCell(withIdentifier: "myCoursesCell")
+        let cell = self.myCoursesTable.dequeueReusableCell(withIdentifier: "myCoursesCell") as! MyCoursesTableViewCell
         
-        return cell!
+        cell.courseName.text = courses[indexPath.row]
+        return cell
     }
     
     func loadProfileImage() {
@@ -98,13 +103,26 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
         floatyNewOptionsButton.buttonColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
         let newRoundOption = FloatyItem()
         newRoundOption.buttonColor = UIColor.green
-        newRoundOption.title = "Add New Round"
+        newRoundOption.title = "New Round"
         let newCourseOption = FloatyItem()
         newCourseOption.buttonColor = UIColor.blue
         newCourseOption.title = "Add New Course"
         floatyNewOptionsButton.addItem(item: newRoundOption)
         floatyNewOptionsButton.addItem(item: newCourseOption)
         self.view.addSubview(floatyNewOptionsButton)
+    }
+    
+    func fetchCourses() {
+        let uid = Auth.auth().currentUser?.uid
+        let userReference = self.databaseRef.child("Users").child(uid!)
+        userReference.child("Courses").observe(.childAdded, with: { (snapshot) in
+            let courseName = snapshot.key
+            
+            self.courses.append(courseName)
+            
+            self.myCoursesTable.reloadData()
+            
+        }, withCancel: nil)
     }
 
 }
