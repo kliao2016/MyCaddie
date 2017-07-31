@@ -21,6 +21,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var userName: UILabel!
     
     let welcomeLabel = CATextLayer()
+    let welcomeLabel2 = CATextLayer()
+    let welcomeLabel3 = CATextLayer()
+    let welcomeLabel4 = CATextLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,29 +37,96 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         //view.addSubview(ground)
         view.insertSubview(ground, at: 0)
  
-        
-        let lowLeft = CGRect(x: 245, y: 400, width: 120, height: 20)
+        // Lower Left
+        let lowLeft = CGRect(x: 10, y: 410, width: 120, height: 20)
         let place1 = UIView(frame: lowLeft)
-        place1.backgroundColor = UIColor.green
         view.addSubview(place1)
         
         place1.layer.addSublayer(welcomeLabel)
         //place1.addSubview(welcomeLabel)
         // Text Label
         welcomeLabel.string = "Hola"
-        welcomeLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
+        welcomeLabel.frame = CGRect(x: 0, y: 0, width: 120, height: 20)
         welcomeLabel.fontSize = 18
         welcomeLabel.alignmentMode = kCAAlignmentCenter
         welcomeLabel.foregroundColor = UIColor.white.cgColor
-        welcomeLabel.alignmentMode = kCAAlignmentCenter
+        welcomeLabel.alignmentMode = kCAAlignmentLeft
         
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.fromValue = [-100, -100]
-        animation.toValue = [0,0]
-        animation.duration = 4
+        
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = 1
         welcomeLabel.add(animation, forKey: nil)
+ 
+        // Lower Right
+        let lowRight = CGRect(x: 250, y: 410, width: 120, height: 20)
+        let place2 = UIView(frame: lowRight)
+        view.addSubview(place2)
+        
+        place2.layer.addSublayer(welcomeLabel2)
+        //place1.addSubview(welcomeLabel)
+        // Text Label
+        welcomeLabel2.string = "Hello"
+        welcomeLabel2.frame = CGRect(x: 0, y: 0, width: 120, height: 20)
+        welcomeLabel2.fontSize = 18
+        welcomeLabel2.alignmentMode = kCAAlignmentCenter
+        welcomeLabel2.foregroundColor = UIColor.white.cgColor
+        welcomeLabel2.alignmentMode = kCAAlignmentRight
+
+
+        let animation2 = CABasicAnimation(keyPath: "opacity")
+        animation2.fromValue = 0
+        animation2.toValue = 1
+        animation2.duration = 1
+        welcomeLabel2.add(animation2, forKey: nil)
+ 
+        // Upper Left
+        let upperLeft = CGRect(x: 10, y: 70, width: 120, height: 20)
+        let place3 = UIView(frame: upperLeft)
+        view.addSubview(place3)
+        
+        place3.layer.addSublayer(welcomeLabel3)
+        //place1.addSubview(welcomeLabel)
+        // Text Label
+        welcomeLabel3.string = "Wassup"
+        welcomeLabel3.frame = CGRect(x: 0, y: 0, width: 120, height: 20)
+        welcomeLabel3.fontSize = 18
+        welcomeLabel3.alignmentMode = kCAAlignmentCenter
+        welcomeLabel3.foregroundColor = UIColor.white.cgColor
+        welcomeLabel3.alignmentMode = kCAAlignmentLeft
+        
+         let animation3 = CABasicAnimation(keyPath: "opacity")
+         animation3.fromValue = 0
+         animation3.toValue = 1
+         animation3.duration = 1
+         welcomeLabel3.add(animation3, forKey: nil)
+        
+
+        // Upper Right
+        let upperRight = CGRect(x: 250, y: 70, width: 120, height: 20)
+        let place4 = UIView(frame: upperRight)
+        view.addSubview(place4)
+        
+        place4.layer.addSublayer(welcomeLabel4)
+        //place1.addSubview(welcomeLabel)
+        // Text Label
+        welcomeLabel4.string = "YOOOOO"
+        welcomeLabel4.frame = CGRect(x: 0, y: 0, width: 120, height: 20)
+
+        welcomeLabel4.fontSize = 18
+        welcomeLabel4.alignmentMode = kCAAlignmentCenter
+        welcomeLabel4.foregroundColor = UIColor.white.cgColor
+        welcomeLabel4.alignmentMode = kCAAlignmentRight
         
         
+         let animation4 = CABasicAnimation(keyPath: "opacity")
+         animation4.fromValue = 0
+         animation4.toValue = 1
+         animation4.duration = 1
+         welcomeLabel4.add(animation4, forKey: nil)
+        
+
         profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
         profileImage.isUserInteractionEnabled = true
         

@@ -44,6 +44,7 @@
 		994229761EE9F67300F303A5 /* HoleStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994229751EE9F67300F303A5 /* HoleStats.swift */; };
 		9952C8C51F2FA478002DC493 /* settingsBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9952C8C41F2FA478002DC493 /* settingsBackground.swift */; };
 		9952C8C71F2FA4C5002DC493 /* profileBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9952C8C61F2FA4C5002DC493 /* profileBackground.swift */; };
+		9952C8CF1F2FF4E0002DC493 /* CourseInfomationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9952C8CE1F2FF4E0002DC493 /* CourseInfomationViewController.swift */; };
 		996209821F2BB9CE0062598D /* backgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996209811F2BB9CE0062598D /* backgroundGradient.swift */; };
 		9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998724891EF607B000CF2FCA /* StatsViewController.swift */; };
 		999468761EE1B4E300DBEF91 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999468751EE1B4E300DBEF91 /* Scorecard.swift */; };
@@ -109,6 +110,7 @@
 		994229751EE9F67300F303A5 /* HoleStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoleStats.swift; sourceTree = "<group>"; };
 		9952C8C41F2FA478002DC493 /* settingsBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsBackground.swift; sourceTree = "<group>"; };
 		9952C8C61F2FA4C5002DC493 /* profileBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileBackground.swift; sourceTree = "<group>"; };
+		9952C8CE1F2FF4E0002DC493 /* CourseInfomationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseInfomationViewController.swift; sourceTree = "<group>"; };
 		996209811F2BB9CE0062598D /* backgroundGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backgroundGradient.swift; sourceTree = "<group>"; };
 		998724891EF607B000CF2FCA /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		999468751EE1B4E300DBEF91 /* Scorecard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */,
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
+				9952C8CE1F2FF4E0002DC493 /* CourseInfomationViewController.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
 				99BCD82C1F2A853D007E09C0 /* Animation */,
 				99D313CD1F2125A90051B3BE /* Swipe Control */,
@@ -455,6 +458,7 @@
 				103BA8711EDA332800054449 /* LoginViewController.swift in Sources */,
 				99B174191EE7637F00A76B9B /* Scorecard2.swift in Sources */,
 				106375A91F2674FF006B4538 /* FloatyWindow.swift in Sources */,
+				9952C8CF1F2FF4E0002DC493 /* CourseInfomationViewController.swift in Sources */,
 				106375A41F2674FF006B4538 /* Floaty.swift in Sources */,
 				9927EA3D1F27E51900DD1901 /* CirclePath.swift in Sources */,
 				99AFCF4E1F2017620012FAD1 /* ProfileViewController.swift in Sources */,

@@ -30,6 +30,7 @@ class profileBackground: UIView {
         //let blue = UIColor.blue.cgColor
         gradLayer.colors = [black, grey]
         
+        /*
         // Fade in Animation on Center Text
         gradLayer.opacity = 0
         let animation = CABasicAnimation(keyPath: "opacity")
@@ -38,6 +39,7 @@ class profileBackground: UIView {
         animation.duration = 2
         gradLayer.add(animation, forKey: nil)
         gradLayer.opacity = 1
+ */
         
     }
     
