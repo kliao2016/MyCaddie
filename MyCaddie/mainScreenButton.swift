@@ -1,5 +1,5 @@
 //
-//  CirclePath.swift
+//  mainScreen Button.swift
 //  MyCaddie
 //
 //  Created by Weston Mauz on 7/25/17.
@@ -8,78 +8,104 @@
 
 import UIKit
 
-class CirclePath: UIView {
-
+class mainScreenButton: UIView {
+    
     let shapeLayer = CAShapeLayer()
     let gradLayer = CAGradientLayer()
-    let label1 = UILabel()
     let gradLayer2 = CAGradientLayer()
     let lab = CATextLayer()
+    let indicationLabel = CATextLayer()
+    //let label1 = UILabel()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        // Gradient Layer for Circle
+        
         layer.addSublayer(gradLayer)
         gradLayer.frame = bounds
-        let purple = UIColor.purple.cgColor
+       // let purple = UIColor.purple.cgColor
         let blue = UIColor.blue.cgColor
-        gradLayer.colors = [purple, blue]
+       // let orange = UIColor.orange.cgColor
+       // let black = UIColor.black.cgColor
+        let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
+        
+        gradLayer.colors = [green, blue]
         gradLayer.startPoint = CGPoint(x: 0, y: 0)
         gradLayer.endPoint = CGPoint(x: 1, y: 1)
         
+        // Gradient Layer for Text
         layer.addSublayer(gradLayer2)
         gradLayer2.frame = bounds
-        gradLayer2.colors = [purple, blue]
+        gradLayer2.colors = [green, blue]
         gradLayer2.startPoint = CGPoint(x: 0, y: 0)
         gradLayer2.endPoint = CGPoint(x: 1, y: 1)
         
+        // Adding Cirlce Shape Layer
+        
         layer.addSublayer(shapeLayer)
         
-        //let path = UIBezierPath(ovalIn: bounds)
+        // Creating Drawing Path of Circle
         let path = UIBezierPath()
         
         let cx = bounds.width / 2
         let cy = bounds.height / 2
         let c = CGPoint(x: cx, y: cy)
         
+        // Setting Circle Bounds
         let pi2 = CGFloat(Double.pi * 2)
-        let start = pi2 * 3/8
-        let end = pi2 * 9/8
+        //let start = pi2 * 3/8
+        //let end = pi2 * 9/8
         
-        path.addArc(withCenter: c, radius: cx - 5, startAngle: start, endAngle: end, clockwise: true)
+        // Creating the Circle
+        path.addArc(withCenter: c, radius: cx - 5, startAngle: 0, endAngle: pi2, clockwise: true)
         
+        // Draing Path Specifications
         shapeLayer.path = path.cgPath
-        shapeLayer.lineWidth = 2
+        shapeLayer.lineWidth = 4
         shapeLayer.strokeColor = UIColor.blue.cgColor
-        //shapeLayer.strokeColor = UIColor.init(red: 0, green: 230/255, blue: 64/255, alpha: 1).cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
         
         //shapeLayer.strokeEnd = CGFloat(value)
+        //shapeLayer.lineDashPattern = [1,1]
         
-        // FOR DASHED LINES
-        //shapeLayer.lineDashPattern = [2,2]
-        
-        // Create Mask
+        // Create Mask for Circle
         gradLayer.mask = shapeLayer
         
+        // Circle Animation
         let anime = CABasicAnimation(keyPath: "strokeEnd")
         anime.fromValue = 0
         anime.toValue = 1
         anime.duration = 2
-
         shapeLayer.add(anime, forKey: nil)
         
-        // Second Label Try
-        lab.string = "69"
-        let insetX = bounds.width / 4
-        let insetY = bounds.height / 3
+        // Text Label
+        lab.string = "New Round"
+        let insetX = bounds.width / 4 - 20
+        let insetY = bounds.height / 3 + 9
         lab.frame = bounds.insetBy(dx: insetX, dy: insetY)
-        lab.fontSize = 22
+        lab.fontSize = 12
         lab.alignmentMode = kCAAlignmentCenter
         lab.foregroundColor = UIColor.blue.cgColor
+        
+        // Text Mask
         gradLayer2.mask = lab
         
-        // Fade in Animation
+        // Label
+        /*
+         addSubview(label1)
+         let insetX = bounds.width / 4
+         let insetY = bounds.height / 4
+         label1.frame = bounds.insetBy(dx: insetX, dy: insetY)
+         label1.font = UIFont.systemFont(ofSize: 22)
+         //label1.textColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
+         label1.textColor = UIColor.blue
+         label1.textAlignment = .center
+         label1.text = "39"
+         */
+        
+        // Fade in Animation on Center Text
         gradLayer2.opacity = 0
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = 0
@@ -96,11 +122,12 @@ class CirclePath: UIView {
     
     
     /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
+    
 }
+

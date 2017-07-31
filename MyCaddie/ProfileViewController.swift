@@ -20,13 +20,42 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     
-    
+    let welcomeLabel = CATextLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sideMenus()
         customizeNavBar()
+        
+        // Background
+        let back = CGRect(x: 0, y: 0, width: 500, height: 800)
+        let ground = profileBackground(frame: back)
+        //view.addSubview(ground)
+        view.insertSubview(ground, at: 0)
+ 
+        
+        let lowLeft = CGRect(x: 245, y: 400, width: 120, height: 20)
+        let place1 = UIView(frame: lowLeft)
+        place1.backgroundColor = UIColor.green
+        view.addSubview(place1)
+        
+        place1.layer.addSublayer(welcomeLabel)
+        //place1.addSubview(welcomeLabel)
+        // Text Label
+        welcomeLabel.string = "Hola"
+        welcomeLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
+        welcomeLabel.fontSize = 18
+        welcomeLabel.alignmentMode = kCAAlignmentCenter
+        welcomeLabel.foregroundColor = UIColor.white.cgColor
+        welcomeLabel.alignmentMode = kCAAlignmentCenter
+        
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.fromValue = [-100, -100]
+        animation.toValue = [0,0]
+        animation.duration = 4
+        welcomeLabel.add(animation, forKey: nil)
+        
         
         profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
         profileImage.isUserInteractionEnabled = true
@@ -48,8 +77,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             revealViewController().rearViewRevealWidth = 275
             revealViewController().rightViewRevealWidth = 160
             
+            /*
             alertButton.target = revealViewController()
             alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
+ */
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }

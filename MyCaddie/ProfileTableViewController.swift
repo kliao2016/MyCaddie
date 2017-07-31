@@ -12,9 +12,36 @@ import GoogleSignIn
 
 class ProfileTableViewController: UITableViewController {
     
+    @IBOutlet weak var NewRound: UILabel!
+    @IBOutlet weak var MyStats: UILabel!
+    @IBOutlet weak var MyRound: UILabel!
+    @IBOutlet weak var Settings: UILabel!
+    @IBOutlet weak var LogOut: UILabel!
+    @IBOutlet var table: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        /*
+        // Background
+        let back = CGRect(x: 0, y: 0, width: 500, height: 800)
+        let ground = profileBackground(frame: back)
+        //view.addSubview(ground)
+        view.insertSubview(ground, at: 0)
+        
+        //NewRound.bringSubview(toFront: NewRound)
+        view.bringSubview(toFront: table)
+        //self.view.bringSubview(toFront: NewRound)
+        */
+        
+        
+        
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
 
     override func didReceiveMemoryWarning() {

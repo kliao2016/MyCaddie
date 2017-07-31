@@ -44,7 +44,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         // Uncomment to Sign in user automatically
         GIDSignIn.sharedInstance().signInSilently()
         
-        signInButton.backgroundColor = UIColor(red: 66/255, green: 244/255, blue: 149/255, alpha: 1.0)
+        signInButton.backgroundColor = UIColor(red: 0, green: 128/255, blue: 64/255, alpha: 1.0)
         signInButton.layer.cornerRadius = 5
     }
     

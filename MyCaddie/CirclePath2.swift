@@ -1,5 +1,5 @@
 //
-//  CirclePath.swift
+//  CirclePath2.swift
 //  MyCaddie
 //
 //  Created by Weston Mauz on 7/25/17.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class CirclePath: UIView {
-
+class CirclePath2: UIView {
+    
     let shapeLayer = CAShapeLayer()
     let gradLayer = CAGradientLayer()
     let label1 = UILabel()
@@ -22,14 +22,14 @@ class CirclePath: UIView {
         layer.addSublayer(gradLayer)
         gradLayer.frame = bounds
         let purple = UIColor.purple.cgColor
-        let blue = UIColor.blue.cgColor
-        gradLayer.colors = [purple, blue]
+        let orange = UIColor.orange.cgColor
+        gradLayer.colors = [orange, purple]
         gradLayer.startPoint = CGPoint(x: 0, y: 0)
         gradLayer.endPoint = CGPoint(x: 1, y: 1)
         
         layer.addSublayer(gradLayer2)
         gradLayer2.frame = bounds
-        gradLayer2.colors = [purple, blue]
+        gradLayer2.colors = [orange, purple]
         gradLayer2.startPoint = CGPoint(x: 0, y: 0)
         gradLayer2.endPoint = CGPoint(x: 1, y: 1)
         
@@ -55,9 +55,7 @@ class CirclePath: UIView {
         shapeLayer.fillColor = UIColor.clear.cgColor
         
         //shapeLayer.strokeEnd = CGFloat(value)
-        
-        // FOR DASHED LINES
-        //shapeLayer.lineDashPattern = [2,2]
+        //shapeLayer.lineDashPattern = [1,2]
         
         // Create Mask
         gradLayer.mask = shapeLayer
@@ -66,11 +64,11 @@ class CirclePath: UIView {
         anime.fromValue = 0
         anime.toValue = 1
         anime.duration = 2
-
+        
         shapeLayer.add(anime, forKey: nil)
         
         // Second Label Try
-        lab.string = "69"
+        lab.string = "59"
         let insetX = bounds.width / 4
         let insetY = bounds.height / 3
         lab.frame = bounds.insetBy(dx: insetX, dy: insetY)
@@ -96,11 +94,11 @@ class CirclePath: UIView {
     
     
     /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
+    
 }

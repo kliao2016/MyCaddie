@@ -18,6 +18,16 @@ class SwipeViewController: UIViewController {
         
         sideMenus()
         customizeNavBar()
+    
+        
+        let rect0 = CGRect(x: 70, y: 185, width: 250, height: 30)
+        let cp0 = mainScreenAnimation(frame: rect0)
+        view.addSubview(cp0)
+        
+        // Start New Round Button
+        let rect5 = CGRect(x: 140, y: 490, width: 100, height: 100)
+        let cp5 = mainScreenButton(frame: rect5)
+        view.addSubview(cp5)
 
         // Do any additional setup after loading the view.
     }
@@ -36,9 +46,10 @@ class SwipeViewController: UIViewController {
             revealViewController().rearViewRevealWidth = 275
             revealViewController().rightViewRevealWidth = 160
             
+            /*
             alertButton.target = revealViewController()
             alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
-            
+            */
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
