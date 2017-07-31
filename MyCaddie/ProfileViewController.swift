@@ -16,7 +16,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var databaseRef = Database.database().reference()
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var alertButton: UIBarButtonItem!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     
