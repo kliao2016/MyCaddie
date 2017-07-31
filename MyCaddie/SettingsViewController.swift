@@ -26,6 +26,12 @@ class SettingsViewController: UIViewController {
         sideMenus()
         customizeNavBar()
         
+        // Background
+        let back = CGRect(x: 0, y: 0, width: 500, height: 800)
+        let ground = settingsBackground(frame: back)
+        view.addSubview(ground)
+        view.insertSubview(ground, at: 0)
+        
         loadProfileImage()
     }
     

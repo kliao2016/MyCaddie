@@ -1,5 +1,5 @@
 //
-//  backgroundGradient.swift
+//  settingsBackground.swift
 //  MyCaddie
 //
 //  Created by Weston Mauz on 7/25/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class backgroundGradient: UIView {
+class settingsBackground: UIView {
     
     let shapeLayer = CAShapeLayer()
     let gradLayer = CAGradientLayer()
@@ -22,15 +22,15 @@ class backgroundGradient: UIView {
         
         // Gradient Layer for Circle
         
-    
-        
         layer.addSublayer(gradLayer)
         gradLayer.frame = bounds
         //let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 0.05).cgColor
-        let blue = UIColor.init(red: 0, green: 0/255, blue: 102/255, alpha: 0.1).cgColor
+        //let blue = UIColor.init(red: 0, green: 0/255, blue: 102/255, alpha: 0.1).cgColor
+        let grey = UIColor.init(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
         let black = UIColor.black.cgColor
         //let blue = UIColor.blue.cgColor
-        gradLayer.colors = [black, blue]
+        gradLayer.colors = [black, grey]
+        
         
         // Fade in Animation on Center Text
         gradLayer.opacity = 0
@@ -57,3 +57,4 @@ class backgroundGradient: UIView {
      */
     
 }
+

@@ -42,6 +42,8 @@
 		991FA8871EF3539A00289D63 /* CurrentRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FA8861EF3539A00289D63 /* CurrentRound.swift */; };
 		9927EA3D1F27E51900DD1901 /* CirclePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9927EA3C1F27E51900DD1901 /* CirclePath.swift */; };
 		994229761EE9F67300F303A5 /* HoleStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994229751EE9F67300F303A5 /* HoleStats.swift */; };
+		9952C8C51F2FA478002DC493 /* settingsBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9952C8C41F2FA478002DC493 /* settingsBackground.swift */; };
+		9952C8C71F2FA4C5002DC493 /* profileBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9952C8C61F2FA4C5002DC493 /* profileBackground.swift */; };
 		996209821F2BB9CE0062598D /* backgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996209811F2BB9CE0062598D /* backgroundGradient.swift */; };
 		9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998724891EF607B000CF2FCA /* StatsViewController.swift */; };
 		999468761EE1B4E300DBEF91 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999468751EE1B4E300DBEF91 /* Scorecard.swift */; };
@@ -105,6 +107,8 @@
 		991FA8861EF3539A00289D63 /* CurrentRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentRound.swift; sourceTree = "<group>"; };
 		9927EA3C1F27E51900DD1901 /* CirclePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePath.swift; sourceTree = "<group>"; };
 		994229751EE9F67300F303A5 /* HoleStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoleStats.swift; sourceTree = "<group>"; };
+		9952C8C41F2FA478002DC493 /* settingsBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsBackground.swift; sourceTree = "<group>"; };
+		9952C8C61F2FA4C5002DC493 /* profileBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileBackground.swift; sourceTree = "<group>"; };
 		996209811F2BB9CE0062598D /* backgroundGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backgroundGradient.swift; sourceTree = "<group>"; };
 		998724891EF607B000CF2FCA /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		999468751EE1B4E300DBEF91 /* Scorecard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
@@ -295,6 +299,8 @@
 				99BCD82D1F2A86AE007E09C0 /* mainScreenAnimation.swift */,
 				99BCD82F1F2A8C43007E09C0 /* mainScreenButton.swift */,
 				996209811F2BB9CE0062598D /* backgroundGradient.swift */,
+				9952C8C41F2FA478002DC493 /* settingsBackground.swift */,
+				9952C8C61F2FA4C5002DC493 /* profileBackground.swift */,
 			);
 			name = Animation;
 			sourceTree = "<group>";
@@ -472,11 +478,13 @@
 				1015B6001F23F1D800628816 /* SlideBarTableViewController.swift in Sources */,
 				99AFCF461F1FF1280012FAD1 /* SWRevealViewController.m in Sources */,
 				100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */,
+				9952C8C71F2FA4C5002DC493 /* profileBackground.swift in Sources */,
 				99B633111EEEDA0300160704 /* CourseRound.swift in Sources */,
 				9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */,
 				99BCD8301F2A8C43007E09C0 /* mainScreenButton.swift in Sources */,
 				106375A81F2674FF006B4538 /* FloatyViewController.swift in Sources */,
 				99AFCF561F2017B50012FAD1 /* SettingsViewController.swift in Sources */,
+				9952C8C51F2FA478002DC493 /* settingsBackground.swift in Sources */,
 				1090B9871F22F764002F678E /* Extensions.swift in Sources */,
 				10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */,
 				99AFCF481F1FF3EC0012FAD1 /* SwipeViewController.swift in Sources */,

@@ -18,13 +18,14 @@ class mainScreenAnimation: UIView {
         super.init(frame: frame)
         
         // Gradient Layer for Circle
-        let black = UIColor.black.cgColor
-        //let green = UIColor.init(red: 0, green: 100/255, blue: 30/255, alpha: 1)
+        //let black = UIColor.black.cgColor
+        let blue = UIColor.blue.cgColor
+        let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
         
         // Gradient Layer for Text
         gradLayer2.frame = bounds
-        gradLayer2.colors = [black, black]
-        gradLayer2.startPoint = CGPoint(x: 0, y: 0)
+        gradLayer2.colors = [green, blue]
+        gradLayer2.startPoint = CGPoint(x: 0.2, y: 0.2)
         gradLayer2.endPoint = CGPoint(x: 1, y: 1)
         layer.addSublayer(gradLayer2)
         
@@ -46,11 +47,21 @@ class mainScreenAnimation: UIView {
         
         
         // Fade in Animation on Center Text
+        
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = 0
         animation.toValue = 1
         animation.duration = 2
         gradLayer2.add(animation, forKey: nil)
+ 
+        /*
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.fromValue = [-150,15]
+        animation.toValue = [125,15]
+        animation.duration = 2
+        gradLayer2.add(animation, forKey: nil)
+        gradLayer2.mask = welcomeLabel
+ */
     }
     
     required init?(coder aDecoder: NSCoder) {
