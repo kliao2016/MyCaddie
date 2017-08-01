@@ -151,7 +151,7 @@ class Stats2: UIViewController {
                 self.holeStatistics.putt = self.putts
                 self.updateHoleData()
                 self.resetHoleStats()
-                if self.currentHole >= 2 {
+                if self.currentHole >= 18 {
                     self.endRound()
                     self.deleteCurrentRound()
                 }
@@ -468,6 +468,9 @@ class Stats2: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: when) {
             courseReference.child("Round \(self.currentRound)").child("Scores").setValue(scoreData)
         }
+        
+        let myCoursesView = storyboard?.instantiateViewController(withIdentifier: "mainMenu")
+        self.present(myCoursesView!, animated: true, completion: nil)
     }
     
     func getCount(){

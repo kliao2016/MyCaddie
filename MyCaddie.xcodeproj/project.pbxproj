@@ -48,6 +48,7 @@
 		9952C8C71F2FA4C5002DC493 /* profileBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9952C8C61F2FA4C5002DC493 /* profileBackground.swift */; };
 		996209821F2BB9CE0062598D /* backgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996209811F2BB9CE0062598D /* backgroundGradient.swift */; };
 		9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998724891EF607B000CF2FCA /* StatsViewController.swift */; };
+		998A079C1F30168700D79287 /* CourseDatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998A079B1F30168700D79287 /* CourseDatabaseViewController.swift */; };
 		999468761EE1B4E300DBEF91 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999468751EE1B4E300DBEF91 /* Scorecard.swift */; };
 		99AFCF461F1FF1280012FAD1 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF451F1FF1280012FAD1 /* SWRevealViewController.m */; };
 		99AFCF481F1FF3EC0012FAD1 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF471F1FF3EC0012FAD1 /* SwipeViewController.swift */; };
@@ -115,6 +116,7 @@
 		9952C8C61F2FA4C5002DC493 /* profileBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileBackground.swift; sourceTree = "<group>"; };
 		996209811F2BB9CE0062598D /* backgroundGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backgroundGradient.swift; sourceTree = "<group>"; };
 		998724891EF607B000CF2FCA /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		998A079B1F30168700D79287 /* CourseDatabaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDatabaseViewController.swift; sourceTree = "<group>"; };
 		999468751EE1B4E300DBEF91 /* Scorecard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
 		99AFCF431F1FF1270012FAD1 /* MyCaddie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyCaddie-Bridging-Header.h"; sourceTree = "<group>"; };
 		99AFCF441F1FF1280012FAD1 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */,
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
+				998A079B1F30168700D79287 /* CourseDatabaseViewController.swift */,
 				10F81DD11F2FFEB1004F1672 /* CourseInfoViewController.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
 				99BCD82C1F2A853D007E09C0 /* Animation */,
@@ -488,6 +491,7 @@
 				9952C8C71F2FA4C5002DC493 /* profileBackground.swift in Sources */,
 				99B633111EEEDA0300160704 /* CourseRound.swift in Sources */,
 				9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */,
+				998A079C1F30168700D79287 /* CourseDatabaseViewController.swift in Sources */,
 				99BCD8301F2A8C43007E09C0 /* mainScreenButton.swift in Sources */,
 				106375A81F2674FF006B4538 /* FloatyViewController.swift in Sources */,
 				99AFCF561F2017B50012FAD1 /* SettingsViewController.swift in Sources */,

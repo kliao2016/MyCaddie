@@ -202,7 +202,6 @@
                     <connections>
                         <outlet property="courseTable" destination="uhk-2Q-LfN" id="ICN-bP-5zq"/>
                         <segue destination="0cK-is-mBG" kind="unwind" identifier="UnwindToTabBar" unwindAction="unwindToTabMenuWithSegue:" id="6CT-UY-L5q"/>
-                        <segue destination="8Om-aI-Kc3" kind="show" identifier="teeSegue" id="g6G-uR-eqq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgO-MS-f5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -235,6 +234,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="MD8-tT-bZU" kind="show" identifier="statsSegue" id="xea-8L-5M4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -248,7 +250,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfX-cC-5W5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4548" y="-1230.1349325337333"/>
+            <point key="canvasLocation" x="639" y="1505"/>
         </scene>
         <!--Create A Course-->
         <scene sceneID="19V-Ia-BH8">
@@ -1548,7 +1550,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y60-KU-K9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1554" y="778"/>
+            <point key="canvasLocation" x="1618" y="1506"/>
         </scene>
         <!--Stats View Controller-->
         <scene sceneID="3f0-IV-08I">
@@ -2440,9 +2442,14 @@
                                 <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U09-mg-3nJ">
-                                <rect key="frame" x="172" y="501" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8c-AB-qiV">
+                                <rect key="frame" x="63" y="517" width="61" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="7Mx-6V-Y7j" kind="show" id="xt3-pE-OJ2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -3930,6 +3937,96 @@
             </objects>
             <point key="canvasLocation" x="-839" y="2581"/>
         </scene>
+        <!--Course Database View Controller-->
+        <scene sceneID="KYH-UJ-Eb0">
+            <objects>
+                <viewController id="7Mx-6V-Y7j" customClass="CourseDatabaseViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fzQ-gH-wAG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wxi-ol-I2z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k3x-sp-9fv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUL-AO-9ah">
+                                <rect key="frame" x="0.0" y="64" width="375" height="167"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hYA-Hp-qS6">
+                                        <rect key="frame" x="132" y="63" width="110" height="41"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Courses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efn-al-sYc">
+                                                <rect key="frame" x="23.5" y="0.0" width="63.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Courses:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHM-kI-jDf">
+                                                <rect key="frame" x="0.0" y="20.5" width="110" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hYA-Hp-qS6" firstAttribute="centerX" secondItem="RUL-AO-9ah" secondAttribute="centerX" id="2pC-Ow-RBR"/>
+                                    <constraint firstItem="hYA-Hp-qS6" firstAttribute="centerY" secondItem="RUL-AO-9ah" secondAttribute="centerY" id="rqo-Kw-2oY"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MAU-tF-EFf">
+                                <rect key="frame" x="0.0" y="231" width="375" height="436"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="courseDatabaseCell" textLabel="sop-kk-dz5" rowHeight="70" style="IBUITableViewCellStyleDefault" id="BMc-DP-iyO">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BMc-DP-iyO" id="Zq7-xM-SfM">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sop-kk-dz5">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="69.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="8Om-aI-Kc3" kind="show" identifier="teeSegue" id="cY6-FL-lLf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RUL-AO-9ah" firstAttribute="top" secondItem="fzQ-gH-wAG" secondAttribute="bottom" id="2h9-h4-B4E"/>
+                            <constraint firstItem="MAU-tF-EFf" firstAttribute="leading" secondItem="k3x-sp-9fv" secondAttribute="leading" id="5FI-93-AEb"/>
+                            <constraint firstItem="RUL-AO-9ah" firstAttribute="leading" secondItem="k3x-sp-9fv" secondAttribute="leading" id="HJm-Pw-WXa"/>
+                            <constraint firstItem="RUL-AO-9ah" firstAttribute="top" secondItem="fzQ-gH-wAG" secondAttribute="bottom" id="KHa-DH-fLX"/>
+                            <constraint firstAttribute="trailing" secondItem="MAU-tF-EFf" secondAttribute="trailing" id="O6O-cb-KAB"/>
+                            <constraint firstItem="RUL-AO-9ah" firstAttribute="height" secondItem="k3x-sp-9fv" secondAttribute="height" multiplier="1/4" id="gpd-cr-tEw"/>
+                            <constraint firstItem="Wxi-ol-I2z" firstAttribute="top" secondItem="MAU-tF-EFf" secondAttribute="bottom" id="qgu-r0-NTR"/>
+                            <constraint firstItem="MAU-tF-EFf" firstAttribute="top" secondItem="RUL-AO-9ah" secondAttribute="bottom" id="wD5-4A-V1X"/>
+                            <constraint firstAttribute="trailing" secondItem="RUL-AO-9ah" secondAttribute="trailing" id="yjk-6D-Lta"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="courseDatabaseTable" destination="MAU-tF-EFf" id="de5-Kj-Ili"/>
+                        <outlet property="numCourses" destination="FHM-kI-jDf" id="TYk-VR-zaH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H18-8G-xyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7" y="2285"/>
+        </scene>
         <!--Course Info View Controller-->
         <scene sceneID="SYI-hP-DIy">
             <objects>
@@ -3943,7 +4040,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RiM-bZ-Ee5">
-                                <rect key="frame" x="0.0" y="64" width="375" height="167"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="167"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="BqQ-nf-eY5">
                                         <rect key="frame" x="8" y="21.5" width="125" height="124.5"/>
@@ -3983,7 +4080,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qR-9z-mja">
-                                <rect key="frame" x="0.0" y="231" width="375" height="436"/>
+                                <rect key="frame" x="0.0" y="187" width="375" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="courseInfoCell" rowHeight="73" id="Fgb-Wj-qAY" customClass="CourseInfoTableViewCell" customModule="MyCaddie" customModuleProvider="target">
@@ -4398,7 +4495,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="sA4-Sq-l6l"/>
         <segue reference="gqp-4j-grP"/>
-        <segue reference="jLl-Vg-yGY"/>
+        <segue reference="UKe-nC-ZdI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
