@@ -464,7 +464,7 @@ class Stats2: UIViewController {
         
         // Score Upload
         let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-        let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+        let when = DispatchTime.now() + 1 // change to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             courseReference.child("Round \(self.currentRound)").child("Scores").setValue(scoreData)
         }
