@@ -58,7 +58,7 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
             alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
  */
             
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     
@@ -78,6 +78,14 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         cell.courseName.text = courses[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.deleteCourse(courseName: courses[indexPath.row])
+            self.courses.remove(at: indexPath.row)
+            self.myCoursesTable.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     func loadProfileImage() {
@@ -123,6 +131,26 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
             self.myCoursesTable.reloadData()
             
         }, withCancel: nil)
+    }
+    
+    func deleteCourse(courseName: String) {
+        if Auth.auth().currentUser != nil {
+            let uid = Auth.auth().currentUser?.uid
+            let userReference = self.databaseRef.child("Users").child(uid!)
+            let userCourseDataRef = userReference.child("Courses").child(courseName)
+            userCourseDataRef.removeValue()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "courseInfoSegue" {
+            let courseInfoView = segue.destination as! CourseInfoViewController
+            
+            let indexPath = self.myCoursesTable.indexPathForSelectedRow
+            
+            courseInfoView.roundParentCourseName = courses[(indexPath?.row)!]
+        }
     }
 
 }
