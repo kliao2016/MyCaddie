@@ -12,7 +12,7 @@ import FirebaseStorage
 import Firebase
 import GoogleSignIn
 
-class Stats2: UIViewController {
+class NewRound: UIViewController {
     
     var programVar : Program?
     
@@ -469,8 +469,8 @@ class Stats2: UIViewController {
             courseReference.child("Round \(self.currentRound)").child("Scores").setValue(scoreData)
         }
         
-        let myCoursesView = storyboard?.instantiateViewController(withIdentifier: "mainMenu")
-        self.present(myCoursesView!, animated: true, completion: nil)
+        let mainView = storyboard?.instantiateViewController(withIdentifier: "mainMenu")
+        self.present(mainView!, animated: true, completion: nil)
     }
     
     func getCount(){

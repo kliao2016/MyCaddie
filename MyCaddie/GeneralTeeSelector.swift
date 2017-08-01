@@ -67,8 +67,7 @@ class GeneralTeeSelector: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "statsSegue" {
-            let statsView = segue.destination as! Stats2
-            
+            let statsView = segue.destination as! NewRound
             statsView.courseName = self.teeParentCourseName
             
             let indexPath = self.teeTable.indexPathForSelectedRow

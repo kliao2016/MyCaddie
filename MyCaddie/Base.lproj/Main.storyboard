@@ -1401,10 +1401,10 @@
             </objects>
             <point key="canvasLocation" x="1362" y="-475"/>
         </scene>
-        <!--Stats2-->
+        <!--New Round-->
         <scene sceneID="0oW-SH-grB">
             <objects>
-                <viewController storyboardIdentifier="StatsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MD8-tT-bZU" customClass="Stats2" customModule="MyCaddie" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StatsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MD8-tT-bZU" customClass="NewRound" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fDt-Ky-Xuf"/>
                         <viewControllerLayoutGuide type="bottom" id="lkA-Tz-acT"/>
@@ -2215,7 +2215,7 @@
         <!--My Courses-->
         <scene sceneID="lNJ-Dx-6TF">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="m13-5x-42D" customClass="MyCoursesViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myCoursesView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m13-5x-42D" customClass="MyCoursesViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ab5-Rz-VsJ"/>
                         <viewControllerLayoutGuide type="bottom" id="eCH-BM-eug"/>
@@ -2225,13 +2225,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i9C-Xu-nGr">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oi7-61-0km">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="162.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="151.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IM9-WR-6wO">
-                                                <rect key="frame" x="8" y="19.5" width="125" height="124.5"/>
+                                                <rect key="frame" x="8" y="14" width="125" height="124.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="IM9-WR-6wO" secondAttribute="height" multiplier="1:1" id="lia-Bc-56e"/>
                                                 </constraints>
@@ -2249,7 +2249,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4j-gr-yvY">
-                                                <rect key="frame" x="310" y="124.5" width="57" height="30"/>
+                                                <rect key="frame" x="310" y="113.5" width="57" height="30"/>
                                                 <state key="normal" title="Settings"/>
                                             </button>
                                         </subviews>
@@ -2268,7 +2268,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="126" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRY-l1-Dwe">
-                                        <rect key="frame" x="0.0" y="162.5" width="375" height="484.5"/>
+                                        <rect key="frame" x="0.0" y="151.5" width="375" height="451.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCoursesCell" rowHeight="126" id="aLg-gK-J5m" customClass="MyCoursesTableViewCell" customModule="MyCaddie" customModuleProvider="target">
@@ -3334,7 +3334,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nKE-uq-Ijo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mom-XX-Ue7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mom-XX-Ue7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3529,7 +3529,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WMk-i5-dgw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="featured" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AOh-sK-KZ5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AOh-sK-KZ5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3548,7 +3548,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j4G-qh-1xg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aav-Hs-H4Z">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aav-Hs-H4Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3675,7 +3675,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R2h-pV-LAA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7pI-Z1-L7k">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="7pI-Z1-L7k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3691,10 +3691,10 @@
         <!--Navigation Controller-->
         <scene sceneID="i4D-qF-PTc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fL9-BW-qAg" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="myCoursesNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fL9-BW-qAg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZEN-C6-Faq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZEN-C6-Faq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3713,7 +3713,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pz5-ja-85v" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tvA-k1-Caz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tvA-k1-Caz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3732,7 +3732,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cGB-YT-svl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lsE-Zp-IeK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lsE-Zp-IeK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -4054,7 +4054,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RiM-bZ-Ee5">
-                                <rect key="frame" x="0.0" y="20" width="375" height="167"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="167"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="BqQ-nf-eY5">
                                         <rect key="frame" x="8" y="21.5" width="125" height="124.5"/>
@@ -4094,7 +4094,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qR-9z-mja">
-                                <rect key="frame" x="0.0" y="187" width="375" height="480"/>
+                                <rect key="frame" x="0.0" y="231" width="375" height="436"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="courseInfoCell" rowHeight="73" id="Fgb-Wj-qAY" customClass="CourseInfoTableViewCell" customModule="MyCaddie" customModuleProvider="target">
@@ -4164,7 +4164,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wNw-40-LNP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AbS-zc-cKn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AbS-zc-cKn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -4507,9 +4507,9 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="RKg-DT-p6G"/>
         <segue reference="sA4-Sq-l6l"/>
-        <segue reference="gqp-4j-grP"/>
-        <segue reference="UKe-nC-ZdI"/>
+        <segue reference="jLl-Vg-yGY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
