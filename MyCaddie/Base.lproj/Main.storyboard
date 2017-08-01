@@ -864,6 +864,15 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVL-wf-VGs">
+                                <rect key="frame" x="155" y="116" width="88" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="createCourseAction:" destination="ZrT-Lh-E1R" eventType="touchUpInside" id="Ulz-Dc-meP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -879,11 +888,8 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="DropTextBox" destination="Yyo-eP-esD" id="tKv-ym-EB2"/>
-                        <outlet property="Slope" destination="zOq-Js-5Ti" id="izV-wH-NR5"/>
                         <outlet property="courseName" destination="gAb-Ym-HdK" id="r2V-1j-FO7"/>
                         <outlet property="courseRating" destination="iLc-79-4f9" id="A2x-5e-OYj"/>
-                        <outlet property="courseTextField" destination="zOq-Js-5Ti" id="TAL-VW-wVX"/>
                         <outlet property="dropTextBox" destination="Yyo-eP-esD" id="3XC-WO-70S"/>
                         <outlet property="menuButton" destination="Bqt-gU-XA3" id="Gj8-W2-cwE"/>
                         <outlet property="seg1" destination="8TF-ih-QFf" id="DqC-mv-B6B"/>
@@ -904,6 +910,7 @@
                         <outlet property="seg7" destination="TIK-J5-4C3" id="1av-ak-hEp"/>
                         <outlet property="seg8" destination="Nql-Tm-bZF" id="Bl4-2r-5tt"/>
                         <outlet property="seg9" destination="MMp-Wf-bWW" id="KIw-rl-9as"/>
+                        <outlet property="slope" destination="zOq-Js-5Ti" id="i6L-Jz-sBv"/>
                         <outlet property="y1" destination="QZ7-a8-c2g" id="w2G-wM-SbS"/>
                         <outlet property="y10" destination="KVE-4r-GMB" id="ZVr-7Z-HRC"/>
                         <outlet property="y11" destination="aVm-WA-Ezr" id="TCi-Al-YI6"/>
@@ -926,7 +933,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyh-0G-89A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1625" y="3878"/>
+            <point key="canvasLocation" x="-1626.4000000000001" y="3877.5112443778112"/>
         </scene>
         <!--Scorecard-->
         <scene sceneID="A63-zy-u84">
@@ -3968,10 +3975,17 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7eQ-rM-0RG">
+                                        <rect key="frame" x="0.0" y="123" width="375" height="44"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="hYA-Hp-qS6" firstAttribute="centerX" secondItem="RUL-AO-9ah" secondAttribute="centerX" id="2pC-Ow-RBR"/>
+                                    <constraint firstAttribute="bottom" secondItem="7eQ-rM-0RG" secondAttribute="bottom" id="8FI-8a-MYz"/>
+                                    <constraint firstAttribute="trailing" secondItem="7eQ-rM-0RG" secondAttribute="trailing" id="CiX-Vc-ym7"/>
+                                    <constraint firstItem="7eQ-rM-0RG" firstAttribute="leading" secondItem="RUL-AO-9ah" secondAttribute="leading" id="Pl9-gV-x7h"/>
                                     <constraint firstItem="hYA-Hp-qS6" firstAttribute="centerY" secondItem="RUL-AO-9ah" secondAttribute="centerY" id="rqo-Kw-2oY"/>
                                 </constraints>
                             </view>
@@ -4020,6 +4034,7 @@
                     <connections>
                         <outlet property="courseDatabaseTable" destination="MAU-tF-EFf" id="de5-Kj-Ili"/>
                         <outlet property="numCourses" destination="FHM-kI-jDf" id="TYk-VR-zaH"/>
+                        <outlet property="searchBar" destination="7eQ-rM-0RG" id="lQa-GN-2hj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H18-8G-xyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
