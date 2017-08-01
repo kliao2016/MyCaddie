@@ -112,12 +112,18 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
         let newRoundOption = FloatyItem()
         newRoundOption.buttonColor = UIColor.green
         newRoundOption.title = "New Round"
+        newRoundOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(displayNewRound)))
         let newCourseOption = FloatyItem()
         newCourseOption.buttonColor = UIColor.blue
         newCourseOption.title = "Add New Course"
         floatyNewOptionsButton.addItem(item: newRoundOption)
         floatyNewOptionsButton.addItem(item: newCourseOption)
         self.view.addSubview(floatyNewOptionsButton)
+    }
+    
+    func displayNewRound() {
+        let courseDatabaseView = storyboard?.instantiateViewController(withIdentifier: "courseDatabaseView")
+        self.present(courseDatabaseView!, animated: true, completion: nil)
     }
     
     func fetchCourses() {
