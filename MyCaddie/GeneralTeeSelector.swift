@@ -65,10 +65,6 @@ class GeneralTeeSelector: UITableViewController {
         return cell!
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "statsSegue", sender: tees[indexPath.row])
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "statsSegue" {
             let statsView = segue.destination as! Stats2
