@@ -12,7 +12,7 @@ import FirebaseDatabase
 import UIKit
 
 
-class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let ref = Database.database().reference()
     let tees = ["Championship", "Men", "Women", "Senior"]
@@ -310,6 +310,33 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         teePicker.dataSource = self
         teePicker.backgroundColor = UIColor.white
         
+        // Part of Letters only for course Name
+        self.courseName.delegate = self
+
+        
+        y1.keyboardType = UIKeyboardType.numberPad
+        y2.keyboardType = UIKeyboardType.numberPad
+        y3.keyboardType = UIKeyboardType.numberPad
+        y4.keyboardType = UIKeyboardType.numberPad
+        y5.keyboardType = UIKeyboardType.numberPad
+        y6.keyboardType = UIKeyboardType.numberPad
+        y7.keyboardType = UIKeyboardType.numberPad
+        y8.keyboardType = UIKeyboardType.numberPad
+        y9.keyboardType = UIKeyboardType.numberPad
+        y10.keyboardType = UIKeyboardType.numberPad
+        y11.keyboardType = UIKeyboardType.numberPad
+        y12.keyboardType = UIKeyboardType.numberPad
+        y13.keyboardType = UIKeyboardType.numberPad
+        y14.keyboardType = UIKeyboardType.numberPad
+        y15.keyboardType = UIKeyboardType.numberPad
+        y16.keyboardType = UIKeyboardType.numberPad
+        y17.keyboardType = UIKeyboardType.numberPad
+        y18.keyboardType = UIKeyboardType.numberPad
+        
+        courseName.keyboardType = UIKeyboardType.alphabet
+        courseRating.keyboardType = UIKeyboardType.numbersAndPunctuation
+        slope.keyboardType = UIKeyboardType.numbersAndPunctuation
+        
         self.seg1.selectedSegmentIndex = 1
         self.seg2.selectedSegmentIndex = 1
         self.seg3.selectedSegmentIndex = 1
@@ -368,7 +395,7 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         courseName.resignFirstResponder()
         courseRating.resignFirstResponder()
         dropTextBox.resignFirstResponder()
-        courseTextField.resignFirstResponder()
+        slope.resignFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -379,17 +406,19 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
     // Drop Down Text Box Reference
     @IBOutlet weak var dropTextBox: UITextField!
     
-    @IBOutlet weak var createCourseButton: UIButton!
-    
     // Outlets to Database
-    @IBOutlet weak var courseTextField: UITextField!
     @IBOutlet weak var courseName: UITextField!
     @IBOutlet weak var courseRating: UITextField!
     @IBOutlet weak var slope: UITextField!
     let teePicker = UIPickerView()
     
+    
     // Uploading Course data to database
     @IBAction func createCourseAction(_ sender: Any) {
+        
+        let valid = checkFields()
+        
+        if valid == true {
         
         let uid = Auth.auth().currentUser?.uid
         let userReference = self.ref.child("Users").child(uid!)
@@ -422,6 +451,10 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         generalDataReference.child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
         
         dismiss(animated: true, completion: nil)
+        }
+        else {
+            displayAlert()
+        }
     }
     
     func displayAlert() {
@@ -431,6 +464,88 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         alertController.addAction(defaultAction)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func displayAlert2() {
+        let alertController = UIAlertController(title: "Success", message: "Course Uploaded Successfully", preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func checkFields() -> Bool {
+        
+        if courseName.text == "" {
+            return false
+        }
+        if courseRating.text == "" {
+            return false
+        }
+        if slope.text == "" {
+            return false
+        }
+        if dropTextBox.text == "" {
+            return false
+        }
+        if y1.text == "" {
+            return false
+        }
+        if y2.text == "" {
+            return false
+        }
+        if y3.text == "" {
+            return false
+        }
+        if y4.text == "" {
+            return false
+        }
+        if y5.text == "" {
+            return false
+        }
+        if y6.text == "" {
+            return false
+        }
+        if y7.text == "" {
+            return false
+        }
+        if y8.text == "" {
+            return false
+        }
+        if y9.text == "" {
+            return false
+        }
+        if y10.text == "" {
+            return false
+        }
+        if y11.text == "" {
+            return false
+        }
+        if y12.text == "" {
+            return false
+        }
+        if y13.text == "" {
+            return false
+        }
+        if y14.text == "" {
+            return false
+        }
+        if y15.text == "" {
+            return false
+        }
+        if y16.text == "" {
+            return false
+        }
+        if y17.text == "" {
+            return false
+        }
+        if y18.text == "" {
+            return false
+        }
+    
+        return true
+        
     }
     
     // UI Picker Constructors
@@ -479,6 +594,13 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
         navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        let allowedCharacters = CharacterSet.letters
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: characterSet)
     }
     
 }
