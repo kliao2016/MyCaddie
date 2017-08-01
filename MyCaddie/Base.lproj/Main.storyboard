@@ -244,7 +244,6 @@
                     </tableView>
                     <connections>
                         <outlet property="teeTable" destination="M7A-bc-p6A" id="zU5-w0-QMn"/>
-                        <segue destination="MD8-tT-bZU" kind="show" identifier="statsSegue" id="bpj-QW-GpS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfX-cC-5W5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1344,7 +1343,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAB-g0-E92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3280.8000000000002" y="751.57421289355329"/>
+            <point key="canvasLocation" x="3647" y="-419"/>
         </scene>
         <!--Scorecard Scroll-->
         <scene sceneID="Tsn-T1-YHj">
@@ -1352,7 +1351,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="2" navigationOrientation="horizontal" spineLocation="none" id="wH0-Ms-kE0" customClass="ScorecardScroll" customModule="MyCaddie" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SX7-oX-ABQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2166" y="778"/>
+            <point key="canvasLocation" x="2708" y="-418"/>
         </scene>
         <!--Loading Screen-->
         <scene sceneID="8yI-OP-vT0">
@@ -1386,7 +1385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etP-yM-bDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="895" y="778"/>
+            <point key="canvasLocation" x="1362" y="-475"/>
         </scene>
         <!--Stats2-->
         <scene sceneID="0oW-SH-grB">
@@ -1549,7 +1548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y60-KU-K9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7141.6000000000004" y="1936.2818590704649"/>
+            <point key="canvasLocation" x="1554" y="778"/>
         </scene>
         <!--Stats View Controller-->
         <scene sceneID="3f0-IV-08I">
@@ -2212,13 +2211,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i9C-Xu-nGr">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oi7-61-0km">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="151.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="162.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IM9-WR-6wO">
-                                                <rect key="frame" x="8" y="14" width="125" height="124.5"/>
+                                                <rect key="frame" x="8" y="19.5" width="125" height="124.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="IM9-WR-6wO" secondAttribute="height" multiplier="1:1" id="lia-Bc-56e"/>
                                                 </constraints>
@@ -2236,7 +2235,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4j-gr-yvY">
-                                                <rect key="frame" x="310" y="113.5" width="57" height="30"/>
+                                                <rect key="frame" x="310" y="124.5" width="57" height="30"/>
                                                 <state key="normal" title="Settings"/>
                                             </button>
                                         </subviews>
@@ -2255,7 +2254,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="126" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRY-l1-Dwe">
-                                        <rect key="frame" x="0.0" y="151.5" width="375" height="451.5"/>
+                                        <rect key="frame" x="0.0" y="162.5" width="375" height="484.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCoursesCell" rowHeight="126" id="aLg-gK-J5m" customClass="MyCoursesTableViewCell" customModule="MyCaddie" customModuleProvider="target">
@@ -2441,6 +2440,10 @@
                                 <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U09-mg-3nJ">
+                                <rect key="frame" x="172" y="501" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -3314,7 +3317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BV8-3g-ddN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4256.8000000000002" y="751.57421289355329"/>
+            <point key="canvasLocation" x="4548" y="-419"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="adN-Of-40Y">
@@ -3508,7 +3511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2C-NY-0wr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7133.6000000000004" y="2465.217391304348"/>
+            <point key="canvasLocation" x="7838" y="2616"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cvZ-0g-8Yj">
@@ -3607,6 +3610,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="SuP-a3-RoO" firstAttribute="leading" secondItem="A3K-Yu-Qby" secondAttribute="leadingMargin" id="CJD-fP-t7y"/>
                                     <constraint firstItem="SuP-a3-RoO" firstAttribute="width" secondItem="A3K-Yu-Qby" secondAttribute="width" multiplier="1/3" id="f1J-vx-8y2"/>
@@ -4070,6 +4074,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="436"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="i23-Bv-KqI">
                                 <cells>
@@ -4092,6 +4097,7 @@
                                                 <constraint firstItem="ssV-NX-3hv" firstAttribute="centerY" secondItem="rEl-Ff-b8C" secondAttribute="centerY" id="pbA-Un-ddu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jr8-fZ-K7R">
@@ -4114,6 +4120,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="Bcd-LD-Uxh" firstAttribute="centerY" secondItem="Xcg-Oz-1lj" secondAttribute="centerY" id="Lnw-CI-cmG"/>
                                                 <constraint firstItem="Bcd-LD-Uxh" firstAttribute="leading" secondItem="Xcg-Oz-1lj" secondAttribute="leadingMargin" constant="5" id="MX8-Vp-2Sg"/>
@@ -4152,6 +4159,7 @@
                                                 <constraint firstItem="gZy-is-RuN" firstAttribute="height" secondItem="gUx-bW-A4x" secondAttribute="height" multiplier="7/10" id="vH5-YR-wD5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="uX8-Py-OVW">
                                         <rect key="frame" x="0.0" y="135" width="375" height="45"/>
@@ -4181,6 +4189,7 @@
                                                 <constraint firstItem="2JD-Yr-Swd" firstAttribute="leading" secondItem="w2c-48-tOb" secondAttribute="leadingMargin" id="lB4-yj-3Qi"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="c6V-SG-Ob5">
                                         <rect key="frame" x="0.0" y="180" width="375" height="45"/>
@@ -4210,6 +4219,7 @@
                                                 <constraint firstItem="w0Z-um-UYV" firstAttribute="height" secondItem="blh-US-I0b" secondAttribute="height" multiplier="7/10" id="sjC-CO-kTJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="separatorInset" minX="600" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HXe-cT-1dK">
@@ -4231,6 +4241,7 @@
                                                 <constraint firstItem="Wh4-f5-LQZ" firstAttribute="centerY" secondItem="oEe-we-Fl8" secondAttribute="centerY" id="dYj-oi-rYe"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9PL-tX-epR">
                                         <rect key="frame" x="0.0" y="270" width="375" height="45"/>
@@ -4260,6 +4271,7 @@
                                                 <constraint firstItem="ebW-aI-cax" firstAttribute="leading" secondItem="iUC-oi-BAt" secondAttribute="leadingMargin" id="kkc-Xg-ihD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bhP-9A-QPS">
                                         <rect key="frame" x="0.0" y="315" width="375" height="45"/>
@@ -4289,6 +4301,7 @@
                                                 <constraint firstItem="oCB-lc-xmN" firstAttribute="leading" secondItem="iBy-ax-hCF" secondAttribute="leadingMargin" id="orr-iD-jiy"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="41" id="SXX-bL-6Be">
                                         <rect key="frame" x="0.0" y="360" width="375" height="41"/>
@@ -4318,6 +4331,7 @@
                                                 <constraint firstItem="jMw-Tr-eTX" firstAttribute="height" secondItem="ZCC-RC-Su9" secondAttribute="height" multiplier="7/10" id="jqc-dF-Adm"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tKK-e7-oKX">
                                         <rect key="frame" x="0.0" y="401" width="375" height="45"/>
@@ -4333,6 +4347,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="IVx-Dd-7M2" firstAttribute="centerY" secondItem="muN-FK-JOd" secondAttribute="centerY" id="5qb-Yq-Gig"/>
                                                 <constraint firstItem="IVx-Dd-7M2" firstAttribute="centerX" secondItem="muN-FK-JOd" secondAttribute="centerX" id="Ak3-ZO-Qsm"/>
