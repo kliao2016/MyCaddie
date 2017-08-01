@@ -11,12 +11,17 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
+    // Search Bar Outlet
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var isSearching = false
 
     var databaseRef = Database.database().reference()
     
     var courses = [String]()
+    var filteredCourses = [String]()
 
     @IBOutlet weak var numCourses: UILabel!
     @IBOutlet weak var courseDatabaseTable: UITableView!
@@ -26,6 +31,9 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
 
         self.courseDatabaseTable.delegate = self
         self.courseDatabaseTable.dataSource = self
+        
+        self.searchBar.delegate = self
+        self.searchBar.returnKeyType = UIReturnKeyType.done
         
         fetchCourses()
     }
@@ -37,12 +45,24 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.numCourses.text = "\(courses.count) Total Courses"
+        
+        if isSearching {
+            return filteredCourses.count
+        }
         return courses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = courseDatabaseTable.dequeueReusableCell(withIdentifier: "courseDatabaseCell")
-        cell?.textLabel?.text = courses[indexPath.row]
+        
+        if isSearching {
+            cell?.textLabel?.text = filteredCourses[indexPath.row]
+        }
+        else {
+            cell?.textLabel?.text = courses[indexPath.row]
+        }
+        
         return cell!
     }
     
@@ -64,6 +84,23 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
             
             let indexPath = self.courseDatabaseTable.indexPathForSelectedRow
             teeView.teeParentCourseName = courses[(indexPath?.row)!]
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            
+            isSearching = false
+            view.endEditing(true)
+            courseDatabaseTable.reloadData()
+            
+        }
+        else {
+            isSearching = true
+            //filteredCourses = courses.filter({$0 == searchBar.text})
+            filteredCourses = courses.filter({$0.contains(searchBar.text!)})
+            print(filteredCourses)
+            courseDatabaseTable.reloadData()
         }
     }
 
