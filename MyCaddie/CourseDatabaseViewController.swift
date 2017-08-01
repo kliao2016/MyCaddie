@@ -99,7 +99,6 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
             isSearching = true
             //filteredCourses = courses.filter({$0 == searchBar.text})
             filteredCourses = courses.filter({$0.contains(searchBar.text!)})
-            print(filteredCourses)
             courseDatabaseTable.reloadData()
         }
     }
