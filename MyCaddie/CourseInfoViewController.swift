@@ -52,7 +52,13 @@ class CourseInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = courseInfoTable.dequeueReusableCell(withIdentifier: "courseInfoCell") as! CourseInfoTableViewCell
         cell.roundNumber.text = rounds[indexPath.row]
-        cell.roundTees.text = "Championship Tees"
+        let uid = Auth.auth().currentUser?.uid
+        let courseReference = databaseRef.child("Users").child(uid!).child("Courses").child(self.roundParentCourseName).child(rounds[indexPath.row])
+        courseReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                cell.roundTees.text = (dictionary["Tees"] as? String)! + " Tees"
+            }
+        }, withCancel: nil)
         return cell
     }
     
@@ -63,15 +69,14 @@ class CourseInfoViewController: UIViewController, UITableViewDelegate, UITableVi
         userRef.child("Courses").child(roundParentCourseName).observe(.childAdded, with: { (snapshot) in
             
             let round = snapshot.key
-            self.rounds.append(round)
-            self.courseInfoTable.reloadData()
+            if round != "Rounds Played" {
+                self.rounds.append(round)
+                self.courseInfoTable.reloadData()
+            }
             
         }, withCancel: nil)
         
     }
-    
-    
-    
 
     /*
     // MARK: - Navigation
