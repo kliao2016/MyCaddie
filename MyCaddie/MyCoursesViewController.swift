@@ -123,7 +123,8 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func displayNewRound() {
         let courseDatabaseView = storyboard?.instantiateViewController(withIdentifier: "courseDatabaseView")
-        self.present(courseDatabaseView!, animated: true, completion: nil)
+        courseDatabaseView?.navigationItem.title = "Choose a Course"
+        self.show(courseDatabaseView!, sender: self)
     }
     
     func fetchCourses() {

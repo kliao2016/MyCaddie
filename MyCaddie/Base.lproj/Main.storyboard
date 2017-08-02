@@ -3749,7 +3749,7 @@
         <!--Profile Table View Controller-->
         <scene sceneID="rrj-Xw-7fJ">
             <objects>
-                <tableViewController id="9Jv-t2-8Sk" customClass="ProfileTableViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="9Jv-t2-8Sk" customClass="ProfileTableViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" scrollEnabled="NO" keyboardDismissMode="interactive" dataMode="static" style="plain" separatorStyle="none" rowHeight="45.5" sectionHeaderHeight="28" sectionFooterHeight="28" id="woo-MS-6bx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="226"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3788,7 +3788,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="7Mx-6V-Y7j" kind="showDetail" action="showViewController:sender:" id="ubO-9Z-g1k"/>
+                                            <segue destination="7Mx-6V-Y7j" kind="showDetail" identifier="newRoundSegue" action="showViewController:sender:" id="ubO-9Z-g1k"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Hv2-0A-yfz">
@@ -3947,7 +3947,7 @@
         <!--Course Database View Controller-->
         <scene sceneID="KYH-UJ-Eb0">
             <objects>
-                <viewController storyboardIdentifier="courseDatabaseView" id="7Mx-6V-Y7j" customClass="CourseDatabaseViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="courseDatabaseView" automaticallyAdjustsScrollViewInsets="NO" id="7Mx-6V-Y7j" customClass="CourseDatabaseViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fzQ-gH-wAG"/>
                         <viewControllerLayoutGuide type="bottom" id="Wxi-ol-I2z"/>
@@ -4511,9 +4511,9 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="RKg-DT-p6G"/>
         <segue reference="sA4-Sq-l6l"/>
         <segue reference="UKe-nC-ZdI"/>
-        <segue reference="gqp-4j-grP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

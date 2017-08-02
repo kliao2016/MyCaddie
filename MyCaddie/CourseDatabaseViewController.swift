@@ -14,7 +14,7 @@ import GooglePlacePicker
 import GoogleMaps
 import GooglePlaces
 
-class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, GMSPlacePickerViewControllerDelegate {
     
     // Search Bar Outlet
     @IBOutlet weak var searchBar: UISearchBar!
@@ -113,8 +113,9 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func pickPlace(_ sender: UIButton) {
         let config = GMSPlacePickerConfig(viewport: nil)
         let placePicker = GMSPlacePickerViewController(config: config)
+        placePicker.delegate = self
         
-        present(placePicker, animated: true, completion: nil)
+        self.present(placePicker, animated: true, completion: nil)
     }
     
     // To receive the results from the place picker 'self' will need to conform to
@@ -124,8 +125,8 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
         viewController.dismiss(animated: true, completion: nil)
         
         print("Place name \(place.name)")
-        print("Place address \(place.formattedAddress)")
-        print("Place attributions \(place.attributions)")
+        print("Place address \(String(describing: place.formattedAddress))")
+        print("Place attributions \(String(describing: place.attributions))")
     }
     
     func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
