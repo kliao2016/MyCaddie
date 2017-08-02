@@ -65,6 +65,8 @@
 		99BCD82B1F2A605F007E09C0 /* CirclePath5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCD82A1F2A605F007E09C0 /* CirclePath5.swift */; };
 		99BCD82E1F2A86AE007E09C0 /* mainScreenAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCD82D1F2A86AE007E09C0 /* mainScreenAnimation.swift */; };
 		99BCD8301F2A8C43007E09C0 /* mainScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCD82F1F2A8C43007E09C0 /* mainScreenButton.swift */; };
+		99C4E8871F32373E00B65DDC /* Loading2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4E8861F32373E00B65DDC /* Loading2ViewController.swift */; };
+		99C4E8891F3238E500B65DDC /* ContinueRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4E8881F3238E500B65DDC /* ContinueRound.swift */; };
 		99D6C8C91EDF5AA300FA55D0 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D6C8C81EDF5AA300FA55D0 /* CreateViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +137,8 @@
 		99BCD82A1F2A605F007E09C0 /* CirclePath5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePath5.swift; sourceTree = "<group>"; };
 		99BCD82D1F2A86AE007E09C0 /* mainScreenAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainScreenAnimation.swift; sourceTree = "<group>"; };
 		99BCD82F1F2A8C43007E09C0 /* mainScreenButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainScreenButton.swift; sourceTree = "<group>"; };
+		99C4E8861F32373E00B65DDC /* Loading2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loading2ViewController.swift; sourceTree = "<group>"; };
+		99C4E8881F3238E500B65DDC /* ContinueRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinueRound.swift; sourceTree = "<group>"; };
 		99D6C8C81EDF5AA300FA55D0 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		DFB69DC202FD3185EFE1A7C5 /* Pods-MyCaddie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCaddie.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCaddie/Pods-MyCaddie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +243,8 @@
 				10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */,
 				108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */,
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
+				99C4E8881F3238E500B65DDC /* ContinueRound.swift */,
+				99C4E8861F32373E00B65DDC /* Loading2ViewController.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
 				998A079B1F30168700D79287 /* CourseDatabaseViewController.swift */,
 				10F81DD11F2FFEB1004F1672 /* CourseInfoViewController.swift */,
@@ -483,6 +489,7 @@
 				106375A51F2674FF006B4538 /* FloatyDelegate.swift in Sources */,
 				10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */,
 				10D595691EDA317B00572D38 /* FirstViewController.swift in Sources */,
+				99C4E8891F3238E500B65DDC /* ContinueRound.swift in Sources */,
 				991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */,
 				99BCD82B1F2A605F007E09C0 /* CirclePath5.swift in Sources */,
 				1015B6001F23F1D800628816 /* SlideBarTableViewController.swift in Sources */,
@@ -494,6 +501,7 @@
 				998A079C1F30168700D79287 /* CourseDatabaseViewController.swift in Sources */,
 				99BCD8301F2A8C43007E09C0 /* mainScreenButton.swift in Sources */,
 				106375A81F2674FF006B4538 /* FloatyViewController.swift in Sources */,
+				99C4E8871F32373E00B65DDC /* Loading2ViewController.swift in Sources */,
 				99AFCF561F2017B50012FAD1 /* SettingsViewController.swift in Sources */,
 				9952C8C51F2FA478002DC493 /* settingsBackground.swift in Sources */,
 				1090B9871F22F764002F678E /* Extensions.swift in Sources */,
@@ -632,7 +640,7 @@
 				DEVELOPMENT_TEAM = SD3HFF44RZ;
 				INFOPLIST_FILE = MyCaddie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
+				PRODUCT_BUNDLE_IDENTIFIER = liaomauz2.MyCaddie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyCaddie/MyCaddie-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -649,7 +657,7 @@
 				DEVELOPMENT_TEAM = SD3HFF44RZ;
 				INFOPLIST_FILE = MyCaddie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
+				PRODUCT_BUNDLE_IDENTIFIER = liaomauz2.MyCaddie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyCaddie/MyCaddie-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

@@ -213,13 +213,13 @@ class Stats3: UIViewController {
     }
     @IBAction func Hazard(_ sender: Any) {
         holeStatistics.hazards += 1
-        currentScore += 1
+        currentScore += 2
         updateShotText()
         updateUI()
     }
     @IBAction func OB(_ sender: Any) {
         holeStatistics.obs += 1
-        currentScore += 1
+        currentScore += 2
         updateShotText()
         updateUI()
     }
