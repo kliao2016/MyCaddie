@@ -11,6 +11,9 @@ target 'MyCaddie' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'GoogleSignIn'
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
+  pod 'GoogleMaps'
   pod 'Floaty', '~> 3.0.0'
 
 end
