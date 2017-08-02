@@ -62,6 +62,10 @@ class CourseInfoViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "userStatsSegue", sender: rounds[indexPath.row])
+    }
+    
     func fetchRounds() {
         
         let uid = Auth.auth().currentUser?.uid
@@ -77,15 +81,47 @@ class CourseInfoViewController: UIViewController, UITableViewDelegate, UITableVi
         }, withCancel: nil)
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "userStatsSegue" {
+            // Create a variable that you want to send
+            
+            let uid = Auth.auth().currentUser?.uid
+            let indexPath = self.courseInfoTable.indexPathForSelectedRow
+            let destinationVC = segue.destination as! StatsViewController
+            
+            let userRoundRef = databaseRef.child("Users").child(uid!).child("Courses").child(self.roundParentCourseName).child(rounds[(indexPath?.row)!])
+            
+            userRoundRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    
+                    let fbunkers = dictionary["Fairway Bunkers"] as! Int
+                    let fairways = dictionary["Fairways"] as! Int
+                    let fringes = dictionary["Fringes"] as! Int
+                    let greens = dictionary["Greens"] as! Int
+                    let gbunkers = dictionary["Greenside Bunkers"] as! Int
+                    let hazards = dictionary["Hazards"] as! Int
+                    let lefts = dictionary["Lefts"] as! Int
+                    let obs = dictionary["OBs"] as! Int
+                    let putts = dictionary["Putts"] as! Int
+                    let rights = dictionary["Rights"] as! Int
+                    let score = dictionary["Score"] as! Int
+                    destinationVC.score.text = String(score)
+                    destinationVC.fairways.text = String(fairways)
+                    destinationVC.greens.text = String(greens)
+                    destinationVC.putts.text = String(putts)
+                    destinationVC.fringes.text = String(fringes)
+                    destinationVC.hazards.text = String(hazards)
+                    destinationVC.left.text = String(lefts)
+                    destinationVC.right.text = String(rights)
+                    destinationVC.fbunkers.text = String(fbunkers)
+                    destinationVC.gbunkers.text = String(gbunkers)
+                    destinationVC.obs.text = String(obs)
+                }
+            }, withCancel: nil)
+            
+        }
     }
-    */
-
+    
 }

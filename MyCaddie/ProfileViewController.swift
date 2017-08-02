@@ -48,6 +48,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         welcomeLabel.frame = CGRect(x: 0, y: 0, width: 120, height: 20)
         welcomeLabel.fontSize = 18
         welcomeLabel.alignmentMode = kCAAlignmentCenter
+        //welcomeLabel.foregroundColor = UIColor.white.cgColor
         welcomeLabel.foregroundColor = UIColor.white.cgColor
         welcomeLabel.alignmentMode = kCAAlignmentLeft
         
@@ -226,6 +227,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                         self.profileImage.loadImagesUsingCacheWithUrlString(urlString: profileImageUrl as! String)
                     }
                     self.userName.text = dictionary["Name"] as? String
+                    self.userName.textColor = UIColor.white
                 }
             }, withCancel: nil)
         }

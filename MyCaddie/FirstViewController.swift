@@ -241,9 +241,3 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     
 }
-
-struct Program {
-    let cName: String
-    let tName: String
-    let currentHoleNumber: Int
-}

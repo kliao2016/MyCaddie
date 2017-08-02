@@ -10,6 +10,13 @@ import UIKit
 
 class StatsViewController: UIViewController {
     
+    var roundData : roundStatData?
+    
+    
+    var courseName = ""
+    var tees = ""
+    var scoreInt = -1
+    
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var fairways: UILabel!
     @IBOutlet weak var greens: UILabel!
@@ -24,8 +31,26 @@ class StatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        if (roundData?.cName != nil) {
+            score.text = String((roundData?.score)!)
+            fairways.text = String((roundData?.fairways)!)
+            greens.text = String((roundData?.greens)!)
+            putts.text = String((roundData?.putts)!)
+            fringes.text = String((roundData?.fringes)!)
+            hazards.text = String((roundData?.hazards)!)
+            left.text = String((roundData?.left)!)
+            right.text = String((roundData?.right)!)
+            fbunkers.text = String((roundData?.fbunkers)!)
+            gbunkers.text = String((roundData?.gbunkers)!)
+            obs.text = String((roundData?.obs)!)
+        }
+        else {
+            print("OH NOOO")
+        }
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

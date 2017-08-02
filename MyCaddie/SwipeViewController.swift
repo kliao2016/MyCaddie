@@ -165,3 +165,26 @@ class SwipeViewController: UIViewController {
     
 
 }
+
+struct Program {
+    let cName: String
+    let tName: String
+    let currentHoleNumber: Int
+}
+
+struct roundStatData {
+    let cName: String
+    let tName: String
+    let score: Int
+    let fairways: Int
+    let greens: Int
+    let putts: Int
+    let fringes: Int
+    let hazards: Int
+    let left: Int
+    let right: Int
+    let fbunkers: Int
+    let gbunkers: Int
+    let obs: Int
+    
+}

@@ -1,5 +1,5 @@
 //
-//  Stats2.swift
+//  ContinueRound.swift
 //  MyCaddie
 //
 //  Created by Weston Mauz on 6/6/17.
@@ -12,14 +12,14 @@ import FirebaseStorage
 import Firebase
 import GoogleSignIn
 
-class NewRound: UIViewController {
+class ContinueRound: UIViewController {
     
     var programVar : Program?
     
     
     var courseName = ""
     var tees = ""
-    var currentRound = 1
+    var currentRound = 0
     
     var ref = Database.database().reference()
     
@@ -51,7 +51,7 @@ class NewRound: UIViewController {
     var putts = Int ()
     var currentHole = Int()
     var currentScore = Int()
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -65,14 +65,12 @@ class NewRound: UIViewController {
         //let courseName2 = programVar?.cName
         //var tees2 = programVar?.tName as! String
         
-        // If continuing previous round
+        
         if (programVar?.cName != nil) {
             courseName = (programVar?.cName)!
             tees = (programVar?.tName)!
             currentHole = (programVar?.currentHoleNumber)!
             HoleNumber.text = "\(currentHole+1)"
-            
-            getHoleScores()
         }
         
         let yardageRef = ref.child("Golf Course Data").child(courseName).child("Tees").child(tees).child("Holes")
@@ -106,68 +104,52 @@ class NewRound: UIViewController {
             })
         }
         
+        
+        print(yardagesOfCourse)
+        print(parsOfCourse)
         if (yardagesOfCourse.count != 0){
             HoleYardage.text = yardagesOfCourse[currentHole]
             HolePar.text = parsOfCourse[currentHole]
         }
+        print(yardagesOfCourse)
+        print(parsOfCourse)
         
-        
-        // Navigation Bar
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View Scorecard", style: .plain, target: self, action: #selector(displayScorecard))
     }
-    
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
-        if parent == nil {
-            checkIfUserWantsToCancelRound()
-        }
-    }
-    
     
     func puttPopUp() {
-        
         let popUp = UIAlertController(title: "How many putts did you have?", message: nil, preferredStyle: .alert)
         popUp.addTextField { (textField) in
-            textField.keyboardType = UIKeyboardType.numberPad
             textField.text = nil
         }
-
         
         popUp.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [popUp] (_) in
-            
-//            if popUp.textFields?[0] == nil {
-//                print ("Yes")
-//                self.puttPopUp()
-//            }
-            
-            //let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
-            
-            let textField = popUp.textFields?[0]
-            let actualText = Int((textField?.text)!)
-            
-            if (actualText != nil){
-                self.putts = Int((textField?.text!)!)!
-                self.updateScore()
-                self.holeStatistics.putt = self.putts
-                self.updateHoleData()
-                self.resetHoleStats()
-                if self.currentHole >= 18 {
-                    self.endRound()
-                    self.deleteCurrentRound()
+            let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
+            self.putts = Int(textField.text!)!
+            self.updateScore()
+            self.holeStatistics.putt = self.putts
+            self.updateHoleData()
+            self.resetHoleStats()
+            if self.currentHole >= 18 {
+                self.endRound()
+                self.deleteCurrentRound()
+                
+                let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    self.showMainView()
                 }
             }
-            else {
-                self.puttPopUp()
-            }
-            
-            
         }))
-
+        
         self.present(popUp, animated: true, completion: nil)
     }
     
+    @IBAction func exitStatsScreen(_ sender: Any) {
+        checkIfUserWantsToCancelRound()
+    }
+    
     func showMainView() {
-        let mainView = storyboard?.instantiateViewController(withIdentifier: "mainMenu")
+        let mainView = storyboard?.instantiateViewController(withIdentifier: "TabController")
+        
         self.present(mainView!, animated: true, completion: nil)
     }
     
@@ -340,7 +322,7 @@ class NewRound: UIViewController {
             
         }
     }
-  
+    
     func updateHoleData(){
         holeStatData.append(holeStatistics)
         currentCourseUpload(counter: counter)
@@ -381,6 +363,22 @@ class NewRound: UIViewController {
         }
     }
     
+    func getCount(){
+        var count = 1
+        let uid = Auth.auth().currentUser?.uid
+        let courseReference = self.ref.child("Users").child(uid!).child("Courses").child(self.courseName)
+        
+        courseReference.observeSingleEvent(of: .value, with: {DataSnapshot in
+            // Return if no data exists
+            //print(DataSnapshot.childrenCount)
+            
+            count = Int(DataSnapshot.childrenCount)+1
+            self.currentRound = count
+            print(self.currentRound)
+            
+        })
+    }
+    
     func endRound(){
         
         // Variables
@@ -398,7 +396,7 @@ class NewRound: UIViewController {
         
         let uid = Auth.auth().currentUser?.uid
         
-        getRoundCount()
+        getCount()
         
         let holeRef = self.ref.child("Users").child(uid!).child("Current Round")
         holeRef.observe(.childAdded, with: { (snapshot) in
@@ -444,10 +442,8 @@ class NewRound: UIViewController {
             let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when) {
                 let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-                courseReference.child("Rounds Played").setValue(self.currentRound)
-                courseReference.child("Round \(self.currentRound)").child("Tees").setValue(self.tees)
                 courseReference.child("Round \(self.currentRound)").child("Fairway Bunkers").setValue(totalFairwayBunkers)
-                courseReference.child("Round \(self.currentRound)").child("Greenside Bunkers").setValue(totalGreenBunkers)
+                courseReference.child("Round \(self.currentRound)").child("GreenSide Bunkers").setValue(totalGreenBunkers)
                 courseReference.child("Round \(self.currentRound)").child("Hazards").setValue(totalHazards)
                 courseReference.child("Round \(self.currentRound)").child("OBs").setValue(totalOBs)
                 courseReference.child("Round \(self.currentRound)").child("Putts").setValue(totalPutts)
@@ -465,44 +461,9 @@ class NewRound: UIViewController {
         
         // Score Upload
         let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-        let when = DispatchTime.now() + 1 // change to desired number of seconds
+        let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             courseReference.child("Round \(self.currentRound)").child("Scores").setValue(scoreData)
         }
-        
-        showMainView()
     }
-    
-    func getRoundCount() {
-        let uid = Auth.auth().currentUser?.uid
-        let courseReference = self.ref.child("Users").child(uid!).child("Courses").child(self.courseName)
-        
-        courseReference.observeSingleEvent(of: .value, with: { (snapshot) in
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                self.currentRound = (dictionary["Rounds Played"] as? Int)! + 1
-            } else {
-                self.currentRound = 1
-            }
-        }, withCancel: nil)
-    }
-    
-    func getHoleScores() {
-        
-        var dynamicScore = 0
-        var count = 0
-        
-        let uid = Auth.auth().currentUser?.uid
-        let userRoundRef = ref.child("Users").child(uid!).child("Current Round")
-        userRoundRef.observe(.childAdded, with: { (snapshot) in
-            for child in snapshot.children {
-                let tag = child as! DataSnapshot
-                if tag.key == "Score" {
-                    dynamicScore = tag.value as! Int
-                    self.holeScores[count] = dynamicScore
-                    count += 1
-                }
-            }
-        })
-    }
-    
 }
