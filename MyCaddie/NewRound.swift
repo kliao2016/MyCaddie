@@ -23,6 +23,18 @@ class NewRound: UIViewController {
     
     var ref = Database.database().reference()
     
+    // Lifetime Stats
+    var lifetimeFairwayBunkers = 0
+    var lifetimeGreenBunkers = 0
+    var lifetimeHazards = 0
+    var lifetimeOBs = 0
+    var lifetimeRights = 0
+    var lifetimeLefts = 0
+    var lifetimeFringes = 0
+    var lifetimeFairways = 0
+    var lifetimeGreensInReg = 0
+    var lifetimePutts = 0
+    var lifetimeScore = 0
     
     // Stores Round Data
     var holeStatData = [HoleStats]()
@@ -144,7 +156,7 @@ class NewRound: UIViewController {
                 self.holeStatistics.putt = self.putts
                 self.updateHoleData()
                 self.resetHoleStats()
-                if self.currentHole >= 18 {
+                if self.currentHole >= 3 {
                     self.endRound()
                     self.deleteCurrentRound()
                     self.perform(#selector(self.showMainView), with: nil, afterDelay: 1)
@@ -365,6 +377,23 @@ class NewRound: UIViewController {
         }
     }
     
+    func getLifetimeStats(lifetimeRef: DatabaseReference) {
+        lifetimeRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.lifetimeFairwayBunkers = dictionary["Fairway Bunkers"] as! Int
+                self.lifetimeGreenBunkers = dictionary["Greenside Bunkers"] as! Int
+                self.lifetimeHazards = dictionary["Hazards"] as! Int
+                self.lifetimeOBs = dictionary["OBs"] as! Int
+                self.lifetimeRights = dictionary["Rights"] as! Int
+                self.lifetimeLefts = dictionary["Fringes"] as! Int
+                self.lifetimeFairways = dictionary["Fairways"] as! Int
+                self.lifetimeScore = dictionary["Score"] as! Int
+                self.lifetimePutts = dictionary["Putts"] as! Int
+                self.lifetimeGreensInReg = dictionary["Greens"] as! Int
+            }
+        }, withCancel: nil)
+    }
+    
     func endRound(){
         
         // Variables
@@ -382,59 +411,82 @@ class NewRound: UIViewController {
         
         let uid = Auth.auth().currentUser?.uid
         
-        // Stats for specific hole
-        let holeRef = self.ref.child("Users").child(uid!).child("Current Round")
-        holeRef.observe(.childAdded, with: { (snapshot) in
-            for child in snapshot.children {
-                let fbCount = child as! DataSnapshot
-                if fbCount.key == "Fairway Bunkers" {
-                    totalFairwayBunkers += fbCount.value as! Int
-                }
-                if fbCount.key == "Greenside Bunkers" {
-                    totalGreenBunkers += fbCount.value as! Int
-                }
-                if fbCount.key == "Hazards" {
-                    totalHazards += fbCount.value as! Int
-                }
-                if fbCount.key == "OBs" {
-                    totalOBs += fbCount.value as! Int
-                }
-                if fbCount.key == "Putts" {
-                    totalPutts += fbCount.value as! Int
-                }
-                if fbCount.key == "Score" {
-                    totalScore += fbCount.value as! Int
-                }
-                if fbCount.key == "Fringes" {
-                    totalFringes += fbCount.value as! Int
-                }
-                if fbCount.key == "Fairways" {
-                    totalFairways += fbCount.value as! Int
-                }
-                if fbCount.key == "Greens" {
-                    totalGreensInReg += fbCount.value as! Int
-                }
-                if fbCount.key == "Rights" {
-                    totalRights += fbCount.value as! Int
-                }
-                if fbCount.key == "Lefts" {
-                    totalLefts += fbCount.value as! Int
-                }
-            }
-            
-            // Set currentRound variable
-            self.getRoundCount()
-            
-            let when = DispatchTime.now() + 1 // change to desired number of seconds
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-                let stats = ["Tees": self.tees, "Fairway Bunkers": totalFairwayBunkers, "Greenside Bunkers": totalGreenBunkers, "Hazards": totalHazards, "OBs": totalOBs, "Putts": totalPutts, "Score": totalScore, "Fringes": totalFringes, "Fairways": totalFairways, "Greens": totalGreensInReg, "Rights": totalRights, "Lefts": totalLefts] as [String : Any]
-                let currentRoundStr = String(format: "%02d", self.currentRound)
-                courseReference.child("Round \(currentRoundStr)").updateChildValues(stats)
-                courseReference.child("Rounds Played").setValue(self.currentRound)
-            }
-        })
+        let lifetimeRef = self.ref.child("Users").child(uid!).child("Lifetime Stats")
         
+            // Stats for specific hole
+            let holeRef = self.ref.child("Users").child(uid!).child("Current Round")
+            holeRef.observe(.childAdded, with: { (snapshot) in
+                for child in snapshot.children {
+                    let fbCount = child as! DataSnapshot
+                    if fbCount.key == "Fairway Bunkers" {
+                        totalFairwayBunkers += fbCount.value as! Int
+                    }
+                    if fbCount.key == "Greenside Bunkers" {
+                        totalGreenBunkers += fbCount.value as! Int
+                    }
+                    if fbCount.key == "Hazards" {
+                        totalHazards += fbCount.value as! Int
+                    }
+                    if fbCount.key == "OBs" {
+                        totalOBs += fbCount.value as! Int
+                    }
+                    if fbCount.key == "Putts" {
+                        totalPutts += fbCount.value as! Int
+                    }
+                    if fbCount.key == "Score" {
+                        totalScore += fbCount.value as! Int
+                    }
+                    if fbCount.key == "Fringes" {
+                        totalFringes += fbCount.value as! Int
+                    }
+                    if fbCount.key == "Fairways" {
+                        totalFairways += fbCount.value as! Int
+                    }
+                    if fbCount.key == "Greens" {
+                        totalGreensInReg += fbCount.value as! Int
+                    }
+                    if fbCount.key == "Rights" {
+                        totalRights += fbCount.value as! Int
+                    }
+                    if fbCount.key == "Lefts" {
+                        totalLefts += fbCount.value as! Int
+                    }
+                }
+                
+                // Set currentRound variable
+                self.getRoundCount()
+                
+                let when = DispatchTime.now() + 1 // change to desired number of seconds
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
+                    let stats = ["Tees": self.tees, "Fairway Bunkers": totalFairwayBunkers, "Greenside Bunkers": totalGreenBunkers, "Hazards": totalHazards, "OBs": totalOBs, "Putts": totalPutts, "Score": totalScore, "Fringes": totalFringes, "Fairways": totalFairways, "Greens": totalGreensInReg, "Rights": totalRights, "Lefts": totalLefts] as [String : Any]
+                    let currentRoundStr = String(format: "%02d", self.currentRound)
+                    courseReference.child("Round \(currentRoundStr)").updateChildValues(stats)
+                    courseReference.child("Rounds Played").setValue(self.currentRound)
+
+                }
+            })
+            
+        self.getLifetimeStats(lifetimeRef: lifetimeRef)
+        
+        let when2 = DispatchTime.now() + 2
+        DispatchQueue.main.asyncAfter(deadline: when2) {
+        self.lifetimeFairwayBunkers += totalFairwayBunkers
+        self.lifetimeGreensInReg += totalGreensInReg
+        self.lifetimeHazards += totalHazards
+        self.lifetimeOBs += totalOBs
+        self.lifetimePutts += totalLefts
+        self.lifetimeScore += totalScore
+        self.lifetimeRights += totalRights
+        self.lifetimeLefts += totalLefts
+        self.lifetimeFringes += totalFringes
+        self.lifetimeGreenBunkers += totalGreenBunkers
+        self.lifetimeFairways += totalFairways
+        
+        let lifetimeStats = ["Fairway Bunkers": self.lifetimeFairwayBunkers, "Greenside Bunkers": self.lifetimeGreensInReg, "Hazards": self.lifetimeHazards, "OBs": self.lifetimeOBs, "Putts": self.lifetimePutts, "Score": self.lifetimeScore, "Fringes": self.lifetimeFringes, "Fairways": self.lifetimeFairways, "Greens": self.lifetimeGreensInReg, "Rights": self.lifetimeRights, "Lefts": self.lifetimeLefts]
+        lifetimeRef.updateChildValues(lifetimeStats)
+        }
+
         // Score Data Structure
         let scoreData : [String: AnyObject] = ["1": holeScores[0] as AnyObject, "2": holeScores[1] as AnyObject, "3": holeScores[2] as AnyObject, "4": holeScores[3] as AnyObject,"5": holeScores[4] as AnyObject, "6": holeScores[5] as AnyObject, "7": holeScores[6] as AnyObject, "8": holeScores[7] as AnyObject,"9": holeScores[8] as AnyObject, "10": holeScores[9] as AnyObject, "11": holeScores[10] as AnyObject, "12": holeScores[11] as AnyObject,"13": holeScores[12] as AnyObject, "14": holeScores[13] as AnyObject, "15": holeScores[14] as AnyObject, "16": holeScores[15] as AnyObject, "17": holeScores[16] as AnyObject, "18": holeScores[17] as AnyObject]
         
