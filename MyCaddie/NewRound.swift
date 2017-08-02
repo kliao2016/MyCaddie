@@ -19,7 +19,7 @@ class NewRound: UIViewController {
     
     var courseName = ""
     var tees = ""
-    var currentRound = 0
+    var currentRound = 1
     
     var ref = Database.database().reference()
     
@@ -167,8 +167,7 @@ class NewRound: UIViewController {
     }
     
     func showMainView() {
-        let mainView = storyboard?.instantiateViewController(withIdentifier: "TabController")
-        
+        let mainView = storyboard?.instantiateViewController(withIdentifier: "mainMenu")
         self.present(mainView!, animated: true, completion: nil)
     }
     
@@ -399,7 +398,7 @@ class NewRound: UIViewController {
         
         let uid = Auth.auth().currentUser?.uid
         
-        getCount()
+        getRoundCount()
         
         let holeRef = self.ref.child("Users").child(uid!).child("Current Round")
         holeRef.observe(.childAdded, with: { (snapshot) in
@@ -445,6 +444,8 @@ class NewRound: UIViewController {
             let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when) {
                 let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
+                courseReference.child("Rounds Played").setValue(self.currentRound)
+                courseReference.child("Round \(self.currentRound)").child("Tees").setValue(self.tees)
                 courseReference.child("Round \(self.currentRound)").child("Fairway Bunkers").setValue(totalFairwayBunkers)
                 courseReference.child("Round \(self.currentRound)").child("Greenside Bunkers").setValue(totalGreenBunkers)
                 courseReference.child("Round \(self.currentRound)").child("Hazards").setValue(totalHazards)
@@ -469,24 +470,20 @@ class NewRound: UIViewController {
             courseReference.child("Round \(self.currentRound)").child("Scores").setValue(scoreData)
         }
         
-        let mainView = storyboard?.instantiateViewController(withIdentifier: "mainMenu")
-        self.present(mainView!, animated: true, completion: nil)
+        showMainView()
     }
     
-    func getCount(){
-        var count = 1
+    func getRoundCount() {
         let uid = Auth.auth().currentUser?.uid
         let courseReference = self.ref.child("Users").child(uid!).child("Courses").child(self.courseName)
         
-        courseReference.observeSingleEvent(of: .value, with: {DataSnapshot in
-            // Return if no data exists
-            //print(DataSnapshot.childrenCount)
-            
-            count = Int(DataSnapshot.childrenCount)+1
-            self.currentRound = count
-            print(self.currentRound)
-            
-        })
+        courseReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.currentRound = (dictionary["Rounds Played"] as? Int)! + 1
+            } else {
+                self.currentRound = 1
+            }
+        }, withCancel: nil)
     }
     
     func getHoleScores() {
