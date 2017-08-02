@@ -34,6 +34,7 @@ class CourseInfoViewController: UIViewController, UITableViewDelegate, UITableVi
         self.courseInfoTable.dataSource = self
 
         self.courseName.text = roundParentCourseName
+        self.navigationItem.rightBarButtonItem = editButtonItem
         self.navigationItem.title = "Course Info"
         
         fetchRounds()

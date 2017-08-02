@@ -10,6 +10,9 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import GooglePlacePicker
+import GoogleMaps
+import GooglePlaces
 
 class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -22,6 +25,7 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
     
     var courses = [String]()
     var filteredCourses = [String]()
+    var mapView: GMSMapView!
 
     @IBOutlet weak var numCourses: UILabel!
     @IBOutlet weak var courseDatabaseTable: UITableView!
@@ -102,6 +106,34 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
             courseDatabaseTable.reloadData()
         }
     }
-
-
+    
+    // Initialize Google Place Picker
+    
+    // Present the Autocomplete view controller when the button is pressed.
+    @IBAction func pickPlace(_ sender: UIButton) {
+        let config = GMSPlacePickerConfig(viewport: nil)
+        let placePicker = GMSPlacePickerViewController(config: config)
+        
+        present(placePicker, animated: true, completion: nil)
+    }
+    
+    // To receive the results from the place picker 'self' will need to conform to
+    // GMSPlacePickerViewControllerDelegate and implement this code.
+    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        viewController.dismiss(animated: true, completion: nil)
+        
+        print("Place name \(place.name)")
+        print("Place address \(place.formattedAddress)")
+        print("Place attributions \(place.attributions)")
+    }
+    
+    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        viewController.dismiss(animated: true, completion: nil)
+        
+        print("No place selected")
+    }
 }
+
+

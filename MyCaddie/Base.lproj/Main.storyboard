@@ -1977,13 +1977,13 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fa8-VV-5Nu">
-                                    <rect key="frame" x="8" y="50" width="149" height="149"/>
+                                    <rect key="frame" x="63" y="50" width="149" height="149"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="fa8-VV-5Nu" secondAttribute="height" multiplier="1:1" id="cpD-cX-M3Y"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKm-TW-1Vc">
-                                    <rect key="frame" x="167" y="114" width="42" height="21"/>
+                                    <rect key="frame" x="116" y="207" width="42" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -1992,11 +1992,11 @@
                             <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstItem="fa8-VV-5Nu" firstAttribute="leading" secondItem="h3H-8e-ZTI" secondAttribute="leadingMargin" id="IVJ-Pk-p3R"/>
-                                <constraint firstItem="hKm-TW-1Vc" firstAttribute="centerY" secondItem="h3H-8e-ZTI" secondAttribute="centerY" id="Lp2-uz-Q4Z"/>
-                                <constraint firstItem="hKm-TW-1Vc" firstAttribute="leading" secondItem="fa8-VV-5Nu" secondAttribute="trailing" constant="10" id="P5w-Zb-reb"/>
-                                <constraint firstItem="fa8-VV-5Nu" firstAttribute="centerY" secondItem="h3H-8e-ZTI" secondAttribute="centerY" id="aiz-mf-IaF"/>
-                                <constraint firstItem="fa8-VV-5Nu" firstAttribute="height" secondItem="h3H-8e-ZTI" secondAttribute="height" multiplier="3/5" id="jmP-pt-0bx"/>
+                                <constraint firstItem="fa8-VV-5Nu" firstAttribute="centerY" secondItem="h3H-8e-ZTI" secondAttribute="centerY" id="6ty-6J-uvH"/>
+                                <constraint firstItem="fa8-VV-5Nu" firstAttribute="leading" secondItem="h3H-8e-ZTI" secondAttribute="leading" constant="63" id="Gbs-9m-L76"/>
+                                <constraint firstItem="fa8-VV-5Nu" firstAttribute="top" secondItem="h3H-8e-ZTI" secondAttribute="top" constant="50" id="Y3H-SH-20i"/>
+                                <constraint firstItem="hKm-TW-1Vc" firstAttribute="top" secondItem="fa8-VV-5Nu" secondAttribute="bottom" constant="8" symbolic="YES" id="cLn-Y4-jjY"/>
+                                <constraint firstItem="fa8-VV-5Nu" firstAttribute="centerX" secondItem="hKm-TW-1Vc" secondAttribute="centerX" id="v81-7n-aCJ"/>
                             </constraints>
                         </view>
                         <sections>
@@ -2346,6 +2346,7 @@
                         <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" style="plain" id="hNR-yy-19z">
                             <inset key="imageInsets" minX="-5" minY="15" maxX="30" maxY="15"/>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="L9L-AH-lfk"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
@@ -3979,6 +3980,14 @@
                                         <rect key="frame" x="0.0" y="123" width="375" height="44"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfO-7I-8rg">
+                                        <rect key="frame" x="105" y="25" width="165" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Find a Course Near Me"/>
+                                        <connections>
+                                            <action selector="pickPlace:" destination="7Mx-6V-Y7j" eventType="touchUpInside" id="L1p-sG-BHr"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -4039,7 +4048,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H18-8G-xyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="2285"/>
+            <point key="canvasLocation" x="5.5999999999999996" y="2284.4077961019493"/>
         </scene>
         <!--Course Info View Controller-->
         <scene sceneID="SYI-hP-DIy">

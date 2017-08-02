@@ -11,11 +11,11 @@ import FirebaseDatabase
 import FirebaseStorage
 import Firebase
 import GoogleSignIn
+import Foundation
 
 class NewRound: UIViewController {
     
     var programVar : Program?
-    
     
     var courseName = ""
     var tees = ""
@@ -32,7 +32,7 @@ class NewRound: UIViewController {
     var shotCount = String()
     var counter = 0
     
-    var holeScores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    var holeScores = [Int](repeating: 0, count: 18)
     var parsOfCourse = [String]()
     var yardagesOfCourse = [String]()
     
@@ -48,7 +48,7 @@ class NewRound: UIViewController {
     @IBOutlet weak var HolePar: UILabel!
     
     // Variables
-    var putts = Int ()
+    var putts = Int()
     var currentHole = Int()
     var currentScore = Int()
 
@@ -84,8 +84,6 @@ class NewRound: UIViewController {
                 if !DataSnapshot.exists() { return }
                 let currentYardage = DataSnapshot.childSnapshot(forPath: "\(i)").value as! String
                 self.yardagesOfCourse.append(currentYardage)
-                //self.HoleYardage.text = currentYardage
-                //print("Oh Yeah")
                 if (self.yardagesOfCourse.count > self.currentHole){
                     self.HoleYardage.text = self.yardagesOfCourse[self.currentHole]
                 }
@@ -135,12 +133,7 @@ class NewRound: UIViewController {
         
         popUp.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [popUp] (_) in
             
-//            if popUp.textFields?[0] == nil {
-//                print ("Yes")
-//                self.puttPopUp()
-//            }
-            
-            //let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
+            // Force unwrapping because we know it exists.
             
             let textField = popUp.textFields?[0]
             let actualText = Int((textField?.text)!)
@@ -154,6 +147,7 @@ class NewRound: UIViewController {
                 if self.currentHole >= 18 {
                     self.endRound()
                     self.deleteCurrentRound()
+                    self.perform(#selector(self.showMainView), with: nil, afterDelay: 1)
                 }
             }
             else {
@@ -355,18 +349,8 @@ class NewRound: UIViewController {
         userReference.child("Current Round").child("Course Name").setValue(courseName)
         userReference.child("Current Round").child("Tees").setValue(tees)
         userReference.child("Current Round").child("Current Hole").setValue(currentHole)
-        userReference.child("Current Round").child("\(currentHole)").child("Greenside Bunkers").setValue(holeStatData[counter].greenBunkers)
-        userReference.child("Current Round").child("\(currentHole)").child("Fairway Bunkers").setValue(holeStatData[counter].fairwayBunkers)
-        userReference.child("Current Round").child("\(currentHole)").child("Hazards").setValue(holeStatData[counter].hazards)
-        userReference.child("Current Round").child("\(currentHole)").child("OBs").setValue(holeStatData[counter].obs)
-        userReference.child("Current Round").child("\(currentHole)").child("Rights").setValue(holeStatData[counter].rights)
-        userReference.child("Current Round").child("\(currentHole)").child("Lefts").setValue(holeStatData[counter].lefts)
-        userReference.child("Current Round").child("\(currentHole)").child("Fringes").setValue(holeStatData[counter].fringes)
-        userReference.child("Current Round").child("\(currentHole)").child("Fairways").setValue(holeStatData[counter].fairways)
-        userReference.child("Current Round").child("\(currentHole)").child("Greens").setValue(holeStatData[counter].greensInReg)
-        userReference.child("Current Round").child("\(currentHole)").child("Putts").setValue(holeStatData[counter].putt)
-        userReference.child("Current Round").child("\(currentHole)").child("Score").setValue(holeStatData[counter].score)
-        
+        let statsToUpload = ["Greenside Bunkers": holeStatData[counter].greenBunkers, "Fairway Bunkers": holeStatData[counter].fairwayBunkers, "Hazards": holeStatData[counter].hazards, "OBs": holeStatData[counter].obs, "Rights": holeStatData[counter].rights, "Lefts": holeStatData[counter].lefts, "Fringes": holeStatData[counter].fringes, "Fairways": holeStatData[counter].fairways, "Greens": holeStatData[counter].greensInReg, "Putts": holeStatData[counter].putt, "Score": holeStatData[counter].score]
+        userReference.child("Current Round").child("\(currentHole)").updateChildValues(statsToUpload)
     }
     
     func deleteCurrentRound() {
@@ -398,11 +382,9 @@ class NewRound: UIViewController {
         
         let uid = Auth.auth().currentUser?.uid
         
-        getRoundCount()
-        
+        // Stats for specific hole
         let holeRef = self.ref.child("Users").child(uid!).child("Current Round")
         holeRef.observe(.childAdded, with: { (snapshot) in
-            
             for child in snapshot.children {
                 let fbCount = child as! DataSnapshot
                 if fbCount.key == "Fairway Bunkers" {
@@ -438,25 +420,18 @@ class NewRound: UIViewController {
                 if fbCount.key == "Lefts" {
                     totalLefts += fbCount.value as! Int
                 }
-                
             }
             
-            let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+            // Set currentRound variable
+            self.getRoundCount()
+            
+            let when = DispatchTime.now() + 1 // change to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when) {
                 let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
+                let stats = ["Tees": self.tees, "Fairway Bunkers": totalFairwayBunkers, "Greenside Bunkers": totalGreenBunkers, "Hazards": totalHazards, "OBs": totalOBs, "Putts": totalPutts, "Score": totalScore, "Fringes": totalFringes, "Fairways": totalFairways, "Greens": totalGreensInReg, "Rights": totalRights, "Lefts": totalLefts] as [String : Any]
+                let currentRoundStr = String(format: "%02d", self.currentRound)
+                courseReference.child("Round \(currentRoundStr)").updateChildValues(stats)
                 courseReference.child("Rounds Played").setValue(self.currentRound)
-                courseReference.child("Round \(self.currentRound)").child("Tees").setValue(self.tees)
-                courseReference.child("Round \(self.currentRound)").child("Fairway Bunkers").setValue(totalFairwayBunkers)
-                courseReference.child("Round \(self.currentRound)").child("Greenside Bunkers").setValue(totalGreenBunkers)
-                courseReference.child("Round \(self.currentRound)").child("Hazards").setValue(totalHazards)
-                courseReference.child("Round \(self.currentRound)").child("OBs").setValue(totalOBs)
-                courseReference.child("Round \(self.currentRound)").child("Putts").setValue(totalPutts)
-                courseReference.child("Round \(self.currentRound)").child("Score").setValue(totalScore)
-                courseReference.child("Round \(self.currentRound)").child("Fringes").setValue(totalFringes)
-                courseReference.child("Round \(self.currentRound)").child("Fairways").setValue(totalFairways)
-                courseReference.child("Round \(self.currentRound)").child("Greens").setValue(totalGreensInReg)
-                courseReference.child("Round \(self.currentRound)").child("Rights").setValue(totalRights)
-                courseReference.child("Round \(self.currentRound)").child("Lefts").setValue(totalLefts)
             }
         })
         
@@ -467,10 +442,9 @@ class NewRound: UIViewController {
         let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
         let when = DispatchTime.now() + 1 // change to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
-            courseReference.child("Round \(self.currentRound)").child("Scores").setValue(scoreData)
+            let currentRoundStr = String(format: "%02d", self.currentRound)
+            courseReference.child("Round \(currentRoundStr)").child("Scores").setValue(scoreData)
         }
-        
-        showMainView()
     }
     
     func getRoundCount() {

@@ -10,6 +10,8 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import GooglePlaces
+import GooglePlacePicker
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -27,6 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // Indicate when user is signed in
         GIDSignIn.sharedInstance().delegate = self
+        
+        // Configure Google Places API
+        GMSPlacesClient.provideAPIKey("AIzaSyCIbrOSJmIigUGGX47BGKqb8hK2l-8L-5o")
+        
+        // Configure Google PlacePicker
+        GMSServices.provideAPIKey("AIzaSyCIbrOSJmIigUGGX47BGKqb8hK2l-8L-5o")
         
         return true
     }
