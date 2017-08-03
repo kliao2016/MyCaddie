@@ -385,11 +385,13 @@ class NewRound: UIViewController {
                 self.lifetimeHazards = dictionary["Hazards"] as! Int
                 self.lifetimeOBs = dictionary["OBs"] as! Int
                 self.lifetimeRights = dictionary["Rights"] as! Int
-                self.lifetimeLefts = dictionary["Fringes"] as! Int
+                self.lifetimeLefts = dictionary["Lefts"] as! Int
                 self.lifetimeFairways = dictionary["Fairways"] as! Int
                 self.lifetimeScore = dictionary["Score"] as! Int
                 self.lifetimePutts = dictionary["Putts"] as! Int
                 self.lifetimeGreensInReg = dictionary["Greens"] as! Int
+                self.lifetimeFringes = dictionary["Fringes"] as! Int
+                
             }
         }, withCancel: nil)
     }
