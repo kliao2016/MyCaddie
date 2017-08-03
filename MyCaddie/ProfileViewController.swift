@@ -24,11 +24,32 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     let welcomeLabel3 = CATextLayer()
     let welcomeLabel4 = CATextLayer()
     
+    // Lifetime Stats
+    var lifetimeFairways = 0
+    var lifetimeGreensInReg = 0
+    var lifetimePutts = 0
+    var lifetimeScore = 0
+    
+    var ref = Database.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sideMenus()
         customizeNavBar()
+        
+        let uid = Auth.auth().currentUser?.uid
+        let lifetimeRef = self.ref.child("Users").child(uid!).child("Lifetime Stats")
+        
+        retrieveStats(lifetimeRef: lifetimeRef)
+        
+        let when = DispatchTime.now() + 0.1 // change 2 to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.welcomeLabel.string = "Lifetime Fairways: \(self.lifetimeFairways)"
+            self.welcomeLabel2.string = "Lifetime Strokes: \(self.lifetimeScore)"
+            self.welcomeLabel3.string = "Lifetime Putts: \(self.lifetimePutts)"
+            self.welcomeLabel4.string = "Lifetime GIR: \(self.lifetimeGreensInReg)"
+        }
         
         // Background
         let back = CGRect(x: 0, y: 0, width: 500, height: 800)
@@ -37,16 +58,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         view.insertSubview(ground, at: 0)
  
         // Lower Left
-        let lowLeft = CGRect(x: 10, y: 410, width: 120, height: 20)
+        let lowLeft = CGRect(x: 10, y: 410, width: 140, height: 20)
         let place1 = UIView(frame: lowLeft)
         view.addSubview(place1)
         
         place1.layer.addSublayer(welcomeLabel)
         //place1.addSubview(welcomeLabel)
         // Text Label
-        welcomeLabel.string = "Hola"
-        welcomeLabel.frame = CGRect(x: 0, y: 0, width: 120, height: 20)
-        welcomeLabel.fontSize = 18
+        //welcomeLabel.string = "Hola"
+        welcomeLabel.frame = CGRect(x: 0, y: 0, width: 140, height: 20)
+        welcomeLabel.fontSize = 14
         welcomeLabel.alignmentMode = kCAAlignmentCenter
         //welcomeLabel.foregroundColor = UIColor.white.cgColor
         welcomeLabel.foregroundColor = UIColor.white.cgColor
@@ -60,16 +81,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         welcomeLabel.add(animation, forKey: nil)
  
         // Lower Right
-        let lowRight = CGRect(x: 250, y: 410, width: 120, height: 20)
+        let lowRight = CGRect(x: 210, y: 410, width: 140, height: 20)
         let place2 = UIView(frame: lowRight)
         view.addSubview(place2)
         
         place2.layer.addSublayer(welcomeLabel2)
         //place1.addSubview(welcomeLabel)
         // Text Label
-        welcomeLabel2.string = "Hello"
-        welcomeLabel2.frame = CGRect(x: 0, y: 0, width: 120, height: 20)
-        welcomeLabel2.fontSize = 18
+        //welcomeLabel2.string = "Hello"
+        welcomeLabel2.frame = CGRect(x: 0, y: 0, width: 140, height: 20)
+        welcomeLabel2.fontSize = 14
         welcomeLabel2.alignmentMode = kCAAlignmentCenter
         welcomeLabel2.foregroundColor = UIColor.white.cgColor
         welcomeLabel2.alignmentMode = kCAAlignmentRight
@@ -82,16 +103,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         welcomeLabel2.add(animation2, forKey: nil)
  
         // Upper Left
-        let upperLeft = CGRect(x: 10, y: 70, width: 120, height: 20)
+        let upperLeft = CGRect(x: 10, y: 70, width: 130, height: 20)
         let place3 = UIView(frame: upperLeft)
         view.addSubview(place3)
         
         place3.layer.addSublayer(welcomeLabel3)
         //place1.addSubview(welcomeLabel)
         // Text Label
-        welcomeLabel3.string = "Wassup"
-        welcomeLabel3.frame = CGRect(x: 0, y: 0, width: 120, height: 20)
-        welcomeLabel3.fontSize = 18
+        //welcomeLabel3.string = "Wassup"
+        welcomeLabel3.frame = CGRect(x: 0, y: 0, width: 130, height: 20)
+        welcomeLabel3.fontSize = 14
         welcomeLabel3.alignmentMode = kCAAlignmentCenter
         welcomeLabel3.foregroundColor = UIColor.white.cgColor
         welcomeLabel3.alignmentMode = kCAAlignmentLeft
@@ -104,17 +125,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
 
         // Upper Right
-        let upperRight = CGRect(x: 250, y: 70, width: 120, height: 20)
+        let upperRight = CGRect(x: 210, y: 70, width: 140, height: 20)
         let place4 = UIView(frame: upperRight)
         view.addSubview(place4)
         
         place4.layer.addSublayer(welcomeLabel4)
         //place1.addSubview(welcomeLabel)
         // Text Label
-        welcomeLabel4.string = "YOOOOO"
-        welcomeLabel4.frame = CGRect(x: 0, y: 0, width: 120, height: 20)
-
-        welcomeLabel4.fontSize = 18
+        //welcomeLabel4.string = "YOOOOO"
+        welcomeLabel4.frame = CGRect(x: 0, y: 0, width: 140, height: 20)
+        welcomeLabel4.fontSize = 14
         welcomeLabel4.alignmentMode = kCAAlignmentCenter
         welcomeLabel4.foregroundColor = UIColor.white.cgColor
         welcomeLabel4.alignmentMode = kCAAlignmentRight
@@ -232,5 +252,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             }, withCancel: nil)
         }
     }
-
+    
+    func retrieveStats(lifetimeRef: DatabaseReference) {
+        lifetimeRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.lifetimeFairways = dictionary["Fairways"] as! Int
+                self.lifetimeScore = dictionary["Score"] as! Int
+                self.lifetimePutts = dictionary["Putts"] as! Int
+                self.lifetimeGreensInReg = dictionary["Greens"] as! Int
+            }
+        }, withCancel: nil)
+    }
 }

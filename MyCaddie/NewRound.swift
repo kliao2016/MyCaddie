@@ -415,8 +415,9 @@ class NewRound: UIViewController {
         
         let lifetimeRef = self.ref.child("Users").child(uid!).child("Lifetime Stats")
         
-            // Stats for specific hole
-            let holeRef = self.ref.child("Users").child(uid!).child("Current Round")
+        // Stats for specific hole
+        let holeRef = self.ref.child("Users").child(uid!).child("Current Round")
+        
             holeRef.observe(.childAdded, with: { (snapshot) in
                 for child in snapshot.children {
                     let fbCount = child as! DataSnapshot
@@ -457,18 +458,18 @@ class NewRound: UIViewController {
                 
                 // Set currentRound variable
                 self.getRoundCount()
-                
-                let when = DispatchTime.now() + 1 // change to desired number of seconds
-                DispatchQueue.main.asyncAfter(deadline: when) {
-                    let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-                    let stats = ["Tees": self.tees, "Fairway Bunkers": totalFairwayBunkers, "Greenside Bunkers": totalGreenBunkers, "Hazards": totalHazards, "OBs": totalOBs, "Putts": totalPutts, "Score": totalScore, "Fringes": totalFringes, "Fairways": totalFairways, "Greens": totalGreensInReg, "Rights": totalRights, "Lefts": totalLefts] as [String : Any]
-                    let currentRoundStr = String(format: "%02d", self.currentRound)
-                    courseReference.child("Round \(currentRoundStr)").updateChildValues(stats)
-                    courseReference.child("Rounds Played").setValue(self.currentRound)
-
-                }
             })
+        
+        let when = DispatchTime.now() + 1 // change to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
+            let stats = ["Tees": self.tees, "Fairway Bunkers": totalFairwayBunkers, "Greenside Bunkers": totalGreenBunkers, "Hazards": totalHazards, "OBs": totalOBs, "Putts": totalPutts, "Score": totalScore, "Fringes": totalFringes, "Fairways": totalFairways, "Greens": totalGreensInReg, "Rights": totalRights, "Lefts": totalLefts] as [String : Any]
+            let currentRoundStr = String(format: "%02d", self.currentRound)
+            courseReference.child("Round \(currentRoundStr)").updateChildValues(stats)
+            courseReference.child("Rounds Played").setValue(self.currentRound)
             
+        }
+        
         self.getLifetimeStats(lifetimeRef: lifetimeRef)
         
         let when2 = DispatchTime.now() + 2
@@ -494,8 +495,8 @@ class NewRound: UIViewController {
         
         // Score Upload
         let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-        let when = DispatchTime.now() + 1 // change to desired number of seconds
-        DispatchQueue.main.asyncAfter(deadline: when) {
+        let when3 = DispatchTime.now() + 1 // change to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when3) {
             let currentRoundStr = String(format: "%02d", self.currentRound)
             courseReference.child("Round \(currentRoundStr)").child("Scores").setValue(scoreData)
         }
