@@ -16,7 +16,7 @@ class CirclePath2: UIView {
     let gradLayer2 = CAGradientLayer()
     let lab = CATextLayer()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, stat: String) {
         super.init(frame: frame)
         
         layer.addSublayer(gradLayer)
@@ -68,7 +68,7 @@ class CirclePath2: UIView {
         shapeLayer.add(anime, forKey: nil)
         
         // Second Label Try
-        lab.string = "59"
+        lab.string = stat
         let insetX = bounds.width / 4
         let insetY = bounds.height / 3
         lab.frame = bounds.insetBy(dx: insetX, dy: insetY)
