@@ -40,6 +40,7 @@
 		10F81DD21F2FFEB1004F1672 /* CourseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F81DD11F2FFEB1004F1672 /* CourseInfoViewController.swift */; };
 		10F81DD41F300283004F1672 /* CourseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F81DD31F300283004F1672 /* CourseInfoTableViewCell.swift */; };
 		41B6BCB99C6A48BD03D4DC05 /* Pods_MyCaddie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */; };
+		99167D3F1F35195300EB0766 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99167D3E1F35195300EB0766 /* SettingsTableViewController.swift */; };
 		991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FA8841EF3528900289D63 /* LoadingScreen.swift */; };
 		991FA8871EF3539A00289D63 /* CurrentRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991FA8861EF3539A00289D63 /* CurrentRound.swift */; };
 		9927EA3D1F27E51900DD1901 /* CirclePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9927EA3C1F27E51900DD1901 /* CirclePath.swift */; };
@@ -110,6 +111,7 @@
 		10F81DD31F300283004F1672 /* CourseInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseInfoTableViewCell.swift; sourceTree = "<group>"; };
 		2FCF9886C273C092987DB59C /* Pods-MyCaddie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCaddie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCaddie/Pods-MyCaddie.debug.xcconfig"; sourceTree = "<group>"; };
 		44AD3A66419E9A2AE08DAD33 /* Pods_MyCaddie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCaddie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99167D3E1F35195300EB0766 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		991FA8841EF3528900289D63 /* LoadingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		991FA8861EF3539A00289D63 /* CurrentRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentRound.swift; sourceTree = "<group>"; };
 		9927EA3C1F27E51900DD1901 /* CirclePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePath.swift; sourceTree = "<group>"; };
@@ -238,17 +240,18 @@
 				99B174181EE7637F00A76B9B /* Scorecard2.swift */,
 				10DC3C651EE70FE300CA2B70 /* ScorecardScroll.swift */,
 				99B1741C1EE7755700A76B9B /* NewRound.swift */,
+				99C4E8881F3238E500B65DDC /* ContinueRound.swift */,
 				10C6BDD51EF615AA00C6E576 /* Stats3.swift */,
 				100E28FA1EE8BC4A00D16376 /* TabBarController.swift */,
 				10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */,
 				108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */,
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
-				99C4E8881F3238E500B65DDC /* ContinueRound.swift */,
 				99C4E8861F32373E00B65DDC /* Loading2ViewController.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
 				998A079B1F30168700D79287 /* CourseDatabaseViewController.swift */,
 				10F81DD11F2FFEB1004F1672 /* CourseInfoViewController.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
+				99167D3E1F35195300EB0766 /* SettingsTableViewController.swift */,
 				99BCD82C1F2A853D007E09C0 /* Animation */,
 				99D313CD1F2125A90051B3BE /* Swipe Control */,
 				99AFCF571F2017EF0012FAD1 /* Slide Bar Pages */,
@@ -502,6 +505,7 @@
 				99BCD8301F2A8C43007E09C0 /* mainScreenButton.swift in Sources */,
 				106375A81F2674FF006B4538 /* FloatyViewController.swift in Sources */,
 				99C4E8871F32373E00B65DDC /* Loading2ViewController.swift in Sources */,
+				99167D3F1F35195300EB0766 /* SettingsTableViewController.swift in Sources */,
 				99AFCF561F2017B50012FAD1 /* SettingsViewController.swift in Sources */,
 				9952C8C51F2FA478002DC493 /* settingsBackground.swift in Sources */,
 				1090B9871F22F764002F678E /* Extensions.swift in Sources */,
