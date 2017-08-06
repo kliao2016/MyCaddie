@@ -26,6 +26,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var ref = Database.database().reference()
     var databaseRef: DatabaseReference?
     
+    let main = Main()
+    
     var courses = [String]()
     
     @IBOutlet weak var welcomeTitle: UINavigationItem!
@@ -79,7 +81,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             var providerEmail = ""
             Auth.auth().currentUser?.providerData.forEach({ (profile) in
                 provider = profile.providerID
-                providerName = profile.displayName!
+                providerName = profile.displayName! ?? self.main.appUser.name!
                 providerEmail = profile.email!
             })
             if provider != "google.com" {

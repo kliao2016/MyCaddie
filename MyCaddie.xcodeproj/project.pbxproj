@@ -26,6 +26,7 @@
 		108CCE2D1EF73DEE00DF5D90 /* RoundSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */; };
 		1090B9871F22F764002F678E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090B9861F22F764002F678E /* Extensions.swift */; };
 		1090B98B1F22FE53002F678E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090B98A1F22FE53002F678E /* User.swift */; };
+		109F1DDD1F37C53700630325 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109F1DDC1F37C53700630325 /* Main.swift */; };
 		10C5B6871EEBB30D0057D0C4 /* GeneralTeeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */; };
 		10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6BDD51EF615AA00C6E576 /* Stats3.swift */; };
 		10D595671EDA317B00572D38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D595661EDA317B00572D38 /* AppDelegate.swift */; };
@@ -94,6 +95,7 @@
 		108CCE2C1EF73DEE00DF5D90 /* RoundSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundSelector.swift; sourceTree = "<group>"; };
 		1090B9861F22F764002F678E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1090B98A1F22FE53002F678E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		109F1DDC1F37C53700630325 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		10C5B6861EEBB30D0057D0C4 /* GeneralTeeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTeeSelector.swift; sourceTree = "<group>"; };
 		10C6BDD51EF615AA00C6E576 /* Stats3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats3.swift; sourceTree = "<group>"; };
 		10D595631EDA317B00572D38 /* MyCaddie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCaddie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +209,14 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		109F1DDE1F37C69100630325 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				109F1DDC1F37C53700630325 /* Main.swift */,
+			);
+			name = Global;
+			sourceTree = "<group>";
+		};
 		10D5955A1EDA317B00572D38 = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +238,7 @@
 		10D595651EDA317B00572D38 /* MyCaddie */ = {
 			isa = PBXGroup;
 			children = (
+				109F1DDE1F37C69100630325 /* Global */,
 				1090B9851F22F753002F678E /* Helpers */,
 				10FC4EBF1F1FEF18006F4B79 /* Custom */,
 				10896FC21EE8D19400C7B66E /* Model */,
@@ -248,10 +259,10 @@
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
 				99C4E8861F32373E00B65DDC /* Loading2ViewController.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
+				99167D3E1F35195300EB0766 /* SettingsTableViewController.swift */,
 				998A079B1F30168700D79287 /* CourseDatabaseViewController.swift */,
 				10F81DD11F2FFEB1004F1672 /* CourseInfoViewController.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
-				99167D3E1F35195300EB0766 /* SettingsTableViewController.swift */,
 				99BCD82C1F2A853D007E09C0 /* Animation */,
 				99D313CD1F2125A90051B3BE /* Swipe Control */,
 				99AFCF571F2017EF0012FAD1 /* Slide Bar Pages */,
@@ -496,6 +507,7 @@
 				991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */,
 				99BCD82B1F2A605F007E09C0 /* CirclePath5.swift in Sources */,
 				1015B6001F23F1D800628816 /* SlideBarTableViewController.swift in Sources */,
+				109F1DDD1F37C53700630325 /* Main.swift in Sources */,
 				99AFCF461F1FF1280012FAD1 /* SWRevealViewController.m in Sources */,
 				100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */,
 				9952C8C71F2FA4C5002DC493 /* profileBackground.swift in Sources */,
