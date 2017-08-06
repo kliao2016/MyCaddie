@@ -59,7 +59,7 @@ class SettingsTableViewController: UITableViewController {
         }))
         promptPopUp.addAction(UIAlertAction(title: "No", style: .default, handler: { [promptPopUp] (_) in
             promptPopUp.dismiss(animated: true, completion: nil)
-            print("Not updating name")
+            print("Not updating name Bro")
         }))
         
         promptPopUp.addTextField { (textField) in
