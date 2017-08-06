@@ -35,10 +35,23 @@ class SwipeViewController: UIViewController {
         let cp0 = mainScreenAnimation(frame: rect0)
         view.addSubview(cp0)
         
+        let orange = UIColor.orange.cgColor
+        let purple = UIColor.purple.cgColor
+        let blue = UIColor.blue.cgColor
+        //let red = UIColor.red.cgColor
+        let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
+        
         // Start New Round Button
         let rect5 = CGRect(x: 140, y: 490, width: 100, height: 100)
-        let cp5 = mainScreenButton(frame: rect5)
+        let cp5 = mainScreenButton(frame: rect5, words: "New Round", color1: green, color2: blue)
         view.addSubview(cp5)
+        
+        // Continue Round Button
+        /*
+        let rect6 = CGRect(x: 240, y: 560, width: 100, height: 100)
+        let cp6 = mainScreenButton(frame: rect6, words: "Continue", color1: orange, color2: purple)
+        view.addSubview(cp6)
+ */
 
         // Do any additional setup after loading the view.
     }

@@ -92,6 +92,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             } else {
                 self.databaseRef?.child("Users").child(uid!).child("Name").setValue(providerName)
                 self.databaseRef?.child("Users").child(uid!).child("Email").setValue(providerEmail)
+                let lifetimeRef = self.databaseRef?.child("Users").child(uid!).child("Lifetime Stats")
+                lifetimeRef?.child("Fairways").setValue(0)
+                lifetimeRef?.child("Fairway Bunkers").setValue(0)
+                lifetimeRef?.child("Fringes").setValue(0)
+                lifetimeRef?.child("Greens").setValue(0)
+                lifetimeRef?.child("Greenside Bunkers").setValue(0)
+                lifetimeRef?.child("Hazards").setValue(0)
+                lifetimeRef?.child("Lefts").setValue(0)
+                lifetimeRef?.child("Rights").setValue(0)
+                lifetimeRef?.child("OBs").setValue(0)
+                lifetimeRef?.child("Putts").setValue(0)
+                lifetimeRef?.child("Score").setValue(0)
+                
                 self.databaseRef?.child("Users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
                     if let dictionary = snapshot.value as? [String: AnyObject] {
                         let name = dictionary["Name"] as? String

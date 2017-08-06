@@ -69,6 +69,7 @@
 		99C4E8871F32373E00B65DDC /* Loading2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4E8861F32373E00B65DDC /* Loading2ViewController.swift */; };
 		99C4E8891F3238E500B65DDC /* ContinueRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4E8881F3238E500B65DDC /* ContinueRound.swift */; };
 		99D6C8C91EDF5AA300FA55D0 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D6C8C81EDF5AA300FA55D0 /* CreateViewController.swift */; };
+		99E399291F37D89400DBE9B8 /* Developer Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E399281F37D89400DBE9B8 /* Developer Information.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +143,7 @@
 		99C4E8861F32373E00B65DDC /* Loading2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loading2ViewController.swift; sourceTree = "<group>"; };
 		99C4E8881F3238E500B65DDC /* ContinueRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinueRound.swift; sourceTree = "<group>"; };
 		99D6C8C81EDF5AA300FA55D0 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		99E399281F37D89400DBE9B8 /* Developer Information.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Developer Information.swift"; sourceTree = "<group>"; };
 		DFB69DC202FD3185EFE1A7C5 /* Pods-MyCaddie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCaddie.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCaddie/Pods-MyCaddie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +254,7 @@
 				10F81DD11F2FFEB1004F1672 /* CourseInfoViewController.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
 				99167D3E1F35195300EB0766 /* SettingsTableViewController.swift */,
+				99E399281F37D89400DBE9B8 /* Developer Information.swift */,
 				99BCD82C1F2A853D007E09C0 /* Animation */,
 				99D313CD1F2125A90051B3BE /* Swipe Control */,
 				99AFCF571F2017EF0012FAD1 /* Slide Bar Pages */,
@@ -504,6 +507,7 @@
 				998A079C1F30168700D79287 /* CourseDatabaseViewController.swift in Sources */,
 				99BCD8301F2A8C43007E09C0 /* mainScreenButton.swift in Sources */,
 				106375A81F2674FF006B4538 /* FloatyViewController.swift in Sources */,
+				99E399291F37D89400DBE9B8 /* Developer Information.swift in Sources */,
 				99C4E8871F32373E00B65DDC /* Loading2ViewController.swift in Sources */,
 				99167D3F1F35195300EB0766 /* SettingsTableViewController.swift in Sources */,
 				99AFCF561F2017B50012FAD1 /* SettingsViewController.swift in Sources */,
