@@ -18,7 +18,7 @@ class mainScreenButton: UIView {
     //let label1 = UILabel()
     
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, words: String, color1: CGColor, color2: CGColor) {
         super.init(frame: frame)
         
         // Gradient Layer for Circle
@@ -26,19 +26,19 @@ class mainScreenButton: UIView {
         layer.addSublayer(gradLayer)
         gradLayer.frame = bounds
        // let purple = UIColor.purple.cgColor
-        let blue = UIColor.blue.cgColor
+        //let blue = UIColor.blue.cgColor
        // let orange = UIColor.orange.cgColor
        // let black = UIColor.black.cgColor
-        let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
+        //let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
         
-        gradLayer.colors = [green, blue]
+        gradLayer.colors = [color1, color2]
         gradLayer.startPoint = CGPoint(x: 0, y: 0)
         gradLayer.endPoint = CGPoint(x: 1, y: 1)
         
         // Gradient Layer for Text
         layer.addSublayer(gradLayer2)
         gradLayer2.frame = bounds
-        gradLayer2.colors = [green, blue]
+        gradLayer2.colors = [color1, color2]
         gradLayer2.startPoint = CGPoint(x: 0, y: 0)
         gradLayer2.endPoint = CGPoint(x: 1, y: 1)
         
@@ -81,7 +81,7 @@ class mainScreenButton: UIView {
         shapeLayer.add(anime, forKey: nil)
         
         // Text Label
-        lab.string = "New Round"
+        lab.string = words
         let insetX = bounds.width / 4 - 20
         let insetY = bounds.height / 3 + 9
         lab.frame = bounds.insetBy(dx: insetX, dy: insetY)

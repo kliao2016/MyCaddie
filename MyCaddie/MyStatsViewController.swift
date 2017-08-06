@@ -238,10 +238,10 @@ class MyStatsViewController: UIViewController {
             revealViewController().rearViewRevealWidth = 275
             revealViewController().rightViewRevealWidth = 160
             
-            alertButton.target = revealViewController()
-            alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
+            //alertButton.target = revealViewController()
+            //alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
             
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     

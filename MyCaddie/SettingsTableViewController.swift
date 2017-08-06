@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
+import Firebase
+import GoogleSignIn
 
 class SettingsTableViewController: UITableViewController {
+    
+    @IBOutlet weak var userEmail: UILabel!
+    var databaseRef = Database.database().reference()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadEmail()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -45,19 +54,26 @@ class SettingsTableViewController: UITableViewController {
             updatePassword()
         }
         if indexPath.row == 4 {
-            updateZip()
+            updateHandicap()
         }
     }
     
     func updateName(){
+        
+        let uid = Auth.auth().currentUser?.uid
+        let userReference = Database.database().reference().child("Users").child(uid!).child("Name")
+        
         let promptPopUp = UIAlertController(title: "Update Name", message: nil, preferredStyle: .alert)
         
-        promptPopUp.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [promptPopUp] (_) in
+        promptPopUp.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [promptPopUp] (_) in
+            
             promptPopUp.dismiss(animated: true, completion: nil)
-            print("Updating Name")
+            let textField = promptPopUp.textFields?[0]
+            let actualText = String((textField?.text)!)
+            userReference.setValue(actualText)
 
         }))
-        promptPopUp.addAction(UIAlertAction(title: "No", style: .default, handler: { [promptPopUp] (_) in
+        promptPopUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [promptPopUp] (_) in
             promptPopUp.dismiss(animated: true, completion: nil)
             print("Not updating name Bro")
         }))
@@ -71,31 +87,67 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func updatePassword(){
+        
+        let uid = Auth.auth().currentUser?.uid
+        let userReference = Database.database().reference().child("Users").child(uid!).child("Password")
+        
         let promptPopUp = UIAlertController(title: "Update Password", message: nil, preferredStyle: .alert)
         
-        promptPopUp.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [promptPopUp] (_) in
+        promptPopUp.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [promptPopUp] (_) in
+            
             promptPopUp.dismiss(animated: true, completion: nil)
+            let textField = promptPopUp.textFields?[0]
+            let actualText = String((textField?.text)!)
+            userReference.setValue(actualText)
             
         }))
-        promptPopUp.addAction(UIAlertAction(title: "No", style: .default, handler: { [promptPopUp] (_) in
+        promptPopUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [promptPopUp] (_) in
             promptPopUp.dismiss(animated: true, completion: nil)
         }))
+        
+        promptPopUp.addTextField { (textField) in
+            textField.keyboardType = UIKeyboardType.alphabet
+            textField.text = nil
+        }
         
         self.present(promptPopUp, animated: true, completion: nil)
     }
     
-    func updateZip(){
-        let promptPopUp = UIAlertController(title: "Update Zip", message: nil, preferredStyle: .alert)
+    func updateHandicap(){
         
-        promptPopUp.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [promptPopUp] (_) in
+        let uid = Auth.auth().currentUser?.uid
+        let userReference = Database.database().reference().child("Users").child(uid!).child("Handicap")
+        
+        let promptPopUp = UIAlertController(title: "Update Handicap", message: nil, preferredStyle: .alert)
+        
+        promptPopUp.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [promptPopUp] (_) in
+            
             promptPopUp.dismiss(animated: true, completion: nil)
+            promptPopUp.dismiss(animated: true, completion: nil)
+            let textField = promptPopUp.textFields?[0]
+            let actualText = String((textField?.text)!)
+            userReference.setValue(actualText)
             
         }))
-        promptPopUp.addAction(UIAlertAction(title: "No", style: .default, handler: { [promptPopUp] (_) in
+        promptPopUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [promptPopUp] (_) in
             promptPopUp.dismiss(animated: true, completion: nil)
         }))
         
+        promptPopUp.addTextField { (textField) in
+            textField.keyboardType = UIKeyboardType.alphabet
+            textField.text = nil
+        }
+        
         self.present(promptPopUp, animated: true, completion: nil)
+    }
+    
+    func loadEmail(){
+        let uid = Auth.auth().currentUser?.uid
+        let user = databaseRef.child("Users").child(uid!)
+        user.observeSingleEvent(of: .value, with: { (snapshot) in
+            let dictionary = snapshot.value as? [String: AnyObject]
+                self.userEmail.text = dictionary?["Email"] as? String
+            }, withCancel: nil)
     }
 
     /*
