@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
     @IBOutlet weak var nameTextField: UITextField!
     
     var databaseRef: DatabaseReference?
+    let main = Main()
     
     var isSignIn: Bool = true
     
@@ -119,7 +120,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
             // Check that credentials are valid
             if error == nil && user != nil {
-                self.performSegue(withIdentifier: "mainSegue", sender: self)
+                self.displayMainMenu()
             } else {
                 self.displayAlert()
             }
@@ -130,7 +131,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
             // Check that user isn't nil
             if error == nil && user != nil{
-                self.performSegue(withIdentifier: "mainSegue", sender: self)
+                self.displayMainMenu()
             } else {
                 self.displayAlert2()
             }
@@ -140,7 +141,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
             }
             
             let userReference = self.databaseRef?.child("Users").child(uid)
-            let values = ["Name": self.nameTextField.text, "Email": self.emailTextField.text, "Password": self.passTextField.text]
+            self.main.appUser.name = self.nameTextField.text
+            let values = ["Name": self.main.appUser.name, "Email": self.emailTextField.text, "Password": self.passTextField.text]
             
             userReference?.updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if error != nil {
@@ -148,6 +150,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
                 }
             })
         })
+    }
+    
+    func displayMainMenu() {
+        let mainMenu = storyboard?.instantiateViewController(withIdentifier: "mainMenu")
+        self.present(mainMenu!, animated: true, completion: nil)
     }
     
     override var prefersStatusBarHidden: Bool {
