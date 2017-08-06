@@ -215,14 +215,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Z0b-iv-1my">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="198"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TeeCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeeCell" textLabel="CnU-Rm-mCX" style="IBUITableViewCellStyleDefault" id="CjJ-Ki-2dk">
-                                <rect key="frame" x="0.0" y="226" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CjJ-Ki-2dk" id="lCT-zt-LvM">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -3985,7 +3980,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Find a Course Near Me"/>
                                         <connections>
-                                            <action selector="pickPlace:" destination="7Mx-6V-Y7j" eventType="touchUpInside" id="L1p-sG-BHr"/>
+                                            <action selector="autocompleteClicked:" destination="7Mx-6V-Y7j" eventType="touchUpInside" id="qDo-5V-asV"/>
                                         </connections>
                                     </button>
                                 </subviews>

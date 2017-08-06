@@ -14,7 +14,7 @@ import GooglePlacePicker
 import GoogleMaps
 import GooglePlaces
 
-class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, GMSPlacePickerViewControllerDelegate {
+class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, GMSAutocompleteViewControllerDelegate {
     
     // Search Bar Outlet
     @IBOutlet weak var searchBar: UISearchBar!
@@ -110,30 +110,63 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
     // Initialize Google Place Picker
     
     // Present the Autocomplete view controller when the button is pressed.
-    @IBAction func pickPlace(_ sender: UIButton) {
-        let config = GMSPlacePickerConfig(viewport: nil)
-        let placePicker = GMSPlacePickerViewController(config: config)
-        placePicker.delegate = self
-        
-        self.present(placePicker, animated: true, completion: nil)
+    @IBAction func autocompleteClicked(_ sender: UIButton) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true, completion: nil)
     }
+}
+
+extension CourseDatabaseViewController: GMSPlacePickerViewControllerDelegate {
     
-    // To receive the results from the place picker 'self' will need to conform to
-    // GMSPlacePickerViewControllerDelegate and implement this code.
+    // Create Place Picker
     func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+        
         // Dismiss the place picker, as it cannot dismiss itself.
         viewController.dismiss(animated: true, completion: nil)
-        
-        print("Place name \(place.name)")
-        print("Place address \(String(describing: place.formattedAddress))")
-        print("Place attributions \(String(describing: place.attributions))")
     }
     
     func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
         // Dismiss the place picker, as it cannot dismiss itself.
         viewController.dismiss(animated: true, completion: nil)
-        
-        print("No place selected")
+    }
+    
+    func presentPlacePicker(coordinate: CLLocationCoordinate2D) {
+        let center = coordinate
+        let northEast = CLLocationCoordinate2D(latitude: center.latitude + 0.001,
+                                               longitude: center.longitude + 0.001)
+        let southWest = CLLocationCoordinate2D(latitude: center.latitude - 0.001,
+                                               longitude: center.longitude - 0.001)
+        let viewport = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
+        let config = GMSPlacePickerConfig(viewport: viewport)
+        let placePicker = GMSPlacePickerViewController(config: config)
+        placePicker.delegate = self
+        present(placePicker, animated: true, completion: nil)
+    }
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        dismiss(animated: true, completion: nil)
+        presentPlacePicker(coordinate: place.coordinate)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        viewController.dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
 
