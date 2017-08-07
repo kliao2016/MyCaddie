@@ -47,7 +47,7 @@ class MyStatsViewController: UIViewController {
         let ground = backgroundGradient(frame: back)
         view.addSubview(ground)
         
-        let when = DispatchTime.now() + 0.1 // change 2 to desired number of seconds
+        let when = DispatchTime.now() + 0.2 // change 2 to desired number of seconds
         
         DispatchQueue.main.asyncAfter(deadline: when) {
         

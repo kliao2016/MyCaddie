@@ -96,17 +96,6 @@ class RoundSelector: UITableViewController {
                     let putts = dictionary["Putts"] as! Int
                     let rights = dictionary["Rights"] as! Int
                     let score = dictionary["Score"] as! Int
-                    statsView.fbunkers.text = String(fbunkers)
-                    statsView.fairways.text = String(fairways)
-                    statsView.fringes.text = String(fringes)
-                    statsView.greens.text = String(greens)
-                    statsView.gbunkers.text = String(gbunkers)
-                    statsView.hazards.text = String(hazards)
-                    statsView.left.text = String(lefts)
-                    statsView.obs.text = String(obs)
-                    statsView.putts.text = String(putts)
-                    statsView.right.text = String(rights)
-                    statsView.score.text = String(score)
                 }
             }, withCancel: nil)
             
