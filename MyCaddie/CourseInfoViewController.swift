@@ -108,17 +108,17 @@ class CourseInfoViewController: UIViewController, UITableViewDelegate, UITableVi
                     let putts = dictionary["Putts"] as! Int
                     let rights = dictionary["Rights"] as! Int
                     let score = dictionary["Score"] as! Int
-                    destinationVC.score.text = String(score)
-                    destinationVC.fairways.text = String(fairways)
-                    destinationVC.greens.text = String(greens)
-                    destinationVC.putts.text = String(putts)
-                    destinationVC.fringes.text = String(fringes)
-                    destinationVC.hazards.text = String(hazards)
-                    destinationVC.left.text = String(lefts)
-                    destinationVC.right.text = String(rights)
-                    destinationVC.fbunkers.text = String(fbunkers)
-                    destinationVC.gbunkers.text = String(gbunkers)
-                    destinationVC.obs.text = String(obs)
+                    destinationVC.Score = String(score)
+                    destinationVC.Fairways = String(fairways)
+                    destinationVC.Greens = String(greens)
+                    destinationVC.Putts = String(putts)
+                    destinationVC.Fringes = String(fringes)
+                    destinationVC.Hazards = String(hazards)
+                    destinationVC.Lefts = String(lefts)
+                    destinationVC.Rights = String(rights)
+                    destinationVC.FBunkers = String(fbunkers)
+                    destinationVC.GBunkers = String(gbunkers)
+                    destinationVC.OBs = String(obs)
                 }
             }, withCancel: nil)
             
