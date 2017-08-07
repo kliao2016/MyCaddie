@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Developer_Information: UIViewController {
+class DeveloperInformation: UIViewController {
     
     @IBAction func suchar(_ sender: Any) {
         let url = URL(string: "https://goo.gl/Dxqntx")

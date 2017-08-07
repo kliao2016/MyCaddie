@@ -20,6 +20,7 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var searchBar: UISearchBar!
     
     var isSearching = false
+    var selectedCourseName = ""
 
     var databaseRef = Database.database().reference()
     
@@ -89,6 +90,11 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
             let indexPath = self.courseDatabaseTable.indexPathForSelectedRow
             teeView.teeParentCourseName = courses[(indexPath?.row)!]
         }
+        if segue.identifier == "findCourseToTeeSegue" {
+            let teeView = segue.destination as! GeneralTeeSelector
+            
+            teeView.teeParentCourseName = self.selectedCourseName
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -123,7 +129,9 @@ extension CourseDatabaseViewController: GMSPlacePickerViewControllerDelegate {
     func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
         
         // Dismiss the place picker, as it cannot dismiss itself.
+        self.selectedCourseName = place.name
         viewController.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "findCourseToTeeSegue", sender: self)
     }
     
     func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
@@ -168,6 +176,7 @@ extension CourseDatabaseViewController: GMSPlacePickerViewControllerDelegate {
     func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
+    
 }
 
 

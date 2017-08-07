@@ -124,13 +124,7 @@ class NewRound: UIViewController {
         
         // Navigation Bar
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View Scorecard", style: .plain, target: self, action: #selector(displayScorecard))
-    }
-    
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
-        if parent == nil {
-            checkIfUserWantsToCancelRound()
-        }
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(checkIfUserWantsToCancelRound))
     }
     
     

@@ -1014,31 +1014,31 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utS-VG-nw3">
-                                                <rect key="frame" x="21.5" y="324" width="19.5" height="270"/>
+                                                <rect key="frame" x="21.5" y="324" width="19.5" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3K-mp-TkG">
-                                                <rect key="frame" x="22" y="594" width="18.5" height="0.0"/>
+                                                <rect key="frame" x="22" y="378" width="18.5" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq4-Ke-F34">
-                                                <rect key="frame" x="21.5" y="594" width="19.5" height="0.0"/>
+                                                <rect key="frame" x="21.5" y="432" width="19.5" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTu-0Z-7Ax">
-                                                <rect key="frame" x="21.5" y="594" width="19.5" height="0.0"/>
+                                                <rect key="frame" x="21.5" y="486" width="19.5" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aco-JF-1Dc">
-                                                <rect key="frame" x="22" y="594" width="18.5" height="0.0"/>
+                                                <rect key="frame" x="22" y="540" width="18.5" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1351,7 +1351,6 @@
         <!--Continue Round-->
         <scene sceneID="Nlc-x9-nkN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Czt-lx-Uoz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="JG6-Na-6Wb" customClass="ContinueRound" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="weX-ZW-bNc"/>
@@ -1363,6 +1362,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Czt-lx-Uoz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2113" y="3910"/>
         </scene>
@@ -3902,25 +3902,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUL-AO-9ah">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KfD-FF-nk0">
-                                        <rect key="frame" x="100" y="57" width="175" height="53.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfO-7I-8rg">
-                                                <rect key="frame" x="0.0" y="0.0" width="175" height="33"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Find a Course Near Me"/>
-                                                <connections>
-                                                    <action selector="autocompleteClicked:" destination="7Mx-6V-Y7j" eventType="touchUpInside" id="qDo-5V-asV"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Courses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHM-kI-jDf">
-                                                <rect key="frame" x="35" y="33" width="105.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Courses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHM-kI-jDf">
+                                        <rect key="frame" x="134" y="73" width="105.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7eQ-rM-0RG">
                                         <rect key="frame" x="0.0" y="123" width="375" height="44"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -3930,9 +3917,9 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="7eQ-rM-0RG" secondAttribute="bottom" id="8FI-8a-MYz"/>
                                     <constraint firstAttribute="trailing" secondItem="7eQ-rM-0RG" secondAttribute="trailing" id="CiX-Vc-ym7"/>
-                                    <constraint firstItem="KfD-FF-nk0" firstAttribute="centerX" secondItem="RUL-AO-9ah" secondAttribute="centerX" id="Klf-Uk-RSx"/>
                                     <constraint firstItem="7eQ-rM-0RG" firstAttribute="leading" secondItem="RUL-AO-9ah" secondAttribute="leading" id="Pl9-gV-x7h"/>
-                                    <constraint firstItem="KfD-FF-nk0" firstAttribute="centerY" secondItem="RUL-AO-9ah" secondAttribute="centerY" id="hFg-TZ-hQp"/>
+                                    <constraint firstItem="FHM-kI-jDf" firstAttribute="centerX" secondItem="RUL-AO-9ah" secondAttribute="centerX" id="SOU-kP-5Ov"/>
+                                    <constraint firstItem="FHM-kI-jDf" firstAttribute="centerY" secondItem="RUL-AO-9ah" secondAttribute="centerY" id="XOc-Ml-qYf"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MAU-tF-EFf">
@@ -3981,6 +3968,7 @@
                         <outlet property="courseDatabaseTable" destination="MAU-tF-EFf" id="de5-Kj-Ili"/>
                         <outlet property="numCourses" destination="FHM-kI-jDf" id="Gmd-0I-IQE"/>
                         <outlet property="searchBar" destination="7eQ-rM-0RG" id="lQa-GN-2hj"/>
+                        <segue destination="VOX-V1-R3w" kind="show" identifier="findCourseToTeeSegue" id="kjx-Yv-Msc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H18-8G-xyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4549,7 +4537,7 @@
         <!--Developer Information-->
         <scene sceneID="87W-us-WRA">
             <objects>
-                <viewController id="2It-RM-Jm6" customClass="Developer_Information" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2It-RM-Jm6" customClass="DeveloperInformation" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="viB-2Y-5SX"/>
                         <viewControllerLayoutGuide type="bottom" id="3Mx-fx-1wN"/>
@@ -4679,18 +4667,18 @@
         <!--Navigation Controller-->
         <scene sceneID="t4P-bU-8eF">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rch-Nt-Mjl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wYx-fY-kex" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aJW-cL-9ma">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aJW-cL-9ma">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="2It-RM-Jm6" kind="relationship" relationship="rootViewController" id="xGp-uc-kGT"/>
+                        <segue destination="2It-RM-Jm6" kind="show" id="qiI-t2-pPJ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rch-Nt-Mjl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="124" y="5459.8200899550229"/>
         </scene>
@@ -4717,6 +4705,7 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="kjx-Yv-Msc"/>
         <segue reference="jLl-Vg-yGY"/>
         <segue reference="rhC-Ks-S9n"/>
         <segue reference="X3K-gr-eNx"/>
