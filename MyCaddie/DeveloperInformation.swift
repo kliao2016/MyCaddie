@@ -10,6 +10,9 @@ import UIKit
 
 class DeveloperInformation: UIViewController {
     
+    @IBOutlet weak var kevPic: UIImageView!
+    @IBOutlet weak var wesPic: UIImageView!
+    
     @IBAction func suchar(_ sender: Any) {
         let url = URL(string: "https://goo.gl/Dxqntx")
         UIApplication.shared.open(url!, options: [:])
@@ -32,6 +35,14 @@ class DeveloperInformation: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DeveloperInformation.imageTapped(gesture:)))
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(DeveloperInformation.imageTapped2(gesture:)))
+        
+        kevPic.addGestureRecognizer(tapGesture)
+        kevPic.isUserInteractionEnabled = true
+        wesPic.addGestureRecognizer(tapGesture2)
+        wesPic.isUserInteractionEnabled = true
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +50,25 @@ class DeveloperInformation: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func imageTapped(gesture: UIGestureRecognizer) {
+        // if the tapped view is a UIImageView then set it to imageview
+        if (gesture.view as? UIImageView) != nil {
+            print("Image Tapped")
+            let url = URL(string: "https://kliao2016.github.io")
+            UIApplication.shared.open(url!, options: [:])
+            //Here you can initiate your new ViewController
+        }
+    }
+    
+    func imageTapped2(gesture: UIGestureRecognizer) {
+        // if the tapped view is a UIImageView then set it to imageview
+        if (gesture.view as? UIImageView) != nil {
+            print("Image Tapped")
+            let url = URL(string: "https://wmauz677.github.io")
+            UIApplication.shared.open(url!, options: [:])
+            //Here you can initiate your new ViewController
+        }
+    }
 
     /*
     // MARK: - Navigation
