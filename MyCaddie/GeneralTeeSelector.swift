@@ -20,7 +20,7 @@ class GeneralTeeSelector: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.tableView.tableFooterView = UIView(frame: .zero)
-        self.navigationItem.title = "Select Tees for \(teeParentCourseName)"
+        self.navigationItem.title = "Select Tees"
     }
     
     override func didReceiveMemoryWarning() {
