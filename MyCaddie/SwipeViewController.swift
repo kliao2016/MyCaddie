@@ -33,7 +33,6 @@ class SwipeViewController: UIViewController {
         
         let rect0 = CGRect(x: 70, y: 185, width: 250, height: 30)
         var cp0 = mainScreenAnimation(frame: rect0)
-        cp0.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(segueToNewRound)))
         view.addSubview(cp0)
         
         let orange = UIColor.orange.cgColor

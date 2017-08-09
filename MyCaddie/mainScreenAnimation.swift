@@ -20,12 +20,12 @@ class mainScreenAnimation: UIView {
         // Gradient Layer for Circle
         //let black = UIColor.black.cgColor
         //let blue = UIColor.blue.cgColor
-        //let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
+        let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
         let black = UIColor.black.cgColor
         
         // Gradient Layer for Text
         gradLayer2.frame = bounds
-        gradLayer2.colors = [black, black]
+        gradLayer2.colors = [green, green]
         //gradLayer2.startPoint = CGPoint(x: 0.2, y: 0.2)
         //gradLayer2.endPoint = CGPoint(x: 1, y: 1)
         layer.addSublayer(gradLayer2)
