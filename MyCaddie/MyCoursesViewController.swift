@@ -116,6 +116,7 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
         let newCourseOption = FloatyItem()
         newCourseOption.buttonColor = UIColor.blue
         newCourseOption.title = "Add New Course"
+        newCourseOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(displayAddNewCourse)))
         floatyNewOptionsButton.addItem(item: newRoundOption)
         floatyNewOptionsButton.addItem(item: newCourseOption)
         self.view.addSubview(floatyNewOptionsButton)
@@ -125,6 +126,12 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
         let courseDatabaseView = storyboard?.instantiateViewController(withIdentifier: "courseDatabaseView")
         courseDatabaseView?.navigationItem.title = "Choose a Course"
         self.show(courseDatabaseView!, sender: self)
+    }
+    
+    func displayAddNewCourse() {
+        let newCourseView = storyboard?.instantiateViewController(withIdentifier: "CreateCourseView")
+        newCourseView?.navigationItem.title = "Create a Course"
+        self.show(newCourseView!, sender: self)
     }
     
     func fetchCourses() {

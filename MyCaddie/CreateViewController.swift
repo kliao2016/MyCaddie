@@ -15,7 +15,7 @@ import UIKit
 class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let ref = Database.database().reference()
-    let tees = ["Championship", "Men", "Women", "Senior"]
+    let tees = ["Championship", "Men's", "Women's", "Senior"]
     var pars = ["4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4"]
     
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -308,12 +308,11 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         
         teePicker.delegate = self
         teePicker.dataSource = self
-        teePicker.backgroundColor = UIColor.white
+        teePicker.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
         
         // Part of Letters only for course Name
         self.courseName.delegate = self
 
-        
         y1.keyboardType = UIKeyboardType.numberPad
         y2.keyboardType = UIKeyboardType.numberPad
         y3.keyboardType = UIKeyboardType.numberPad
@@ -563,7 +562,7 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = tees[row]
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 15.0)!, NSForegroundColorAttributeName:UIColor.blue])
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 15.0)!, NSForegroundColorAttributeName:UIColor.init(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)])
         return myTitle
     }
     
@@ -572,7 +571,7 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         self.view.endEditing(false)
     }
     
-    func sideMenus(){
+    func sideMenus() {
         
         if revealViewController() != nil {
             
@@ -590,7 +589,7 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         }
     }
     
-    func customizeNavBar(){
+    func customizeNavBar() {
         navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
         navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
