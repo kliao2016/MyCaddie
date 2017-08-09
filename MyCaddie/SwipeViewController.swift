@@ -32,7 +32,8 @@ class SwipeViewController: UIViewController {
     
         
         let rect0 = CGRect(x: 70, y: 185, width: 250, height: 30)
-        let cp0 = mainScreenAnimation(frame: rect0)
+        var cp0 = mainScreenAnimation(frame: rect0)
+        cp0.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(segueToNewRound)))
         view.addSubview(cp0)
         
         let orange = UIColor.orange.cgColor
@@ -43,7 +44,8 @@ class SwipeViewController: UIViewController {
         
         // Start New Round Button
         let rect5 = CGRect(x: 140, y: 490, width: 100, height: 100)
-        let cp5 = mainScreenButton(frame: rect5, words: "New Round", color1: green, color2: blue)
+        var cp5 = mainScreenButton(frame: rect5, words: "New Round", color1: green, color2: blue)
+        cp5.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(segueToNewRound)))
         view.addSubview(cp5)
         
         // Continue Round Button
@@ -154,6 +156,10 @@ class SwipeViewController: UIViewController {
         })
     }
     
+    func segueToNewRound() {
+        self.performSegue(withIdentifier: "homeToNewRoundSegue", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mainToLoadSegue" {
             // Create a variable that you want to send
@@ -161,6 +167,10 @@ class SwipeViewController: UIViewController {
             fetchCurrentRound(segue: segue)
         }
         
+        if segue.identifier == "homeToNewRoundSegue" {
+            let destinationVC = segue.destination as! CourseDatabaseViewController
+            destinationVC.navigationItem.title = "Choose a Course"
+        }
         /*
         if segue.identifier == "userRoundsSegue" {
             let roundsView = segue.destination as! RoundSelector

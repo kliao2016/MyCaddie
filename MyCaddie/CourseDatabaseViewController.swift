@@ -85,7 +85,7 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "teeSegue" {
-            let teeView = segue.destination as! GeneralTeeSelector
+            let teeView = segue.destination as! CourseTeeSelector
             
             let indexPath = self.courseDatabaseTable.indexPathForSelectedRow
             teeView.teeParentCourseName = courses[(indexPath?.row)!]

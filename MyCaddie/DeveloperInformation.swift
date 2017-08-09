@@ -24,8 +24,11 @@ class DeveloperInformation: UIViewController {
         let url3 = URL(string: "https://goo.gl/EG2aay")
         UIApplication.shared.open(url3!, options: [:])
     }
-    
 
+    @IBAction func backBarButtonAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

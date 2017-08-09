@@ -13,6 +13,7 @@
 		101CA7161F2434DB00C61B07 /* MyCoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101CA7151F2434DB00C61B07 /* MyCoursesTableViewCell.swift */; };
 		103BA8711EDA332800054449 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103BA8701EDA332800054449 /* LoginViewController.swift */; };
 		103BA8731EDA37F100054449 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 103BA8721EDA37F100054449 /* GoogleService-Info.plist */; };
+		10594C991F3B94D1009B8D8E /* CourseTeeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10594C981F3B94D1009B8D8E /* CourseTeeSelector.swift */; };
 		106375A41F2674FF006B4538 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106375961F2674FF006B4538 /* Floaty.swift */; };
 		106375A51F2674FF006B4538 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106375971F2674FF006B4538 /* FloatyDelegate.swift */; };
 		106375A61F2674FF006B4538 /* FloatyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106375981F2674FF006B4538 /* FloatyItem.swift */; };
@@ -81,6 +82,7 @@
 		101CA7151F2434DB00C61B07 /* MyCoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCoursesTableViewCell.swift; sourceTree = "<group>"; };
 		103BA8701EDA332800054449 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		103BA8721EDA37F100054449 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		10594C981F3B94D1009B8D8E /* CourseTeeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTeeSelector.swift; sourceTree = "<group>"; };
 		106375961F2674FF006B4538 /* Floaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Floaty.swift; path = Sources/Floaty.swift; sourceTree = "<group>"; };
 		106375971F2674FF006B4538 /* FloatyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatyDelegate.swift; path = Sources/FloatyDelegate.swift; sourceTree = "<group>"; };
 		106375981F2674FF006B4538 /* FloatyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatyItem.swift; path = Sources/FloatyItem.swift; sourceTree = "<group>"; };
@@ -263,10 +265,11 @@
 				991FA8841EF3528900289D63 /* LoadingScreen.swift */,
 				99C4E8861F32373E00B65DDC /* Loading2ViewController.swift */,
 				998724891EF607B000CF2FCA /* StatsViewController.swift */,
+				99E399281F37D89400DBE9B8 /* DeveloperInformation.swift */,
 				998A079B1F30168700D79287 /* CourseDatabaseViewController.swift */,
 				10F81DD11F2FFEB1004F1672 /* CourseInfoViewController.swift */,
+				10594C981F3B94D1009B8D8E /* CourseTeeSelector.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
-				99E399281F37D89400DBE9B8 /* DeveloperInformation.swift */,
 				99BCD82C1F2A853D007E09C0 /* Animation */,
 				99D313CD1F2125A90051B3BE /* Swipe Control */,
 				99AFCF571F2017EF0012FAD1 /* Slide Bar Pages */,
@@ -506,6 +509,7 @@
 				99AFCF541F20179F0012FAD1 /* MyStatsViewController.swift in Sources */,
 				99BCD8271F2A5E3E007E09C0 /* CirclePath3.swift in Sources */,
 				99B1741D1EE7755700A76B9B /* NewRound.swift in Sources */,
+				10594C991F3B94D1009B8D8E /* CourseTeeSelector.swift in Sources */,
 				10C5B6871EEBB30D0057D0C4 /* GeneralTeeSelector.swift in Sources */,
 				106375A51F2674FF006B4538 /* FloatyDelegate.swift in Sources */,
 				10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */,
