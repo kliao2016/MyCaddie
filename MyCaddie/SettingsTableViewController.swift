@@ -58,7 +58,7 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
-    func updateName(){
+    func updateName() {
         
         let uid = Auth.auth().currentUser?.uid
         let userReference = Database.database().reference().child("Users").child(uid!).child("Name")
