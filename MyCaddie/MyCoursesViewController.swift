@@ -88,6 +88,10 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     func loadProfileImage() {
         self.profileImage.contentMode = .scaleAspectFill
         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
