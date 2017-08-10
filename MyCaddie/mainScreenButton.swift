@@ -81,6 +81,7 @@ class mainScreenButton: UIView {
         shapeLayer.add(anime, forKey: nil)
         
         // Text Label
+        lab.contentsScale = UIScreen.main.scale
         lab.string = words
         let insetX = bounds.width / 4 - 20
         let insetY = bounds.height / 3 + 9

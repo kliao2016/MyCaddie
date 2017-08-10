@@ -19,6 +19,9 @@ class CirclePath2: UIView {
     init(frame: CGRect, stat: String) {
         super.init(frame: frame)
         
+        // Blurry Fix
+        lab.contentsScale = UIScreen.main.scale
+        
         layer.addSublayer(gradLayer)
         gradLayer.frame = bounds
         let purple = UIColor.purple.cgColor
