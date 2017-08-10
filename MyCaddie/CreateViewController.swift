@@ -369,8 +369,7 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         return false
     }
     
-    func addDoneButtonOnKeyboard()
-    {
+    func addDoneButtonOnKeyboard() {
         let doneToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         doneToolbar.barStyle = UIBarStyle.blackTranslucent
         
