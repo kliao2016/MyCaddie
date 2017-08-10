@@ -18,6 +18,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
+    @IBAction func updatePicture(_ sender: Any) {
+        handleSelectProfileImage()
+    }
+    
     
     let welcomeLabel = CATextLayer()
     let welcomeLabel2 = CATextLayer()
