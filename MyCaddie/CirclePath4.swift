@@ -21,6 +21,9 @@ class CirclePath4: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        // Blurry Fix
+        lab.contentsScale = UIScreen.main.scale
+        
         // Gradient Layer for Circle
         
         layer.addSublayer(gradLayer)

@@ -31,6 +31,7 @@ class mainScreenAnimation: UIView {
         layer.addSublayer(gradLayer2)
         
         // Text Label
+        welcomeLabel.contentsScale = UIScreen.main.scale
         welcomeLabel.string = "Welcome to MyCaddie!"
         welcomeLabel.frame = bounds
         welcomeLabel.fontSize = 24

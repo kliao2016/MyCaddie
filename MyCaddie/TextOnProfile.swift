@@ -16,7 +16,7 @@ class TextOnProfile: UIView {
     init(frame: CGRect, stat: String) {
         super.init(frame: frame)
         
-        let orange = UIColor.orange.cgColor
+        //let orange = UIColor.orange.cgColor
         let blue = UIColor.blue.cgColor
         let green = UIColor.green.cgColor
         
@@ -26,6 +26,7 @@ class TextOnProfile: UIView {
         gradLayer2.startPoint = CGPoint(x: 0, y: 0)
         gradLayer2.endPoint = CGPoint(x: 1, y: 1)
         
+        lab.contentsScale = UIScreen.main.scale
         // Second Label Try
         lab.string = stat
         lab.frame = bounds
