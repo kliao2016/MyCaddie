@@ -17,12 +17,15 @@ class TextOnProfile: UIView {
         super.init(frame: frame)
         
         //let orange = UIColor.orange.cgColor
-        let blue = UIColor.blue.cgColor
-        let green = UIColor.green.cgColor
+        //let blue = UIColor.blue.cgColor
+        //let red = UIColor.red.cgColor
+        //let orange = UIColor.orange.cgColor
+        let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
+        let white = UIColor.white.cgColor
         
         layer.addSublayer(gradLayer2)
         gradLayer2.frame = bounds
-        gradLayer2.colors = [green, blue]
+        gradLayer2.colors = [green, white]
         gradLayer2.startPoint = CGPoint(x: 0, y: 0)
         gradLayer2.endPoint = CGPoint(x: 1, y: 1)
         
