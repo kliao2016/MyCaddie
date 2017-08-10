@@ -52,25 +52,25 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         retrieveStats(lifetimeRef: lifetimeRef)
         
-        let when = DispatchTime.now() + 0.1 // change 2 to desired number of seconds
+        let when = DispatchTime.now() + 0.2 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             s = "\(self.lifetimeScore)"
             s2 = "\(self.handicap)"
             s3 = "\(self.lifetimePutts)"
             
             // Low Left Stat
-            let rect0 = CGRect(x: 20, y: 345, width: 100, height: 100)
+            let rect0 = CGRect(x: 30, y: 350, width: 75, height: 75)
             let cp0 = TextOnProfile(frame: rect0, stat: s)
             self.view.addSubview(cp0)
             
             // Low Middle Stat
-            let rect1 = CGRect(x: 140, y: 345, width: 100, height: 100)
+            let rect1 = CGRect(x: 150, y: 350, width: 75, height: 75)
             //let cp0 = TextOnProfile(frame: rect0, stat: "\(self.lifetimeScore)")
             let cp1 = TextOnProfile(frame: rect1, stat: s2)
             self.view.addSubview(cp1)
             
             // Low Right Stat
-            let rect2 = CGRect(x: 270, y: 345, width: 100, height: 100)
+            let rect2 = CGRect(x: 278, y: 350, width: 75, height: 75)
             //let cp0 = TextOnProfile(frame: rect0, stat: "\(self.lifetimeScore)")
             let cp2 = TextOnProfile(frame: rect2, stat: s3)
             self.view.addSubview(cp2)
@@ -89,7 +89,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // Low Left Text
         
-        let lowLeft = CGRect(x: 30, y: 410, width: 140, height: 20)
+        let lowLeft = CGRect(x: 20, y: 410, width: 140, height: 20)
         let place1 = UIView(frame: lowLeft)
         view.addSubview(place1)
         
@@ -116,7 +116,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // Low Middle Text
         
-        let lowMiddle = CGRect(x: 160, y: 410, width: 140, height: 20)
+        let lowMiddle = CGRect(x: 156, y: 410, width: 140, height: 20)
         let place2 = UIView(frame: lowMiddle)
         view.addSubview(place2)
         

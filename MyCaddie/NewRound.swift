@@ -472,7 +472,7 @@ class NewRound: UIViewController {
         self.lifetimeGreensInReg += totalGreensInReg
         self.lifetimeHazards += totalHazards
         self.lifetimeOBs += totalOBs
-        self.lifetimePutts += totalLefts
+        self.lifetimePutts += totalPutts
         self.lifetimeScore += totalScore
         self.lifetimeRights += totalRights
         self.lifetimeLefts += totalLefts

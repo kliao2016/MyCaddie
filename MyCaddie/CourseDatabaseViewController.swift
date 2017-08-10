@@ -28,7 +28,6 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
     var filteredCourses = [String]()
     var mapView: GMSMapView!
 
-    @IBOutlet weak var numCourses: UILabel!
     @IBOutlet weak var courseDatabaseTable: UITableView!
     
     override func viewDidLoad() {
@@ -49,7 +48,6 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.numCourses.text = "\(courses.count) Total Courses"
         
         if isSearching {
             return filteredCourses.count
