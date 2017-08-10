@@ -18,10 +18,7 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
     let tees = ["Championship", "Men's", "Women's", "Senior"]
     var pars = ["4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4"]
     
-    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var alertButton: UIBarButtonItem!
-    
     
     // Yardage textfields
     @IBOutlet weak var y1: UITextField!
@@ -332,6 +329,8 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         y17.keyboardType = UIKeyboardType.numberPad
         y18.keyboardType = UIKeyboardType.numberPad
         
+        addDoneButtonOnKeyboard()
+        
         courseName.keyboardType = UIKeyboardType.alphabet
         courseRating.keyboardType = UIKeyboardType.numbersAndPunctuation
         slope.keyboardType = UIKeyboardType.numbersAndPunctuation
@@ -370,9 +369,43 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         return false
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    func addDoneButtonOnKeyboard() {
+        let doneToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle = UIBarStyle.blackTranslucent
         
-        // Dismiss keyboard when view is tapped on
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(doneButtonAction))
+        done.tintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
+        
+        let items = NSMutableArray()
+        items.add(flexSpace)
+        items.add(done)
+        
+        doneToolbar.items = items as! [UIBarButtonItem]
+        doneToolbar.sizeToFit()
+        
+        self.y1.inputAccessoryView = doneToolbar
+        self.y2.inputAccessoryView = doneToolbar
+        self.y3.inputAccessoryView = doneToolbar
+        self.y4.inputAccessoryView = doneToolbar
+        self.y5.inputAccessoryView = doneToolbar
+        self.y6.inputAccessoryView = doneToolbar
+        self.y7.inputAccessoryView = doneToolbar
+        self.y8.inputAccessoryView = doneToolbar
+        self.y9.inputAccessoryView = doneToolbar
+        self.y10.inputAccessoryView = doneToolbar
+        self.y11.inputAccessoryView = doneToolbar
+        self.y12.inputAccessoryView = doneToolbar
+        self.y13.inputAccessoryView = doneToolbar
+        self.y14.inputAccessoryView = doneToolbar
+        self.y15.inputAccessoryView = doneToolbar
+        self.y16.inputAccessoryView = doneToolbar
+        self.y17.inputAccessoryView = doneToolbar
+        self.y18.inputAccessoryView = doneToolbar
+        
+    }
+    
+    func doneButtonAction() {
         y1.resignFirstResponder()
         y2.resignFirstResponder()
         y3.resignFirstResponder()
@@ -391,6 +424,11 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         y16.resignFirstResponder()
         y17.resignFirstResponder()
         y18.resignFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        // Dismiss keyboard when view is tapped on
         courseName.resignFirstResponder()
         courseRating.resignFirstResponder()
         dropTextBox.resignFirstResponder()
