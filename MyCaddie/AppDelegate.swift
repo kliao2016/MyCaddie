@@ -36,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Configure Google PlacePicker
         GMSServices.provideAPIKey("AIzaSyCIbrOSJmIigUGGX47BGKqb8hK2l-8L-5o")
         
+        UITextField.appearance().keyboardAppearance = .dark
+        
         return true
     }
 
