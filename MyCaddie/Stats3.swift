@@ -57,10 +57,10 @@ class Stats3: UIViewController {
         super.viewDidLoad()
         
         // Initial text
-        ShotNumberText.text = "Where was your first shot?"
-        Actual.text = "Shots hit: 0"
+        //ShotNumberText.text = "Where was your first shot?"
+        Actual.text = "0"
         
-        HoleNumber.text = "1"
+        HoleNumber.text = "#"
         
         //let courseName2 = programVar?.cName
         //var tees2 = programVar?.tName as! String
@@ -279,8 +279,8 @@ class Stats3: UIViewController {
     }
     
     func updateUI(){
-        Actual.text = "Shots Hit: \(currentScore)"
-        ShotNumberText.text = "Where was your \(shotCount) shot?"
+        Actual.text = "\(currentScore)"
+        //ShotNumberText.text = "Where was your \(shotCount) shot?"
         if currentHole < 18 {
             self.HoleNumber.text = "\(currentHole + 1)"
             self.HolePar.text = parsOfCourse[currentHole]
