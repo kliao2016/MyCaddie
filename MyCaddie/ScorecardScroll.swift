@@ -57,7 +57,8 @@ class ScorecardScroll: UIPageViewController, UIPageViewControllerDataSource, UIP
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
-            return VCArray.last
+            //return VCArray.last
+            return nil
         }
         
         guard VCArray.count > previousIndex else {
@@ -74,7 +75,8 @@ class ScorecardScroll: UIPageViewController, UIPageViewControllerDataSource, UIP
         let nextIndex = viewControllerIndex + 1
         
         guard nextIndex < VCArray.count else {
-            return VCArray.first
+            //return VCArray.first
+            return nil
         }
         
         guard VCArray.count > nextIndex else {

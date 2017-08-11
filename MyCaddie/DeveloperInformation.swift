@@ -38,6 +38,11 @@ class DeveloperInformation: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func webFonts(_ sender: Any) {
+        let url3 = URL(string: "https://goo.gl/CKytv2")
+        UIApplication.shared.open(url3!, options: [:])
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
