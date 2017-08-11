@@ -45,8 +45,13 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         // Uncomment to Sign in user automatically
         GIDSignIn.sharedInstance().signInSilently()
         
-        signInButton.backgroundColor = UIColor(red: 0, green: 128/255, blue: 64/255, alpha: 1.0)
-        signInButton.layer.cornerRadius = 5
+//        signInButton.backgroundColor = UIColor(red: 0, green: 128/255, blue: 64/255, alpha: 1.0)
+//        signInButton.layer.cornerRadius = 5
+        
+        nameTextField.attributedPlaceholder = NSAttributedString(string: "USERNAME", attributes: [NSForegroundColorAttributeName: UIColor.white])
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "EMAIL", attributes: [NSForegroundColorAttributeName: UIColor.white])
+        passTextField.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes: [NSForegroundColorAttributeName: UIColor.white])
+        
     }
     
     override func didReceiveMemoryWarning() {
