@@ -13,6 +13,12 @@ class DeveloperInformation: UIViewController {
     @IBOutlet weak var kevPic: UIImageView!
     @IBOutlet weak var wesPic: UIImageView!
     
+    
+    @IBAction func skyGear(_ sender: Any) {
+        let url = URL(string: "https://goo.gl/iVQFLk")
+        UIApplication.shared.open(url!, options: [:])
+    }
+    
     @IBAction func suchar(_ sender: Any) {
         let url = URL(string: "https://goo.gl/Dxqntx")
         UIApplication.shared.open(url!, options: [:])
