@@ -20,7 +20,6 @@
 		106375A71F2674FF006B4538 /* FloatyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106375991F2674FF006B4538 /* FloatyManager.swift */; };
 		106375A81F2674FF006B4538 /* FloatyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063759A1F2674FF006B4538 /* FloatyViewController.swift */; };
 		106375A91F2674FF006B4538 /* FloatyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063759B1F2674FF006B4538 /* FloatyWindow.swift */; };
-		106375AA1F2674FF006B4538 /* Floaty.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1063759D1F2674FF006B4538 /* Floaty.xcconfig */; };
 		106375AB1F2674FF006B4538 /* Floaty-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1063759E1F2674FF006B4538 /* Floaty-dummy.m */; };
 		106375AC1F2674FF006B4538 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 106375A11F2674FF006B4538 /* Info.plist */; };
 		10896FC41EE8D1B000C7B66E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10896FC31EE8D1B000C7B66E /* Course.swift */; };
@@ -388,7 +387,7 @@
 				TargetAttributes = {
 					10D595621EDA317B00572D38 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = SD3HFF44RZ;
+						DevelopmentTeam = 3535BPJH56;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -422,7 +421,6 @@
 				106375AC1F2674FF006B4538 /* Info.plist in Resources */,
 				10D595701EDA317B00572D38 /* Assets.xcassets in Resources */,
 				10D5956E1EDA317B00572D38 /* Main.storyboard in Resources */,
-				106375AA1F2674FF006B4538 /* Floaty.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,7 +663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SD3HFF44RZ;
+				DEVELOPMENT_TEAM = 3535BPJH56;
 				INFOPLIST_FILE = MyCaddie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
@@ -682,7 +680,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SD3HFF44RZ;
+				DEVELOPMENT_TEAM = 3535BPJH56;
 				INFOPLIST_FILE = MyCaddie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
