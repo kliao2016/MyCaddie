@@ -150,7 +150,7 @@ class NewRound: UIViewController {
                 self.holeStatistics.putt = self.putts
                 self.updateHoleData()
                 self.resetHoleStats()
-                if self.currentHole >= 3 {
+                if self.currentHole >= 18 {
                     self.endRound()
                     self.deleteCurrentRound()
                     self.perform(#selector(self.showMainView), with: nil, afterDelay: 1)
