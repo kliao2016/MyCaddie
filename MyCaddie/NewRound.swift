@@ -69,8 +69,8 @@ class NewRound: UIViewController {
         super.viewDidLoad()
         
         // Initial text
-        ShotNumberText.text = "Where was your first shot?"
-        Actual.text = "Shots hit: 0"
+        //ShotNumberText.text = "Where was your first shot?"
+        Actual.text = "0"
         
         HoleNumber.text = "1"
         
@@ -203,12 +203,12 @@ class NewRound: UIViewController {
         updateUI()
         puttPopUp()
     }
-    @IBAction func Fringe(_ sender: Any) {
-        holeStatistics.fringes += 1
-        currentScore += 1
-        updateShotText()
-        updateUI()
-    }
+//    @IBAction func Fringe(_ sender: Any) {
+//        holeStatistics.fringes += 1
+//        currentScore += 1
+//        updateShotText()
+//        updateUI()
+//    }
     @IBAction func GreenSand(_ sender: Any) {
         holeStatistics.greenBunkers += 1
         currentScore += 1
@@ -297,8 +297,8 @@ class NewRound: UIViewController {
     }
     
     func updateUI(){
-        Actual.text = "Shots Hit: \(currentScore)"
-        ShotNumberText.text = "Where was your \(shotCount) shot?"
+        Actual.text = "\(currentScore)"
+        //ShotNumberText.text = "Where was your \(shotCount) shot?"
         if currentHole < 18 {
             self.HoleNumber.text = "\(currentHole + 1)"
             self.HolePar.text = parsOfCourse[currentHole]
