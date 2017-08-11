@@ -124,6 +124,7 @@ class Stats3: UIViewController {
         
         popUp.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [popUp] (_) in
             let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
+            
             self.putts = Int(textField.text!)!
             self.updateScore()
             self.holeStatistics.putt = self.putts
