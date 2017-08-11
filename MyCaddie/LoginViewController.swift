@@ -43,12 +43,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         GIDSignIn.sharedInstance().signIn()
       
         // Uncomment to Sign in user automatically
-        GIDSignIn.sharedInstance().signInSilently()
+        // GIDSignIn.sharedInstance().signInSilently()
         
-//        signInButton.backgroundColor = UIColor(red: 0, green: 128/255, blue: 64/255, alpha: 1.0)
-//        signInButton.layer.cornerRadius = 5
+        signInButton.backgroundColor = UIColor(red: 0, green: 128/255, blue: 64/255, alpha: 1.0)
         
-        nameTextField.attributedPlaceholder = NSAttributedString(string: "USERNAME", attributes: [NSForegroundColorAttributeName: UIColor.white])
+        nameTextField.attributedPlaceholder = NSAttributedString(string: "N/A", attributes: [NSForegroundColorAttributeName: UIColor.white])
         emailTextField.attributedPlaceholder = NSAttributedString(string: "EMAIL", attributes: [NSForegroundColorAttributeName: UIColor.white])
         passTextField.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes: [NSForegroundColorAttributeName: UIColor.white])
         
@@ -70,11 +69,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         if isSignIn {
             signInButton.setTitle("Sign In", for: .normal)
             nameTextField.isUserInteractionEnabled = false
-            nameTextField.placeholder = "N/A"
+            nameTextField.attributedPlaceholder = NSAttributedString(string: "N/A", attributes: [NSForegroundColorAttributeName: UIColor.white])
         } else {
             signInButton.setTitle("Sign Up with Email", for: .normal)
             nameTextField.isUserInteractionEnabled = true
-            nameTextField.placeholder = "First and Last Name"
+            nameTextField.attributedPlaceholder = NSAttributedString(string: "USERNAME", attributes: [NSForegroundColorAttributeName: UIColor.white])
         }
     }
     
