@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		100259311F3F6EB400E4E8B6 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100259301F3F6EB400E4E8B6 /* ProfileTableViewCell.swift */; };
 		100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100E28FA1EE8BC4A00D16376 /* TabBarController.swift */; };
 		101483561EE77508005B5307 /* GeneralCourseSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101483551EE77508005B5307 /* GeneralCourseSelector.swift */; };
 		1015B6001F23F1D800628816 /* SlideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1015B5FF1F23F1D800628816 /* SlideBarTableViewController.swift */; };
@@ -35,7 +36,6 @@
 		10D5956E1EDA317B00572D38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D5956C1EDA317B00572D38 /* Main.storyboard */; };
 		10D595701EDA317B00572D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D5956F1EDA317B00572D38 /* Assets.xcassets */; };
 		10D595731EDA317B00572D38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D595711EDA317B00572D38 /* LaunchScreen.storyboard */; };
-		10DC0D201F23A0E5007036F8 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC0D1F1F23A0E5007036F8 /* ProfileTableViewController.swift */; };
 		10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC3C651EE70FE300CA2B70 /* ScorecardScroll.swift */; };
 		10DF39CB1EE7BFFD003D8D6B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DF39CA1EE7BFFD003D8D6B /* AdSupport.framework */; };
 		10F81DD21F2FFEB1004F1672 /* CourseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F81DD11F2FFEB1004F1672 /* CourseInfoViewController.swift */; };
@@ -98,6 +98,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		100259301F3F6EB400E4E8B6 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		100E28FA1EE8BC4A00D16376 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		101483551EE77508005B5307 /* GeneralCourseSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralCourseSelector.swift; sourceTree = "<group>"; };
 		1015B5FF1F23F1D800628816 /* SlideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideBarTableViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +133,6 @@
 		10D5956F1EDA317B00572D38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10D595721EDA317B00572D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10D595741EDA317B00572D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10DC0D1F1F23A0E5007036F8 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		10DC3C651EE70FE300CA2B70 /* ScorecardScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScorecardScroll.swift; sourceTree = "<group>"; };
 		10DF39CA1EE7BFFD003D8D6B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		10F81DD11F2FFEB1004F1672 /* CourseInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseInfoViewController.swift; sourceTree = "<group>"; };
@@ -333,9 +333,9 @@
 			isa = PBXGroup;
 			children = (
 				99167D3E1F35195300EB0766 /* SettingsTableViewController.swift */,
-				10DC0D1F1F23A0E5007036F8 /* ProfileTableViewController.swift */,
 				101CA7151F2434DB00C61B07 /* MyCoursesTableViewCell.swift */,
 				10F81DD31F300283004F1672 /* CourseInfoTableViewCell.swift */,
+				100259301F3F6EB400E4E8B6 /* ProfileTableViewCell.swift */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -464,7 +464,7 @@
 				TargetAttributes = {
 					10D595621EDA317B00572D38 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = SD3HFF44RZ;
+						DevelopmentTeam = 3535BPJH56;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -588,7 +588,6 @@
 				99C70A721F3BA6610008CF89 /* TextOnProfile.swift in Sources */,
 				101CA7161F2434DB00C61B07 /* MyCoursesTableViewCell.swift in Sources */,
 				10896FC41EE8D1B000C7B66E /* Course.swift in Sources */,
-				10DC0D201F23A0E5007036F8 /* ProfileTableViewController.swift in Sources */,
 				103BA8711EDA332800054449 /* LoginViewController.swift in Sources */,
 				99B174191EE7637F00A76B9B /* Scorecard2.swift in Sources */,
 				106375A91F2674FF006B4538 /* FloatyWindow.swift in Sources */,
@@ -620,6 +619,7 @@
 				99AFCF461F1FF1280012FAD1 /* SWRevealViewController.m in Sources */,
 				100E28FB1EE8BC4A00D16376 /* TabBarController.swift in Sources */,
 				9952C8C71F2FA4C5002DC493 /* profileBackground.swift in Sources */,
+				100259311F3F6EB400E4E8B6 /* ProfileTableViewCell.swift in Sources */,
 				99B633111EEEDA0300160704 /* CourseRound.swift in Sources */,
 				9987248A1EF607B000CF2FCA /* StatsViewController.swift in Sources */,
 				998A079C1F30168700D79287 /* CourseDatabaseViewController.swift in Sources */,
@@ -764,7 +764,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SD3HFF44RZ;
+				DEVELOPMENT_TEAM = 3535BPJH56;
 				INFOPLIST_FILE = MyCaddie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
@@ -782,7 +782,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SD3HFF44RZ;
+				DEVELOPMENT_TEAM = 3535BPJH56;
 				INFOPLIST_FILE = MyCaddie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
