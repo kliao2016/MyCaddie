@@ -10,8 +10,9 @@ import UIKit
 import FirebaseStorage
 import Firebase
 import FirebaseAuth
+import GoogleSignIn
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource  {
     
     var databaseRef = Database.database().reference()
 
@@ -21,6 +22,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func updatePicture(_ sender: Any) {
         handleSelectProfileImage()
     }
+    @IBOutlet weak var profileTableView: UITableView!
     
     
     let welcomeLabel = CATextLayer()
@@ -40,12 +42,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.profileTableView.rowHeight = self.profileTableView.frame.size.height / 5
+        
         sideMenus()
         customizeNavBar()
         
         var s = "N/A"
         var s2 = "N/A"
         var s3 = "N/A"
+        
+        profileTableView.delegate = self
+        profileTableView.dataSource = self
         
         let uid = Auth.auth().currentUser?.uid
         let lifetimeRef = self.ref.child("Users").child(uid!).child("Lifetime Stats")
@@ -369,6 +376,71 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.handicap = dictionary2["Handicap"] as! String
             }
         })
-        
     }
+    
+    // Table View functions
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var profileCell = profileTableView.dequeueReusableCell(withIdentifier: "profileCell") as! ProfileTableViewCell
+        if indexPath.row == 1 {
+            profileCell.profileCellLabel.text = "My Stats"
+            profileCell.profileCellImage.image = UIImage(named: "icons8-Statistics-50 (2)")
+            profileCell.contentView.backgroundColor = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+            profileCell.backgroundColor = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        }
+        if indexPath.row == 2 {
+            profileCell.profileCellLabel.text = "My Rounds"
+            profileCell.profileCellImage.image = UIImage(named: "icons8-Golf Bag-50 (1)")
+        }
+        if indexPath.row == 3 {
+            profileCell.profileCellLabel.text = "Settings"
+            profileCell.profileCellImage.image = UIImage(named: "icons8-Vertical Settings Mixer-50 (2)")
+            profileCell.contentView.backgroundColor = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+            profileCell.backgroundColor = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        }
+        if indexPath.row == 4 {
+            profileCell.profileCellLabel.text = "Log Out"
+            profileCell.profileCellImage.image = UIImage(named: "icons8-Trekking-50 (2)")
+        }
+        
+        return profileCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            self.performSegue(withIdentifier: "profileToNewRoundSegue", sender: self)
+        } else if indexPath.row == 1 {
+            self.performSegue(withIdentifier: "profileToStatsSegue", sender: self)
+        } else if indexPath.row == 2 {
+            self.performSegue(withIdentifier: "profileToMyCoursesSegue", sender: self)
+        } else if indexPath.row == 3 {
+            self.performSegue(withIdentifier: "profileToSettingsSegue", sender: self)
+        } else {
+            handleLogout()
+        }
+    }
+    
+    func handleLogout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+        GIDSignIn.sharedInstance().signOut()
+        
+        self.performSegue(withIdentifier: "unwindToLoginFromProfile", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "profileToNewRoundSegue" {
+            let desinationVC = segue.destination as! CourseDatabaseViewController
+            desinationVC.navigationItem.title = "Choose a Course"
+        }
+    }
+    
 }
