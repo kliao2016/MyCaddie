@@ -35,8 +35,6 @@ class MyStatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        drawLine()
-        
         sideMenus()
         customizeNavBar()
         
@@ -50,11 +48,13 @@ class MyStatsViewController: UIViewController {
         let ground = backgroundGradient(frame: back)
         view.addSubview(ground)
         
-        let when = DispatchTime.now() + 0.2 // change 2 to desired number of seconds
+        // Load
+//        let loadRec = CGRect(x: 140, y: 250, width: 100, height: 100)
+//        let tangle = loadingCircle(frame: loadRec)
+//        view.addSubview(tangle)
         
-        DispatchQueue.main.asyncAfter(deadline: when) {
-        
-        
+        drawLine()
+            
             // Row Labels
             
             let label00 = UILabel(frame: CGRect(x: 0, y: 0, width: 110, height: 21))
@@ -77,6 +77,10 @@ class MyStatsViewController: UIViewController {
             labelY.text = "Penalties"
             labelY.textColor = UIColor.init(red: 50/255, green: 150/255, blue: 100/255, alpha: 1)
             self.view.addSubview(labelY)
+        
+        let when = DispatchTime.now() + 1 // change to desired number of seconds
+        
+        DispatchQueue.main.asyncAfter(deadline: when) {
             
             // Top Top
             let rect0 = CGRect(x: 134, y: 100, width: 110, height: 110)
@@ -217,7 +221,7 @@ class MyStatsViewController: UIViewController {
             //alertButton.target = revealViewController()
             //alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
             
-            //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     

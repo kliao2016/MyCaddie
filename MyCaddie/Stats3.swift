@@ -36,6 +36,17 @@ class Stats3: UIViewController {
     var parsOfCourse = [String]()
     var yardagesOfCourse = [String]()
     
+    // All buttons on screen
+    @IBOutlet weak var rightButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var fairwayButton: UIButton!
+    @IBOutlet weak var greenButton: UIButton!
+    @IBOutlet weak var gbunkerButton: UIButton!
+    @IBOutlet weak var fbunkerButton: UIButton!
+    @IBOutlet weak var hazardButton: UIButton!
+    @IBOutlet weak var obButton: UIButton!
+    @IBOutlet weak var flagButton: UIButton!
+    
     // Label text to change every shot
     @IBOutlet weak var ShotNumberText: UILabel!
     // currentScore Display
@@ -58,7 +69,7 @@ class Stats3: UIViewController {
         
         // Initial text
         //ShotNumberText.text = "Where was your first shot?"
-        Actual.text = "0"
+        Actual.text = "1"
         
         HoleNumber.text = "#"
         
@@ -119,12 +130,15 @@ class Stats3: UIViewController {
     func puttPopUp() {
         let popUp = UIAlertController(title: "How many putts did you have?", message: nil, preferredStyle: .alert)
         popUp.addTextField { (textField) in
+            textField.keyboardType = UIKeyboardType.numberPad
             textField.text = nil
         }
         
         popUp.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [popUp] (_) in
-            let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
+            let textField = popUp.textFields![0] // Force Unwrapping
+            let actualText = Int((textField.text)!)
             
+            if (actualText != nil){
             self.putts = Int(textField.text!)!
             self.updateScore()
             self.holeStatistics.putt = self.putts
@@ -133,12 +147,19 @@ class Stats3: UIViewController {
             if self.currentHole >= 18 {
                 self.endRound()
                 self.deleteCurrentRound()
+                self.disableButtons()
                 
                 let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
                 DispatchQueue.main.asyncAfter(deadline: when) {
                     self.showMainView()
                 }
             }
+            }
+            else {
+                self.puttPopUp()
+            }
+        
+            
         }))
         
         self.present(popUp, animated: true, completion: nil)
@@ -214,9 +235,7 @@ class Stats3: UIViewController {
     }
     @IBAction func Hazard(_ sender: Any) {
         holeStatistics.hazards += 1
-        currentScore += 2
-        updateShotText()
-        updateUI()
+        hazardPopUp()
     }
     @IBAction func OB(_ sender: Any) {
         holeStatistics.obs += 1
@@ -236,6 +255,15 @@ class Stats3: UIViewController {
         updateShotText()
         updateUI()
     }
+    
+    @IBAction func redoShot(_ sender: Any) {
+        if currentScore > 0 {
+            currentScore -= 1
+            updateShotText()
+            updateUI()
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -280,7 +308,7 @@ class Stats3: UIViewController {
     }
     
     func updateUI(){
-        Actual.text = "\(currentScore)"
+        Actual.text = "\(currentScore + 1)"
         //ShotNumberText.text = "Where was your \(shotCount) shot?"
         if currentHole < 18 {
             self.HoleNumber.text = "\(currentHole + 1)"
@@ -306,6 +334,26 @@ class Stats3: UIViewController {
     func resetHoleStats(){
         holeStatistics = HoleStats()
         putts = 0
+    }
+    
+    func hazardPopUp() {
+        let popUp = UIAlertController(title: "Did you take a penalty stroke?", message: nil, preferredStyle: .alert)
+        
+        popUp.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [popUp] (_) in
+            self.currentScore += 2
+            self.updateShotText()
+            self.updateUI()
+            popUp.dismiss(animated: true, completion: nil)
+        }))
+        
+        popUp.addAction(UIAlertAction(title: "No", style: .default, handler: { [popUp] (_) in
+            self.currentScore += 1
+            self.updateShotText()
+            self.updateUI()
+            popUp.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(popUp, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -378,6 +426,14 @@ class Stats3: UIViewController {
             print(self.currentRound)
             
         })
+    }
+    
+    func disableButtons() {
+        let allButtons: [UIButton] = [self.rightButton, self.leftButton, self.fairwayButton, self.greenButton, self.gbunkerButton, self.fbunkerButton, self.hazardButton, self.obButton, self.flagButton]
+        for button in allButtons {
+            button.isUserInteractionEnabled = false
+            button.isEnabled = false
+        }
     }
     
     func endRound(){

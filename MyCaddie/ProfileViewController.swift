@@ -59,7 +59,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         retrieveStats(lifetimeRef: lifetimeRef)
         
-        let when = DispatchTime.now() + 0.2 // change 2 to desired number of seconds
+        let when = DispatchTime.now() + 0.5 // change to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             s = "\(self.lifetimeScore)"
             s2 = "\(self.handicap)"
