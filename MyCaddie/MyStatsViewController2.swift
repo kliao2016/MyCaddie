@@ -1,8 +1,9 @@
 //
-//  MyStatsViewController.swift
+//
+//  MyStatsViewController2.swift
 //  MyCaddie
 //
-//  Created by Weston Mauz on 7/19/17.
+//  Created by Kevin Liao on 8/12/17.
 //  Copyright © 2017 Liao & Mauz. All rights reserved.
 //
 
@@ -11,11 +12,9 @@ import FirebaseStorage
 import Firebase
 import FirebaseAuth
 
-class MyStatsViewController: UIViewController {
+class MyStatsViewController2: UIViewController {
     
     weak var line1: CAShapeLayer?
-
-    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     // Lifetime Stats
     var lifetimeFairwayBunkers = 0
@@ -37,9 +36,6 @@ class MyStatsViewController: UIViewController {
         
         drawLine()
         
-        sideMenus()
-        customizeNavBar()
-        
         let uid = Auth.auth().currentUser?.uid
         let lifetimeRef = self.ref.child("Users").child(uid!).child("Lifetime Stats")
         
@@ -53,8 +49,8 @@ class MyStatsViewController: UIViewController {
         let when = DispatchTime.now() + 0.2 // change 2 to desired number of seconds
         
         DispatchQueue.main.asyncAfter(deadline: when) {
-        
-        
+            
+            
             // Row Labels
             
             let label00 = UILabel(frame: CGRect(x: 0, y: 0, width: 110, height: 21))
@@ -199,32 +195,10 @@ class MyStatsViewController: UIViewController {
             self.view.addSubview(label9)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func sideMenus(){
-        
-        if revealViewController() != nil {
-            
-            menuButton.target = revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            revealViewController().rearViewRevealWidth = 275
-            revealViewController().rightViewRevealWidth = 160
-            
-            //alertButton.target = revealViewController()
-            //alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
-            
-            //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-    }
-    
-    func customizeNavBar(){
-        navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
-        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
     func retrieveStats(lifetimeRef: DatabaseReference) {
@@ -344,5 +318,6 @@ class MyStatsViewController: UIViewController {
         
         self.line1 = line1
     }
-
+    
 }
+

@@ -25,6 +25,10 @@
 		1090B9871F22F764002F678E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090B9861F22F764002F678E /* Extensions.swift */; };
 		1090B98B1F22FE53002F678E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090B98A1F22FE53002F678E /* User.swift */; };
 		109F1DDD1F37C53700630325 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109F1DDC1F37C53700630325 /* Main.swift */; };
+		10BAE92B1F3FAB3400F7F391 /* MyCoursesViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BAE92A1F3FAB3400F7F391 /* MyCoursesViewController2.swift */; };
+		10BAE92D1F3FADE100F7F391 /* MyStatsViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BAE92C1F3FADE100F7F391 /* MyStatsViewController2.swift */; };
+		10BAE92F1F3FAFE800F7F391 /* SettingsTableViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BAE92E1F3FAFE800F7F391 /* SettingsTableViewController2.swift */; };
+		10BAE9311F3FB11700F7F391 /* CreateViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BAE9301F3FB11700F7F391 /* CreateViewController2.swift */; };
 		10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6BDD51EF615AA00C6E576 /* Stats3.swift */; };
 		10D595671EDA317B00572D38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D595661EDA317B00572D38 /* AppDelegate.swift */; };
 		10D5956E1EDA317B00572D38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D5956C1EDA317B00572D38 /* Main.storyboard */; };
@@ -113,6 +117,10 @@
 		1090B9861F22F764002F678E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1090B98A1F22FE53002F678E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		109F1DDC1F37C53700630325 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		10BAE92A1F3FAB3400F7F391 /* MyCoursesViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCoursesViewController2.swift; sourceTree = "<group>"; };
+		10BAE92C1F3FADE100F7F391 /* MyStatsViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStatsViewController2.swift; sourceTree = "<group>"; };
+		10BAE92E1F3FAFE800F7F391 /* SettingsTableViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController2.swift; sourceTree = "<group>"; };
+		10BAE9301F3FB11700F7F391 /* CreateViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController2.swift; sourceTree = "<group>"; };
 		10C6BDD51EF615AA00C6E576 /* Stats3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats3.swift; sourceTree = "<group>"; };
 		10D595631EDA317B00572D38 /* MyCaddie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCaddie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D595661EDA317B00572D38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -294,6 +302,10 @@
 				998A079B1F30168700D79287 /* CourseDatabaseViewController.swift */,
 				10F81DD11F2FFEB1004F1672 /* CourseInfoViewController.swift */,
 				10594C981F3B94D1009B8D8E /* CourseTeeSelector.swift */,
+				10BAE92E1F3FAFE800F7F391 /* SettingsTableViewController2.swift */,
+				10BAE92C1F3FADE100F7F391 /* MyStatsViewController2.swift */,
+				10BAE92A1F3FAB3400F7F391 /* MyCoursesViewController2.swift */,
+				10BAE9301F3FB11700F7F391 /* CreateViewController2.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
 				99BCD82C1F2A853D007E09C0 /* Animation */,
 				99D313CD1F2125A90051B3BE /* Swipe Control */,
@@ -565,6 +577,7 @@
 				1090B98B1F22FE53002F678E /* User.swift in Sources */,
 				99BCD82E1F2A86AE007E09C0 /* mainScreenAnimation.swift in Sources */,
 				99C70A721F3BA6610008CF89 /* TextOnProfile.swift in Sources */,
+				10BAE92F1F3FAFE800F7F391 /* SettingsTableViewController2.swift in Sources */,
 				101CA7161F2434DB00C61B07 /* MyCoursesTableViewCell.swift in Sources */,
 				10896FC41EE8D1B000C7B66E /* Course.swift in Sources */,
 				103BA8711EDA332800054449 /* LoginViewController.swift in Sources */,
@@ -586,11 +599,14 @@
 				99B1741D1EE7755700A76B9B /* NewRound.swift in Sources */,
 				10594C991F3B94D1009B8D8E /* CourseTeeSelector.swift in Sources */,
 				106375A51F2674FF006B4538 /* FloatyDelegate.swift in Sources */,
+				10BAE92B1F3FAB3400F7F391 /* MyCoursesViewController2.swift in Sources */,
+				10BAE9311F3FB11700F7F391 /* CreateViewController2.swift in Sources */,
 				10DC3C661EE70FE300CA2B70 /* ScorecardScroll.swift in Sources */,
 				99C4E8891F3238E500B65DDC /* ContinueRound.swift in Sources */,
 				991FA8851EF3528900289D63 /* LoadingScreen.swift in Sources */,
 				99BCD82B1F2A605F007E09C0 /* CirclePath5.swift in Sources */,
 				1015B6001F23F1D800628816 /* SlideBarTableViewController.swift in Sources */,
+				10BAE92D1F3FADE100F7F391 /* MyStatsViewController2.swift in Sources */,
 				109F1DDD1F37C53700630325 /* Main.swift in Sources */,
 				99AFCF461F1FF1280012FAD1 /* SWRevealViewController.m in Sources */,
 				9952C8C71F2FA4C5002DC493 /* profileBackground.swift in Sources */,
