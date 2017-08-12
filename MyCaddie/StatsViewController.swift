@@ -33,8 +33,6 @@ class StatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        drawLine()
-        
         if (roundData?.cName != nil) {
             Score = String((roundData?.score)!)
             Fairways = String((roundData?.fairways)!)
@@ -54,32 +52,33 @@ class StatsViewController: UIViewController {
         let ground = backgroundGradient(frame: back)
         view.addSubview(ground)
         
-        let when = DispatchTime.now() + 0.2 // change 2 to desired number of seconds
-        
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            
+        drawLine()
         // Row Labels
-            
+        
         let label00 = UILabel(frame: CGRect(x: 0, y: 0, width: 110, height: 21))
         label00.center = CGPoint(x: 190, y: 245)
         label00.textAlignment = .center
         label00.text = "Scoring"
         label00.textColor = UIColor.init(red: 50/255, green: 150/255, blue: 100/255, alpha: 1)
         self.view.addSubview(label00)
-            
+        
         let labelX = UILabel(frame: CGRect(x: 0, y: 0, width: 110, height: 21))
         labelX.center = CGPoint(x: 190, y: 380)
         labelX.textAlignment = .center
         labelX.text = "Driving"
         labelX.textColor = UIColor.init(red: 50/255, green: 150/255, blue: 100/255, alpha: 1)
         self.view.addSubview(labelX)
-            
+        
         let labelY = UILabel(frame: CGRect(x: 0, y: 0, width: 110, height: 21))
         labelY.center = CGPoint(x: 190, y: 525)
         labelY.textAlignment = .center
         labelY.text = "Penalties"
         labelY.textColor = UIColor.init(red: 50/255, green: 150/255, blue: 100/255, alpha: 1)
         self.view.addSubview(labelY)
+        
+        let when = DispatchTime.now() + 1 // change to desired number of seconds
+        
+        DispatchQueue.main.asyncAfter(deadline: when) {
             
         // Top Top
         let rect0 = CGRect(x: 134, y: 100, width: 110, height: 110)

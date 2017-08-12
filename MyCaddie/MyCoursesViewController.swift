@@ -58,7 +58,7 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
             alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
  */
             
-            //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     

@@ -1409,14 +1409,14 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-hz-z0Y" userLabel="Right">
-                                <rect key="frame" x="183" y="169" width="192" height="498"/>
+                                <rect key="frame" x="285" y="594" width="90" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="Right:" destination="MD8-tT-bZU" eventType="touchUpInside" id="rtC-U0-ehe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXq-8R-t6T" userLabel="Left">
-                                <rect key="frame" x="0.0" y="169" width="188" height="499"/>
+                                <rect key="frame" x="0.0" y="594" width="96" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="Left:" destination="MD8-tT-bZU" eventType="touchUpInside" id="ppc-sE-LGa"/>
@@ -1447,7 +1447,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svs-nE-Mzj" userLabel="FBunker">
-                                <rect key="frame" x="260" y="422" width="60" height="128"/>
+                                <rect key="frame" x="271" y="374" width="68" height="176"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="FBunker"/>
                                 <connections>
@@ -1455,7 +1455,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Da-h3-WC5" userLabel="Hazard">
-                                <rect key="frame" x="12" y="436" width="91" height="150"/>
+                                <rect key="frame" x="8" y="411" width="91" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Hazard"/>
                                 <connections>
@@ -1463,7 +1463,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ih-3G-guP" userLabel="OB">
-                                <rect key="frame" x="-6" y="277" width="53" height="134"/>
+                                <rect key="frame" x="-6" y="240" width="53" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="OB">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1478,26 +1478,35 @@
                                 <state key="normal" image="flagstick"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9W-ZZ-8yN">
-                                <rect key="frame" x="8" y="334" width="24" height="21"/>
+                                <rect key="frame" x="8" y="297" width="24" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3q9-uW-6O2">
-                                <rect key="frame" x="58" y="610" width="10" height="21"/>
+                                <rect key="frame" x="37" y="619" width="10" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEW-AP-qea">
-                                <rect key="frame" x="285" y="610" width="11" height="21"/>
+                                <rect key="frame" x="328" y="620" width="11" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DtG-dd-OAS">
+                                <rect key="frame" x="11" y="155" width="50" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" image="icons8-Return-50"/>
+                                <connections>
+                                    <action selector="redoShot:" destination="MD8-tT-bZU" eventType="touchUpInside" id="vss-rp-3Df"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1529,10 +1538,10 @@
             </objects>
             <point key="canvasLocation" x="1616.8" y="1505.3973013493255"/>
         </scene>
-        <!--Stats View Controller-->
+        <!--Round Stats-->
         <scene sceneID="3f0-IV-08I">
             <objects>
-                <viewController storyboardIdentifier="StatsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9fQ-bo-r5k" customClass="StatsViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StatsViewController" title="Round Stats" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9fQ-bo-r5k" customClass="StatsViewController" customModule="MyCaddie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q3E-6Q-DfZ"/>
                         <viewControllerLayoutGuide type="bottom" id="J5S-Uz-gfJ"/>
@@ -4368,14 +4377,14 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-s4-nRa" userLabel="Right">
-                                <rect key="frame" x="183" y="169" width="192" height="498"/>
+                                <rect key="frame" x="282" y="594" width="93" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="Right:" destination="WsP-zc-HL4" eventType="touchUpInside" id="BAh-V8-goi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtS-fV-A6i" userLabel="Left">
-                                <rect key="frame" x="0.0" y="169" width="188" height="499"/>
+                                <rect key="frame" x="0.0" y="594" width="84" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="Left:" destination="WsP-zc-HL4" eventType="touchUpInside" id="AUS-oL-vdG"/>
@@ -4406,7 +4415,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1G-Fd-8fg" userLabel="FBunker">
-                                <rect key="frame" x="260" y="422" width="60" height="128"/>
+                                <rect key="frame" x="271" y="393" width="64" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="FBunker"/>
                                 <connections>
@@ -4414,7 +4423,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsZ-oa-30I" userLabel="Hazard">
-                                <rect key="frame" x="12" y="436" width="91" height="150"/>
+                                <rect key="frame" x="8" y="400" width="91" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Hazard"/>
                                 <connections>
@@ -4422,7 +4431,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxi-rB-N5k" userLabel="OB">
-                                <rect key="frame" x="-6" y="277" width="53" height="134"/>
+                                <rect key="frame" x="-6" y="248" width="53" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="OB">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -4437,26 +4446,35 @@
                                 <state key="normal" image="flagstick"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb4-Lx-RNO">
-                                <rect key="frame" x="8" y="334" width="24" height="21"/>
+                                <rect key="frame" x="8" y="305" width="24" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mws-n1-M1p">
-                                <rect key="frame" x="44" y="632" width="10" height="21"/>
+                                <rect key="frame" x="37" y="621" width="10" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbS-8d-pHR">
-                                <rect key="frame" x="309" y="632" width="11" height="21"/>
+                                <rect key="frame" x="324" y="626" width="11" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceZ-Cl-PJY">
+                                <rect key="frame" x="16" y="158" width="50" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" image="icons8-Return-50"/>
+                                <connections>
+                                    <action selector="redoShot:" destination="WsP-zc-HL4" eventType="touchUpInside" id="Ylg-xL-ecZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -4466,11 +4484,20 @@
                         <outlet property="HolePar" destination="u3u-q5-A2o" id="YVJ-Zb-TAT"/>
                         <outlet property="HoleYardage" destination="j1q-rp-uGM" id="rxp-CG-iSQ"/>
                         <outlet property="ShotNumberText" destination="0EG-Gb-qca" id="vE0-4b-DWW"/>
+                        <outlet property="fairwayButton" destination="3fT-g4-V6f" id="mZW-IX-fXX"/>
+                        <outlet property="fbunkerButton" destination="T1G-Fd-8fg" id="s5t-cD-6qr"/>
+                        <outlet property="flagButton" destination="fBS-Px-RLc" id="4Kh-yo-W2t"/>
+                        <outlet property="gbunkerButton" destination="1gB-0p-iev" id="Car-aO-uX5"/>
+                        <outlet property="greenButton" destination="SGq-Q5-OvX" id="5jw-mw-wAz"/>
+                        <outlet property="hazardButton" destination="RsZ-oa-30I" id="Qnx-8H-9G4"/>
+                        <outlet property="leftButton" destination="mtS-fV-A6i" id="YLl-IG-Qxh"/>
+                        <outlet property="obButton" destination="Sxi-rB-N5k" id="CAK-TU-mfa"/>
+                        <outlet property="rightButton" destination="hYH-s4-nRa" id="yid-ak-A9r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="11u-jU-3DL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="3910"/>
+            <point key="canvasLocation" x="2120.8000000000002" y="3909.8950524737634"/>
         </scene>
     </scenes>
     <resources>

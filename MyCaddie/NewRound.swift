@@ -21,6 +21,19 @@ class NewRound: UIViewController {
     var tees = ""
     var currentRound = 1
     
+    // Creating a Stack because why not
+    struct Stack {
+        fileprivate var array: [Int] = []
+        mutating func push(_ element: Int) {
+            // 2
+            array.append(element)
+        }
+        mutating func pop() -> Int? {
+            // 2
+            return array.popLast()
+        }
+    }
+    
     var ref = Database.database().reference()
     
     // Lifetime Stats
@@ -74,6 +87,7 @@ class NewRound: UIViewController {
     var putts = Int()
     var currentHole = Int()
     var currentScore = Int()
+    var statStack = Stack()
 
     override func viewDidLoad() {
         
@@ -81,7 +95,7 @@ class NewRound: UIViewController {
         
         // Initial text
         //ShotNumberText.text = "Where was your first shot?"
-        Actual.text = "0"
+        Actual.text = "1"
         
         HoleNumber.text = "1"
         
@@ -184,7 +198,7 @@ class NewRound: UIViewController {
     }
     
     func checkIfUserWantsToCancelRound() {
-        let popUp = UIAlertController(title: "Are you sure you want to go back? Going back will delete your data for this current round.", message: nil, preferredStyle: .alert)
+        let popUp = UIAlertController(title: "Are you sure? Going back will delete your data for the current round.", message: nil, preferredStyle: .alert)
         
         popUp.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [popUp] (_) in
             self.deleteCurrentRound()
@@ -196,6 +210,26 @@ class NewRound: UIViewController {
         }))
         
         popUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [popUp] (_) in
+            popUp.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(popUp, animated: true, completion: nil)
+    }
+    
+    func hazardPopUp() {
+        let popUp = UIAlertController(title: "Did you take a penalty stroke?", message: nil, preferredStyle: .alert)
+        
+        popUp.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [popUp] (_) in
+            self.currentScore += 2
+            self.updateShotText()
+            self.updateUI()
+            popUp.dismiss(animated: true, completion: nil)
+        }))
+        
+        popUp.addAction(UIAlertAction(title: "No", style: .default, handler: { [popUp] (_) in
+            self.currentScore += 1
+            self.updateShotText()
+            self.updateUI()
             popUp.dismiss(animated: true, completion: nil)
         }))
         
@@ -214,24 +248,22 @@ class NewRound: UIViewController {
         currentScore += 1
         updateUI()
         puttPopUp()
+        statStack.push(0)
     }
-//    @IBAction func Fringe(_ sender: Any) {
-//        holeStatistics.fringes += 1
-//        currentScore += 1
-//        updateShotText()
-//        updateUI()
-//    }
+
     @IBAction func GreenSand(_ sender: Any) {
         holeStatistics.greenBunkers += 1
         currentScore += 1
         updateShotText()
         updateUI()
+        statStack.push(1)
     }
     @IBAction func FairwaySand(_ sender: Any) {
         holeStatistics.fairwayBunkers += 1
         currentScore += 1
         updateShotText()
         updateUI()
+        statStack.push(2)
     }
     @IBAction func Fairway(_ sender: Any) {
         if currentScore == 0 {
@@ -240,31 +272,101 @@ class NewRound: UIViewController {
         currentScore += 1
         updateShotText()
         updateUI()
+        statStack.push(3)
     }
     @IBAction func Hazard(_ sender: Any) {
         holeStatistics.hazards += 1
-        currentScore += 2
-        updateShotText()
-        updateUI()
+        hazardPopUp()
+        statStack.push(4)
     }
     @IBAction func OB(_ sender: Any) {
         holeStatistics.obs += 1
         currentScore += 2
         updateShotText()
         updateUI()
+        statStack.push(5)
     }
     @IBAction func Right(_ sender: Any) {
         holeStatistics.rights = 1
         currentScore += 1
         updateShotText()
         updateUI()
+        statStack.push(6)
     }
     @IBAction func Left(_ sender: Any) {
         holeStatistics.lefts = 1
         currentScore += 1
         updateShotText()
         updateUI()
+        statStack.push(7)
     }
+    
+    @IBAction func redoShot(_ sender: Any) {
+        if currentScore > 0 {
+            currentScore -= 1
+            updateShotText()
+            updateUI()
+        }
+        let lastShot = Int(statStack.pop()!)
+        
+        // Green
+        
+        if (lastShot == 0){
+            if (holeStatistics.greensInReg != 0){
+                holeStatistics.greensInReg -= 1
+            }
+        }
+        
+        // GreenSand
+        
+        if (lastShot == 1){
+            holeStatistics.greenBunkers -= 1
+        }
+        
+        // FairwaySand
+        
+        if (lastShot == 2){
+            holeStatistics.fairwayBunkers -= 1
+        }
+        
+        // Fairway
+        
+        if (lastShot == 3){
+            if currentScore == 1 {
+                holeStatistics.fairways -= 1
+            }
+        }
+        
+        // Hazard
+        
+        if (lastShot == 4){
+            
+        }
+        
+        // OB
+        
+        if (lastShot == 5){
+            holeStatistics.obs -= 1
+        }
+        
+        // Right
+        
+        if (lastShot == 6){
+            if currentScore == 1 {
+                holeStatistics.rights -= 1
+            }
+        }
+        
+        // Left
+        
+        if (lastShot == 7){
+            if currentScore == 1 {
+                holeStatistics.lefts -= 1
+            }
+        }
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -309,7 +411,7 @@ class NewRound: UIViewController {
     }
     
     func updateUI(){
-        Actual.text = "\(currentScore)"
+        Actual.text = "\(currentScore + 1)"
         //ShotNumberText.text = "Where was your \(shotCount) shot?"
         if currentHole < 18 {
             self.HoleNumber.text = "\(currentHole + 1)"

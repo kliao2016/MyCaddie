@@ -54,7 +54,7 @@ class SettingsViewController: UIViewController {
             alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
  */
             
-            //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     

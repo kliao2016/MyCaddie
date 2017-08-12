@@ -61,9 +61,6 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
     @IBOutlet weak var seg18: UISegmentedControl!
     
     
-    
-    
-    
     @IBAction func cancelAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
