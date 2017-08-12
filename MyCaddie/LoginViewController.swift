@@ -16,14 +16,11 @@ import Firebase
 class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var passTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var signInControl: UISegmentedControl!
-    
     @IBOutlet weak var signInButton: UIButton!
-    
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var googleSignInButton: GIDSignInButton!
     
     var databaseRef: DatabaseReference?
     let main = Main()
@@ -46,6 +43,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         // GIDSignIn.sharedInstance().signInSilently()
         
         signInButton.backgroundColor = UIColor(red: 0, green: 128/255, blue: 64/255, alpha: 1.0)
+        signInButton.layer.cornerRadius = 1.5
         
         nameTextField.attributedPlaceholder = NSAttributedString(string: "N/A", attributes: [NSForegroundColorAttributeName: UIColor.white])
         emailTextField.attributedPlaceholder = NSAttributedString(string: "EMAIL", attributes: [NSForegroundColorAttributeName: UIColor.white])
