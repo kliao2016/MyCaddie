@@ -437,8 +437,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profileToNewRoundSegue" {
-            let desinationVC = segue.destination as! CourseDatabaseViewController
-            desinationVC.navigationItem.title = "Choose a Course"
+            let destinationVC = segue.destination as! CourseDatabaseViewController
+            destinationVC.navigationItem.title = "Choose a Course"
         }
     }
     

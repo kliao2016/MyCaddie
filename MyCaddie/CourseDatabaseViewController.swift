@@ -88,11 +88,17 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
             let indexPath = self.courseDatabaseTable.indexPathForSelectedRow
             teeView.teeParentCourseName = courses[(indexPath?.row)!]
         }
+        
+        // For GPS function coming in the future
+        
+        /*
         if segue.identifier == "findCourseToTeeSegue" {
             let teeView = segue.destination as! GeneralTeeSelector
             
             teeView.teeParentCourseName = self.selectedCourseName
         }
+        */
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

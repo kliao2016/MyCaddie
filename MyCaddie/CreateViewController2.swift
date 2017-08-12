@@ -1,8 +1,8 @@
 //
-//  CreateViewController.swift
-//  
+//  CreateViewController2.swift
 //
-//  Created by Weston Mauz on 5/31/17.
+//
+//  Created by Kevin Liao on 8/12/17.
 //
 //
 
@@ -12,13 +12,11 @@ import FirebaseDatabase
 import UIKit
 
 
-class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class CreateViewController2: UIViewController, UIApplicationDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let ref = Database.database().reference()
     let tees = ["Championship", "Men's", "Women's", "Senior"]
     var pars = ["4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4"]
-    
-    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     // Yardage textfields
     @IBOutlet weak var y1: UITextField!
@@ -311,7 +309,7 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         self.courseName.delegate = self
         self.courseRating.delegate = self
         self.slope.delegate = self
-
+        
         y1.keyboardType = UIKeyboardType.numberPad
         y2.keyboardType = UIKeyboardType.numberPad
         y3.keyboardType = UIKeyboardType.numberPad
@@ -355,9 +353,6 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         self.seg16.selectedSegmentIndex = 1
         self.seg17.selectedSegmentIndex = 1
         self.seg18.selectedSegmentIndex = 1
-        
-        sideMenus()
-        customizeNavBar()
         
         // Bind textfield to picker
         dropTextBox.inputView = teePicker
@@ -458,7 +453,7 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         let valid = checkFields()
         
         if valid == true {
-        
+            
             let uid = Auth.auth().currentUser?.uid
             let userReference = self.ref.child("Users").child(uid!)
             let generalDataReference = self.ref.child("Golf Course Data")
@@ -468,12 +463,12 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
             generalDataReference.child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(ratingData)
             
             /*
-            // Course Rating Upload
-            self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(["Rating": courseRating.text!])
-            
-            // Slope Upload
-            self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(["Slope": slope.text!])
-            */
+             // Course Rating Upload
+             self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(["Rating": courseRating.text!])
+             
+             // Slope Upload
+             self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(["Slope": slope.text!])
+             */
             
             // Hole Yardage Data Structure
             let holeData : [String: AnyObject] = ["1": y1.text as AnyObject, "2": y2.text as AnyObject, "3": y3.text as AnyObject, "4": y4.text as AnyObject,"5": y5.text as AnyObject, "6": y6.text as AnyObject, "7": y7.text as AnyObject, "8": y7.text as AnyObject,"9": y9.text as AnyObject, "10": y10.text as AnyObject, "11": y11.text as AnyObject, "12": y12.text as AnyObject,"13": y3.text as AnyObject, "14": y14.text as AnyObject, "15": y15.text as AnyObject, "16": y16.text as AnyObject, "17": y17.text as AnyObject, "18": y18.text as AnyObject]
@@ -489,7 +484,6 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
             //userReference.child("Courses").child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
             generalDataReference.child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
             displaySuccess()
-            
         } else {
             displayAlert()
         }
@@ -590,7 +584,7 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         if y18.text == "" {
             return false
         }
-    
+        
         return true
         
     }
@@ -619,30 +613,6 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         self.view.endEditing(false)
     }
     
-    func sideMenus() {
-        
-        if revealViewController() != nil {
-            
-            menuButton.target = revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            revealViewController().rearViewRevealWidth = 275
-            revealViewController().rightViewRevealWidth = 160
-            
-            /*
-            alertButton.target = revealViewController()
-            alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
-            */
-            
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-    }
-    
-    func customizeNavBar() {
-        navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
-        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-    }
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let allowedCharacters = CharacterSet.letters
         let characterSet = CharacterSet(charactersIn: string)
@@ -663,3 +633,4 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
     }
     
 }
+

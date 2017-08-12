@@ -100,17 +100,7 @@ class CourseTeeSelector: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func showCreateCourse() {
-        let createCourseView = storyboard?.instantiateViewController(withIdentifier: "CreateCourseView")
-        createCourseView?.navigationItem.title = "Create a Course"
-        self.show(createCourseView!, sender: self)
-    }
-    
-    func seniorCreateCourse() {
-        let createCourseView = storyboard?.instantiateViewController(withIdentifier: "CreateCourseView") as! CreateViewController
-        createCourseView.navigationItem.title = "Create a Course"
-        createCourseView.dropTextBox?.text = "Senior"
-        createCourseView.courseName?.text = self.teeParentCourseName
-        self.show(createCourseView, sender: self)
+        self.performSegue(withIdentifier: "teeToCreateSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
