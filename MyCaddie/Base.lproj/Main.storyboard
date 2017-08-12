@@ -1755,27 +1755,40 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="249"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="fa8-VV-5Nu">
-                                    <rect key="frame" x="63" y="50" width="155.5" height="155.5"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phG-DT-c1K">
+                                    <rect key="frame" x="0.0" y="0.0" width="275" height="249"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="fa8-VV-5Nu">
+                                            <rect key="frame" x="44.5" y="30.5" width="186" height="186.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="fa8-VV-5Nu" secondAttribute="height" multiplier="1:1" id="cpD-cX-M3Y"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKm-TW-1Vc">
+                                            <rect key="frame" x="115" y="222" width="45" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" secondItem="fa8-VV-5Nu" secondAttribute="height" multiplier="1:1" id="cpD-cX-M3Y"/>
+                                        <constraint firstItem="fa8-VV-5Nu" firstAttribute="centerX" secondItem="phG-DT-c1K" secondAttribute="centerX" id="9YB-bZ-k9Q"/>
+                                        <constraint firstItem="fa8-VV-5Nu" firstAttribute="centerY" secondItem="phG-DT-c1K" secondAttribute="centerY" id="i4T-LU-piq"/>
+                                        <constraint firstItem="hKm-TW-1Vc" firstAttribute="top" secondItem="fa8-VV-5Nu" secondAttribute="bottom" constant="5" id="l4p-zS-plr"/>
+                                        <constraint firstAttribute="width" constant="275" id="lHw-XB-hiw"/>
+                                        <constraint firstItem="hKm-TW-1Vc" firstAttribute="centerX" secondItem="phG-DT-c1K" secondAttribute="centerX" id="nVX-ei-cZ5"/>
+                                        <constraint firstItem="fa8-VV-5Nu" firstAttribute="height" secondItem="phG-DT-c1K" secondAttribute="height" multiplier="15/20" id="z0c-cL-Ren"/>
                                     </constraints>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKm-TW-1Vc">
-                                    <rect key="frame" x="118.5" y="213.5" width="45" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstItem="fa8-VV-5Nu" firstAttribute="leading" secondItem="h3H-8e-ZTI" secondAttribute="leading" constant="63" id="Gbs-9m-L76"/>
-                                <constraint firstItem="fa8-VV-5Nu" firstAttribute="top" secondItem="h3H-8e-ZTI" secondAttribute="top" constant="50" id="Y3H-SH-20i"/>
-                                <constraint firstItem="hKm-TW-1Vc" firstAttribute="top" secondItem="fa8-VV-5Nu" secondAttribute="bottom" constant="8" symbolic="YES" id="cLn-Y4-jjY"/>
-                                <constraint firstItem="fa8-VV-5Nu" firstAttribute="height" secondItem="h3H-8e-ZTI" secondAttribute="height" multiplier="5/8" id="sBu-6o-BkT"/>
-                                <constraint firstItem="fa8-VV-5Nu" firstAttribute="centerX" secondItem="hKm-TW-1Vc" secondAttribute="centerX" id="v81-7n-aCJ"/>
+                                <constraint firstAttribute="bottom" secondItem="phG-DT-c1K" secondAttribute="bottom" id="0cu-Eu-q18"/>
+                                <constraint firstItem="phG-DT-c1K" firstAttribute="top" secondItem="h3H-8e-ZTI" secondAttribute="top" id="2sx-kS-jKv"/>
+                                <constraint firstItem="phG-DT-c1K" firstAttribute="height" secondItem="h3H-8e-ZTI" secondAttribute="height" id="eyr-Kb-usP"/>
+                                <constraint firstItem="phG-DT-c1K" firstAttribute="leading" secondItem="h3H-8e-ZTI" secondAttribute="leading" id="icZ-cf-rbM"/>
                             </constraints>
                         </view>
                         <sections>

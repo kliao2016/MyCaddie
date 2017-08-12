@@ -23,10 +23,19 @@ class SlideBarTableViewController: UITableViewController, UIImagePickerControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.slideBarView.frame.size.height = self.tableView.frame.size.height / 3
+        
         self.tableView.tableFooterView = UIView(frame: .zero)
         profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
         profileImage.isUserInteractionEnabled = true
+        
         loadProfileImage()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.profileImage.contentMode = .scaleAspectFill
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height / 2
+        self.profileImage.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,9 +75,6 @@ class SlideBarTableViewController: UITableViewController, UIImagePickerControlle
     }
     
     func loadProfileImage() {
-        self.profileImage.contentMode = .scaleAspectFill
-        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
-        self.profileImage.clipsToBounds = true
         if let uid = Auth.auth().currentUser?.uid {
             let user = databaseRef.child("Users").child(uid)
             user.observeSingleEvent(of: .value, with: { (snapshot) in
