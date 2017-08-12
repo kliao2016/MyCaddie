@@ -483,12 +483,19 @@ class CreateViewController2: UIViewController, UIApplicationDelegate, UIPickerVi
             // Par Upload
             //userReference.child("Courses").child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
             generalDataReference.child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
-            
-            dismiss(animated: true, completion: nil)
-        }
-        else {
+            displaySuccess()
+        } else {
             displayAlert()
         }
+    }
+    
+    func displaySuccess() {
+        let alertController = UIAlertController(title: "Yay!", message: "Your course has been added to our database!", preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func displayAlert() {

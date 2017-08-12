@@ -459,41 +459,49 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         
         if valid == true {
         
-        let uid = Auth.auth().currentUser?.uid
-        let userReference = self.ref.child("Users").child(uid!)
-        let generalDataReference = self.ref.child("Golf Course Data")
-        
-        let ratingData : [String: AnyObject] = ["Rating": courseRating.text as AnyObject, "Slope": slope.text as AnyObject]
-        //userReference.child("Courses").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(ratingData)
-        generalDataReference.child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(ratingData)
-        
-        /*
-        // Course Rating Upload
-        self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(["Rating": courseRating.text!])
-        
-        // Slope Upload
-        self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(["Slope": slope.text!])
-        */
-        
-        // Hole Yardage Data Structure
-        let holeData : [String: AnyObject] = ["1": y1.text as AnyObject, "2": y2.text as AnyObject, "3": y3.text as AnyObject, "4": y4.text as AnyObject,"5": y5.text as AnyObject, "6": y6.text as AnyObject, "7": y7.text as AnyObject, "8": y7.text as AnyObject,"9": y9.text as AnyObject, "10": y10.text as AnyObject, "11": y11.text as AnyObject, "12": y12.text as AnyObject,"13": y3.text as AnyObject, "14": y14.text as AnyObject, "15": y15.text as AnyObject, "16": y16.text as AnyObject, "17": y17.text as AnyObject, "18": y18.text as AnyObject]
-        
-        // Yardage Upload
-        //userReference.child("Courses").child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Holes").setValue(holeData)
-        generalDataReference.child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Holes").setValue(holeData)
-        
-        // Par Data Structure
-        let parData : [String: AnyObject] = ["1": pars[0] as AnyObject, "2": pars[1] as AnyObject, "3": pars[2] as AnyObject, "4": pars[3] as AnyObject,"5": pars[4] as AnyObject, "6": pars[5] as AnyObject, "7": pars[6] as AnyObject, "8": pars[7] as AnyObject,"9": pars[8] as AnyObject, "10": pars[9] as AnyObject, "11": pars[10] as AnyObject, "12": pars[11] as AnyObject,"13": pars[12] as AnyObject, "14": pars[13] as AnyObject, "15": pars[14] as AnyObject, "16": pars[15] as AnyObject, "17": pars[16] as AnyObject, "18": pars[17] as AnyObject]
-        
-        // Par Upload
-        //userReference.child("Courses").child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
-        generalDataReference.child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
-        
-        dismiss(animated: true, completion: nil)
-        }
-        else {
+            let uid = Auth.auth().currentUser?.uid
+            let userReference = self.ref.child("Users").child(uid!)
+            let generalDataReference = self.ref.child("Golf Course Data")
+            
+            let ratingData : [String: AnyObject] = ["Rating": courseRating.text as AnyObject, "Slope": slope.text as AnyObject]
+            //userReference.child("Courses").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(ratingData)
+            generalDataReference.child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(ratingData)
+            
+            /*
+            // Course Rating Upload
+            self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(["Rating": courseRating.text!])
+            
+            // Slope Upload
+            self.ref.child("Golf Course Data").child(courseName.text!).child("Tees").child(dropTextBox.text!).setValue(["Slope": slope.text!])
+            */
+            
+            // Hole Yardage Data Structure
+            let holeData : [String: AnyObject] = ["1": y1.text as AnyObject, "2": y2.text as AnyObject, "3": y3.text as AnyObject, "4": y4.text as AnyObject,"5": y5.text as AnyObject, "6": y6.text as AnyObject, "7": y7.text as AnyObject, "8": y7.text as AnyObject,"9": y9.text as AnyObject, "10": y10.text as AnyObject, "11": y11.text as AnyObject, "12": y12.text as AnyObject,"13": y3.text as AnyObject, "14": y14.text as AnyObject, "15": y15.text as AnyObject, "16": y16.text as AnyObject, "17": y17.text as AnyObject, "18": y18.text as AnyObject]
+            
+            // Yardage Upload
+            //userReference.child("Courses").child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Holes").setValue(holeData)
+            generalDataReference.child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Holes").setValue(holeData)
+            
+            // Par Data Structure
+            let parData : [String: AnyObject] = ["1": pars[0] as AnyObject, "2": pars[1] as AnyObject, "3": pars[2] as AnyObject, "4": pars[3] as AnyObject,"5": pars[4] as AnyObject, "6": pars[5] as AnyObject, "7": pars[6] as AnyObject, "8": pars[7] as AnyObject,"9": pars[8] as AnyObject, "10": pars[9] as AnyObject, "11": pars[10] as AnyObject, "12": pars[11] as AnyObject,"13": pars[12] as AnyObject, "14": pars[13] as AnyObject, "15": pars[14] as AnyObject, "16": pars[15] as AnyObject, "17": pars[16] as AnyObject, "18": pars[17] as AnyObject]
+            
+            // Par Upload
+            //userReference.child("Courses").child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
+            generalDataReference.child(courseName.text!).child("Tees").child(dropTextBox.text!).child("Pars").setValue(parData)
+            displaySuccess()
+            
+        } else {
             displayAlert()
         }
+    }
+    
+    func displaySuccess() {
+        let alertController = UIAlertController(title: "Yay!", message: "Your course has been added to our database!", preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func displayAlert() {
@@ -635,8 +643,7 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
-    {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let allowedCharacters = CharacterSet.letters
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
