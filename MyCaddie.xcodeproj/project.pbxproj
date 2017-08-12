@@ -81,7 +81,6 @@
 		99AFCF4E1F2017620012FAD1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF4D1F2017620012FAD1 /* ProfileViewController.swift */; };
 		99AFCF501F20177C0012FAD1 /* MyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF4F1F20177C0012FAD1 /* MyCoursesViewController.swift */; };
 		99AFCF541F20179F0012FAD1 /* MyStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF531F20179F0012FAD1 /* MyStatsViewController.swift */; };
-		99AFCF561F2017B50012FAD1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AFCF551F2017B50012FAD1 /* SettingsViewController.swift */; };
 		99B174191EE7637F00A76B9B /* Scorecard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B174181EE7637F00A76B9B /* Scorecard2.swift */; };
 		99B1741D1EE7755700A76B9B /* NewRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1741C1EE7755700A76B9B /* NewRound.swift */; };
 		99B633111EEEDA0300160704 /* CourseRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B633101EEEDA0300160704 /* CourseRound.swift */; };
@@ -182,7 +181,6 @@
 		99AFCF4D1F2017620012FAD1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		99AFCF4F1F20177C0012FAD1 /* MyCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCoursesViewController.swift; sourceTree = "<group>"; };
 		99AFCF531F20179F0012FAD1 /* MyStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStatsViewController.swift; sourceTree = "<group>"; };
-		99AFCF551F2017B50012FAD1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		99B174181EE7637F00A76B9B /* Scorecard2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scorecard2.swift; sourceTree = "<group>"; };
 		99B1741C1EE7755700A76B9B /* NewRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRound.swift; sourceTree = "<group>"; };
 		99B633101EEEDA0300160704 /* CourseRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseRound.swift; sourceTree = "<group>"; };
@@ -397,7 +395,6 @@
 				99AFCF4D1F2017620012FAD1 /* ProfileViewController.swift */,
 				99AFCF4F1F20177C0012FAD1 /* MyCoursesViewController.swift */,
 				99AFCF531F20179F0012FAD1 /* MyStatsViewController.swift */,
-				99AFCF551F2017B50012FAD1 /* SettingsViewController.swift */,
 				1015B5FF1F23F1D800628816 /* SlideBarTableViewController.swift */,
 			);
 			name = "Slide Bar Pages";
@@ -632,7 +629,6 @@
 				990BE55B1F3F94BC0013B6AF /* LoadingCircle.swift in Sources */,
 				99C4E8871F32373E00B65DDC /* Loading2ViewController.swift in Sources */,
 				99167D3F1F35195300EB0766 /* SettingsTableViewController.swift in Sources */,
-				99AFCF561F2017B50012FAD1 /* SettingsViewController.swift in Sources */,
 				9952C8C51F2FA478002DC493 /* settingsBackground.swift in Sources */,
 				1090B9871F22F764002F678E /* Extensions.swift in Sources */,
 				10C6BDD61EF615AA00C6E576 /* Stats3.swift in Sources */,
