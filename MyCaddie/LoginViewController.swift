@@ -211,5 +211,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
     
     @IBAction func unwindToLoginMenu(segue: UIStoryboardSegue) {}
     @IBAction func unwindToLoginMenu2(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToLoginFromProfile(segue: UIStoryboardSegue) {}
     
 }
