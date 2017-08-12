@@ -1,8 +1,8 @@
 //
-//  MyCoursesViewController.swift
+//  MyCoursesViewController2.swift
 //  MyCaddie
 //
-//  Created by Weston Mauz on 7/19/17.
+//  Created by Kevin Liao on 8/12/17.
 //  Copyright © 2017 Liao & Mauz. All rights reserved.
 //
 
@@ -11,9 +11,8 @@ import FirebaseStorage
 import Firebase
 import FirebaseAuth
 
-class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var menuButton: UIBarButtonItem!
+class MyCoursesViewController2: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var myCoursesNavigationView: UIView!
     @IBOutlet weak var myCoursesTable: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -27,9 +26,6 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sideMenus()
-        customizeNavBar()
-        
         self.myCoursesTable.delegate = self
         self.myCoursesTable.dataSource = self
         
@@ -42,30 +38,6 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func sideMenus() {
-        
-        if revealViewController() != nil {
-            
-            menuButton.target = revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            revealViewController().rearViewRevealWidth = 275
-            revealViewController().rightViewRevealWidth = 160
-            
-            /*
-            alertButton.target = revealViewController()
-            alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
- */
-            
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-    }
-    
-    func customizeNavBar() {
-        navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
-        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,7 +105,7 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func displayAddNewCourse() {
-        self.performSegue(withIdentifier: "myCoursesToCreateSegue", sender: self)
+        self.performSegue(withIdentifier: "myCoursesToCreateSegue2", sender: self)
     }
     
     func fetchCourses() {
@@ -160,7 +132,7 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "courseInfoSegue" {
+        if segue.identifier == "courseInfoSegue2" {
             let courseInfoView = segue.destination as! CourseInfoViewController
             
             let indexPath = self.myCoursesTable.indexPathForSelectedRow
@@ -168,5 +140,5 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
             courseInfoView.roundParentCourseName = courses[(indexPath?.row)!]
         }
     }
-
+    
 }
