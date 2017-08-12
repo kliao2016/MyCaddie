@@ -405,7 +405,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             profileCell.profileCellLabel.text = "Log Out"
             profileCell.profileCellImage.image = UIImage(named: "icons8-Trekking-50 (2)")
         }
-        
         return profileCell
     }
     
