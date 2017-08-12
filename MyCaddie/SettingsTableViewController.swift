@@ -121,7 +121,7 @@ class SettingsTableViewController: UITableViewController {
         self.present(promptPopUp, animated: true, completion: nil)
     }
     
-    func updateHandicap(){
+    func updateHandicap() {
         
         let uid = Auth.auth().currentUser?.uid
         let userReference = Database.database().reference().child("Users").child(uid!).child("Handicap")
