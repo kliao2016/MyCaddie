@@ -13,7 +13,7 @@ import FirebaseStorage
 import GoogleSignIn
 import Firebase
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var passTextField: UITextField!
     
@@ -50,6 +50,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         nameTextField.attributedPlaceholder = NSAttributedString(string: "N/A", attributes: [NSForegroundColorAttributeName: UIColor.white])
         emailTextField.attributedPlaceholder = NSAttributedString(string: "EMAIL", attributes: [NSForegroundColorAttributeName: UIColor.white])
         passTextField.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes: [NSForegroundColorAttributeName: UIColor.white])
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        passTextField.delegate = self
         
     }
     
@@ -191,6 +194,19 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
     
     override var shouldAutorotate: Bool {
         return false
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameTextField {
+            nameTextField.resignFirstResponder()
+        }
+        if textField == emailTextField {
+            emailTextField.resignFirstResponder()
+        }
+        if textField == passTextField {
+            passTextField.resignFirstResponder()
+        }
+        return true
     }
     
     @IBAction func unwindToLoginMenu(segue: UIStoryboardSegue) {}

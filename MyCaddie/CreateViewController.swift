@@ -309,6 +309,8 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         
         // Part of Letters only for course Name
         self.courseName.delegate = self
+        self.courseRating.delegate = self
+        self.slope.delegate = self
 
         y1.keyboardType = UIKeyboardType.numberPad
         y2.keyboardType = UIKeyboardType.numberPad
@@ -638,6 +640,19 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         let allowedCharacters = CharacterSet.letters
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == courseName {
+            courseName.resignFirstResponder()
+        }
+        if textField == courseRating {
+            courseRating.resignFirstResponder()
+        }
+        if textField == slope {
+            slope.resignFirstResponder()
+        }
+        return true
     }
     
 }

@@ -46,8 +46,19 @@ class DeveloperInformation: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DeveloperInformation.imageTapped(gesture:)))
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(DeveloperInformation.imageTapped2(gesture:)))
+        
+        self.kevPic.contentMode = .scaleAspectFill
+        self.kevPic.layer.cornerRadius = self.kevPic.frame.size.width / 2
+        self.kevPic.clipsToBounds = true
+        
+        self.wesPic.contentMode = .scaleAspectFill
+        self.wesPic.layer.cornerRadius = self.wesPic.frame.size.width / 2
+        self.wesPic.clipsToBounds = true
         
         kevPic.addGestureRecognizer(tapGesture)
         kevPic.isUserInteractionEnabled = true

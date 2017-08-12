@@ -48,6 +48,17 @@ class NewRound: UIViewController {
     var parsOfCourse = [String]()
     var yardagesOfCourse = [String]()
     
+    // All buttons on screen
+    @IBOutlet weak var rightButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var fairwayButton: UIButton!
+    @IBOutlet weak var greenButton: UIButton!
+    @IBOutlet weak var gbunkerButton: UIButton!
+    @IBOutlet weak var fbunkerButton: UIButton!
+    @IBOutlet weak var hazardButton: UIButton!
+    @IBOutlet weak var obButton: UIButton!
+    @IBOutlet weak var flagButton: UIButton!
+    
     // Label text to change every shot
     @IBOutlet weak var ShotNumberText: UILabel!
     // currentScore Display
@@ -151,6 +162,7 @@ class NewRound: UIViewController {
                 self.updateHoleData()
                 self.resetHoleStats()
                 if self.currentHole >= 18 {
+                    self.disableButtons()
                     self.endRound()
                     self.deleteCurrentRound()
                     self.perform(#selector(self.showMainView), with: nil, afterDelay: 1)
@@ -507,6 +519,14 @@ class NewRound: UIViewController {
                 self.currentRound = 1
             }
         }, withCancel: nil)
+    }
+    
+    func disableButtons() {
+        let allButtons: [UIButton] = [self.rightButton, self.leftButton, self.fairwayButton, self.greenButton, self.gbunkerButton, self.fbunkerButton, self.hazardButton, self.obButton, self.flagButton]
+        for button in allButtons {
+            button.isUserInteractionEnabled = false
+            button.isEnabled = false
+        }
     }
     
     func getHoleScores() {
