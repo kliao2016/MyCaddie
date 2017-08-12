@@ -40,7 +40,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         
         // Set UI Delegate for GIDSignIn object
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+        //GIDSignIn.sharedInstance().signIn()
       
         // Uncomment to Sign in user automatically
         // GIDSignIn.sharedInstance().signInSilently()
