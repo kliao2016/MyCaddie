@@ -33,10 +33,6 @@ class DeveloperInformation: UIViewController {
         let url3 = URL(string: "https://goo.gl/EG2aay")
         UIApplication.shared.open(url3!, options: [:])
     }
-
-    @IBAction func backBarButtonAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
     
     @IBAction func webFonts(_ sender: Any) {
         let url3 = URL(string: "https://goo.gl/CKytv2")
@@ -45,9 +41,6 @@ class DeveloperInformation: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
-        self.navigationController?.navigationBar.tintColor = UIColor.black
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DeveloperInformation.imageTapped(gesture:)))
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(DeveloperInformation.imageTapped2(gesture:)))

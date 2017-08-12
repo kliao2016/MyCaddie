@@ -14,19 +14,27 @@ import GoogleSignIn
 
 class SettingsTableViewController: UITableViewController {
     
+    
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
+    @IBOutlet weak var settingsView: UIView!
+    
     var databaseRef = Database.database().reference()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.settingsView.frame.size.height = self.tableView.frame.size.height / 4
+        self.tableView.rowHeight = (self.tableView.frame.size.height * 3) / 40
+        
+        sideMenus()
+        customizeNavBar()
+        
         loadEmail()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        loadProfileImage()
     }
 
     override func didReceiveMemoryWarning() {
@@ -148,6 +156,48 @@ class SettingsTableViewController: UITableViewController {
             let dictionary = snapshot.value as? [String: AnyObject]
                 self.userEmail.text = dictionary?["Email"] as? String
             }, withCancel: nil)
+    }
+    
+    func sideMenus(){
+        
+        if revealViewController() != nil {
+            
+            menuButton.target = revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController().rearViewRevealWidth = 275
+            revealViewController().rightViewRevealWidth = 160
+            
+            /*
+             alertButton.target = revealViewController()
+             alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
+             */
+            
+            //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
+    
+    func customizeNavBar(){
+        navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+    }
+    
+    func loadProfileImage() {
+        self.profileImage.contentMode = .scaleAspectFill
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+        self.profileImage.clipsToBounds = true
+        if let uid = Auth.auth().currentUser?.uid {
+            let user = databaseRef.child("Users").child(uid)
+            user.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let userProfileLink = dictionary["ProfileImageURL"]
+                    if let profileImageUrl = userProfileLink {
+                        self.profileImage.loadImagesUsingCacheWithUrlString(urlString: profileImageUrl as! String)
+                    }
+                    self.userName.text = dictionary["Name"] as? String
+                }
+            }, withCancel: nil)
+        }
     }
 
     /*
