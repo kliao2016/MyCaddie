@@ -1,5 +1,5 @@
 //
-//  Stats2.swift
+//  NewRound.swift
 //  MyCaddie
 //
 //  Created by Weston Mauz on 6/6/17.
@@ -149,8 +149,12 @@ class NewRound: UIViewController {
         
         // Navigation Bar
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View Scorecard", style: .plain, target: self, action: #selector(displayScorecard))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(checkIfUserWantsToCancelRound))
     }
+    
+    @IBAction func backButtonAction(_ sender: Any) {
+        self.checkIfUserWantsToCancelRound()
+    }
+    
     
     
     func puttPopUp() {
@@ -202,11 +206,7 @@ class NewRound: UIViewController {
         
         popUp.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [popUp] (_) in
             self.deleteCurrentRound()
-            
-            let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                self.showMainView()
-            }
+            self.performSegue(withIdentifier: "unwindToTeesFromNewRoundSegue", sender: self)
         }))
         
         popUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [popUp] (_) in

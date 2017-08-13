@@ -36,6 +36,17 @@ class ContinueRound: UIViewController {
     var parsOfCourse = [String]()
     var yardagesOfCourse = [String]()
     
+    // All buttons on screen
+    @IBOutlet weak var rightButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var fairwayButton: UIButton!
+    @IBOutlet weak var greenButton: UIButton!
+    @IBOutlet weak var gbunkerButton: UIButton!
+    @IBOutlet weak var fbunkerButton: UIButton!
+    @IBOutlet weak var hazardButton: UIButton!
+    @IBOutlet weak var obButton: UIButton!
+    @IBOutlet weak var flagButton: UIButton!
+    
     // Label text to change every shot
     @IBOutlet weak var ShotNumberText: UILabel!
     // currentScore Display
@@ -57,10 +68,10 @@ class ContinueRound: UIViewController {
         super.viewDidLoad()
         
         // Initial text
-        ShotNumberText.text = "Where was your first shot?"
-        Actual.text = "Shots hit: 0"
+        //ShotNumberText.text = "Where was your first shot?"
+        Actual.text = "1"
         
-        HoleNumber.text = "1"
+        HoleNumber.text = "#"
         
         //let courseName2 = programVar?.cName
         //var tees2 = programVar?.tName as! String
@@ -119,11 +130,15 @@ class ContinueRound: UIViewController {
     func puttPopUp() {
         let popUp = UIAlertController(title: "How many putts did you have?", message: nil, preferredStyle: .alert)
         popUp.addTextField { (textField) in
+            textField.keyboardType = UIKeyboardType.numberPad
             textField.text = nil
         }
         
         popUp.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [popUp] (_) in
-            let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
+            let textField = popUp.textFields![0] // Force Unwrapping
+            let actualText = Int((textField.text)!)
+            
+            if (actualText != nil){
             self.putts = Int(textField.text!)!
             self.updateScore()
             self.holeStatistics.putt = self.putts
@@ -132,12 +147,19 @@ class ContinueRound: UIViewController {
             if self.currentHole >= 18 {
                 self.endRound()
                 self.deleteCurrentRound()
+                self.disableButtons()
                 
                 let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
                 DispatchQueue.main.asyncAfter(deadline: when) {
                     self.showMainView()
                 }
             }
+            }
+            else {
+                self.puttPopUp()
+            }
+        
+            
         }))
         
         self.present(popUp, animated: true, completion: nil)
@@ -213,9 +235,7 @@ class ContinueRound: UIViewController {
     }
     @IBAction func Hazard(_ sender: Any) {
         holeStatistics.hazards += 1
-        currentScore += 2
-        updateShotText()
-        updateUI()
+        hazardPopUp()
     }
     @IBAction func OB(_ sender: Any) {
         holeStatistics.obs += 1
@@ -235,6 +255,15 @@ class ContinueRound: UIViewController {
         updateShotText()
         updateUI()
     }
+    
+    @IBAction func redoShot(_ sender: Any) {
+        if currentScore > 0 {
+            currentScore -= 1
+            updateShotText()
+            updateUI()
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -279,8 +308,8 @@ class ContinueRound: UIViewController {
     }
     
     func updateUI(){
-        Actual.text = "Shots Hit: \(currentScore)"
-        ShotNumberText.text = "Where was your \(shotCount) shot?"
+        Actual.text = "\(currentScore + 1)"
+        //ShotNumberText.text = "Where was your \(shotCount) shot?"
         if currentHole < 18 {
             self.HoleNumber.text = "\(currentHole + 1)"
             self.HolePar.text = parsOfCourse[currentHole]
@@ -305,6 +334,26 @@ class ContinueRound: UIViewController {
     func resetHoleStats(){
         holeStatistics = HoleStats()
         putts = 0
+    }
+    
+    func hazardPopUp() {
+        let popUp = UIAlertController(title: "Did you take a penalty stroke?", message: nil, preferredStyle: .alert)
+        
+        popUp.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [popUp] (_) in
+            self.currentScore += 2
+            self.updateShotText()
+            self.updateUI()
+            popUp.dismiss(animated: true, completion: nil)
+        }))
+        
+        popUp.addAction(UIAlertAction(title: "No", style: .default, handler: { [popUp] (_) in
+            self.currentScore += 1
+            self.updateShotText()
+            self.updateUI()
+            popUp.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(popUp, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -379,6 +428,14 @@ class ContinueRound: UIViewController {
         })
     }
     
+    func disableButtons() {
+        let allButtons: [UIButton] = [self.rightButton, self.leftButton, self.fairwayButton, self.greenButton, self.gbunkerButton, self.fbunkerButton, self.hazardButton, self.obButton, self.flagButton]
+        for button in allButtons {
+            button.isUserInteractionEnabled = false
+            button.isEnabled = false
+        }
+    }
+    
     func endRound(){
         
         // Variables
@@ -441,18 +498,18 @@ class ContinueRound: UIViewController {
             
             let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when) {
-                let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-                courseReference.child("Round \(self.currentRound)").child("Fairway Bunkers").setValue(totalFairwayBunkers)
-                courseReference.child("Round \(self.currentRound)").child("GreenSide Bunkers").setValue(totalGreenBunkers)
-                courseReference.child("Round \(self.currentRound)").child("Hazards").setValue(totalHazards)
-                courseReference.child("Round \(self.currentRound)").child("OBs").setValue(totalOBs)
-                courseReference.child("Round \(self.currentRound)").child("Putts").setValue(totalPutts)
-                courseReference.child("Round \(self.currentRound)").child("Score").setValue(totalScore)
-                courseReference.child("Round \(self.currentRound)").child("Fringes").setValue(totalFringes)
-                courseReference.child("Round \(self.currentRound)").child("Fairways").setValue(totalFairways)
-                courseReference.child("Round \(self.currentRound)").child("Greens").setValue(totalGreensInReg)
-                courseReference.child("Round \(self.currentRound)").child("Rights").setValue(totalRights)
-                courseReference.child("Round \(self.currentRound)").child("Lefts").setValue(totalLefts)
+            let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
+            courseReference.child("Round \(self.currentRound)").child("Fairway Bunkers").setValue(totalFairwayBunkers)
+            courseReference.child("Round \(self.currentRound)").child("GreenSide Bunkers").setValue(totalGreenBunkers)
+            courseReference.child("Round \(self.currentRound)").child("Hazards").setValue(totalHazards)
+            courseReference.child("Round \(self.currentRound)").child("OBs").setValue(totalOBs)
+            courseReference.child("Round \(self.currentRound)").child("Putts").setValue(totalPutts)
+            courseReference.child("Round \(self.currentRound)").child("Score").setValue(totalScore)
+            courseReference.child("Round \(self.currentRound)").child("Fringes").setValue(totalFringes)
+            courseReference.child("Round \(self.currentRound)").child("Fairways").setValue(totalFairways)
+            courseReference.child("Round \(self.currentRound)").child("Greens").setValue(totalGreensInReg)
+            courseReference.child("Round \(self.currentRound)").child("Rights").setValue(totalRights)
+            courseReference.child("Round \(self.currentRound)").child("Lefts").setValue(totalLefts)
             }
         })
         
@@ -463,7 +520,8 @@ class ContinueRound: UIViewController {
         let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
         let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
-            courseReference.child("Round \(self.currentRound)").child("Scores").setValue(scoreData)
+        courseReference.child("Round \(self.currentRound)").child("Scores").setValue(scoreData)
         }
     }
+    
 }

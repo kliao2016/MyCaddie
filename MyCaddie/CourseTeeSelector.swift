@@ -112,5 +112,7 @@ class CourseTeeSelector: UIViewController, UITableViewDelegate, UITableViewDataS
             statsView.tees = tees[(indexPath?.row)!]
         }
     }
+    
+    @IBAction func unwindToTeesFromNewRound(segue: UIStoryboardSegue) {}
 
 }
