@@ -32,6 +32,17 @@ class NewRound: UIViewController {
             // 2
             return array.popLast()
         }
+        mutating func clear() {
+            array.removeAll()
+        }
+        mutating func isEmpty() -> Bool {
+            if array.isEmpty {
+                return true
+            }
+            else {
+                return false
+            }
+        }
     }
     
     var ref = Database.database().reference()
@@ -71,6 +82,8 @@ class NewRound: UIViewController {
     @IBOutlet weak var hazardButton: UIButton!
     @IBOutlet weak var obButton: UIButton!
     @IBOutlet weak var flagButton: UIButton!
+    @IBOutlet weak var redoButton: UIButton!
+    
     
     // Label text to change every shot
     @IBOutlet weak var ShotNumberText: UILabel!
@@ -155,6 +168,9 @@ class NewRound: UIViewController {
     
     func puttPopUp() {
         
+        print(statStack)
+        print(holeStatistics)
+        
         let popUp = UIAlertController(title: "How many putts did you have?", message: nil, preferredStyle: .alert)
         popUp.addTextField { (textField) in
             textField.keyboardType = UIKeyboardType.numberPad
@@ -170,6 +186,8 @@ class NewRound: UIViewController {
             let actualText = Int((textField?.text)!)
             
             if (actualText != nil){
+                
+                self.statStack.clear()
                 self.putts = Int((textField?.text!)!)!
                 self.updateScore()
                 self.holeStatistics.putt = self.putts
@@ -223,6 +241,7 @@ class NewRound: UIViewController {
             self.currentScore += 2
             self.updateShotText()
             self.updateUI()
+            self.statStack.push(4)
             popUp.dismiss(animated: true, completion: nil)
         }))
         
@@ -230,6 +249,7 @@ class NewRound: UIViewController {
             self.currentScore += 1
             self.updateShotText()
             self.updateUI()
+            self.statStack.push(8)
             popUp.dismiss(animated: true, completion: nil)
         }))
         
@@ -277,7 +297,6 @@ class NewRound: UIViewController {
     @IBAction func Hazard(_ sender: Any) {
         holeStatistics.hazards += 1
         hazardPopUp()
-        statStack.push(4)
     }
     @IBAction func OB(_ sender: Any) {
         holeStatistics.obs += 1
@@ -307,61 +326,81 @@ class NewRound: UIViewController {
             updateShotText()
             updateUI()
         }
-        let lastShot = Int(statStack.pop()!)
         
-        // Green
+        if !statStack.isEmpty() {
         
-        if (lastShot == 0){
-            if (holeStatistics.greensInReg != 0){
-                holeStatistics.greensInReg -= 1
-            }
-        }
-        
-        // GreenSand
-        
-        if (lastShot == 1){
-            holeStatistics.greenBunkers -= 1
-        }
-        
-        // FairwaySand
-        
-        if (lastShot == 2){
-            holeStatistics.fairwayBunkers -= 1
-        }
-        
-        // Fairway
-        
-        if (lastShot == 3){
-            if currentScore == 1 {
-                holeStatistics.fairways -= 1
-            }
-        }
-        
-        // Hazard
-        
-        if (lastShot == 4){
+            // Setting Stack
             
-        }
-        
-        // OB
-        
-        if (lastShot == 5){
-            holeStatistics.obs -= 1
-        }
-        
-        // Right
-        
-        if (lastShot == 6){
-            if currentScore == 1 {
-                holeStatistics.rights -= 1
+            let lastShot = Int(statStack.pop()!)
+            
+            // Green
+            
+            if (lastShot == 0){
+                if (holeStatistics.greensInReg != 0){
+                    holeStatistics.greensInReg -= 1
+                }
             }
-        }
-        
-        // Left
-        
-        if (lastShot == 7){
-            if currentScore == 1 {
-                holeStatistics.lefts -= 1
+            
+            // GreenSand
+            
+            if (lastShot == 1){
+                holeStatistics.greenBunkers -= 1
+            }
+            
+            // FairwaySand
+            
+            if (lastShot == 2){
+                holeStatistics.fairwayBunkers -= 1
+            }
+            
+            // Fairway
+            
+            if (lastShot == 3){
+                if currentScore == 1 {
+                    holeStatistics.fairways -= 1
+                }
+            }
+            
+            // Hazard
+            
+            // Hazard with Penalty - Takes off extra stroke
+            
+            if (lastShot == 4){
+                holeStatistics.hazards -= 1
+                currentScore -= 1
+                updateShotText()
+                updateUI()
+            }
+            
+            // Hazard without Penalty
+            
+            if (lastShot == 8){
+                holeStatistics.hazards -= 1
+            }
+            
+            // OB
+            
+            if (lastShot == 5){
+                holeStatistics.obs -= 1
+                currentScore -= 1
+                updateShotText()
+                updateUI()
+            }
+            
+            // Right
+            
+            if (lastShot == 6){
+                if currentScore == 1 {
+                    holeStatistics.rights -= 1
+                }
+            }
+            
+            // Left
+            
+            if (lastShot == 7){
+                if currentScore == 1 {
+                    holeStatistics.lefts -= 1
+                }
             }
         }
     }
