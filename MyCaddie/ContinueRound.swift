@@ -1,5 +1,5 @@
 //
-//  Stats3.swift
+//  ContinueRound.swift
 //  MyCaddie
 //
 //  Created by Weston Mauz on 6/6/17.
@@ -12,7 +12,7 @@ import FirebaseStorage
 import Firebase
 import GoogleSignIn
 
-class Stats3: UIViewController {
+class ContinueRound: UIViewController {
     
     var programVar : Program?
     
