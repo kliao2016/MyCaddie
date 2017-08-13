@@ -1,5 +1,5 @@
 //
-//  ContinueRound.swift
+//  Stats3.swift
 //  MyCaddie
 //
 //  Created by Weston Mauz on 6/6/17.
@@ -12,7 +12,7 @@ import FirebaseStorage
 import Firebase
 import GoogleSignIn
 
-class ContinueRound: UIViewController {
+class Stats3: UIViewController {
     
     var programVar : Program?
     
@@ -21,7 +21,44 @@ class ContinueRound: UIViewController {
     var tees = ""
     var currentRound = 0
     
+    // Creating a Stack because why not
+    struct Stack {
+        fileprivate var array: [Int] = []
+        mutating func push(_ element: Int) {
+            // 2
+            array.append(element)
+        }
+        mutating func pop() -> Int? {
+            // 2
+            return array.popLast()
+        }
+        mutating func clear() {
+            array.removeAll()
+        }
+        mutating func isEmpty() -> Bool {
+            if array.isEmpty {
+                return true
+            }
+            else {
+                return false
+            }
+        }
+    }
+    
     var ref = Database.database().reference()
+    
+    // Lifetime Stats
+    var lifetimeFairwayBunkers = 0
+    var lifetimeGreenBunkers = 0
+    var lifetimeHazards = 0
+    var lifetimeOBs = 0
+    var lifetimeRights = 0
+    var lifetimeLefts = 0
+    var lifetimeFringes = 0
+    var lifetimeFairways = 0
+    var lifetimeGreensInReg = 0
+    var lifetimePutts = 0
+    var lifetimeScore = 0
     
     
     // Stores Round Data
@@ -35,6 +72,17 @@ class ContinueRound: UIViewController {
     var holeScores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     var parsOfCourse = [String]()
     var yardagesOfCourse = [String]()
+    
+    // All buttons on screen
+    @IBOutlet weak var rightButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var fairwayButton: UIButton!
+    @IBOutlet weak var greenButton: UIButton!
+    @IBOutlet weak var gbunkerButton: UIButton!
+    @IBOutlet weak var fbunkerButton: UIButton!
+    @IBOutlet weak var hazardButton: UIButton!
+    @IBOutlet weak var obButton: UIButton!
+    @IBOutlet weak var flagButton: UIButton!
     
     // Label text to change every shot
     @IBOutlet weak var ShotNumberText: UILabel!
@@ -51,16 +99,17 @@ class ContinueRound: UIViewController {
     var putts = Int ()
     var currentHole = Int()
     var currentScore = Int()
+    var statStack = Stack()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         // Initial text
-        ShotNumberText.text = "Where was your first shot?"
-        Actual.text = "Shots hit: 0"
+        //ShotNumberText.text = "Where was your first shot?"
+        Actual.text = "1"
         
-        HoleNumber.text = "1"
+        HoleNumber.text = "#"
         
         //let courseName2 = programVar?.cName
         //var tees2 = programVar?.tName as! String
@@ -119,11 +168,15 @@ class ContinueRound: UIViewController {
     func puttPopUp() {
         let popUp = UIAlertController(title: "How many putts did you have?", message: nil, preferredStyle: .alert)
         popUp.addTextField { (textField) in
+            textField.keyboardType = UIKeyboardType.numberPad
             textField.text = nil
         }
         
         popUp.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [popUp] (_) in
-            let textField = popUp.textFields![0] // Force unwrapping because we know it exists.
+            let textField = popUp.textFields![0] // Force Unwrapping
+            let actualText = Int((textField.text)!)
+            
+            if (actualText != nil){
             self.putts = Int(textField.text!)!
             self.updateScore()
             self.holeStatistics.putt = self.putts
@@ -132,12 +185,21 @@ class ContinueRound: UIViewController {
             if self.currentHole >= 18 {
                 self.endRound()
                 self.deleteCurrentRound()
+                self.disableButtons()
                 
-                let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
-                DispatchQueue.main.asyncAfter(deadline: when) {
-                    self.showMainView()
-                }
+                self.perform(#selector(self.showMainView), with: nil, afterDelay: 1)
+                
+//                let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
+//                DispatchQueue.main.asyncAfter(deadline: when) {
+//                    self.showMainView()
+//                }
             }
+            }
+            else {
+                self.puttPopUp()
+            }
+        
+            
         }))
         
         self.present(popUp, animated: true, completion: nil)
@@ -148,7 +210,7 @@ class ContinueRound: UIViewController {
     }
     
     func showMainView() {
-        let mainView = storyboard?.instantiateViewController(withIdentifier: "TabController")
+        let mainView = storyboard?.instantiateViewController(withIdentifier: "mainMenu")
         
         self.present(mainView!, animated: true, completion: nil)
     }
@@ -184,24 +246,21 @@ class ContinueRound: UIViewController {
         currentScore += 1
         updateUI()
         puttPopUp()
-    }
-    @IBAction func Fringe(_ sender: Any) {
-        holeStatistics.fringes += 1
-        currentScore += 1
-        updateShotText()
-        updateUI()
+        statStack.push(0)
     }
     @IBAction func GreenSand(_ sender: Any) {
         holeStatistics.greenBunkers += 1
         currentScore += 1
         updateShotText()
         updateUI()
+        statStack.push(1)
     }
     @IBAction func FairwaySand(_ sender: Any) {
         holeStatistics.fairwayBunkers += 1
         currentScore += 1
         updateShotText()
         updateUI()
+        statStack.push(2)
     }
     @IBAction func Fairway(_ sender: Any) {
         if currentScore == 0 {
@@ -210,31 +269,120 @@ class ContinueRound: UIViewController {
         currentScore += 1
         updateShotText()
         updateUI()
+        statStack.push(3)
     }
     @IBAction func Hazard(_ sender: Any) {
         holeStatistics.hazards += 1
-        currentScore += 2
-        updateShotText()
-        updateUI()
+        hazardPopUp()
     }
     @IBAction func OB(_ sender: Any) {
         holeStatistics.obs += 1
         currentScore += 2
         updateShotText()
         updateUI()
+        statStack.push(5)
     }
     @IBAction func Right(_ sender: Any) {
         holeStatistics.rights = 1
         currentScore += 1
         updateShotText()
         updateUI()
+        statStack.push(6)
     }
     @IBAction func Left(_ sender: Any) {
         holeStatistics.lefts = 1
         currentScore += 1
         updateShotText()
         updateUI()
+        statStack.push(7)
     }
+    
+    @IBAction func redoShot(_ sender: Any) {
+        if currentScore > 0 {
+            currentScore -= 1
+            updateShotText()
+            updateUI()
+        }
+        
+        if !statStack.isEmpty() {
+            
+            // Setting Stack
+            
+            let lastShot = Int(statStack.pop()!)
+            
+            // Green
+            
+            if (lastShot == 0){
+                if (holeStatistics.greensInReg != 0){
+                    holeStatistics.greensInReg -= 1
+                }
+            }
+            
+            // GreenSand
+            
+            if (lastShot == 1){
+                holeStatistics.greenBunkers -= 1
+            }
+            
+            // FairwaySand
+            
+            if (lastShot == 2){
+                holeStatistics.fairwayBunkers -= 1
+            }
+            
+            // Fairway
+            
+            if (lastShot == 3){
+                if currentScore == 1 {
+                    holeStatistics.fairways -= 1
+                }
+            }
+            
+            // Hazard
+            
+            // Hazard with Penalty - Takes off extra stroke
+            
+            if (lastShot == 4){
+                holeStatistics.hazards -= 1
+                currentScore -= 1
+                updateShotText()
+                updateUI()
+            }
+            
+            // Hazard without Penalty
+            
+            if (lastShot == 8){
+                holeStatistics.hazards -= 1
+            }
+            
+            // OB
+            
+            if (lastShot == 5){
+                holeStatistics.obs -= 1
+                currentScore -= 1
+                updateShotText()
+                updateUI()
+            }
+            
+            // Right
+            
+            if (lastShot == 6){
+                if currentScore == 1 {
+                    holeStatistics.rights -= 1
+                }
+            }
+            
+            // Left
+            
+            if (lastShot == 7){
+                if currentScore == 1 {
+                    holeStatistics.lefts -= 1
+                }
+            }
+        }
+
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -279,8 +427,8 @@ class ContinueRound: UIViewController {
     }
     
     func updateUI(){
-        Actual.text = "Shots Hit: \(currentScore)"
-        ShotNumberText.text = "Where was your \(shotCount) shot?"
+        Actual.text = "\(currentScore + 1)"
+        //ShotNumberText.text = "Where was your \(shotCount) shot?"
         if currentHole < 18 {
             self.HoleNumber.text = "\(currentHole + 1)"
             self.HolePar.text = parsOfCourse[currentHole]
@@ -305,6 +453,28 @@ class ContinueRound: UIViewController {
     func resetHoleStats(){
         holeStatistics = HoleStats()
         putts = 0
+    }
+    
+    func hazardPopUp() {
+        let popUp = UIAlertController(title: "Did you take a penalty stroke?", message: nil, preferredStyle: .alert)
+        
+        popUp.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [popUp] (_) in
+            self.currentScore += 2
+            self.updateShotText()
+            self.updateUI()
+            self.statStack.push(4)
+            popUp.dismiss(animated: true, completion: nil)
+        }))
+        
+        popUp.addAction(UIAlertAction(title: "No", style: .default, handler: { [popUp] (_) in
+            self.currentScore += 1
+            self.updateShotText()
+            self.updateUI()
+            self.statStack.push(8)
+            popUp.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(popUp, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -379,6 +549,14 @@ class ContinueRound: UIViewController {
         })
     }
     
+    func disableButtons() {
+        let allButtons: [UIButton] = [self.rightButton, self.leftButton, self.fairwayButton, self.greenButton, self.gbunkerButton, self.fbunkerButton, self.hazardButton, self.obButton, self.flagButton]
+        for button in allButtons {
+            button.isUserInteractionEnabled = false
+            button.isEnabled = false
+        }
+    }
+    
     func endRound(){
         
         // Variables
@@ -396,11 +574,12 @@ class ContinueRound: UIViewController {
         
         let uid = Auth.auth().currentUser?.uid
         
-        getCount()
+        let lifetimeRef = self.ref.child("Users").child(uid!).child("Lifetime Stats")
         
+        // Stats for specific hole
         let holeRef = self.ref.child("Users").child(uid!).child("Current Round")
+        
         holeRef.observe(.childAdded, with: { (snapshot) in
-            
             for child in snapshot.children {
                 let fbCount = child as! DataSnapshot
                 if fbCount.key == "Fairway Bunkers" {
@@ -436,34 +615,86 @@ class ContinueRound: UIViewController {
                 if fbCount.key == "Lefts" {
                     totalLefts += fbCount.value as! Int
                 }
-                
             }
             
-            let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-                courseReference.child("Round \(self.currentRound)").child("Fairway Bunkers").setValue(totalFairwayBunkers)
-                courseReference.child("Round \(self.currentRound)").child("GreenSide Bunkers").setValue(totalGreenBunkers)
-                courseReference.child("Round \(self.currentRound)").child("Hazards").setValue(totalHazards)
-                courseReference.child("Round \(self.currentRound)").child("OBs").setValue(totalOBs)
-                courseReference.child("Round \(self.currentRound)").child("Putts").setValue(totalPutts)
-                courseReference.child("Round \(self.currentRound)").child("Score").setValue(totalScore)
-                courseReference.child("Round \(self.currentRound)").child("Fringes").setValue(totalFringes)
-                courseReference.child("Round \(self.currentRound)").child("Fairways").setValue(totalFairways)
-                courseReference.child("Round \(self.currentRound)").child("Greens").setValue(totalGreensInReg)
-                courseReference.child("Round \(self.currentRound)").child("Rights").setValue(totalRights)
-                courseReference.child("Round \(self.currentRound)").child("Lefts").setValue(totalLefts)
-            }
+            // Set currentRound variable
+            self.getRoundCount()
         })
+        
+        let when = DispatchTime.now() + 1 // change to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
+            let stats = ["Tees": self.tees, "Fairway Bunkers": totalFairwayBunkers, "Greenside Bunkers": totalGreenBunkers, "Hazards": totalHazards, "OBs": totalOBs, "Putts": totalPutts, "Score": totalScore, "Fringes": totalFringes, "Fairways": totalFairways, "Greens": totalGreensInReg, "Rights": totalRights, "Lefts": totalLefts] as [String : Any]
+            let currentRoundStr = String(format: "%02d", self.currentRound)
+            courseReference.child("Round \(currentRoundStr)").updateChildValues(stats)
+            courseReference.child("Rounds Played").setValue(self.currentRound)
+            
+        }
+        
+        self.getLifetimeStats(lifetimeRef: lifetimeRef)
+        
+        let when2 = DispatchTime.now() + 2
+        DispatchQueue.main.asyncAfter(deadline: when2) {
+            self.lifetimeFairwayBunkers += totalFairwayBunkers
+            self.lifetimeGreensInReg += totalGreensInReg
+            self.lifetimeHazards += totalHazards
+            self.lifetimeOBs += totalOBs
+            self.lifetimePutts += totalPutts
+            self.lifetimeScore += totalScore
+            self.lifetimeRights += totalRights
+            self.lifetimeLefts += totalLefts
+            self.lifetimeFringes += totalFringes
+            self.lifetimeGreenBunkers += totalGreenBunkers
+            self.lifetimeFairways += totalFairways
+            
+            let lifetimeStats = ["Fairway Bunkers": self.lifetimeFairwayBunkers, "Greenside Bunkers": self.lifetimeGreensInReg, "Hazards": self.lifetimeHazards, "OBs": self.lifetimeOBs, "Putts": self.lifetimePutts, "Score": self.lifetimeScore, "Fringes": self.lifetimeFringes, "Fairways": self.lifetimeFairways, "Greens": self.lifetimeGreensInReg, "Rights": self.lifetimeRights, "Lefts": self.lifetimeLefts]
+            lifetimeRef.updateChildValues(lifetimeStats)
+        }
         
         // Score Data Structure
         let scoreData : [String: AnyObject] = ["1": holeScores[0] as AnyObject, "2": holeScores[1] as AnyObject, "3": holeScores[2] as AnyObject, "4": holeScores[3] as AnyObject,"5": holeScores[4] as AnyObject, "6": holeScores[5] as AnyObject, "7": holeScores[6] as AnyObject, "8": holeScores[7] as AnyObject,"9": holeScores[8] as AnyObject, "10": holeScores[9] as AnyObject, "11": holeScores[10] as AnyObject, "12": holeScores[11] as AnyObject,"13": holeScores[12] as AnyObject, "14": holeScores[13] as AnyObject, "15": holeScores[14] as AnyObject, "16": holeScores[15] as AnyObject, "17": holeScores[16] as AnyObject, "18": holeScores[17] as AnyObject]
         
         // Score Upload
         let courseReference = Database.database().reference().child("Users").child(uid!).child("Courses").child(self.courseName)
-        let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            courseReference.child("Round \(self.currentRound)").child("Scores").setValue(scoreData)
+        let when3 = DispatchTime.now() + 1 // change to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when3) {
+            let currentRoundStr = String(format: "%02d", self.currentRound)
+            courseReference.child("Round \(currentRoundStr)").child("Scores").setValue(scoreData)
         }
     }
+    
+    func getRoundCount() {
+        let uid = Auth.auth().currentUser?.uid
+        let courseReference = self.ref.child("Users").child(uid!).child("Courses").child(self.courseName)
+        
+        courseReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.currentRound = (dictionary["Rounds Played"] as? Int)! + 1
+            } else {
+                self.currentRound = 1
+            }
+        }, withCancel: nil)
+    }
+    
+    func getLifetimeStats(lifetimeRef: DatabaseReference) {
+        lifetimeRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.lifetimeFairwayBunkers = dictionary["Fairway Bunkers"] as! Int
+                self.lifetimeGreenBunkers = dictionary["Greenside Bunkers"] as! Int
+                self.lifetimeHazards = dictionary["Hazards"] as! Int
+                self.lifetimeOBs = dictionary["OBs"] as! Int
+                self.lifetimeRights = dictionary["Rights"] as! Int
+                self.lifetimeLefts = dictionary["Lefts"] as! Int
+                self.lifetimeFairways = dictionary["Fairways"] as! Int
+                self.lifetimeScore = dictionary["Score"] as! Int
+                self.lifetimePutts = dictionary["Putts"] as! Int
+                self.lifetimeGreensInReg = dictionary["Greens"] as! Int
+                self.lifetimeFringes = dictionary["Fringes"] as! Int
+                
+            }
+        }, withCancel: nil)
+    }
+
+    
+    
 }
