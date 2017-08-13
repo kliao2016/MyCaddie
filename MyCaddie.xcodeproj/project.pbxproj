@@ -205,6 +205,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10015B411F3FC48600851663 /* Segue Classes */ = {
+			isa = PBXGroup;
+			children = (
+				10BAE92E1F3FAFE800F7F391 /* SettingsTableViewController2.swift */,
+				10BAE92C1F3FADE100F7F391 /* MyStatsViewController2.swift */,
+				10BAE92A1F3FAB3400F7F391 /* MyCoursesViewController2.swift */,
+				10BAE9301F3FB11700F7F391 /* CreateViewController2.swift */,
+			);
+			name = "Segue Classes";
+			sourceTree = "<group>";
+		};
 		106375A21F2674FF006B4538 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +294,7 @@
 		10D595651EDA317B00572D38 /* MyCaddie */ = {
 			isa = PBXGroup;
 			children = (
+				10015B411F3FC48600851663 /* Segue Classes */,
 				109F1DDE1F37C69100630325 /* Global */,
 				1090B9851F22F753002F678E /* Helpers */,
 				10FC4EBF1F1FEF18006F4B79 /* Custom */,
@@ -301,10 +313,6 @@
 				998A079B1F30168700D79287 /* CourseDatabaseViewController.swift */,
 				10F81DD11F2FFEB1004F1672 /* CourseInfoViewController.swift */,
 				10594C981F3B94D1009B8D8E /* CourseTeeSelector.swift */,
-				10BAE92E1F3FAFE800F7F391 /* SettingsTableViewController2.swift */,
-				10BAE92C1F3FADE100F7F391 /* MyStatsViewController2.swift */,
-				10BAE92A1F3FAB3400F7F391 /* MyCoursesViewController2.swift */,
-				10BAE9301F3FB11700F7F391 /* CreateViewController2.swift */,
 				10D5956C1EDA317B00572D38 /* Main.storyboard */,
 				99BCD82C1F2A853D007E09C0 /* Animation */,
 				99D313CD1F2125A90051B3BE /* Swipe Control */,
@@ -455,7 +463,7 @@
 				TargetAttributes = {
 					10D595621EDA317B00572D38 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = SD3HFF44RZ;
+						DevelopmentTeam = 3535BPJH56;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -752,7 +760,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SD3HFF44RZ;
+				DEVELOPMENT_TEAM = 3535BPJH56;
 				INFOPLIST_FILE = MyCaddie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liaomauz2.MyCaddie;
@@ -770,7 +778,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SD3HFF44RZ;
+				DEVELOPMENT_TEAM = 3535BPJH56;
 				INFOPLIST_FILE = MyCaddie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liaomauz2.MyCaddie;

@@ -176,26 +176,20 @@ class Stats3: UIViewController {
             let textField = popUp.textFields![0] // Force Unwrapping
             let actualText = Int((textField.text)!)
             
-            if (actualText != nil){
-            self.putts = Int(textField.text!)!
-            self.updateScore()
-            self.holeStatistics.putt = self.putts
-            self.updateHoleData()
-            self.resetHoleStats()
-            if self.currentHole >= 18 {
-                self.endRound()
-                self.deleteCurrentRound()
-                self.disableButtons()
-                
-                self.perform(#selector(self.showMainView), with: nil, afterDelay: 1)
-                
-//                let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
-//                DispatchQueue.main.asyncAfter(deadline: when) {
-//                    self.showMainView()
-//                }
-            }
-            }
-            else {
+            if (actualText != nil) {
+                self.putts = Int(textField.text!)!
+                self.updateScore()
+                self.holeStatistics.putt = self.putts
+                self.updateHoleData()
+                self.resetHoleStats()
+                if self.currentHole >= 18 {
+                    self.endRound()
+                    self.deleteCurrentRound()
+                    self.disableButtons()
+
+                    self.perform(#selector(self.showMainView), with: nil, afterDelay: 1)
+                }
+            } else {
                 self.puttPopUp()
             }
         
@@ -382,7 +376,6 @@ class Stats3: UIViewController {
         }
 
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -694,7 +687,4 @@ class Stats3: UIViewController {
             }
         }, withCancel: nil)
     }
-
-    
-    
 }
