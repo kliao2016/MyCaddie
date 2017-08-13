@@ -763,7 +763,7 @@
 				DEVELOPMENT_TEAM = 3535BPJH56;
 				INFOPLIST_FILE = MyCaddie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
+				PRODUCT_BUNDLE_IDENTIFIER = liaomauz2.MyCaddie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyCaddie/MyCaddie-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -781,7 +781,7 @@
 				DEVELOPMENT_TEAM = 3535BPJH56;
 				INFOPLIST_FILE = MyCaddie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = liaomauz.MyCaddie;
+				PRODUCT_BUNDLE_IDENTIFIER = liaomauz2.MyCaddie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyCaddie/MyCaddie-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

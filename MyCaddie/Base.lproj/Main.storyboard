@@ -1343,6 +1343,7 @@
                         <outlet property="hazardButton" destination="3Da-h3-WC5" id="Ug6-Ea-bem"/>
                         <outlet property="leftButton" destination="FXq-8R-t6T" id="ekr-TC-mOU"/>
                         <outlet property="obButton" destination="4ih-3G-guP" id="Nd6-wj-CP2"/>
+                        <outlet property="redoButton" destination="DtG-dd-OAS" id="sJM-Q2-gj1"/>
                         <outlet property="rightButton" destination="PZE-hz-z0Y" id="vZt-Gq-4RO"/>
                         <segue destination="wH0-Ms-kE0" kind="presentation" identifier="scorecardSegue" id="yuH-jP-gRu"/>
                         <segue destination="1Ma-Y8-vEr" kind="unwind" identifier="unwindToTeesFromNewRoundSegue" unwindAction="unwindToTeesFromNewRoundWithSegue:" id="Hxh-Ky-mxD"/>
