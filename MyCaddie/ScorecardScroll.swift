@@ -106,4 +106,8 @@ class ScorecardScroll: UIPageViewController, UIPageViewControllerDataSource, UIP
         return false
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
 }
