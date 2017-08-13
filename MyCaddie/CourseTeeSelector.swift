@@ -69,22 +69,22 @@ class CourseTeeSelector: UIViewController, UITableViewDelegate, UITableViewDataS
         let champOption = FloatyItem()
         champOption.buttonColor = UIColor.black
         champOption.title = "Championship Tees"
-        champOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showCreateCourse)))
+        champOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showChampCreateCourse)))
         
         let mensOption = FloatyItem()
         mensOption.buttonColor = UIColor.blue
         mensOption.title = "Men's Tees"
-        mensOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showCreateCourse)))
+        mensOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showMensCreateCourse)))
         
         let womensOption = FloatyItem()
         womensOption.buttonColor = UIColor.red
         womensOption.title = "Women's Tees"
-        womensOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showCreateCourse)))
+        womensOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showWomensCreateCourse)))
         
         let seniorOption = FloatyItem()
         seniorOption.buttonColor = UIColor.white
         seniorOption.title = "Senior Tees"
-        seniorOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showCreateCourse)))
+        seniorOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showSeniorCreateCourse)))
         
         floatyNewOptionsButton.addItem(item: seniorOption)
         floatyNewOptionsButton.addItem(item: womensOption)
@@ -99,8 +99,20 @@ class CourseTeeSelector: UIViewController, UITableViewDelegate, UITableViewDataS
         return cell!
     }
     
-    func showCreateCourse() {
-        self.performSegue(withIdentifier: "teeToCreateSegue", sender: self)
+    func showChampCreateCourse() {
+        self.performSegue(withIdentifier: "teeToChampCreateSegue", sender: self)
+    }
+    
+    func showMensCreateCourse() {
+        self.performSegue(withIdentifier: "teeToMensCreateSegue", sender: self)
+    }
+    
+    func showWomensCreateCourse() {
+        self.performSegue(withIdentifier: "teeToWomensCreateSegue", sender: self)
+    }
+    
+    func showSeniorCreateCourse() {
+        self.performSegue(withIdentifier: "teeToSeniorCreateSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -110,6 +122,26 @@ class CourseTeeSelector: UIViewController, UITableViewDelegate, UITableViewDataS
             
             let indexPath = self.teeTable.indexPathForSelectedRow
             statsView.tees = tees[(indexPath?.row)!]
+        }
+        if segue.identifier == "teeToChampCreateSegue" {
+            let destinationVC = segue.destination as! CreateViewController2
+            destinationVC.parentCourseName = self.teeParentCourseName
+            destinationVC.teeName = "Championship"
+        }
+        if segue.identifier == "teeToMensCreateSegue" {
+            let destinationVC = segue.destination as! CreateViewController2
+            destinationVC.parentCourseName = self.teeParentCourseName
+            destinationVC.teeName = "Men's"
+        }
+        if segue.identifier == "teeToWomensCreateSegue" {
+            let destinationVC = segue.destination as! CreateViewController2
+            destinationVC.parentCourseName = self.teeParentCourseName
+            destinationVC.teeName = "Women's"
+        }
+        if segue.identifier == "teeToSeniorCreateSegue" {
+            let destinationVC = segue.destination as! CreateViewController2
+            destinationVC.parentCourseName = self.teeParentCourseName
+            destinationVC.teeName = "Senior"
         }
     }
     
