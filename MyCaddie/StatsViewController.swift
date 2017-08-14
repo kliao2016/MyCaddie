@@ -53,8 +53,112 @@ class StatsViewController: UIViewController {
         view.addSubview(ground)
         
         drawLine()
-        // Row Labels
+        drawSectionLabels()
         
+        let when = DispatchTime.now() + 1 // change to desired number of seconds
+        
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.drawStats()
+        }
+    }
+    
+    func drawLine(){
+        //self.line1?.removeFromSuperlayer()
+        
+        // create whatever path you want
+        
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: 140, y: 245))
+        path.addLine(to: CGPoint(x: 0, y: 245))
+        
+        let path2 = UIBezierPath()
+        path2.move(to: CGPoint(x: 240, y: 245))
+        path2.addLine(to: CGPoint(x: 380, y: 245))
+        
+        // Second Set of Paths
+        
+        let path3 = UIBezierPath()
+        path3.move(to: CGPoint(x: 140, y: 380))
+        path3.addLine(to: CGPoint(x: 0, y: 380))
+        
+        let path4 = UIBezierPath()
+        path4.move(to: CGPoint(x: 240, y: 380))
+        path4.addLine(to: CGPoint(x: 380, y: 380))
+        
+        // Third Set
+        
+        let path5 = UIBezierPath()
+        path5.move(to: CGPoint(x: 140, y: 525))
+        path5.addLine(to: CGPoint(x: 0, y: 525))
+        
+        let path6 = UIBezierPath()
+        path6.move(to: CGPoint(x: 240, y: 525))
+        path6.addLine(to: CGPoint(x: 380, y: 525))
+        
+        // create shape layer for that path
+        
+        let line1 = CAShapeLayer()
+        line1.fillColor = UIColor.clear.cgColor
+        line1.strokeColor = UIColor.init(red: 30/255, green: 150/255, blue: 100/255, alpha: 1).cgColor
+        line1.lineWidth = 4
+        line1.path = path.cgPath
+        
+        let line2 = CAShapeLayer()
+        line2.fillColor = UIColor.clear.cgColor
+        line2.strokeColor = UIColor.init(red: 30/255, green: 150/255, blue: 100/255, alpha: 1).cgColor
+        line2.lineWidth = 4
+        line2.path = path2.cgPath
+        
+        // Second Set of Lines
+        
+        let line3 = CAShapeLayer()
+        line3.fillColor = UIColor.clear.cgColor
+        line3.strokeColor = UIColor.init(red: 30/255, green: 150/255, blue: 100/255, alpha: 1).cgColor
+        line3.lineWidth = 4
+        line3.path = path3.cgPath
+        
+        let line4 = CAShapeLayer()
+        line4.fillColor = UIColor.clear.cgColor
+        line4.strokeColor = UIColor.init(red: 30/255, green: 150/255, blue: 100/255, alpha: 1).cgColor
+        line4.lineWidth = 4
+        line4.path = path4.cgPath
+        
+        // Third Set
+        
+        let line5 = CAShapeLayer()
+        line5.fillColor = UIColor.clear.cgColor
+        line5.strokeColor = UIColor.init(red: 30/255, green: 150/255, blue: 100/255, alpha: 1).cgColor
+        line5.lineWidth = 4
+        line5.path = path5.cgPath
+        
+        let line6 = CAShapeLayer()
+        line6.fillColor = UIColor.clear.cgColor
+        line6.strokeColor = UIColor.init(red: 30/255, green: 150/255, blue: 100/255, alpha: 1).cgColor
+        line6.lineWidth = 4
+        line6.path = path6.cgPath
+        
+        // animate it
+        
+        view.layer.addSublayer(line1)
+        view.layer.addSublayer(line2)
+        view.layer.addSublayer(line3)
+        view.layer.addSublayer(line4)
+        view.layer.addSublayer(line5)
+        view.layer.addSublayer(line6)
+        
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.fromValue = 0
+        animation.duration = 1
+        line1.add(animation, forKey: "MyAnimation")
+        line2.add(animation, forKey: nil)
+        line3.add(animation, forKey: nil)
+        line4.add(animation, forKey: nil)
+        line5.add(animation, forKey: nil)
+        line6.add(animation, forKey: nil)
+        
+    }
+    
+    func drawSectionLabels(){
         let label00 = UILabel(frame: CGRect(x: 0, y: 0, width: 110, height: 21))
         label00.center = CGPoint(x: 190, y: 245)
         label00.textAlignment = .center
@@ -75,11 +179,9 @@ class StatsViewController: UIViewController {
         labelY.text = "Penalties"
         labelY.textColor = UIColor.init(red: 50/255, green: 150/255, blue: 100/255, alpha: 1)
         self.view.addSubview(labelY)
-        
-        let when = DispatchTime.now() + 1 // change to desired number of seconds
-        
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            
+    }
+    
+    func drawStats(){
         // Top Top
         let rect0 = CGRect(x: 134, y: 100, width: 110, height: 110)
         let cp0 = CirclePath2(frame: rect0, stat: self.Score)
@@ -199,104 +301,6 @@ class StatsViewController: UIViewController {
         label9.text = "Hazards"
         label9.textColor = UIColor.white
         self.view.addSubview(label9)
-        }
-        
-    }
-    
-    func drawLine(){
-        //self.line1?.removeFromSuperlayer()
-        
-        // create whatever path you want
-        
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: 140, y: 245))
-        path.addLine(to: CGPoint(x: 0, y: 245))
-        
-        let path2 = UIBezierPath()
-        path2.move(to: CGPoint(x: 240, y: 245))
-        path2.addLine(to: CGPoint(x: 380, y: 245))
-        
-        // Second Set of Paths
-        
-        let path3 = UIBezierPath()
-        path3.move(to: CGPoint(x: 140, y: 380))
-        path3.addLine(to: CGPoint(x: 0, y: 380))
-        
-        let path4 = UIBezierPath()
-        path4.move(to: CGPoint(x: 240, y: 380))
-        path4.addLine(to: CGPoint(x: 380, y: 380))
-        
-        // Third Set
-        
-        let path5 = UIBezierPath()
-        path5.move(to: CGPoint(x: 140, y: 525))
-        path5.addLine(to: CGPoint(x: 0, y: 525))
-        
-        let path6 = UIBezierPath()
-        path6.move(to: CGPoint(x: 240, y: 525))
-        path6.addLine(to: CGPoint(x: 380, y: 525))
-        
-        // create shape layer for that path
-        
-        let line1 = CAShapeLayer()
-        line1.fillColor = UIColor.clear.cgColor
-        line1.strokeColor = UIColor.init(red: 30/255, green: 150/255, blue: 100/255, alpha: 1).cgColor
-        line1.lineWidth = 4
-        line1.path = path.cgPath
-        
-        let line2 = CAShapeLayer()
-        line2.fillColor = UIColor.clear.cgColor
-        line2.strokeColor = UIColor.init(red: 30/255, green: 150/255, blue: 100/255, alpha: 1).cgColor
-        line2.lineWidth = 4
-        line2.path = path2.cgPath
-        
-        // Second Set of Lines
-        
-        let line3 = CAShapeLayer()
-        line3.fillColor = UIColor.clear.cgColor
-        line3.strokeColor = UIColor.init(red: 30/255, green: 150/255, blue: 100/255, alpha: 1).cgColor
-        line3.lineWidth = 4
-        line3.path = path3.cgPath
-        
-        let line4 = CAShapeLayer()
-        line4.fillColor = UIColor.clear.cgColor
-        line4.strokeColor = UIColor.init(red: 30/255, green: 150/255, blue: 100/255, alpha: 1).cgColor
-        line4.lineWidth = 4
-        line4.path = path4.cgPath
-        
-        // Third Set
-        
-        let line5 = CAShapeLayer()
-        line5.fillColor = UIColor.clear.cgColor
-        line5.strokeColor = UIColor.init(red: 30/255, green: 150/255, blue: 100/255, alpha: 1).cgColor
-        line5.lineWidth = 4
-        line5.path = path5.cgPath
-        
-        let line6 = CAShapeLayer()
-        line6.fillColor = UIColor.clear.cgColor
-        line6.strokeColor = UIColor.init(red: 30/255, green: 150/255, blue: 100/255, alpha: 1).cgColor
-        line6.lineWidth = 4
-        line6.path = path6.cgPath
-        
-        // animate it
-        
-        view.layer.addSublayer(line1)
-        view.layer.addSublayer(line2)
-        view.layer.addSublayer(line3)
-        view.layer.addSublayer(line4)
-        view.layer.addSublayer(line5)
-        view.layer.addSublayer(line6)
-        
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.fromValue = 0
-        animation.duration = 1
-        line1.add(animation, forKey: "MyAnimation")
-        line2.add(animation, forKey: nil)
-        line3.add(animation, forKey: nil)
-        line4.add(animation, forKey: nil)
-        line5.add(animation, forKey: nil)
-        line6.add(animation, forKey: nil)
-        
     }
     
     

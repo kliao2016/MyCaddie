@@ -66,7 +66,7 @@ class CirclePath2: UIView {
         let anime = CABasicAnimation(keyPath: "strokeEnd")
         anime.fromValue = 0
         anime.toValue = 1
-        anime.duration = 2
+        anime.duration = 1.5
         
         shapeLayer.add(anime, forKey: nil)
         

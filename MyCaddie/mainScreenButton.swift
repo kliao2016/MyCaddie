@@ -77,7 +77,7 @@ class mainScreenButton: UIView {
         let anime = CABasicAnimation(keyPath: "strokeEnd")
         anime.fromValue = 0
         anime.toValue = 1
-        anime.duration = 2
+        anime.duration = 1.5
         shapeLayer.add(anime, forKey: nil)
         
         // Text Label
@@ -111,7 +111,7 @@ class mainScreenButton: UIView {
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = 0
         animation.toValue = 1
-        animation.duration = 2
+        animation.duration = 1.5
         gradLayer2.add(animation, forKey: nil)
         gradLayer2.opacity = 1
         
