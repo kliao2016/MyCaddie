@@ -15,7 +15,6 @@ import GoogleSignIn
 class SwipeViewController: UIViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var alertButton: UIBarButtonItem!
     
     var ref = Database.database().reference()
     var databaseRef: DatabaseReference?

@@ -164,9 +164,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         place2.layer.addSublayer(welcomeLabel2)
         place3.layer.addSublayer(welcomeLabel3)
         
-        
-        
-        
+        // Animation code
         
         //lowLeft.contentsScale = [[UIScreen mainScreen] scale]
         
