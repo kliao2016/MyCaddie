@@ -32,18 +32,18 @@ class SwipeViewController: UIViewController {
     
         
         let rect0 = CGRect(x: 70, y: 185, width: 250, height: 30)
-        var cp0 = mainScreenAnimation(frame: rect0)
+        let cp0 = mainScreenAnimation(frame: rect0)
         view.addSubview(cp0)
         
-        let orange = UIColor.orange.cgColor
-        let purple = UIColor.purple.cgColor
+        //let orange = UIColor.orange.cgColor
+        //let purple = UIColor.purple.cgColor
         let blue = UIColor.blue.cgColor
         //let red = UIColor.red.cgColor
         let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
         
         // Start New Round Button
         let rect5 = CGRect(x: 140, y: 490, width: 100, height: 100)
-        var cp5 = mainScreenButton(frame: rect5, words: "New Round", color1: green, color2: blue)
+        let cp5 = mainScreenButton(frame: rect5, words: "New Round", color1: green, color2: blue)
         cp5.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(segueToNewRound)))
         view.addSubview(cp5)
         
@@ -106,12 +106,6 @@ class SwipeViewController: UIViewController {
         promptPopUp.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [promptPopUp] (_) in
             promptPopUp.dismiss(animated: true, completion: nil)
             self.performSegue(withIdentifier: "mainToLoadSegue", sender: self)
-            //DispatchQueue.main.async {
-                //let statsView = Stats3()
-                //let statsView = self.storyboard?.instantiateViewController(withIdentifier: "StatsView2") as! Stats3
-                //self.fetchCurrentRound(statsView: statsView)
-                //self.present(statsView, animated: true, completion: nil)
-            //}
         }))
         promptPopUp.addAction(UIAlertAction(title: "No", style: .default, handler: { [promptPopUp] (_) in
             promptPopUp.dismiss(animated: true, completion: nil)
