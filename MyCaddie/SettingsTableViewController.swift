@@ -26,15 +26,20 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.settingsView.frame.size.height = self.tableView.frame.size.height / 4
-        self.tableView.rowHeight = (self.tableView.frame.size.height * 3) / 40
-        
         sideMenus()
         customizeNavBar()
         
         loadEmail()
         
+        self.settingsView.frame.size.height = self.tableView.frame.size.height / 4
+        
         loadProfileImage()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.profileImage.contentMode = .scaleAspectFill
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+        self.profileImage.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +51,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        self.tableView.rowHeight = (self.tableView.frame.size.height * 3) / 40
         return 1
     }
 
@@ -149,7 +155,7 @@ class SettingsTableViewController: UITableViewController {
         self.present(promptPopUp, animated: true, completion: nil)
     }
     
-    func loadEmail(){
+    func loadEmail() {
         let uid = Auth.auth().currentUser?.uid
         let user = databaseRef.child("Users").child(uid!)
         user.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -183,9 +189,6 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func loadProfileImage() {
-        self.profileImage.contentMode = .scaleAspectFill
-        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
-        self.profileImage.clipsToBounds = true
         if let uid = Auth.auth().currentUser?.uid {
             let user = databaseRef.child("Users").child(uid)
             user.observeSingleEvent(of: .value, with: { (snapshot) in

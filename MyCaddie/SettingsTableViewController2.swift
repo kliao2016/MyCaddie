@@ -32,6 +32,12 @@ class SettingsTableViewController2: UITableViewController {
         loadProfileImage()
     }
     
+    override func viewDidLayoutSubviews() {
+        self.profileImage.contentMode = .scaleAspectFill
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+        self.profileImage.clipsToBounds = true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -154,9 +160,6 @@ class SettingsTableViewController2: UITableViewController {
     }
     
     func loadProfileImage() {
-        self.profileImage.contentMode = .scaleAspectFill
-        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
-        self.profileImage.clipsToBounds = true
         if let uid = Auth.auth().currentUser?.uid {
             let user = databaseRef.child("Users").child(uid)
             user.observeSingleEvent(of: .value, with: { (snapshot) in
