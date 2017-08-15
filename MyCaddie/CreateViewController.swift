@@ -644,7 +644,11 @@ class CreateViewController: UIViewController, UIApplicationDelegate, UIPickerVie
         if textField == courseName {
             let allowedCharacters = CharacterSet.letters
             let characterSet = CharacterSet(charactersIn: string)
-            return allowedCharacters.isSuperset(of: characterSet)
+            if string == " " {
+                return true
+            } else {
+                return allowedCharacters.isSuperset(of: characterSet)
+            }
         } else {
             let characterSet = CharacterSet(charactersIn: string)
             let allowedCharacters = CharacterSet.decimalDigits
