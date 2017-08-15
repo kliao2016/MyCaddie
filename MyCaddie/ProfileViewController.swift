@@ -31,11 +31,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     let welcomeLabel4 = CATextLayer()
     
     // Lifetime Stats
-    var lifetimeFairways = 0
-    var lifetimeGreensInReg = 0
     var lifetimePutts = 0
     var lifetimeScore = 0
-    var handicap = "N/A"
+    var handicap = "N-A"
     
     var ref = Database.database().reference()
     
@@ -47,10 +45,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         sideMenus()
         customizeNavBar()
         
-        var s = "N/A"
-        var s2 = "N/A"
-        var s3 = "N/A"
-        
         profileTableView.delegate = self
         profileTableView.dataSource = self
         
@@ -59,199 +53,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         retrieveStats(lifetimeRef: lifetimeRef)
         
-        let when = DispatchTime.now() + 0.5 // change to desired number of seconds
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            s = "\(self.lifetimeScore)"
-            s2 = "\(self.handicap)"
-            s3 = "\(self.lifetimePutts)"
-            
-            // Low Left Stat
-            let rect0 = CGRect(x: 30, y: 350, width: 75, height: 75)
-            let cp0 = TextOnProfile(frame: rect0, stat: s)
-            self.view.addSubview(cp0)
-            
-            // Low Middle Stat
-            let rect1 = CGRect(x: 150, y: 350, width: 75, height: 75)
-            //let cp0 = TextOnProfile(frame: rect0, stat: "\(self.lifetimeScore)")
-            let cp1 = TextOnProfile(frame: rect1, stat: s2)
-            self.view.addSubview(cp1)
-            
-            // Low Right Stat
-            let rect2 = CGRect(x: 278, y: 350, width: 75, height: 75)
-            //let cp0 = TextOnProfile(frame: rect0, stat: "\(self.lifetimeScore)")
-            let cp2 = TextOnProfile(frame: rect2, stat: s3)
-            self.view.addSubview(cp2)
-        }
-        
-        //Welcome Label
-        welcomeLabel.contentsScale = UIScreen.main.scale
-        welcomeLabel2.contentsScale = UIScreen.main.scale
-        welcomeLabel3.contentsScale = UIScreen.main.scale
-        
         // Background
         let back = CGRect(x: 0, y: 0, width: 500, height: 800)
         let ground = profileBackground(frame: back)
         //view.addSubview(ground)
         view.insertSubview(ground, at: 0)
-        
-        // Low Left Text
-        
-        let lowLeft = CGRect(x: 20, y: 410, width: 140, height: 20)
-        let place1 = UIView(frame: lowLeft)
-        view.addSubview(place1)
-        
-        welcomeLabel.frame = CGRect(x: 0, y: 0, width: 140, height: 20)
-        welcomeLabel.fontSize = 14
-        welcomeLabel.alignmentMode = kCAAlignmentCenter
-        welcomeLabel.foregroundColor = UIColor.white.cgColor
-        welcomeLabel.alignmentMode = kCAAlignmentLeft
-        welcomeLabel.contentsScale = UIScreen.main.scale
         ground.layer.shouldRasterize = false
-        place1.layer.shouldRasterize = false
         
-        let animation = CABasicAnimation(keyPath: "opacity")
-        animation.fromValue = 0
-        animation.toValue = 1
-        animation.duration = 1
-        welcomeLabel.add(animation, forKey: nil)
-        
-//        // Low Left Stat
-//        let rect0 = CGRect(x: 20, y: 345, width: 100, height: 100)
-//        //let cp0 = TextOnProfile(frame: rect0, stat: "\(self.lifetimeScore)")
-//        let cp0 = TextOnProfile(frame: rect0, stat: s)
-//        self.view.addSubview(cp0)
-        
-        // Low Middle Text
-        
-        let lowMiddle = CGRect(x: 156, y: 410, width: 140, height: 20)
-        let place2 = UIView(frame: lowMiddle)
-        view.addSubview(place2)
-        
-        welcomeLabel2.frame = CGRect(x: 0, y: 0, width: 140, height: 20)
-        welcomeLabel2.fontSize = 14
-        welcomeLabel2.alignmentMode = kCAAlignmentCenter
-        welcomeLabel2.foregroundColor = UIColor.white.cgColor
-        welcomeLabel2.alignmentMode = kCAAlignmentLeft
-        welcomeLabel2.add(animation, forKey: nil)
-        // Blurriness Fix
-        welcomeLabel2.contentsScale = UIScreen.main.scale
-        place2.layer.shouldRasterize = false
-        
-//        // Low Middle Stat
-//        let rect1 = CGRect(x: 140, y: 345, width: 100, height: 100)
-//        //let cp0 = TextOnProfile(frame: rect0, stat: "\(self.lifetimeScore)")
-//        let cp1 = TextOnProfile(frame: rect1, stat: s2)
-//        self.view.addSubview(cp1)
-        
-        //Low Right Text
-        
-        let lowRight = CGRect(x: 275, y: 410, width: 140, height: 20)
-        let place3 = UIView(frame: lowRight)
-        view.addSubview(place3)
-        
-        welcomeLabel3.frame = CGRect(x: 0, y: 0, width: 140, height: 20)
-        welcomeLabel3.fontSize = 14
-        welcomeLabel3.alignmentMode = kCAAlignmentCenter
-        welcomeLabel3.foregroundColor = UIColor.white.cgColor
-        welcomeLabel3.alignmentMode = kCAAlignmentLeft
-        welcomeLabel3.add(animation, forKey: nil)
-        
-        welcomeLabel.string = "All-time Score"
-        welcomeLabel2.string = "Handicap"
-        welcomeLabel3.string = "Lifetime Putts"
-        
-        place1.layer.addSublayer(welcomeLabel)
-        place2.layer.addSublayer(welcomeLabel2)
-        place3.layer.addSublayer(welcomeLabel3)
-        
-        // Animation code
-        
-        //lowLeft.contentsScale = [[UIScreen mainScreen] scale]
-        
-//        // Low Right Stat
-//        let rect2 = CGRect(x: 270, y: 345, width: 100, height: 100)
-//        //let cp0 = TextOnProfile(frame: rect0, stat: "\(self.lifetimeScore)")
-//        let cp2 = TextOnProfile(frame: rect2, stat: s3)
-//        self.view.addSubview(cp2)
-        
-        /*
-        let label0 = UILabel(frame: CGRect(x: 0, y: 0, width: 110, height: 21))
-        label0.center = CGPoint(x: 127, y: 175)
-        label0.textAlignment = .center
-        label0.text = "Strokes"
-        label0.textColor = UIColor.white
-        self.view.addSubview(label0)
- */
-        
-        
- /*
-        // Lower Right
-        let lowRight = CGRect(x: 210, y: 410, width: 140, height: 20)
-        let place2 = UIView(frame: lowRight)
-        view.addSubview(place2)
-        
-        place2.layer.addSublayer(welcomeLabel2)
-        //place1.addSubview(welcomeLabel)
-        // Text Label
-        //welcomeLabel2.string = "Hello"
-        welcomeLabel2.frame = CGRect(x: 0, y: 0, width: 140, height: 20)
-        welcomeLabel2.fontSize = 14
-        welcomeLabel2.alignmentMode = kCAAlignmentCenter
-        welcomeLabel2.foregroundColor = UIColor.white.cgColor
-        welcomeLabel2.alignmentMode = kCAAlignmentRight
-
-
-        let animation2 = CABasicAnimation(keyPath: "opacity")
-        animation2.fromValue = 0
-        animation2.toValue = 1
-        animation2.duration = 1
-        welcomeLabel2.add(animation2, forKey: nil)
- 
-        // Upper Left
-        let upperLeft = CGRect(x: 10, y: 70, width: 130, height: 20)
-        let place3 = UIView(frame: upperLeft)
-        view.addSubview(place3)
-        
-        place3.layer.addSublayer(welcomeLabel3)
-        //place1.addSubview(welcomeLabel)
-        // Text Label
-        //welcomeLabel3.string = "Wassup"
-        welcomeLabel3.frame = CGRect(x: 0, y: 0, width: 130, height: 20)
-        welcomeLabel3.fontSize = 14
-        welcomeLabel3.alignmentMode = kCAAlignmentCenter
-        welcomeLabel3.foregroundColor = UIColor.white.cgColor
-        welcomeLabel3.alignmentMode = kCAAlignmentLeft
-        
-         let animation3 = CABasicAnimation(keyPath: "opacity")
-         animation3.fromValue = 0
-         animation3.toValue = 1
-         animation3.duration = 1
-         welcomeLabel3.add(animation3, forKey: nil)
-        
-
-        // Upper Right
-        let upperRight = CGRect(x: 210, y: 70, width: 140, height: 20)
-        let place4 = UIView(frame: upperRight)
-        view.addSubview(place4)
-        
-        place4.layer.addSublayer(welcomeLabel4)
-        //place1.addSubview(welcomeLabel)
-        // Text Label
-        //welcomeLabel4.string = "YOOOOO"
-        welcomeLabel4.frame = CGRect(x: 0, y: 0, width: 140, height: 20)
-        welcomeLabel4.fontSize = 14
-        welcomeLabel4.alignmentMode = kCAAlignmentCenter
-        welcomeLabel4.foregroundColor = UIColor.white.cgColor
-        welcomeLabel4.alignmentMode = kCAAlignmentRight
-        
-        
-         let animation4 = CABasicAnimation(keyPath: "opacity")
-         animation4.fromValue = 0
-         animation4.toValue = 1
-         animation4.duration = 1
-         welcomeLabel4.add(animation4, forKey: nil)
-        */
-
+        drawStatLabels()
         profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
         profileImage.isUserInteractionEnabled = true
         
@@ -361,10 +170,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func retrieveStats(lifetimeRef: DatabaseReference) {
         lifetimeRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                self.lifetimeFairways = dictionary["Fairways"] as! Int
                 self.lifetimeScore = dictionary["Score"] as! Int
                 self.lifetimePutts = dictionary["Putts"] as! Int
-                self.lifetimeGreensInReg = dictionary["Greens"] as! Int
+                
+                // Drawing Circles and Stats
+                
+                // Low Left Stat
+                let rect0 = CGRect(x: 30, y: 350, width: 75, height: 75)
+                let cp0 = TextOnProfile(frame: rect0, stat: String(self.lifetimeScore))
+                self.view.addSubview(cp0)
+                
+                // Low Right Stat
+                let rect2 = CGRect(x: 278, y: 350, width: 75, height: 75)
+                let cp2 = TextOnProfile(frame: rect2, stat: String(self.lifetimePutts))
+                self.view.addSubview(cp2)
+                
+                self.drawStatLabels()
             }
         }, withCancel: nil)
         let uid = Auth.auth().currentUser?.uid
@@ -372,6 +193,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profileRef.observeSingleEvent(of: .value, with: { (DataSnapshot) in
             if let dictionary2 = DataSnapshot.value as? [String: AnyObject] {
                 self.handicap = dictionary2["Handicap"] as! String
+                // Low Middle Stat
+                let rect1 = CGRect(x: 145, y: 350, width: 85, height: 75)
+                let cp1 = TextOnProfile(frame: rect1, stat: String(self.handicap))
+                self.view.addSubview(cp1)
             }
         })
     }
@@ -438,6 +263,89 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let destinationVC = segue.destination as! CourseDatabaseViewController
             destinationVC.navigationItem.title = "Choose a Course"
         }
+    }
+    
+    func drawStats(){
+//        //Low Left Stat
+//        let rect0 = CGRect(x: 30, y: 350, width: 75, height: 75)
+//        let cp0 = TextOnProfile(frame: rect0, stat: self.s)
+//        self.view.addSubview(cp0)
+//        
+//        // Low Middle Stat
+//        let rect1 = CGRect(x: 150, y: 350, width: 75, height: 75)
+//        //let cp0 = TextOnProfile(frame: rect0, stat: "\(self.lifetimeScore)")
+//        let cp1 = TextOnProfile(frame: rect1, stat: self.s2)
+//        self.view.addSubview(cp1)
+//        
+//        // Low Right Stat
+//        let rect2 = CGRect(x: 278, y: 350, width: 75, height: 75)
+//        //let cp0 = TextOnProfile(frame: rect0, stat: "\(self.lifetimeScore)")
+//        let cp2 = TextOnProfile(frame: rect2, stat: self.s3)
+//        self.view.addSubview(cp2)
+    }
+    
+    func drawStatLabels(){
+        //Welcome Label
+        welcomeLabel.contentsScale = UIScreen.main.scale
+        welcomeLabel2.contentsScale = UIScreen.main.scale
+        welcomeLabel3.contentsScale = UIScreen.main.scale
+        
+        // Low Left Text
+        
+        let lowLeft = CGRect(x: 20, y: 410, width: 140, height: 20)
+        let place1 = UIView(frame: lowLeft)
+        view.addSubview(place1)
+        
+        welcomeLabel.frame = CGRect(x: 0, y: 0, width: 140, height: 20)
+        welcomeLabel.fontSize = 14
+        welcomeLabel.alignmentMode = kCAAlignmentCenter
+        welcomeLabel.foregroundColor = UIColor.white.cgColor
+        welcomeLabel.alignmentMode = kCAAlignmentLeft
+        welcomeLabel.contentsScale = UIScreen.main.scale
+        place1.layer.shouldRasterize = false
+        
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = 1
+        welcomeLabel.add(animation, forKey: nil)
+        
+        // Low Middle Text
+        
+        let lowMiddle = CGRect(x: 156, y: 410, width: 140, height: 20)
+        let place2 = UIView(frame: lowMiddle)
+        view.addSubview(place2)
+        
+        welcomeLabel2.frame = CGRect(x: 0, y: 0, width: 140, height: 20)
+        welcomeLabel2.fontSize = 14
+        welcomeLabel2.alignmentMode = kCAAlignmentCenter
+        welcomeLabel2.foregroundColor = UIColor.white.cgColor
+        welcomeLabel2.alignmentMode = kCAAlignmentLeft
+        welcomeLabel2.add(animation, forKey: nil)
+        // Blurriness Fix
+        welcomeLabel2.contentsScale = UIScreen.main.scale
+        place2.layer.shouldRasterize = false
+        
+        //Low Right Text
+        
+        let lowRight = CGRect(x: 275, y: 410, width: 140, height: 20)
+        let place3 = UIView(frame: lowRight)
+        view.addSubview(place3)
+        
+        welcomeLabel3.frame = CGRect(x: 0, y: 0, width: 140, height: 20)
+        welcomeLabel3.fontSize = 14
+        welcomeLabel3.alignmentMode = kCAAlignmentCenter
+        welcomeLabel3.foregroundColor = UIColor.white.cgColor
+        welcomeLabel3.alignmentMode = kCAAlignmentLeft
+        welcomeLabel3.add(animation, forKey: nil)
+        
+        welcomeLabel.string = "All-time Score"
+        welcomeLabel2.string = "Handicap"
+        welcomeLabel3.string = "Lifetime Putts"
+        
+        place1.layer.addSublayer(welcomeLabel)
+        place2.layer.addSublayer(welcomeLabel2)
+        place3.layer.addSublayer(welcomeLabel3)
     }
     
 }
