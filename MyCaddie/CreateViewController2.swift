@@ -18,6 +18,9 @@ class CreateViewController2: UIViewController, UIApplicationDelegate, UIPickerVi
     let tees = ["Championship", "Men's", "Women's", "Senior"]
     var pars = ["4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4"]
     
+    var parentCourseName = ""
+    var teeName = ""
+    
     // Yardage textfields
     @IBOutlet weak var y1: UITextField!
     @IBOutlet weak var y2: UITextField!
@@ -309,6 +312,9 @@ class CreateViewController2: UIViewController, UIApplicationDelegate, UIPickerVi
         self.courseName.delegate = self
         self.courseRating.delegate = self
         self.slope.delegate = self
+        
+        self.courseName.text = self.parentCourseName
+        self.dropTextBox.text = self.teeName
         
         y1.keyboardType = UIKeyboardType.numberPad
         y2.keyboardType = UIKeyboardType.numberPad
@@ -614,9 +620,33 @@ class CreateViewController2: UIViewController, UIApplicationDelegate, UIPickerVi
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacters = CharacterSet.letters
-        let characterSet = CharacterSet(charactersIn: string)
-        return allowedCharacters.isSuperset(of: characterSet)
+        if textField == courseName {
+            let allowedCharacters = CharacterSet.letters
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
+        } else {
+            let characterSet = CharacterSet(charactersIn: string)
+            let allowedCharacters = CharacterSet.decimalDigits
+            let isNumber = allowedCharacters.isSuperset(of: characterSet)
+            if isNumber == true {
+                return true
+            } else {
+                if string == "." {
+                    let countdots = textField.text!.components(separatedBy: ".").count - 1
+                    if countdots == 0 {
+                        return true
+                    } else {
+                        if countdots > 0 && string == "." {
+                            return false
+                        } else {
+                            return true
+                        }
+                    }
+                } else {
+                    return false
+                }
+            }
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

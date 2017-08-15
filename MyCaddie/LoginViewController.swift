@@ -22,6 +22,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
     
+    var isUserEmailVerified = false
+    
     var databaseRef: DatabaseReference?
     let main = Main()
     
@@ -120,12 +122,24 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         self.present(alertController, animated: true, completion: nil)
     }
     
+    private func displayAlertEmailVerification() {
+        let alertController = UIAlertController(title: "Verify Email", message: "Please verify your email using the link we sent you.", preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     // Login and Sign Up functions
     private func login() {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
             // Check that credentials are valid
             if error == nil && user != nil {
-                self.displayMainMenu()
+                self.setUp()
+                if self.isUserEmailVerified == true {
+                    self.displayMainMenu()
+                }
             } else {
                 self.displayAlert()
             }
@@ -135,8 +149,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
     private func signUp() {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passTextField.text!, completion: { (user, error) in
             // Check that user isn't nil
-            if error == nil && user != nil{
-                self.displayMainMenu()
+            if error == nil && user != nil {
+                user?.sendEmailVerification(completion: nil)
+                self.setUp()
+                if self.isUserEmailVerified == true {
+                    self.displayMainMenu()
+                }
             } else {
                 self.displayAlert2()
             }
@@ -205,6 +223,18 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
             passTextField.resignFirstResponder()
         }
         return true
+    }
+    
+    func setUp() {
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                if user.isEmailVerified {
+                    self.isUserEmailVerified = true
+                } else {
+                    self.displayAlertEmailVerification()
+                }
+            }
+        }
     }
     
     @IBAction func unwindToLoginMenu(segue: UIStoryboardSegue) {}

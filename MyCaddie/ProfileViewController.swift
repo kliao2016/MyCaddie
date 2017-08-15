@@ -61,7 +61,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         ground.layer.shouldRasterize = false
         
         drawStatLabels()
-        
         profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
         profileImage.isUserInteractionEnabled = true
         
