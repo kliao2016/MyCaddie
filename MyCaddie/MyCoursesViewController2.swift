@@ -93,7 +93,7 @@ class MyCoursesViewController2: UIViewController, UITableViewDelegate, UITableVi
         newRoundOption.title = "New Round"
         newRoundOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(displayNewRound)))
         let newCourseOption = FloatyItem()
-        newCourseOption.buttonColor = UIColor.blue
+        newCourseOption.buttonColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
         newCourseOption.title = "Add New Course"
         newCourseOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(displayAddNewCourse)))
         floatyNewOptionsButton.addItem(item: newRoundOption)
