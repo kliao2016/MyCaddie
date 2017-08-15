@@ -26,10 +26,6 @@ class CourseInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.courseImage.contentMode = .scaleAspectFill
-        self.courseImage.layer.cornerRadius = self.courseImage.frame.size.width / 2
-        self.courseImage.clipsToBounds = true
-        
         self.courseInfoTable.delegate = self
         self.courseInfoTable.dataSource = self
 
@@ -37,6 +33,12 @@ class CourseInfoViewController: UIViewController, UITableViewDelegate, UITableVi
         self.navigationItem.title = "Course Info"
         
         fetchRounds()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.courseImage.contentMode = .scaleAspectFill
+        self.courseImage.layer.cornerRadius = self.courseImage.frame.size.width / 2
+        self.courseImage.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
