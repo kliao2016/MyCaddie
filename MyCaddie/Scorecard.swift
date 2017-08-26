@@ -15,6 +15,7 @@ class Scorecard: UIViewController {
     
     var parentCourseName = ""
     var tees = ""
+    var x = ""
     
     // Overall Database Reference
     var ref = Database.database().reference()
