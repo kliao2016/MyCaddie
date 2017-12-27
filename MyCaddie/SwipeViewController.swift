@@ -29,19 +29,17 @@ class SwipeViewController: UIViewController {
         
         databaseRef = Database.database().reference()
     
-        
-        let rect0 = CGRect(x: 70, y: 185, width: 250, height: 30)
+        let xcoord = self.view.frame.size.width
+        let ycoord = self.view.frame.size.height
+        let rect0 = CGRect(x: (xcoord / 2) - 125, y: ycoord - (ycoord * 3 / 4), width: 250, height: 30)
         let cp0 = mainScreenAnimation(frame: rect0)
         view.addSubview(cp0)
         
-        //let orange = UIColor.orange.cgColor
-        //let purple = UIColor.purple.cgColor
         let blue = UIColor.blue.cgColor
-        //let red = UIColor.red.cgColor
         let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
         
         // Start New Round Button
-        let rect5 = CGRect(x: 140, y: 490, width: 100, height: 100)
+        let rect5 = CGRect(x: (xcoord / 2) - 50, y: ycoord - (ycoord * 7 / 24), width: 100, height: 100)
         let cp5 = mainScreenButton(frame: rect5, words: "New Round", color1: green, color2: blue)
         cp5.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(segueToNewRound)))
         view.addSubview(cp5)

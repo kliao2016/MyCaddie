@@ -666,7 +666,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create a Course" id="usk-QM-yFj">
                         <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" style="plain" id="Bqt-gU-XA3">
-                            <inset key="imageInsets" minX="-5" minY="15" maxX="30" maxY="15"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -1323,7 +1323,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3Yg-Qc-Vt9">
                         <barButtonItem key="leftBarButtonItem" image="icons8-Back-50" id="x3b-6i-TLF">
-                            <inset key="imageInsets" minX="0.0" minY="15" maxX="30" maxY="15"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
                             <connections>
                                 <action selector="backButtonAction:" destination="MD8-tT-bZU" id="ThK-7d-pHa"/>
                             </connections>
@@ -1945,7 +1945,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Courses" id="qYw-Tr-xQt">
                         <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" style="plain" id="hNR-yy-19z">
-                            <inset key="imageInsets" minX="-5" minY="15" maxX="30" maxY="15"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -2071,7 +2071,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="Od4-Jf-9km">
                         <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" style="plain" id="7sF-9c-I7M">
-                            <inset key="imageInsets" minX="-5" minY="15" maxX="30" maxY="15"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -2133,7 +2133,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="fK4-zm-GgM">
-                        <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" width="11" style="plain" id="cyw-1x-lQL"/>
+                        <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" width="11" style="plain" id="cyw-1x-lQL">
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
@@ -2937,7 +2939,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Lifetime Statistics" id="lLW-oF-fBy">
                         <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" style="plain" id="yJg-BB-aMQ">
-                            <inset key="imageInsets" minX="-5" minY="15" maxX="30" maxY="15"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -3677,7 +3679,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="Yb5-jF-MjN">
                         <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" id="pNV-uv-7Vc">
-                            <inset key="imageInsets" minX="-5" minY="15" maxX="30" maxY="15"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -3831,13 +3833,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pmr-og-SWa">
                                         <rect key="frame" x="36.5" y="223.5" width="270.5" height="37"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Suchar Studios: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUG-cB-3lS">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suchar Studios: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUG-cB-3lS">
                                                 <rect key="frame" x="0.0" y="8" width="125.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zmb-wM-W7H">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zmb-wM-W7H">
                                                 <rect key="frame" x="125.5" y="3.5" width="145" height="30"/>
                                                 <state key="normal" title="https://goo.gl/Dxqntx"/>
                                                 <connections>
@@ -3855,13 +3857,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="48s-pB-Yvl">
                                         <rect key="frame" x="30.5" y="298" width="282.5" height="37"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Mitchell Hudson:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVm-00-jWA">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mitchell Hudson:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVm-00-jWA">
                                                 <rect key="frame" x="0.0" y="8" width="128.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyL-ld-khR">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyL-ld-khR">
                                                 <rect key="frame" x="133.5" y="3.5" width="149" height="30"/>
                                                 <state key="normal" title="https://goo.gl/EG2aay"/>
                                                 <connections>
@@ -5339,9 +5341,9 @@
         <image name="wesPic2" width="1709" height="1710"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EAd-b9-1jJ"/>
-        <segue reference="OLw-0b-gR4"/>
-        <segue reference="yf3-JC-G0j"/>
+        <segue reference="WUh-rx-bO7"/>
+        <segue reference="orz-An-J6E"/>
+        <segue reference="gpb-C5-Vzm"/>
         <segue reference="UFd-0b-pAJ"/>
         <segue reference="gGT-3S-5JQ"/>
     </inferredMetricsTieBreakers>

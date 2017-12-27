@@ -21,7 +21,6 @@ class mainScreenAnimation: UIView {
         //let black = UIColor.black.cgColor
         //let blue = UIColor.blue.cgColor
         let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
-        let black = UIColor.black.cgColor
         
         // Gradient Layer for Text
         gradLayer2.frame = bounds
