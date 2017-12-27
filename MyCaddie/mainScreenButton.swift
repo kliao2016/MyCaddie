@@ -25,11 +25,6 @@ class mainScreenButton: UIView {
         
         layer.addSublayer(gradLayer)
         gradLayer.frame = bounds
-       // let purple = UIColor.purple.cgColor
-        //let blue = UIColor.blue.cgColor
-       // let orange = UIColor.orange.cgColor
-       // let black = UIColor.black.cgColor
-        //let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
         
         gradLayer.colors = [color1, color2]
         gradLayer.startPoint = CGPoint(x: 0, y: 0)

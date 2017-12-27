@@ -666,7 +666,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create a Course" id="usk-QM-yFj">
                         <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" style="plain" id="Bqt-gU-XA3">
-                            <inset key="imageInsets" minX="-5" minY="15" maxX="30" maxY="15"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -1474,7 +1474,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3Yg-Qc-Vt9">
                         <barButtonItem key="leftBarButtonItem" image="icons8-Back-50" id="x3b-6i-TLF">
-                            <inset key="imageInsets" minX="0.0" minY="15" maxX="30" maxY="15"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
                             <connections>
                                 <action selector="backButtonAction:" destination="MD8-tT-bZU" id="ThK-7d-pHa"/>
                             </connections>
@@ -2086,7 +2086,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Courses" id="qYw-Tr-xQt">
                         <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" style="plain" id="hNR-yy-19z">
-                            <inset key="imageInsets" minX="-5" minY="15" maxX="30" maxY="15"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -2212,7 +2212,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="Od4-Jf-9km">
                         <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" style="plain" id="7sF-9c-I7M">
-                            <inset key="imageInsets" minX="-5" minY="15" maxX="30" maxY="15"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -2274,7 +2274,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="fK4-zm-GgM">
-                        <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" width="11" style="plain" id="cyw-1x-lQL"/>
+                        <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" width="11" style="plain" id="cyw-1x-lQL">
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
@@ -3078,7 +3080,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Lifetime Statistics" id="lLW-oF-fBy">
                         <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" style="plain" id="yJg-BB-aMQ">
-                            <inset key="imageInsets" minX="-5" minY="15" maxX="30" maxY="15"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -3818,7 +3820,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="Yb5-jF-MjN">
                         <barButtonItem key="leftBarButtonItem" image="icons8-Menu-50" id="pNV-uv-7Vc">
-                            <inset key="imageInsets" minX="-5" minY="15" maxX="30" maxY="15"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-8"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
