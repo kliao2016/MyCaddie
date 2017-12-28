@@ -752,29 +752,34 @@
                                             <action selector="dismissScorecard:" destination="xUr-Ie-Ofa" eventType="touchUpInside" id="UUN-Mf-Uvx"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Slo" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUC-tm-cDR">
-                                        <rect key="frame" x="343" y="8" width="24" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rat" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22r-rn-8A6">
-                                        <rect key="frame" x="341.5" y="38" width="25.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="MJJ-1E-Qgu">
+                                        <rect key="frame" x="239.5" y="0.0" width="127.5" height="66.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Slo" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUC-tm-cDR">
+                                                <rect key="frame" x="103.5" y="0.0" width="24" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rat" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22r-rn-8A6">
+                                                <rect key="frame" x="102" y="33.5" width="25.5" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="22r-rn-8A6" secondAttribute="bottom" id="1Zn-MH-hhQ"/>
                                     <constraint firstItem="znF-aO-bq1" firstAttribute="centerY" secondItem="SmV-K3-KYK" secondAttribute="centerY" id="Ke6-dM-KkK"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="22r-rn-8A6" secondAttribute="trailing" id="TkJ-1l-cTS"/>
+                                    <constraint firstItem="MJJ-1E-Qgu" firstAttribute="leading" secondItem="znF-aO-bq1" secondAttribute="trailing" id="QKu-zv-OtX"/>
+                                    <constraint firstItem="MJJ-1E-Qgu" firstAttribute="top" secondItem="SmV-K3-KYK" secondAttribute="top" id="SeI-qf-cXL"/>
                                     <constraint firstItem="ITW-kD-VwV" firstAttribute="leading" secondItem="SmV-K3-KYK" secondAttribute="leadingMargin" id="VeO-Z9-OHj"/>
-                                    <constraint firstItem="IUC-tm-cDR" firstAttribute="top" secondItem="SmV-K3-KYK" secondAttribute="topMargin" id="fCV-Hd-S0g"/>
+                                    <constraint firstAttribute="bottom" secondItem="MJJ-1E-Qgu" secondAttribute="bottom" id="f0y-vy-Oym"/>
                                     <constraint firstItem="ITW-kD-VwV" firstAttribute="centerY" secondItem="SmV-K3-KYK" secondAttribute="centerY" id="kNp-Wi-9Sx"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="MJJ-1E-Qgu" secondAttribute="trailing" id="qTS-vs-hO3"/>
                                     <constraint firstItem="znF-aO-bq1" firstAttribute="centerX" secondItem="SmV-K3-KYK" secondAttribute="centerX" id="r3F-4v-t13"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="IUC-tm-cDR" secondAttribute="trailing" id="rHP-nY-xwd"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="front_nine_scorecard" translatesAutoresizingMaskIntoConstraints="NO" id="taK-pf-Mw3">
@@ -2739,27 +2744,32 @@
                                             <action selector="dismissScorecard:" destination="OMi-cU-rKN" eventType="touchUpInside" id="gXl-gP-cTK"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Slo" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksD-8r-bb8">
-                                        <rect key="frame" x="345.5" y="8" width="21.5" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rat" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoX-Di-tgW">
-                                        <rect key="frame" x="344" y="40.5" width="23" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aAQ-se-wO9">
+                                        <rect key="frame" x="239.5" y="0.0" width="127.5" height="66.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Slo" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksD-8r-bb8">
+                                                <rect key="frame" x="0.0" y="0.0" width="127.5" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rat" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoX-Di-tgW">
+                                                <rect key="frame" x="0.0" y="33.5" width="127.5" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="zoX-Di-tgW" secondAttribute="bottom" id="DOt-Lv-b0b"/>
+                                    <constraint firstItem="aAQ-se-wO9" firstAttribute="top" secondItem="yRv-ct-C3G" secondAttribute="top" id="8mh-TA-SIM"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="aAQ-se-wO9" secondAttribute="trailing" id="E0h-4j-3iW"/>
                                     <constraint firstItem="1om-Ji-7Bh" firstAttribute="centerX" secondItem="yRv-ct-C3G" secondAttribute="centerX" id="EFk-Kb-mNq"/>
-                                    <constraint firstItem="ksD-8r-bb8" firstAttribute="top" secondItem="yRv-ct-C3G" secondAttribute="topMargin" id="RXt-HS-lX9"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="ksD-8r-bb8" secondAttribute="trailing" id="RYT-mp-0ik"/>
                                     <constraint firstItem="g8Y-Ua-Gwv" firstAttribute="centerY" secondItem="yRv-ct-C3G" secondAttribute="centerY" id="Ss5-DF-K3n"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="zoX-Di-tgW" secondAttribute="trailing" id="nSB-Xm-NEC"/>
+                                    <constraint firstAttribute="bottom" secondItem="aAQ-se-wO9" secondAttribute="bottom" id="b6z-Xo-Pwj"/>
+                                    <constraint firstItem="aAQ-se-wO9" firstAttribute="leading" secondItem="1om-Ji-7Bh" secondAttribute="trailing" id="okx-uf-XpQ"/>
                                     <constraint firstItem="1om-Ji-7Bh" firstAttribute="centerY" secondItem="yRv-ct-C3G" secondAttribute="centerY" id="qcK-Cp-C8f"/>
                                     <constraint firstItem="g8Y-Ua-Gwv" firstAttribute="leading" secondItem="yRv-ct-C3G" secondAttribute="leadingMargin" id="v9S-7k-JDl"/>
                                 </constraints>
