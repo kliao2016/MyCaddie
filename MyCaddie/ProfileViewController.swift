@@ -53,9 +53,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         retrieveStats(lifetimeRef: lifetimeRef)
         
+        // Settings Coordinates
+        let xcoord = self.view.frame.size.width
+        let ycoord = self.view.frame.size.height
+        
         // Background
-        let back = CGRect(x: 0, y: 0, width: 500, height: 800)
+        let back = CGRect(x: 0, y: 0, width: xcoord, height: ycoord)
         let ground = profileBackground(frame: back)
+        
         //view.addSubview(ground)
         view.insertSubview(ground, at: 0)
         ground.layer.shouldRasterize = false
@@ -175,6 +180,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func retrieveStats(lifetimeRef: DatabaseReference) {
+        
+        // Coordinate System Declaration
+        let xcoord = self.view.frame.size.width
+        let ycoord = self.view.frame.size.height
+        
         lifetimeRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 self.lifetimeScore = dictionary["Score"] as! Int
@@ -183,12 +193,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 // Drawing Circles and Stats
                 
                 // Low Left Stat
-                let rect0 = CGRect(x: 30, y: 350, width: 75, height: 75)
+                let rect0 = CGRect(x: xcoord / 6 - 37.5, y: ycoord / 2 + 20, width: 75, height: 75)
                 let cp0 = TextOnProfile(frame: rect0, stat: String(self.lifetimeScore))
                 self.view.addSubview(cp0)
                 
                 // Low Right Stat
-                let rect2 = CGRect(x: 278, y: 350, width: 75, height: 75)
+                let rect2 = CGRect(x: xcoord / 2 - 37.5, y: ycoord / 2 + 20, width: 75, height: 75)
                 let cp2 = TextOnProfile(frame: rect2, stat: String(self.lifetimePutts))
                 self.view.addSubview(cp2)
                 
@@ -201,7 +211,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             if let dictionary2 = DataSnapshot.value as? [String: AnyObject] {
                 self.handicap = dictionary2["Handicap"] as! String
                 // Low Middle Stat
-                let rect1 = CGRect(x: 145, y: 350, width: 85, height: 75)
+                let rect1 = CGRect(x: xcoord * 5 / 6 - 37.5, y: ycoord / 2 + 20, width: 75, height: 75)
                 let cp1 = TextOnProfile(frame: rect1, stat: String(self.handicap))
                 self.view.addSubview(cp1)
             }
@@ -297,9 +307,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         welcomeLabel2.contentsScale = UIScreen.main.scale
         welcomeLabel3.contentsScale = UIScreen.main.scale
         
+        //Establishing Coordinates
+        let xcoord = self.view.frame.size.width
+        let ycoord = self.view.frame.size.height
+        
         // Low Left Text
         
-        let lowLeft = CGRect(x: 20, y: 410, width: 140, height: 20)
+        let lowLeft = CGRect(x: xcoord / 6 - 70, y: ycoord / 2 + 75, width: 140, height: 20)
         let place1 = UIView(frame: lowLeft)
         view.addSubview(place1)
         
@@ -307,7 +321,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         welcomeLabel.fontSize = 14
         welcomeLabel.alignmentMode = kCAAlignmentCenter
         welcomeLabel.foregroundColor = UIColor.white.cgColor
-        welcomeLabel.alignmentMode = kCAAlignmentLeft
+//        welcomeLabel.alignmentMode = kCAAlignmentLeft
         welcomeLabel.contentsScale = UIScreen.main.scale
         place1.layer.shouldRasterize = false
         
@@ -319,7 +333,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // Low Middle Text
         
-        let lowMiddle = CGRect(x: 156, y: 410, width: 140, height: 20)
+        let lowMiddle = CGRect(x: xcoord / 2 - 70, y: ycoord / 2 + 75, width: 140, height: 20)
         let place2 = UIView(frame: lowMiddle)
         view.addSubview(place2)
         
@@ -327,7 +341,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         welcomeLabel2.fontSize = 14
         welcomeLabel2.alignmentMode = kCAAlignmentCenter
         welcomeLabel2.foregroundColor = UIColor.white.cgColor
-        welcomeLabel2.alignmentMode = kCAAlignmentLeft
+//        welcomeLabel2.alignmentMode = kCAAlignmentLeft
         welcomeLabel2.add(animation, forKey: nil)
         // Blurriness Fix
         welcomeLabel2.contentsScale = UIScreen.main.scale
@@ -335,7 +349,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         //Low Right Text
         
-        let lowRight = CGRect(x: 275, y: 410, width: 140, height: 20)
+        let lowRight = CGRect(x: xcoord * 5 / 6 - 70, y: ycoord / 2 + 75, width: 140, height: 20)
         let place3 = UIView(frame: lowRight)
         view.addSubview(place3)
         
@@ -343,7 +357,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         welcomeLabel3.fontSize = 14
         welcomeLabel3.alignmentMode = kCAAlignmentCenter
         welcomeLabel3.foregroundColor = UIColor.white.cgColor
-        welcomeLabel3.alignmentMode = kCAAlignmentLeft
+//        welcomeLabel3.alignmentMode = kCAAlignmentLeft
         welcomeLabel3.add(animation, forKey: nil)
         
         welcomeLabel.string = "All-time Score"
