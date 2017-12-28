@@ -2196,8 +2196,12 @@
                                 <constraints>
                                     <constraint firstItem="zKJ-6m-0Yi" firstAttribute="leading" secondItem="fnI-XZ-HVK" secondAttribute="leading" id="1uI-qa-I6d"/>
                                     <constraint firstItem="zKJ-6m-0Yi" firstAttribute="height" secondItem="fnI-XZ-HVK" secondAttribute="height" multiplier="5/8" id="7KI-lw-hXY"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Ts-ux-v2a" secondAttribute="trailing" id="K85-w9-45u"/>
                                     <constraint firstItem="zKJ-6m-0Yi" firstAttribute="top" secondItem="fnI-XZ-HVK" secondAttribute="top" id="TqI-ra-vuQ"/>
+                                    <constraint firstItem="1Ts-ux-v2a" firstAttribute="leading" secondItem="fnI-XZ-HVK" secondAttribute="leading" id="eAb-dE-Ojt"/>
+                                    <constraint firstItem="1Ts-ux-v2a" firstAttribute="top" secondItem="zKJ-6m-0Yi" secondAttribute="bottom" id="j1A-MW-Fin"/>
                                     <constraint firstItem="1Ts-ux-v2a" firstAttribute="height" secondItem="fnI-XZ-HVK" secondAttribute="height" multiplier="3/8" id="pHY-7w-WNp"/>
+                                    <constraint firstAttribute="bottom" secondItem="1Ts-ux-v2a" secondAttribute="bottom" id="sb8-OH-szm"/>
                                     <constraint firstAttribute="trailing" secondItem="zKJ-6m-0Yi" secondAttribute="trailing" id="uZA-iu-vUF"/>
                                 </constraints>
                             </stackView>
@@ -3502,8 +3506,8 @@
                                         <constraint firstAttribute="width" secondItem="H1g-Mq-895" secondAttribute="height" multiplier="1:1" id="dTp-nY-RkO"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fix This Contraint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2N-zm-VIw">
-                                    <rect key="frame" x="120.5" y="73.5" width="134" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2N-zm-VIw">
+                                    <rect key="frame" x="143" y="73.5" width="45" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -3512,10 +3516,10 @@
                             <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="H1g-Mq-895" firstAttribute="leading" secondItem="H9c-hk-Kgx" secondAttribute="leadingMargin" id="CeC-nb-IQs"/>
+                                <constraint firstItem="t2N-zm-VIw" firstAttribute="centerY" secondItem="H9c-hk-Kgx" secondAttribute="centerY" id="Kz8-Fu-PBs"/>
                                 <constraint firstItem="H1g-Mq-895" firstAttribute="width" secondItem="H9c-hk-Kgx" secondAttribute="width" multiplier="1/3" id="OQV-0I-LqF"/>
-                                <constraint firstItem="t2N-zm-VIw" firstAttribute="centerX" secondItem="H9c-hk-Kgx" secondAttribute="centerX" id="Qpk-fi-LDr"/>
                                 <constraint firstItem="H1g-Mq-895" firstAttribute="centerY" secondItem="H9c-hk-Kgx" secondAttribute="centerY" id="lKJ-Fz-BRf"/>
-                                <constraint firstItem="t2N-zm-VIw" firstAttribute="centerY" secondItem="H9c-hk-Kgx" secondAttribute="centerY" id="qk4-9m-Lgq"/>
+                                <constraint firstItem="t2N-zm-VIw" firstAttribute="leading" secondItem="H1g-Mq-895" secondAttribute="trailing" constant="10" id="n3d-uN-KYF"/>
                             </constraints>
                         </view>
                         <sections>
@@ -5518,7 +5522,7 @@
         <segue reference="orz-An-J6E"/>
         <segue reference="yf3-JC-G0j"/>
         <segue reference="UFd-0b-pAJ"/>
-        <segue reference="gGT-3S-5JQ"/>
+        <segue reference="9HR-QJ-CPk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
