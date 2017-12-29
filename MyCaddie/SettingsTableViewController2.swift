@@ -75,6 +75,7 @@ class SettingsTableViewController2: UITableViewController {
             let textField = promptPopUp.textFields?[0]
             let actualText = String((textField?.text)!)
             userReference.setValue(actualText)
+            self.userName.text = actualText
             
         }))
         promptPopUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [promptPopUp] (_) in
