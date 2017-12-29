@@ -36,6 +36,8 @@ class SlideBarTableViewController: UITableViewController, UIImagePickerControlle
         self.profileImage.contentMode = .scaleAspectFill
         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height / 2
         self.profileImage.clipsToBounds = true
+        
+        loadProfileImage()
     }
 
     override func didReceiveMemoryWarning() {
