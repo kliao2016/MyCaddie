@@ -52,12 +52,12 @@ class SlideBarTableViewController: UITableViewController, UIImagePickerControlle
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 6
+        return 7
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.section == 5 {
+        if indexPath.section == 6 {
             handleLogout()
         }
     }
