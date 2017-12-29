@@ -4143,7 +4143,6 @@
                                                 <state key="normal" image="icons8-Return-50"/>
                                                 <connections>
                                                     <action selector="redoShot:" destination="WsP-zc-HL4" eventType="touchUpInside" id="PBC-dR-rE6"/>
-                                                    <action selector="redoShot:" destination="MD8-tT-bZU" eventType="touchUpInside" id="gNu-rb-LwL"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLc-gf-fE2">
@@ -4151,7 +4150,6 @@
                                                 <state key="normal" image="row-2-col-1"/>
                                                 <connections>
                                                     <action selector="OB:" destination="WsP-zc-HL4" eventType="touchUpInside" id="PQF-sf-sND"/>
-                                                    <action selector="OB:" destination="MD8-tT-bZU" eventType="touchUpInside" id="pft-QC-Y6k"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOz-pI-MTo">
@@ -4159,7 +4157,6 @@
                                                 <state key="normal" image="row-3-col-1"/>
                                                 <connections>
                                                     <action selector="OB:" destination="WsP-zc-HL4" eventType="touchUpInside" id="52K-vv-Y0l"/>
-                                                    <action selector="OB:" destination="MD8-tT-bZU" eventType="touchUpInside" id="uTY-hx-MGa"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBx-UU-iqp">
@@ -4167,7 +4164,6 @@
                                                 <state key="normal" image="row-4-col-1"/>
                                                 <connections>
                                                     <action selector="Hazard:" destination="WsP-zc-HL4" eventType="touchUpInside" id="Fsf-DD-Wyk"/>
-                                                    <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="dfR-s7-jE6"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMA-4V-ziu">
@@ -4175,14 +4171,12 @@
                                                 <state key="normal" image="row-5-col-1"/>
                                                 <connections>
                                                     <action selector="Hazard:" destination="WsP-zc-HL4" eventType="touchUpInside" id="OHQ-39-LLd"/>
-                                                    <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="vLO-ye-Yrj"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Gi-W5-xNV">
                                                 <rect key="frame" x="0.0" y="402.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-6-col-1"/>
                                                 <connections>
-                                                    <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="SzY-Mt-dx0"/>
                                                     <action selector="Hazard:" destination="WsP-zc-HL4" eventType="touchUpInside" id="kr9-vz-KGL"/>
                                                 </connections>
                                             </button>
@@ -4194,7 +4188,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="Left:" destination="WsP-zc-HL4" eventType="touchUpInside" id="dmh-Bv-NWq"/>
-                                                    <action selector="Left:" destination="MD8-tT-bZU" eventType="touchUpInside" id="t2D-6t-r9H"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -4210,7 +4203,6 @@
                                                 <rect key="frame" x="0.0" y="80.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-2-col-2"/>
                                                 <connections>
-                                                    <action selector="Green:" destination="MD8-tT-bZU" eventType="touchUpInside" id="7oi-Ge-78d"/>
                                                     <action selector="Green:" destination="WsP-zc-HL4" eventType="touchUpInside" id="zeb-C7-o5m"/>
                                                 </connections>
                                             </button>
@@ -4229,7 +4221,6 @@
                                                 <rect key="frame" x="0.0" y="322" width="75" height="80.5"/>
                                                 <state key="normal" image="row-5-col-2"/>
                                                 <connections>
-                                                    <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="20O-iM-Oks"/>
                                                     <action selector="Hazard:" destination="WsP-zc-HL4" eventType="touchUpInside" id="qRa-jb-rVw"/>
                                                 </connections>
                                             </button>
@@ -4242,7 +4233,6 @@
                                                 <state key="normal" image="row-7-col-2"/>
                                                 <connections>
                                                     <action selector="Fairway:" destination="WsP-zc-HL4" eventType="touchUpInside" id="ZIE-Ph-vDy"/>
-                                                    <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="roc-d3-dWA"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -4258,7 +4248,6 @@
                                                 <rect key="frame" x="0.0" y="80.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-2-col-3"/>
                                                 <connections>
-                                                    <action selector="Green:" destination="MD8-tT-bZU" eventType="touchUpInside" id="ZSc-fC-dq3"/>
                                                     <action selector="Green:" destination="WsP-zc-HL4" eventType="touchUpInside" id="bKw-1n-SjA"/>
                                                 </connections>
                                             </button>
@@ -4266,7 +4255,6 @@
                                                 <rect key="frame" x="0.0" y="161" width="75" height="80.5"/>
                                                 <state key="normal" image="row-3-col-3"/>
                                                 <connections>
-                                                    <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="70t-gK-Fbf"/>
                                                     <action selector="Fairway:" destination="WsP-zc-HL4" eventType="touchUpInside" id="vyS-nc-j0W"/>
                                                 </connections>
                                             </button>
@@ -4274,7 +4262,6 @@
                                                 <rect key="frame" x="0.0" y="241.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-4-col-3"/>
                                                 <connections>
-                                                    <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="P6g-B8-6vB"/>
                                                     <action selector="Fairway:" destination="WsP-zc-HL4" eventType="touchUpInside" id="t0A-Rn-hX9"/>
                                                 </connections>
                                             </button>
@@ -4282,7 +4269,6 @@
                                                 <rect key="frame" x="0.0" y="322" width="75" height="80.5"/>
                                                 <state key="normal" image="row-5-col-3"/>
                                                 <connections>
-                                                    <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="bqC-th-53D"/>
                                                     <action selector="Fairway:" destination="WsP-zc-HL4" eventType="touchUpInside" id="xPp-0T-WOZ"/>
                                                 </connections>
                                             </button>
@@ -4291,14 +4277,12 @@
                                                 <state key="normal" image="row-6-col-3"/>
                                                 <connections>
                                                     <action selector="Fairway:" destination="WsP-zc-HL4" eventType="touchUpInside" id="MRZ-6e-hET"/>
-                                                    <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="OvB-0W-CL8"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cC4-vi-pdy">
                                                 <rect key="frame" x="0.0" y="483" width="75" height="80.5"/>
                                                 <state key="normal" image="row-7-col-3"/>
                                                 <connections>
-                                                    <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="IPQ-rM-2HA"/>
                                                     <action selector="Fairway:" destination="WsP-zc-HL4" eventType="touchUpInside" id="OXY-8d-Tuj"/>
                                                 </connections>
                                             </button>
@@ -4315,7 +4299,6 @@
                                                 <rect key="frame" x="0.0" y="80.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-2-col-4"/>
                                                 <connections>
-                                                    <action selector="GreenSand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="UAx-PO-mrk"/>
                                                     <action selector="GreenSand:" destination="WsP-zc-HL4" eventType="touchUpInside" id="cxi-WK-WEz"/>
                                                 </connections>
                                             </button>
@@ -4327,7 +4310,6 @@
                                                 <rect key="frame" x="0.0" y="241.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-4-col-4"/>
                                                 <connections>
-                                                    <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="7hh-MZ-Qvl"/>
                                                     <action selector="FairwaySand:" destination="WsP-zc-HL4" eventType="touchUpInside" id="fRp-XW-KYK"/>
                                                 </connections>
                                             </button>
@@ -4335,7 +4317,6 @@
                                                 <rect key="frame" x="0.0" y="322" width="75" height="80.5"/>
                                                 <state key="normal" image="row-5-col-4"/>
                                                 <connections>
-                                                    <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="5oi-uS-l4s"/>
                                                     <action selector="FairwaySand:" destination="WsP-zc-HL4" eventType="touchUpInside" id="qEd-v8-LLd"/>
                                                 </connections>
                                             </button>
@@ -4364,7 +4345,6 @@
                                                 <state key="normal" image="row-2-col-5"/>
                                                 <connections>
                                                     <action selector="GreenSand:" destination="WsP-zc-HL4" eventType="touchUpInside" id="60y-at-MA2"/>
-                                                    <action selector="GreenSand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="di0-7W-qmd"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piu-sG-CGC">
@@ -4376,14 +4356,12 @@
                                                 <state key="normal" image="row-4-col-5"/>
                                                 <connections>
                                                     <action selector="FairwaySand:" destination="WsP-zc-HL4" eventType="touchUpInside" id="Anx-3n-V4M"/>
-                                                    <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="jCb-fQ-Daa"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gr-p5-Rdb">
                                                 <rect key="frame" x="0.0" y="322" width="75" height="80.5"/>
                                                 <state key="normal" image="row-5-col-5"/>
                                                 <connections>
-                                                    <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="Nsp-iE-CX8"/>
                                                     <action selector="FairwaySand:" destination="WsP-zc-HL4" eventType="touchUpInside" id="fQf-MT-fI0"/>
                                                 </connections>
                                             </button>
@@ -4399,7 +4377,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="Right:" destination="WsP-zc-HL4" eventType="touchUpInside" id="qWs-be-YGh"/>
-                                                    <action selector="Right:" destination="MD8-tT-bZU" eventType="touchUpInside" id="unO-eC-lLA"/>
                                                 </connections>
                                             </button>
                                         </subviews>

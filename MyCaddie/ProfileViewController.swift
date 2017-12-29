@@ -92,11 +92,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             revealViewController().rearViewRevealWidth = 275
             revealViewController().rightViewRevealWidth = 160
             
-            /*
-            alertButton.target = revealViewController()
-            alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
- */
-            
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
@@ -187,8 +182,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         lifetimeRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                self.lifetimeScore = dictionary["Score"] as! Int
-                self.lifetimePutts = dictionary["Putts"] as! Int
+                if let lifetimeScore = dictionary["Score"] as? Int {
+                    self.lifetimeScore = lifetimeScore
+                } else {
+                    self.lifetimeScore = 0
+                }
+                
+                if let lifetimePutts = dictionary["Putts"] as? Int {
+                    self.lifetimePutts = lifetimePutts
+                } else {
+                    self.lifetimePutts = 0
+                }
                 
                 // Drawing Circles and Stats
                 
@@ -209,7 +213,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let profileRef = self.ref.child("Users").child(uid!)
         profileRef.observeSingleEvent(of: .value, with: { (DataSnapshot) in
             if let dictionary2 = DataSnapshot.value as? [String: AnyObject] {
-                self.handicap = dictionary2["Handicap"] as! String
+                if let handicap = dictionary2["Handicap"] as? String {
+                    self.handicap = handicap
+                } else {
+                    self.handicap = "0"
+                }
                 // Low Middle Stat
                 let rect1 = CGRect(x: xcoord * 5 / 6 - 37.5, y: ycoord / 2 + 20, width: 75, height: 75)
                 let cp1 = TextOnProfile(frame: rect1, stat: String(self.handicap))
@@ -282,26 +290,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    func drawStats(){
-//        //Low Left Stat
-//        let rect0 = CGRect(x: 30, y: 350, width: 75, height: 75)
-//        let cp0 = TextOnProfile(frame: rect0, stat: self.s)
-//        self.view.addSubview(cp0)
-//        
-//        // Low Middle Stat
-//        let rect1 = CGRect(x: 150, y: 350, width: 75, height: 75)
-//        //let cp0 = TextOnProfile(frame: rect0, stat: "\(self.lifetimeScore)")
-//        let cp1 = TextOnProfile(frame: rect1, stat: self.s2)
-//        self.view.addSubview(cp1)
-//        
-//        // Low Right Stat
-//        let rect2 = CGRect(x: 278, y: 350, width: 75, height: 75)
-//        //let cp0 = TextOnProfile(frame: rect0, stat: "\(self.lifetimeScore)")
-//        let cp2 = TextOnProfile(frame: rect2, stat: self.s3)
-//        self.view.addSubview(cp2)
-    }
-    
-    func drawStatLabels(){
+    func drawStatLabels() {
         //Welcome Label
         welcomeLabel.contentsScale = UIScreen.main.scale
         welcomeLabel2.contentsScale = UIScreen.main.scale
@@ -341,8 +330,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         welcomeLabel2.fontSize = 14
         welcomeLabel2.alignmentMode = kCAAlignmentCenter
         welcomeLabel2.foregroundColor = UIColor.white.cgColor
-//        welcomeLabel2.alignmentMode = kCAAlignmentLeft
         welcomeLabel2.add(animation, forKey: nil)
+        
         // Blurriness Fix
         welcomeLabel2.contentsScale = UIScreen.main.scale
         place2.layer.shouldRasterize = false
@@ -357,7 +346,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         welcomeLabel3.fontSize = 14
         welcomeLabel3.alignmentMode = kCAAlignmentCenter
         welcomeLabel3.foregroundColor = UIColor.white.cgColor
-//        welcomeLabel3.alignmentMode = kCAAlignmentLeft
         welcomeLabel3.add(animation, forKey: nil)
         
         welcomeLabel.string = "All-time Score"

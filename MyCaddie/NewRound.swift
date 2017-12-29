@@ -72,19 +72,6 @@ class NewRound: UIViewController {
     var parsOfCourse = [String]()
     var yardagesOfCourse = [String]()
     
-    // All buttons on screen
-    @IBOutlet weak var rightButton: UIButton!
-    @IBOutlet weak var leftButton: UIButton!
-    @IBOutlet weak var fairwayButton: UIButton!
-    @IBOutlet weak var greenButton: UIButton!
-    @IBOutlet weak var gbunkerButton: UIButton!
-    @IBOutlet weak var fbunkerButton: UIButton!
-    @IBOutlet weak var hazardButton: UIButton!
-    @IBOutlet weak var obButton: UIButton!
-    @IBOutlet weak var flagButton: UIButton!
-    @IBOutlet weak var redoButton: UIButton!
-    
-    
     // Label text to change every shot
     @IBOutlet weak var ShotNumberText: UILabel!
     // currentScore Display
@@ -165,8 +152,6 @@ class NewRound: UIViewController {
     @IBAction func backButtonAction(_ sender: Any) {
         self.checkIfUserWantsToCancelRound()
     }
-    
-    
     
     func puttPopUp() {
         let popUp = UIAlertController(title: "How many putts did you have?", message: nil, preferredStyle: .alert)
@@ -660,10 +645,11 @@ class NewRound: UIViewController {
     }
     
     func disableButtons() {
-        let allButtons: [UIButton] = [self.rightButton, self.leftButton, self.fairwayButton, self.greenButton, self.gbunkerButton, self.fbunkerButton, self.hazardButton, self.obButton, self.flagButton]
-        for button in allButtons {
-            button.isUserInteractionEnabled = false
-            button.isEnabled = false
+        for view in self.view.subviews as [UIView] {
+            if let btn = view as? UIButton {
+                btn.isUserInteractionEnabled = false
+                btn.isEnabled = false
+            }
         }
     }
     

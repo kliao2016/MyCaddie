@@ -15,8 +15,6 @@ import GoogleSignIn
 class ContinueRound: UIViewController {
     
     var programVar : Program?
-    
-    
     var courseName = ""
     var tees = ""
     var currentRound = 0
@@ -60,7 +58,6 @@ class ContinueRound: UIViewController {
     var lifetimePutts = 0
     var lifetimeScore = 0
     
-    
     // Stores Round Data
     var holeStatData = [HoleStats]()
     // Initial Object
@@ -72,17 +69,6 @@ class ContinueRound: UIViewController {
     var holeScores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     var parsOfCourse = [String]()
     var yardagesOfCourse = [String]()
-    
-    // All buttons on screen
-    @IBOutlet weak var rightButton: UIButton!
-    @IBOutlet weak var leftButton: UIButton!
-    @IBOutlet weak var fairwayButton: UIButton!
-    @IBOutlet weak var greenButton: UIButton!
-    @IBOutlet weak var gbunkerButton: UIButton!
-    @IBOutlet weak var fbunkerButton: UIButton!
-    @IBOutlet weak var hazardButton: UIButton!
-    @IBOutlet weak var obButton: UIButton!
-    @IBOutlet weak var flagButton: UIButton!
     
     // Label text to change every shot
     @IBOutlet weak var ShotNumberText: UILabel!
@@ -535,10 +521,16 @@ class ContinueRound: UIViewController {
     }
     
     func disableButtons() {
-        let allButtons: [UIButton] = [self.rightButton, self.leftButton, self.fairwayButton, self.greenButton, self.gbunkerButton, self.fbunkerButton, self.hazardButton, self.obButton, self.flagButton]
-        for button in allButtons {
-            button.isUserInteractionEnabled = false
-            button.isEnabled = false
+//        let allButtons: [UIButton] = [self.rightButton, self.leftButton, self.fairwayButton, self.greenButton, self.gbunkerButton, self.fbunkerButton, self.hazardButton, self.obButton, self.flagButton]
+//        for button in allButtons {
+//            button.isUserInteractionEnabled = false
+//            button.isEnabled = false
+//        }
+        for view in self.view.subviews as [UIView] {
+            if let btn = view as? UIButton {
+                btn.isUserInteractionEnabled = false
+                btn.isEnabled = false
+            }
         }
     }
     

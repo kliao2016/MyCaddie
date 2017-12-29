@@ -29,6 +29,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
     
     var isSignIn: Bool = true
     
+    // All Buttons
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -171,20 +174,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
             let lifetimeStats = ["Fairways": 0, "Fairway Bunkers": 0, "Greens": 0, "Greenside Bunkers": 0, "Hazards": 0, "Fringes": 0, "Lefts": 0, "Rights": 0, "OBs": 0, "Putts": 0, "Score": 0]
             userReference?.child("Handicap").setValue("0")
             
-            /*
-             let lifetimeRef = self.databaseRef?.child("Users").child(uid!).child("Lifetime Stats")
-             lifetimeRef?.child("Fairways").setValue(0)
-             lifetimeRef?.child("Fairway Bunkers").setValue(0)
-             lifetimeRef?.child("Fringes").setValue(0)
-             lifetimeRef?.child("Greens").setValue(0)
-             lifetimeRef?.child("Greenside Bunkers").setValue(0)
-             lifetimeRef?.child("Hazards").setValue(0)
-             lifetimeRef?.child("Lefts").setValue(0)
-             lifetimeRef?.child("Rights").setValue(0)
-             lifetimeRef?.child("OBs").setValue(0)
-             lifetimeRef?.child("Putts").setValue(0)
-             lifetimeRef?.child("Score").setValue(0)
- */
             lifetimeRef?.updateChildValues(lifetimeStats)
             userReference?.updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if error != nil {
