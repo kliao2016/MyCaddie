@@ -89,14 +89,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     let databaseRef = Database.database().reference()
                     let uid = Auth.auth().currentUser?.uid
                     let userReference = databaseRef.child("Users").child(uid!)
-                    Main.appUser.name = user?.displayName
-                    let values = ["Name": Main.appUser.name, "Email": user?.email, "Password": ""]
-                    userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                        if error != nil {
-                            print("Error signing in with Google")
+                    userReference.observeSingleEvent(of: .value, with: { (snapshot) in
+                        if snapshot.hasChild("Name") {
+                            if let dictionary = snapshot.value as? [String: AnyObject] {
+                                Main.appUser.name = dictionary["Name"] as? String
+                                self.segueToMain()
+                            }
+                        } else {
+                            Main.appUser.name = user?.displayName
+                            let values = ["Name": Main.appUser.name, "Email": user?.email, "Password": ""]
+                            userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                                if error != nil {
+                                    print("Error signing in with Google")
+                                }
+                            })
+                            self.segueToMain()
                         }
-                    })
-                    self.segueToMain()
+                    }, withCancel: nil)
                     return
                 }
             }

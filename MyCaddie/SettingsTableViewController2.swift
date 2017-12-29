@@ -76,6 +76,7 @@ class SettingsTableViewController2: UITableViewController {
             let actualText = String((textField?.text)!)
             userReference.setValue(actualText)
             self.userName.text = actualText
+            Main.appUser.name = actualText
             
         }))
         promptPopUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [promptPopUp] (_) in
@@ -164,7 +165,7 @@ class SettingsTableViewController2: UITableViewController {
                     if let profileImageUrl = userProfileLink {
                         self.profileImage.loadImagesUsingCacheWithUrlString(urlString: profileImageUrl as! String)
                     }
-                    self.userName.text = dictionary["Name"] as? String
+                    self.userName.text = Main.appUser.name
                 }
             }, withCancel: nil)
         }

@@ -107,7 +107,7 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
                     if let profileImageUrl = userProfileLink {
                         self.profileImage.loadImagesUsingCacheWithUrlString(urlString: profileImageUrl as! String)
                     }
-                    self.userName.text = dictionary["Name"] as? String
+                    self.userName.text = Main.appUser.name
                 }
             }, withCancel: nil)
         }

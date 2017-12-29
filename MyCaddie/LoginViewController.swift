@@ -155,6 +155,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
                 user?.sendEmailVerification(completion: nil)
                 self.setUp()
                 if self.isUserEmailVerified == true {
+                    Main.appUser.name = user?.displayName
                     self.displayMainMenu()
                 }
             } else {
