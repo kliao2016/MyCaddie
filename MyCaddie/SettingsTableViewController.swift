@@ -54,13 +54,13 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 2 {
+        if indexPath.row == 1 {
             updateName()
         }
-        if indexPath.row == 3 {
+        if indexPath.row == 2 && indexPath.section != 1 {
             updatePassword()
         }
-        if indexPath.row == 4 {
+        if indexPath.row == 3 {
             updateHandicap()
         }
     }

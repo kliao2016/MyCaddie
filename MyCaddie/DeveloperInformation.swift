@@ -45,6 +45,14 @@ class DeveloperInformation: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DeveloperInformation.imageTapped(gesture:)))
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(DeveloperInformation.imageTapped2(gesture:)))
         
+        kevPic.addGestureRecognizer(tapGesture)
+        kevPic.isUserInteractionEnabled = true
+        wesPic.addGestureRecognizer(tapGesture2)
+        wesPic.isUserInteractionEnabled = true
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
         self.kevPic.contentMode = .scaleAspectFill
         self.kevPic.layer.cornerRadius = self.kevPic.frame.size.width / 2
         self.kevPic.clipsToBounds = true
@@ -52,12 +60,6 @@ class DeveloperInformation: UIViewController {
         self.wesPic.contentMode = .scaleAspectFill
         self.wesPic.layer.cornerRadius = self.wesPic.frame.size.width / 2
         self.wesPic.clipsToBounds = true
-        
-        kevPic.addGestureRecognizer(tapGesture)
-        kevPic.isUserInteractionEnabled = true
-        wesPic.addGestureRecognizer(tapGesture2)
-        wesPic.isUserInteractionEnabled = true
-        
     }
 
     override func didReceiveMemoryWarning() {
