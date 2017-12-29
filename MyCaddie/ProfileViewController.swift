@@ -202,7 +202,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.view.addSubview(cp0)
                 
                 // Low Right Stat
-                let rect2 = CGRect(x: xcoord / 2 - 37.5, y: ycoord / 2 + 20, width: 75, height: 75)
+                let rect2 = CGRect(x: xcoord * 5 / 6 - 37.5, y: ycoord / 2 + 20, width: 75, height: 75)
                 let cp2 = TextOnProfile(frame: rect2, stat: String(self.lifetimePutts))
                 self.view.addSubview(cp2)
                 
@@ -219,7 +219,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     self.handicap = "0"
                 }
                 // Low Middle Stat
-                let rect1 = CGRect(x: xcoord * 5 / 6 - 37.5, y: ycoord / 2 + 20, width: 75, height: 75)
+                let rect1 = CGRect(x: xcoord / 2 - 37.5, y: ycoord / 2 + 20, width: 75, height: 75)
                 let cp1 = TextOnProfile(frame: rect1, stat: String(self.handicap))
                 self.view.addSubview(cp1)
             }
