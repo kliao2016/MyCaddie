@@ -9,6 +9,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import GoogleSignIn
 import GooglePlaces
 import GooglePlacePicker
@@ -82,10 +83,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         if error == nil && user != nil {
             // Get authentication tokens
             guard let authentication = user.authentication else { return }
-            let credentials = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                            accessToken: authentication.accessToken)
+            let credentials = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
             Auth.auth().signIn(with: credentials) { (user, error) in
                 if error == nil && user != nil {
+                    let databaseRef = Database.database().reference()
+                    let uid = Auth.auth().currentUser?.uid
+                    let userReference = databaseRef.child("Users").child(uid!)
+                    Main.appUser.name = user?.displayName
+                    let values = ["Name": Main.appUser.name, "Email": user?.email, "Password": ""]
+                    userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                        if error != nil {
+                            print("Error signing in with Google")
+                        }
+                    })
                     self.segueToMain()
                     return
                 }

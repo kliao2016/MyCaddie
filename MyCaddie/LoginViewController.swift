@@ -25,7 +25,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
     var isUserEmailVerified = false
     
     var databaseRef: DatabaseReference?
-    let main = Main()
     
     var isSignIn: Bool = true
     
@@ -167,10 +166,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
             }
             
             let userReference = self.databaseRef?.child("Users").child(uid)
-            self.main.appUser.name = self.nameTextField.text
-            let values = ["Name": self.main.appUser.name, "Email": self.emailTextField.text, "Password": self.passTextField.text]
+            Main.appUser.name = self.nameTextField.text
+            let values = ["Name": Main.appUser.name, "Email": self.emailTextField.text, "Password": self.passTextField.text]
             
-            let lifetimeRef = self.databaseRef?.child("Users").child(uid).child("Lifetime Stats")
+            let lifetimeRef = userReference?.child("Lifetime Stats")
             let lifetimeStats = ["Fairways": 0, "Fairway Bunkers": 0, "Greens": 0, "Greenside Bunkers": 0, "Hazards": 0, "Fringes": 0, "Lefts": 0, "Rights": 0, "OBs": 0, "Putts": 0, "Score": 0]
             userReference?.child("Handicap").setValue("0")
             

@@ -11,5 +11,7 @@ import Foundation
 class Main {
     
     // Global Variables
-    var appUser = User()
+    static let appUser = User()
+    
+    private init() {}
 }
