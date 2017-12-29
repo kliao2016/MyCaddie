@@ -14,7 +14,6 @@ class StatsViewController: UIViewController {
     
     var roundData : roundStatData?
     
-    
     var courseName = ""
     var tees = ""
     var scoreInt = -1

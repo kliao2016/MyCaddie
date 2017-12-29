@@ -16,6 +16,7 @@ class MyStatsViewController: UIViewController {
     weak var line1: CAShapeLayer?
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var defaultText: UILabel!
     
     // Lifetime Stats
     var lifetimeFairwayBunkers = 0
@@ -61,7 +62,7 @@ class MyStatsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func sideMenus(){
+    func sideMenus() {
         
         if revealViewController() != nil {
             
@@ -77,7 +78,7 @@ class MyStatsViewController: UIViewController {
         }
     }
     
-    func customizeNavBar(){
+    func customizeNavBar() {
         navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
         navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
@@ -86,6 +87,7 @@ class MyStatsViewController: UIViewController {
     func retrieveStats(lifetimeRef: DatabaseReference) {
         lifetimeRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.defaultText.text = ""
                 self.lifetimeFairways = dictionary["Fairways"] as! Int
                 self.lifetimeScore = dictionary["Score"] as! Int
                 self.lifetimePutts = dictionary["Putts"] as! Int

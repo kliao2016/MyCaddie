@@ -16,6 +16,8 @@ class MyStatsViewController2: UIViewController {
     
     weak var line1: CAShapeLayer?
     
+    @IBOutlet weak var defaultText: UILabel!
+    
     // Lifetime Stats
     var lifetimeFairwayBunkers = 0
     var lifetimeGreenBunkers = 0
@@ -57,6 +59,7 @@ class MyStatsViewController2: UIViewController {
     func retrieveStats(lifetimeRef: DatabaseReference) {
         lifetimeRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.defaultText.text = ""
                 self.lifetimeFairways = dictionary["Fairways"] as! Int
                 self.lifetimeScore = dictionary["Score"] as! Int
                 self.lifetimePutts = dictionary["Putts"] as! Int
