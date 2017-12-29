@@ -131,8 +131,6 @@ class ContinueRound: UIViewController {
                 if !DataSnapshot.exists() { return }
                 let currentYardage = DataSnapshot.childSnapshot(forPath: "\(i)").value as! String
                 self.yardagesOfCourse.append(currentYardage)
-                //self.HoleYardage.text = currentYardage
-                //print("Oh Yeah")
                 if (self.yardagesOfCourse.count > self.currentHole){
                     self.HoleYardage.text = self.yardagesOfCourse[self.currentHole]
                 }
@@ -145,23 +143,16 @@ class ContinueRound: UIViewController {
                 if !DataSnapshot.exists() { return }
                 let currentPar = DataSnapshot.childSnapshot(forPath: "\(j)").value as! String
                 self.parsOfCourse.append(currentPar)
-                //self.HolePar.text = currentPar
-                //print("No, God, No")
                 if (self.parsOfCourse.count > self.currentHole){
                     self.HolePar.text = self.parsOfCourse[self.currentHole]
                 }
             })
         }
         
-        
-        print(yardagesOfCourse)
-        print(parsOfCourse)
         if (yardagesOfCourse.count != 0){
             HoleYardage.text = yardagesOfCourse[currentHole]
             HolePar.text = parsOfCourse[currentHole]
         }
-        print(yardagesOfCourse)
-        print(parsOfCourse)
         
     }
     
@@ -171,6 +162,11 @@ class ContinueRound: UIViewController {
             textField.keyboardType = UIKeyboardType.numberPad
             textField.text = nil
         }
+        
+        popUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [popUp] (_) in
+            self.redoShot((Any).self)
+            popUp.dismiss(animated: true, completion: nil)
+        }))
         
         popUp.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [popUp] (_) in
             let textField = popUp.textFields![0] // Force Unwrapping
@@ -435,7 +431,6 @@ class ContinueRound: UIViewController {
         if currentHole < 18 {
             holeScores[currentHole] = currentScore + putts
             holeStatistics.score = currentScore + putts
-            //print(holeScores)
             currentHole += 1
         }
         currentScore = 0
@@ -533,11 +528,8 @@ class ContinueRound: UIViewController {
         
         courseReference.observeSingleEvent(of: .value, with: {DataSnapshot in
             // Return if no data exists
-            //print(DataSnapshot.childrenCount)
-            
             count = Int(DataSnapshot.childrenCount)+1
             self.currentRound = count
-            print(self.currentRound)
             
         })
     }

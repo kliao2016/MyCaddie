@@ -146,8 +146,6 @@ class NewRound: UIViewController {
                 if !DataSnapshot.exists() { return }
                 let currentPar = DataSnapshot.childSnapshot(forPath: "\(j)").value as! String
                 self.parsOfCourse.append(currentPar)
-                //self.HolePar.text = currentPar
-                //print("No, God, No")
                 if (self.parsOfCourse.count > self.currentHole){
                     self.HolePar.text = self.parsOfCourse[self.currentHole]
                 }
@@ -171,17 +169,17 @@ class NewRound: UIViewController {
     
     
     func puttPopUp() {
-        
-        print(statStack)
-        print(holeStatistics)
-        
         let popUp = UIAlertController(title: "How many putts did you have?", message: nil, preferredStyle: .alert)
         popUp.addTextField { (textField) in
             textField.keyboardType = UIKeyboardType.numberPad
             textField.text = nil
         }
-
         
+        popUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [popUp] (_) in
+            self.redoShot((Any).self)
+            popUp.dismiss(animated: true, completion: nil)
+        }))
+
         popUp.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [popUp] (_) in
             
             // Force unwrapping because we know it exists.
@@ -465,7 +463,6 @@ class NewRound: UIViewController {
         if currentHole < 18 {
             holeScores[currentHole] = currentScore + putts
             holeStatistics.score = currentScore + putts
-            //print(holeScores)
             currentHole += 1
         }
         currentScore = 0

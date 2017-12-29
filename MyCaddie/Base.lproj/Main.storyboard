@@ -1140,49 +1140,49 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iU6-3b-wQm">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="519.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsc-eP-34M">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsc-eP-34M">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="74"/>
                                                 <state key="normal" image="icons8-Return-50"/>
                                                 <connections>
                                                     <action selector="redoShot:" destination="MD8-tT-bZU" eventType="touchUpInside" id="bO7-OV-8bZ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjY-F3-d5Q">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjY-F3-d5Q">
                                                 <rect key="frame" x="0.0" y="74" width="75" height="74.5"/>
                                                 <state key="normal" image="row-2-col-1"/>
                                                 <connections>
                                                     <action selector="OB:" destination="MD8-tT-bZU" eventType="touchUpInside" id="XUU-92-8uZ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7L-Dk-j6A">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7L-Dk-j6A">
                                                 <rect key="frame" x="0.0" y="148.5" width="75" height="74"/>
                                                 <state key="normal" image="row-3-col-1"/>
                                                 <connections>
                                                     <action selector="OB:" destination="MD8-tT-bZU" eventType="touchUpInside" id="EAU-8h-6Ql"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pc2-kN-xEw">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pc2-kN-xEw">
                                                 <rect key="frame" x="0.0" y="222.5" width="75" height="74.5"/>
                                                 <state key="normal" image="row-4-col-1"/>
                                                 <connections>
                                                     <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="y9E-nB-ZsN"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6RE-UH-xq1">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6RE-UH-xq1">
                                                 <rect key="frame" x="0.0" y="297" width="75" height="74"/>
                                                 <state key="normal" image="row-5-col-1"/>
                                                 <connections>
                                                     <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="IIH-3u-bY5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBc-nX-6ib">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBc-nX-6ib">
                                                 <rect key="frame" x="0.0" y="371" width="75" height="74.5"/>
                                                 <state key="normal" image="row-6-col-1"/>
                                                 <connections>
                                                     <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="kds-ZU-MQq"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzO-UX-TUx">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzO-UX-TUx">
                                                 <rect key="frame" x="0.0" y="445.5" width="75" height="74"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="L (Rough)">
@@ -1197,37 +1197,37 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tnA-4e-sg0">
                                         <rect key="frame" x="75" y="0.0" width="75" height="519.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ny-Uj-NfP">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ny-Uj-NfP">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="74"/>
                                                 <state key="normal" image="row-1-col-2 (1)"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGI-2U-so0">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGI-2U-so0">
                                                 <rect key="frame" x="0.0" y="74" width="75" height="74.5"/>
                                                 <state key="normal" image="row-2-col-2"/>
                                                 <connections>
                                                     <action selector="Green:" destination="MD8-tT-bZU" eventType="touchUpInside" id="t70-yw-WH9"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-MJ-hAG">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-MJ-hAG">
                                                 <rect key="frame" x="0.0" y="148.5" width="75" height="74"/>
                                                 <state key="normal" image="row-3-col-2"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXO-Co-Y9a">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXO-Co-Y9a">
                                                 <rect key="frame" x="0.0" y="222.5" width="75" height="74.5"/>
                                                 <state key="normal" image="row-4-col-2"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Wq-DG-T12">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Wq-DG-T12">
                                                 <rect key="frame" x="0.0" y="297" width="75" height="74"/>
                                                 <state key="normal" image="row-5-col-2"/>
                                                 <connections>
                                                     <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="a3G-qe-Guc"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDx-y7-7Ru">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDx-y7-7Ru">
                                                 <rect key="frame" x="0.0" y="371" width="75" height="74.5"/>
                                                 <state key="normal" image="row-6-col-2"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Lc-QV-aoQ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Lc-QV-aoQ">
                                                 <rect key="frame" x="0.0" y="445.5" width="75" height="74"/>
                                                 <state key="normal" image="row-7-col-2"/>
                                                 <connections>
@@ -1239,46 +1239,46 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PtU-fF-Lny">
                                         <rect key="frame" x="150" y="0.0" width="75" height="519.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vh-a7-Jby">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vh-a7-Jby">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="74"/>
                                                 <state key="normal" image="row-1-col-3 (1)"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14s-FX-xXq">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14s-FX-xXq">
                                                 <rect key="frame" x="0.0" y="74" width="75" height="74.5"/>
                                                 <state key="normal" image="row-2-col-3"/>
                                                 <connections>
                                                     <action selector="Green:" destination="MD8-tT-bZU" eventType="touchUpInside" id="AGW-6K-r59"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBI-jO-Xg0">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBI-jO-Xg0">
                                                 <rect key="frame" x="0.0" y="148.5" width="75" height="74"/>
                                                 <state key="normal" image="row-3-col-3"/>
                                                 <connections>
                                                     <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="3Up-cf-S65"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfp-Py-kKV">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfp-Py-kKV">
                                                 <rect key="frame" x="0.0" y="222.5" width="75" height="74.5"/>
                                                 <state key="normal" image="row-4-col-3"/>
                                                 <connections>
                                                     <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="tiZ-mE-Ksu"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zop-hF-x9U">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zop-hF-x9U">
                                                 <rect key="frame" x="0.0" y="297" width="75" height="74"/>
                                                 <state key="normal" image="row-5-col-3"/>
                                                 <connections>
                                                     <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="oAO-1Y-B9h"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dh1-5l-ZRY">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dh1-5l-ZRY">
                                                 <rect key="frame" x="0.0" y="371" width="75" height="74.5"/>
                                                 <state key="normal" image="row-6-col-3"/>
                                                 <connections>
                                                     <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="sZY-Mp-ZNT"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHn-Al-6vJ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHn-Al-6vJ">
                                                 <rect key="frame" x="0.0" y="445.5" width="75" height="74"/>
                                                 <state key="normal" image="row-7-col-3"/>
                                                 <connections>
@@ -1290,40 +1290,40 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KW8-FO-gG6">
                                         <rect key="frame" x="225" y="0.0" width="75" height="519.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8N-KY-kHQ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8N-KY-kHQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="74"/>
                                                 <state key="normal" image="row-1-col-4 (1)"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc6-rW-sLf">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc6-rW-sLf">
                                                 <rect key="frame" x="0.0" y="74" width="75" height="74.5"/>
                                                 <state key="normal" image="row-2-col-4"/>
                                                 <connections>
                                                     <action selector="GreenSand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="wlt-bQ-IfT"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2JQ-Hj-j15">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2JQ-Hj-j15">
                                                 <rect key="frame" x="0.0" y="148.5" width="75" height="74"/>
                                                 <state key="normal" image="row-3-col-4"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkW-ye-Vaz">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkW-ye-Vaz">
                                                 <rect key="frame" x="0.0" y="222.5" width="75" height="74.5"/>
                                                 <state key="normal" image="row-4-col-4"/>
                                                 <connections>
                                                     <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="9qa-gN-UzX"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dg-u1-iGu">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dg-u1-iGu">
                                                 <rect key="frame" x="0.0" y="297" width="75" height="74"/>
                                                 <state key="normal" image="row-5-col-4"/>
                                                 <connections>
                                                     <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="GNk-et-cVg"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irS-4J-6YC">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irS-4J-6YC">
                                                 <rect key="frame" x="0.0" y="371" width="75" height="74.5"/>
                                                 <state key="normal" image="row-6-col-4"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGj-RR-gpV">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGj-RR-gpV">
                                                 <rect key="frame" x="0.0" y="445.5" width="75" height="74"/>
                                                 <state key="normal" image="row-7-col-4"/>
                                             </button>
@@ -1332,40 +1332,40 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SpA-XJ-o0w">
                                         <rect key="frame" x="300" y="0.0" width="75" height="519.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ch-KG-d9P">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ch-KG-d9P">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="74"/>
                                                 <state key="normal" image="row-1-col-5 (1)"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJ7-Pv-07k">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJ7-Pv-07k">
                                                 <rect key="frame" x="0.0" y="74" width="75" height="74.5"/>
                                                 <state key="normal" image="row-2-col-5"/>
                                                 <connections>
                                                     <action selector="GreenSand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="gHy-WV-YqP"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJK-7i-loP">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJK-7i-loP">
                                                 <rect key="frame" x="0.0" y="148.5" width="75" height="74"/>
                                                 <state key="normal" image="row-3-col-5"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBy-WG-pMK">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBy-WG-pMK">
                                                 <rect key="frame" x="0.0" y="222.5" width="75" height="74.5"/>
                                                 <state key="normal" image="row-4-col-5"/>
                                                 <connections>
                                                     <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="9Df-K4-a7b"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCt-Z0-qzo">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCt-Z0-qzo">
                                                 <rect key="frame" x="0.0" y="297" width="75" height="74"/>
                                                 <state key="normal" image="row-5-col-5"/>
                                                 <connections>
                                                     <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="IrL-9X-vxt"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eZ-HY-7q1">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eZ-HY-7q1">
                                                 <rect key="frame" x="0.0" y="371" width="75" height="74.5"/>
                                                 <state key="normal" image="row-6-col-5"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZX-YW-74u">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZX-YW-74u">
                                                 <rect key="frame" x="0.0" y="445.5" width="75" height="74"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="R (Rough)">
@@ -4048,7 +4048,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvd-ca-55e">
-                                <rect key="frame" x="0.0" y="64" width="375" height="83.5"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="83.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="c44-EG-9IJ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="83.5"/>
@@ -4133,61 +4133,61 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uGg-XJ-SUl">
-                                <rect key="frame" x="0.0" y="147.5" width="375" height="519.5"/>
+                                <rect key="frame" x="0.0" y="103.5" width="375" height="563.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yMd-Os-BYN">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="519.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="563.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQG-Dj-UhF">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQG-Dj-UhF">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="80.5"/>
                                                 <state key="normal" image="icons8-Return-50"/>
                                                 <connections>
                                                     <action selector="redoShot:" destination="WsP-zc-HL4" eventType="touchUpInside" id="PBC-dR-rE6"/>
                                                     <action selector="redoShot:" destination="MD8-tT-bZU" eventType="touchUpInside" id="gNu-rb-LwL"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLc-gf-fE2">
-                                                <rect key="frame" x="0.0" y="74" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLc-gf-fE2">
+                                                <rect key="frame" x="0.0" y="80.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-2-col-1"/>
                                                 <connections>
                                                     <action selector="OB:" destination="WsP-zc-HL4" eventType="touchUpInside" id="PQF-sf-sND"/>
                                                     <action selector="OB:" destination="MD8-tT-bZU" eventType="touchUpInside" id="pft-QC-Y6k"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOz-pI-MTo">
-                                                <rect key="frame" x="0.0" y="148.5" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOz-pI-MTo">
+                                                <rect key="frame" x="0.0" y="161" width="75" height="80.5"/>
                                                 <state key="normal" image="row-3-col-1"/>
                                                 <connections>
                                                     <action selector="OB:" destination="WsP-zc-HL4" eventType="touchUpInside" id="52K-vv-Y0l"/>
                                                     <action selector="OB:" destination="MD8-tT-bZU" eventType="touchUpInside" id="uTY-hx-MGa"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBx-UU-iqp">
-                                                <rect key="frame" x="0.0" y="222.5" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBx-UU-iqp">
+                                                <rect key="frame" x="0.0" y="241.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-4-col-1"/>
                                                 <connections>
                                                     <action selector="Hazard:" destination="WsP-zc-HL4" eventType="touchUpInside" id="Fsf-DD-Wyk"/>
                                                     <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="dfR-s7-jE6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMA-4V-ziu">
-                                                <rect key="frame" x="0.0" y="297" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMA-4V-ziu">
+                                                <rect key="frame" x="0.0" y="322" width="75" height="80.5"/>
                                                 <state key="normal" image="row-5-col-1"/>
                                                 <connections>
                                                     <action selector="Hazard:" destination="WsP-zc-HL4" eventType="touchUpInside" id="OHQ-39-LLd"/>
                                                     <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="vLO-ye-Yrj"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Gi-W5-xNV">
-                                                <rect key="frame" x="0.0" y="371" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Gi-W5-xNV">
+                                                <rect key="frame" x="0.0" y="402.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-6-col-1"/>
                                                 <connections>
                                                     <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="SzY-Mt-dx0"/>
                                                     <action selector="Hazard:" destination="WsP-zc-HL4" eventType="touchUpInside" id="kr9-vz-KGL"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeo-ly-wG4">
-                                                <rect key="frame" x="0.0" y="445.5" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeo-ly-wG4">
+                                                <rect key="frame" x="0.0" y="483" width="75" height="80.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="L (Rough)">
                                                     <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -4200,45 +4200,45 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5Ee-Yr-1Pc">
-                                        <rect key="frame" x="75" y="0.0" width="75" height="519.5"/>
+                                        <rect key="frame" x="75" y="0.0" width="75" height="563.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6t-7D-hav">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6t-7D-hav">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="80.5"/>
                                                 <state key="normal" image="row-1-col-2 (1)"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pws-pl-uEW">
-                                                <rect key="frame" x="0.0" y="74" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pws-pl-uEW">
+                                                <rect key="frame" x="0.0" y="80.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-2-col-2"/>
                                                 <connections>
                                                     <action selector="Green:" destination="MD8-tT-bZU" eventType="touchUpInside" id="7oi-Ge-78d"/>
                                                     <action selector="Green:" destination="WsP-zc-HL4" eventType="touchUpInside" id="zeb-C7-o5m"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPX-sD-uYg">
-                                                <rect key="frame" x="0.0" y="148.5" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPX-sD-uYg">
+                                                <rect key="frame" x="0.0" y="161" width="75" height="80.5"/>
                                                 <state key="normal" image="row-3-col-2"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFL-bt-CPy">
-                                                <rect key="frame" x="0.0" y="222.5" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFL-bt-CPy">
+                                                <rect key="frame" x="0.0" y="241.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-4-col-2"/>
                                                 <connections>
                                                     <action selector="Hazard:" destination="WsP-zc-HL4" eventType="touchUpInside" id="9M5-2m-h6G"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGf-F1-W7k">
-                                                <rect key="frame" x="0.0" y="297" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGf-F1-W7k">
+                                                <rect key="frame" x="0.0" y="322" width="75" height="80.5"/>
                                                 <state key="normal" image="row-5-col-2"/>
                                                 <connections>
                                                     <action selector="Hazard:" destination="MD8-tT-bZU" eventType="touchUpInside" id="20O-iM-Oks"/>
                                                     <action selector="Hazard:" destination="WsP-zc-HL4" eventType="touchUpInside" id="qRa-jb-rVw"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5f-Xa-QJP">
-                                                <rect key="frame" x="0.0" y="371" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5f-Xa-QJP">
+                                                <rect key="frame" x="0.0" y="402.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-6-col-2"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c92-1X-JyQ">
-                                                <rect key="frame" x="0.0" y="445.5" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c92-1X-JyQ">
+                                                <rect key="frame" x="0.0" y="483" width="75" height="80.5"/>
                                                 <state key="normal" image="row-7-col-2"/>
                                                 <connections>
                                                     <action selector="Fairway:" destination="WsP-zc-HL4" eventType="touchUpInside" id="ZIE-Ph-vDy"/>
@@ -4248,54 +4248,54 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ygx-xz-6jJ">
-                                        <rect key="frame" x="150" y="0.0" width="75" height="519.5"/>
+                                        <rect key="frame" x="150" y="0.0" width="75" height="563.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hL3-Ld-g3m">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hL3-Ld-g3m">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="80.5"/>
                                                 <state key="normal" image="row-1-col-3 (1)"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaC-Xl-vdV">
-                                                <rect key="frame" x="0.0" y="74" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaC-Xl-vdV">
+                                                <rect key="frame" x="0.0" y="80.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-2-col-3"/>
                                                 <connections>
                                                     <action selector="Green:" destination="MD8-tT-bZU" eventType="touchUpInside" id="ZSc-fC-dq3"/>
                                                     <action selector="Green:" destination="WsP-zc-HL4" eventType="touchUpInside" id="bKw-1n-SjA"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLg-FJ-cmm">
-                                                <rect key="frame" x="0.0" y="148.5" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLg-FJ-cmm">
+                                                <rect key="frame" x="0.0" y="161" width="75" height="80.5"/>
                                                 <state key="normal" image="row-3-col-3"/>
                                                 <connections>
                                                     <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="70t-gK-Fbf"/>
                                                     <action selector="Fairway:" destination="WsP-zc-HL4" eventType="touchUpInside" id="vyS-nc-j0W"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGk-RI-fKg">
-                                                <rect key="frame" x="0.0" y="222.5" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGk-RI-fKg">
+                                                <rect key="frame" x="0.0" y="241.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-4-col-3"/>
                                                 <connections>
                                                     <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="P6g-B8-6vB"/>
                                                     <action selector="Fairway:" destination="WsP-zc-HL4" eventType="touchUpInside" id="t0A-Rn-hX9"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYn-76-CBa">
-                                                <rect key="frame" x="0.0" y="297" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYn-76-CBa">
+                                                <rect key="frame" x="0.0" y="322" width="75" height="80.5"/>
                                                 <state key="normal" image="row-5-col-3"/>
                                                 <connections>
                                                     <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="bqC-th-53D"/>
                                                     <action selector="Fairway:" destination="WsP-zc-HL4" eventType="touchUpInside" id="xPp-0T-WOZ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUf-1A-3ED">
-                                                <rect key="frame" x="0.0" y="371" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUf-1A-3ED">
+                                                <rect key="frame" x="0.0" y="402.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-6-col-3"/>
                                                 <connections>
                                                     <action selector="Fairway:" destination="WsP-zc-HL4" eventType="touchUpInside" id="MRZ-6e-hET"/>
                                                     <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="OvB-0W-CL8"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cC4-vi-pdy">
-                                                <rect key="frame" x="0.0" y="445.5" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cC4-vi-pdy">
+                                                <rect key="frame" x="0.0" y="483" width="75" height="80.5"/>
                                                 <state key="normal" image="row-7-col-3"/>
                                                 <connections>
                                                     <action selector="Fairway:" destination="MD8-tT-bZU" eventType="touchUpInside" id="IPQ-rM-2HA"/>
@@ -4305,46 +4305,46 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gFh-d3-Cw4">
-                                        <rect key="frame" x="225" y="0.0" width="75" height="519.5"/>
+                                        <rect key="frame" x="225" y="0.0" width="75" height="563.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdH-YU-MVT">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdH-YU-MVT">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="80.5"/>
                                                 <state key="normal" image="row-1-col-4 (1)"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXX-vz-dUZ">
-                                                <rect key="frame" x="0.0" y="74" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXX-vz-dUZ">
+                                                <rect key="frame" x="0.0" y="80.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-2-col-4"/>
                                                 <connections>
                                                     <action selector="GreenSand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="UAx-PO-mrk"/>
                                                     <action selector="GreenSand:" destination="WsP-zc-HL4" eventType="touchUpInside" id="cxi-WK-WEz"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FB-Zh-cZE">
-                                                <rect key="frame" x="0.0" y="148.5" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FB-Zh-cZE">
+                                                <rect key="frame" x="0.0" y="161" width="75" height="80.5"/>
                                                 <state key="normal" image="row-3-col-4"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5m-T4-QI1">
-                                                <rect key="frame" x="0.0" y="222.5" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5m-T4-QI1">
+                                                <rect key="frame" x="0.0" y="241.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-4-col-4"/>
                                                 <connections>
                                                     <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="7hh-MZ-Qvl"/>
                                                     <action selector="FairwaySand:" destination="WsP-zc-HL4" eventType="touchUpInside" id="fRp-XW-KYK"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThB-6A-GCu">
-                                                <rect key="frame" x="0.0" y="297" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThB-6A-GCu">
+                                                <rect key="frame" x="0.0" y="322" width="75" height="80.5"/>
                                                 <state key="normal" image="row-5-col-4"/>
                                                 <connections>
                                                     <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="5oi-uS-l4s"/>
                                                     <action selector="FairwaySand:" destination="WsP-zc-HL4" eventType="touchUpInside" id="qEd-v8-LLd"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykq-9W-vux">
-                                                <rect key="frame" x="0.0" y="371" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykq-9W-vux">
+                                                <rect key="frame" x="0.0" y="402.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-6-col-4"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gr-c6-koC">
-                                                <rect key="frame" x="0.0" y="445.5" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gr-c6-koC">
+                                                <rect key="frame" x="0.0" y="483" width="75" height="80.5"/>
                                                 <state key="normal" image="row-7-col-4"/>
                                                 <connections>
                                                     <action selector="Right:" destination="WsP-zc-HL4" eventType="touchUpInside" id="mRB-9s-3Dk"/>
@@ -4353,46 +4353,46 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="02M-LX-nYR">
-                                        <rect key="frame" x="300" y="0.0" width="75" height="519.5"/>
+                                        <rect key="frame" x="300" y="0.0" width="75" height="563.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O65-P5-wmf">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O65-P5-wmf">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="80.5"/>
                                                 <state key="normal" image="row-1-col-5 (1)"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8n-y9-lld">
-                                                <rect key="frame" x="0.0" y="74" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8n-y9-lld">
+                                                <rect key="frame" x="0.0" y="80.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-2-col-5"/>
                                                 <connections>
                                                     <action selector="GreenSand:" destination="WsP-zc-HL4" eventType="touchUpInside" id="60y-at-MA2"/>
                                                     <action selector="GreenSand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="di0-7W-qmd"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piu-sG-CGC">
-                                                <rect key="frame" x="0.0" y="148.5" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piu-sG-CGC">
+                                                <rect key="frame" x="0.0" y="161" width="75" height="80.5"/>
                                                 <state key="normal" image="row-3-col-5"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhA-8I-4X0">
-                                                <rect key="frame" x="0.0" y="222.5" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhA-8I-4X0">
+                                                <rect key="frame" x="0.0" y="241.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-4-col-5"/>
                                                 <connections>
                                                     <action selector="FairwaySand:" destination="WsP-zc-HL4" eventType="touchUpInside" id="Anx-3n-V4M"/>
                                                     <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="jCb-fQ-Daa"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gr-p5-Rdb">
-                                                <rect key="frame" x="0.0" y="297" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gr-p5-Rdb">
+                                                <rect key="frame" x="0.0" y="322" width="75" height="80.5"/>
                                                 <state key="normal" image="row-5-col-5"/>
                                                 <connections>
                                                     <action selector="FairwaySand:" destination="MD8-tT-bZU" eventType="touchUpInside" id="Nsp-iE-CX8"/>
                                                     <action selector="FairwaySand:" destination="WsP-zc-HL4" eventType="touchUpInside" id="fQf-MT-fI0"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoK-d8-iYk">
-                                                <rect key="frame" x="0.0" y="371" width="75" height="74.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoK-d8-iYk">
+                                                <rect key="frame" x="0.0" y="402.5" width="75" height="80.5"/>
                                                 <state key="normal" image="row-6-col-5"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vk2-fv-t2H">
-                                                <rect key="frame" x="0.0" y="445.5" width="75" height="74"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vk2-fv-t2H">
+                                                <rect key="frame" x="0.0" y="483" width="75" height="80.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="R (Rough)">
                                                     <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -4409,7 +4409,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="mvd-ca-55e" firstAttribute="top" secondItem="BO9-3O-UeM" secondAttribute="bottom" constant="44" id="70W-eH-EH5"/>
+                            <constraint firstItem="mvd-ca-55e" firstAttribute="top" secondItem="BO9-3O-UeM" secondAttribute="bottom" id="70W-eH-EH5"/>
                             <constraint firstItem="mvd-ca-55e" firstAttribute="height" secondItem="n3a-J9-7b6" secondAttribute="height" multiplier="1/8" id="PRC-x3-hhk"/>
                             <constraint firstItem="uGg-XJ-SUl" firstAttribute="top" secondItem="mvd-ca-55e" secondAttribute="bottom" id="VbN-LN-BDH"/>
                             <constraint firstAttribute="trailing" secondItem="mvd-ca-55e" secondAttribute="trailing" id="Z38-Vs-GpF"/>
@@ -5634,7 +5634,7 @@
         <image name="temp" width="960" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EAd-b9-1jJ"/>
+        <segue reference="JrS-8Q-NnU"/>
         <segue reference="orz-An-J6E"/>
         <segue reference="yf3-JC-G0j"/>
         <segue reference="UFd-0b-pAJ"/>
