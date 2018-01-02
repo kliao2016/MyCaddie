@@ -100,6 +100,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                             Main.appUser.name = user?.displayName
                             Main.appUser.email = user?.email
                             let values = ["Name": Main.appUser.name, "Email": Main.appUser.email]
+                            
+                            let databaseRef = Database.database().reference()
+                            let uid = Auth.auth().currentUser?.uid
+                            let userReference = databaseRef.child("Users").child(uid!)
+                            let lifetimeRef = userReference.child("Lifetime Stats")
+                            let lifetimeStats = ["Fairways": 0, "Fairway Bunkers": 0, "Greens": 0, "Greenside Bunkers": 0, "Hazards": 0, "Fringes": 0, "Lefts": 0, "Rights": 0, "OBs": 0, "Putts": 0, "Score": 0]
+                            userReference.child("Handicap").setValue("0")
+                            
+                            lifetimeRef.updateChildValues(lifetimeStats)
                             userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
                                 if error != nil {
                                     print("Error signing in with Google")
