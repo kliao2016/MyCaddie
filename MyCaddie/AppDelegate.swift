@@ -93,11 +93,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                         if snapshot.hasChild("Name") {
                             if let dictionary = snapshot.value as? [String: AnyObject] {
                                 Main.appUser.name = dictionary["Name"] as? String
+                                Main.appUser.email = dictionary["Email"] as? String
                                 self.segueToMain()
                             }
                         } else {
                             Main.appUser.name = user?.displayName
-                            let values = ["Name": Main.appUser.name, "Email": user?.email, "Password": ""]
+                            Main.appUser.email = user?.email
+                            let values = ["Name": Main.appUser.name, "Email": Main.appUser.email]
                             userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
                                 if error != nil {
                                     print("Error signing in with Google")

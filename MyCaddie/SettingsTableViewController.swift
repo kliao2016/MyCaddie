@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 import Firebase
+import FirebaseAuth
 import GoogleSignIn
 
 class SettingsTableViewController: UITableViewController {
@@ -94,31 +95,45 @@ class SettingsTableViewController: UITableViewController {
         self.present(promptPopUp, animated: true, completion: nil)
     }
     
-    func updatePassword(){
+    func updatePassword() {
         
-        let uid = Auth.auth().currentUser?.uid
-        let userReference = Database.database().reference().child("Users").child(uid!).child("Password")
-        
-        let promptPopUp = UIAlertController(title: "Update Password", message: nil, preferredStyle: .alert)
-        
-        promptPopUp.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [promptPopUp] (_) in
+        if Auth.auth().currentUser?.providerData[0].providerID == "google.com" {
+            let promptPopUp = UIAlertController(title: "If you use a Google account, please change your Google account password instead.", message: nil, preferredStyle: .alert)
             
-            promptPopUp.dismiss(animated: true, completion: nil)
-            let textField = promptPopUp.textFields?[0]
-            let actualText = String((textField?.text)!)
-            userReference.setValue(actualText)
+            promptPopUp.addAction(UIAlertAction(title: "Okay", style: .default, handler: { [promptPopUp] (_) in
+                promptPopUp.dismiss(animated: true, completion: nil)
+            }))
+            self.present(promptPopUp, animated: true, completion: nil)
+        } else {
+            let promptPopUp = UIAlertController(title: "Update Password?", message: nil, preferredStyle: .alert)
             
-        }))
-        promptPopUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [promptPopUp] (_) in
-            promptPopUp.dismiss(animated: true, completion: nil)
-        }))
-        
-        promptPopUp.addTextField { (textField) in
-            textField.keyboardType = UIKeyboardType.alphabet
-            textField.text = nil
+            promptPopUp.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [promptPopUp] (_) in
+                Auth.auth().sendPasswordReset(withEmail: Main.appUser.email!) { (error) in
+                    if error != nil {
+                        let promptPopUp = UIAlertController(title: "Error sending password reset request. Please try again.", message: nil, preferredStyle: .alert)
+                        
+                        promptPopUp.addAction(UIAlertAction(title: "Okay", style: .default, handler: { [promptPopUp] (_) in
+                            promptPopUp.dismiss(animated: true, completion: nil)
+                        }))
+                        self.present(promptPopUp, animated: true, completion: nil)
+                    }
+                }
+                promptPopUp.dismiss(animated: true, completion: nil)
+                
+                let innerPopUp = UIAlertController(title: "An email was sent with instructions on how to reset your password.", message: nil, preferredStyle: .alert)
+                
+                innerPopUp.addAction(UIAlertAction(title: "Okay", style: .default, handler: { [innerPopUp] (_) in
+                    innerPopUp.dismiss(animated: true, completion: nil)
+                }))
+                self.present(innerPopUp, animated: true, completion: nil)
+                
+            }))
+            promptPopUp.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [promptPopUp] (_) in
+                promptPopUp.dismiss(animated: true, completion: nil)
+            }))
+            self.present(promptPopUp, animated: true, completion: nil)
         }
         
-        self.present(promptPopUp, animated: true, completion: nil)
     }
     
     func updateHandicap() {

@@ -139,6 +139,14 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
             // Check that credentials are valid
             if error == nil && user != nil {
                 self.setUp()
+                Main.appUser.email = self.emailTextField.text
+                let uid = Auth.auth().currentUser?.uid
+                let userReference = self.databaseRef?.child("Users").child(uid!)
+                userReference?.observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let dictionary = snapshot.value as? [String: AnyObject] {
+                        Main.appUser.name = dictionary["Name"] as? String
+                    }
+                }, withCancel: nil)
                 if self.isUserEmailVerified == true {
                     self.displayMainMenu()
                 }
@@ -155,7 +163,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
                 user?.sendEmailVerification(completion: nil)
                 self.setUp()
                 if self.isUserEmailVerified == true {
-                    Main.appUser.name = user?.displayName
+                    Main.appUser.name = self.nameTextField.text
                     self.displayMainMenu()
                 }
             } else {
@@ -168,7 +176,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
             
             let userReference = self.databaseRef?.child("Users").child(uid)
             Main.appUser.name = self.nameTextField.text
-            let values = ["Name": Main.appUser.name, "Email": self.emailTextField.text, "Password": self.passTextField.text]
+            Main.appUser.email = self.emailTextField.text
+            let values = ["Name": Main.appUser.name, "Email": self.emailTextField.text]
             
             let lifetimeRef = userReference?.child("Lifetime Stats")
             let lifetimeStats = ["Fairways": 0, "Fairway Bunkers": 0, "Greens": 0, "Greenside Bunkers": 0, "Hazards": 0, "Fringes": 0, "Lefts": 0, "Rights": 0, "OBs": 0, "Putts": 0, "Score": 0]
