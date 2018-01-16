@@ -81,7 +81,18 @@ class Scorecard: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.CourseName?.text = self.parentCourseName
+        // Limit "course name" text to 25 characters
+        
+        if self.parentCourseName.characters.count > 22 {
+            let index = self.parentCourseName.index(parentCourseName.startIndex, offsetBy: 22)
+            var mySubstring = String(self.parentCourseName[..<index])
+            mySubstring = mySubstring + "..."
+            self.CourseName?.text = mySubstring
+        }
+        else {
+            self.CourseName?.text = self.parentCourseName
+        }
+        
         
         // Set Firebase Database
         ref = Database.database().reference()
@@ -102,8 +113,8 @@ class Scorecard: UIViewController {
             
             let slopeHold = DataSnapshot.childSnapshot(forPath: "Slope").value as! String
             let ratingHold = DataSnapshot.childSnapshot(forPath: "Rating").value as! String
-            self.Slope.text = "Slope: \(slopeHold)"
-            self.Rating.text = "Rating: \(ratingHold)"
+            self.Slope.text = "Slo: \(slopeHold)"
+            self.Rating.text = "Rat: \(ratingHold)"
         })
         
         // Course Name Reference
