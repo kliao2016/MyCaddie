@@ -82,12 +82,29 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "teeSegue" {
+//            let teeView = segue.destination as! CourseTeeSelector
+//
+//            let indexPath = self.courseDatabaseTable.indexPathForSelectedRow
+//            teeView.teeParentCourseName = courses[(indexPath?.row)!]
+//        }
+        
         if segue.identifier == "teeSegue" {
             let teeView = segue.destination as! CourseTeeSelector
             
             let indexPath = self.courseDatabaseTable.indexPathForSelectedRow
-            teeView.teeParentCourseName = courses[(indexPath?.row)!]
+            
+            if filteredCourses.count == 0 {
+                teeView.teeParentCourseName = courses[(indexPath?.row)!]
+            }
+            else {
+                teeView.teeParentCourseName = filteredCourses[(indexPath?.row)!]
+            }
         }
+        
+        
+        
+        
         
         // For GPS function coming in the future
         
@@ -107,6 +124,9 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
             isSearching = false
             view.endEditing(true)
             courseDatabaseTable.reloadData()
+            
+            // ADDING THIS TEMPORARILY
+            filteredCourses = [String]()
             
         }
         else {
