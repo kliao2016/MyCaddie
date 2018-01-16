@@ -198,9 +198,7 @@ class StatsViewController: UIViewController {
     func drawStats() {
         let xcoord = self.view.frame.size.width
         let ycoord = self.view.frame.size.height
-        //        let topheight = self.navigationController?.navigationBar.frame.size.height + [UIApplication .]
         let topheight = (self.navigationController?.navigationBar.frame.size.height)! + 20
-        
         
         // Top Top
         let rect0 = CGRect(x: (xcoord / 2) - 55, y: (ycoord - (ycoord * 5 / 8) - topheight) / 2, width: 110, height: 110)

@@ -38,7 +38,6 @@ class CirclePath5: UIView {
         
         layer.addSublayer(shapeLayer)
         
-        //let path = UIBezierPath(ovalIn: bounds)
         let path = UIBezierPath()
         
         let cx = bounds.width / 2
@@ -94,14 +93,5 @@ class CirclePath5: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    /*
-     // Only override draw() if you perform custom drawing.
-     // An empty implementation adversely affects performance during animation.
-     override func draw(_ rect: CGRect) {
-     // Drawing code
-     }
-     */
     
 }

@@ -82,12 +82,6 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "teeSegue" {
-//            let teeView = segue.destination as! CourseTeeSelector
-//
-//            let indexPath = self.courseDatabaseTable.indexPathForSelectedRow
-//            teeView.teeParentCourseName = courses[(indexPath?.row)!]
-//        }
         
         if segue.identifier == "teeSegue" {
             let teeView = segue.destination as! CourseTeeSelector
@@ -125,13 +119,12 @@ class CourseDatabaseViewController: UIViewController, UITableViewDelegate, UITab
             view.endEditing(true)
             courseDatabaseTable.reloadData()
             
-            // ADDING THIS TEMPORARILY
+            // Reseting Filtered Courses to empty array to avoid crash
             filteredCourses = [String]()
             
         }
         else {
             isSearching = true
-            //filteredCourses = courses.filter({$0 == searchBar.text})
             filteredCourses = courses.filter({$0.contains(searchBar.text!)})
             courseDatabaseTable.reloadData()
         }

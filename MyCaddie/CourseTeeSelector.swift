@@ -23,7 +23,6 @@ class CourseTeeSelector: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         teeTable.delegate = self
         teeTable.dataSource = self

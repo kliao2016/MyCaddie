@@ -21,14 +21,14 @@ class LoadingScreen: UIViewController {
         super.viewDidLoad()
         
         print("first")
-        print(programVar?.cName)
+        print(programVar?.cName as Any)
         
         let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             print("Maybe")
-            print(self.programVar?.cName)
-            print(self.programVar?.tName)
-            print(self.programVar?.currentHoleNumber)
+            print(self.programVar?.cName as Any)
+            print(self.programVar?.tName as Any)
+            print(self.programVar?.currentHoleNumber as Any)
             self.performSegue(withIdentifier: "loadToStatsSegue", sender: self)
         }
         
