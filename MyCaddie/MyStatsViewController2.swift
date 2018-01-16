@@ -218,7 +218,6 @@ class MyStatsViewController2: UIViewController {
     func drawStats() {
         let xcoord = self.view.frame.size.width
         let ycoord = self.view.frame.size.height
-//        let topheight = self.navigationController?.navigationBar.frame.size.height + [UIApplication .]
         let topheight = (self.navigationController?.navigationBar.frame.size.height)! + 20
         
         

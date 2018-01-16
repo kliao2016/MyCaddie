@@ -79,8 +79,6 @@ class Scorecard: UIViewController {
         var totalYards = 0
         var totalPars = 0
         
-        // Do any additional setup after loading the view, typically from a nib.
-        
         // Limit "course name" text to 25 characters
         
         if self.parentCourseName.characters.count > 22 {
@@ -116,11 +114,6 @@ class Scorecard: UIViewController {
             self.Slope.text = "Slo: \(slopeHold)"
             self.Rating.text = "Rat: \(ratingHold)"
         })
-        
-        // Course Name Reference
-        //let SlopeRef = Database.database().reference().child("Golf Course Data") Get the input here for course name
-        
-        // Player Name Reference
         
         // Reading Par Data from Course
         parRef.observeSingleEvent(of: .value, with: {DataSnapshot in
