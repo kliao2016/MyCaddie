@@ -94,13 +94,10 @@ class NewRound: UIViewController {
         super.viewDidLoad()
         
         // Initial text
-        //ShotNumberText.text = "Where was your first shot?"
         Actual.text = "1"
         
         HoleNumber.text = "1"
         
-        //let courseName2 = programVar?.cName
-        //var tees2 = programVar?.tName as! String
         
         // If continuing previous round
         if (programVar?.cName != nil) {

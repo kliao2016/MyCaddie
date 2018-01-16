@@ -92,13 +92,9 @@ class ContinueRound: UIViewController {
         super.viewDidLoad()
         
         // Initial text
-        //ShotNumberText.text = "Where was your first shot?"
         Actual.text = "1"
         
         HoleNumber.text = "#"
-        
-        //let courseName2 = programVar?.cName
-        //var tees2 = programVar?.tName as! String
         
         
         if (programVar?.cName != nil) {

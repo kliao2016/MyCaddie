@@ -44,14 +44,6 @@ class SwipeViewController: UIViewController {
         cp5.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(segueToNewRound)))
         view.addSubview(cp5)
         
-        // Continue Round Button
-        /*
-        let rect6 = CGRect(x: 240, y: 560, width: 100, height: 100)
-        let cp6 = mainScreenButton(frame: rect6, words: "Continue", color1: orange, color2: purple)
-        view.addSubview(cp6)
- */
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,10 +60,7 @@ class SwipeViewController: UIViewController {
             revealViewController().rearViewRevealWidth = 275
             revealViewController().rightViewRevealWidth = 160
             
-            /*
-            alertButton.target = revealViewController()
-            alertButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
-            */
+
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
