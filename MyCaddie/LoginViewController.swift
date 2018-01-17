@@ -49,9 +49,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         signInButton.backgroundColor = UIColor(red: 0, green: 128/255, blue: 64/255, alpha: 1.0)
         signInButton.layer.cornerRadius = 1.5
         
-        nameTextField.attributedPlaceholder = NSAttributedString(string: "N/A", attributes: [NSForegroundColorAttributeName: UIColor.white])
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "EMAIL", attributes: [NSForegroundColorAttributeName: UIColor.white])
-        passTextField.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes: [NSForegroundColorAttributeName: UIColor.white])
+        nameTextField.attributedPlaceholder = NSAttributedString(string: "N/A", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "EMAIL", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        passTextField.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         nameTextField.delegate = self
         emailTextField.delegate = self
         passTextField.delegate = self
@@ -74,11 +74,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
         if isSignIn {
             signInButton.setTitle("Sign In", for: .normal)
             nameTextField.isUserInteractionEnabled = false
-            nameTextField.attributedPlaceholder = NSAttributedString(string: "N/A", attributes: [NSForegroundColorAttributeName: UIColor.white])
+            nameTextField.attributedPlaceholder = NSAttributedString(string: "N/A", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         } else {
             signInButton.setTitle("Sign Up with Email", for: .normal)
             nameTextField.isUserInteractionEnabled = true
-            nameTextField.attributedPlaceholder = NSAttributedString(string: "USERNAME", attributes: [NSForegroundColorAttributeName: UIColor.white])
+            nameTextField.attributedPlaceholder = NSAttributedString(string: "USERNAME", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         }
     }
     
@@ -184,7 +184,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIImagePickerC
             userReference?.child("Handicap").setValue("0")
             
             lifetimeRef?.updateChildValues(lifetimeStats)
-            userReference?.updateChildValues(values, withCompletionBlock: { (error, ref) in
+            userReference?.updateChildValues(values as Any as! [AnyHashable : Any], withCompletionBlock: { (error, ref) in
                 if error != nil {
                     self.displayAlert2()
                 }

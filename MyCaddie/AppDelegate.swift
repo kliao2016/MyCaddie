@@ -109,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                             userReference.child("Handicap").setValue("0")
                             
                             lifetimeRef.updateChildValues(lifetimeStats)
-                            userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                            userReference.updateChildValues(values as Any as! [AnyHashable : Any], withCompletionBlock: { (error, ref) in
                                 if error != nil {
                                     print("Error signing in with Google")
                                 }

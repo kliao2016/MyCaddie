@@ -306,7 +306,7 @@ class CreateViewController2: UIViewController, UIApplicationDelegate, UIPickerVi
         
         teePicker.delegate = self
         teePicker.dataSource = self
-        teePicker.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+        teePicker.backgroundColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
         
         // Part of Letters only for course Name
         self.courseName.delegate = self
@@ -378,13 +378,13 @@ class CreateViewController2: UIViewController, UIApplicationDelegate, UIPickerVi
         
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let done = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(doneButtonAction))
-        done.tintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
+        done.tintColor = UIColor(red: 0/255, green: 128/255, blue: 64/255, alpha: 1)
         
         let items = NSMutableArray()
         items.add(flexSpace)
         items.add(done)
         
-        doneToolbar.items = items as! [UIBarButtonItem]
+        doneToolbar.items = items as? [UIBarButtonItem]
         doneToolbar.sizeToFit()
         
         self.y1.inputAccessoryView = doneToolbar
@@ -408,7 +408,7 @@ class CreateViewController2: UIViewController, UIApplicationDelegate, UIPickerVi
         
     }
     
-    func doneButtonAction() {
+    @objc func doneButtonAction() {
         y1.resignFirstResponder()
         y2.resignFirstResponder()
         y3.resignFirstResponder()
@@ -461,7 +461,6 @@ class CreateViewController2: UIViewController, UIApplicationDelegate, UIPickerVi
         if valid == true {
             
             let uid = Auth.auth().currentUser?.uid
-            let userReference = self.ref.child("Users").child(uid!)
             let generalDataReference = self.ref.child("Golf Course Data")
             
             let ratingData : [String: AnyObject] = ["Rating": courseRating.text as AnyObject, "Slope": slope.text as AnyObject]
@@ -610,7 +609,7 @@ class CreateViewController2: UIViewController, UIApplicationDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = tees[row]
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 15.0)!, NSForegroundColorAttributeName:UIColor.init(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)])
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font:UIFont(name: "Georgia", size: 15.0)!, NSAttributedStringKey.foregroundColor:UIColor.init(red: 0/255, green: 128/255, blue: 64/255, alpha: 1)])
         return myTitle
     }
     

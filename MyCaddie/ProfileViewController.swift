@@ -99,10 +99,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func customizeNavBar(){
         navigationController?.navigationBar.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         navigationController?.navigationBar.barTintColor = UIColor(red: 0/255, green: 128/255, blue: 64/255, alpha: 1)
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
     
-    func handleSelectProfileImage() {
+    @objc func handleSelectProfileImage() {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
@@ -232,12 +232,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var profileCell = profileTableView.dequeueReusableCell(withIdentifier: "profileCell") as! ProfileTableViewCell
+        let profileCell = profileTableView.dequeueReusableCell(withIdentifier: "profileCell") as! ProfileTableViewCell
         if indexPath.row == 1 {
             profileCell.profileCellLabel.text = "My Stats"
             profileCell.profileCellImage.image = UIImage(named: "icons8-Statistics-50 (2)")
-            profileCell.contentView.backgroundColor = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
-            profileCell.backgroundColor = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+            profileCell.contentView.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+            profileCell.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         }
         if indexPath.row == 2 {
             profileCell.profileCellLabel.text = "My Rounds"
@@ -246,8 +246,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         if indexPath.row == 3 {
             profileCell.profileCellLabel.text = "Settings"
             profileCell.profileCellImage.image = UIImage(named: "icons8-Vertical Settings Mixer-50 (2)")
-            profileCell.contentView.backgroundColor = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
-            profileCell.backgroundColor = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+            profileCell.contentView.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+            profileCell.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         }
         if indexPath.row == 4 {
             profileCell.profileCellLabel.text = "Log Out"
