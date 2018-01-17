@@ -67,7 +67,7 @@ class DeveloperInformation: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func imageTapped(gesture: UIGestureRecognizer) {
+    @objc func imageTapped(gesture: UIGestureRecognizer) {
         // if the tapped view is a UIImageView then set it to imageview
         if (gesture.view as? UIImageView) != nil {
             print("Image Tapped")
@@ -77,7 +77,7 @@ class DeveloperInformation: UIViewController {
         }
     }
     
-    func imageTapped2(gesture: UIGestureRecognizer) {
+    @objc func imageTapped2(gesture: UIGestureRecognizer) {
         // if the tapped view is a UIImageView then set it to imageview
         if (gesture.view as? UIImageView) != nil {
             print("Image Tapped")

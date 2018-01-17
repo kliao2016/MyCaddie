@@ -181,7 +181,7 @@ class ContinueRound: UIViewController {
         checkIfUserWantsToCancelRound()
     }
     
-    func showMainView() {
+    @objc func showMainView() {
         let mainView = storyboard?.instantiateViewController(withIdentifier: "mainMenu")
         
         self.present(mainView!, animated: true, completion: nil)

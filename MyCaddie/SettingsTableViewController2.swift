@@ -96,7 +96,7 @@ class SettingsTableViewController2: UITableViewController {
     func updatePassword() {
         
         if Auth.auth().currentUser?.providerData[0].providerID == "google.com" {
-            print(Auth.auth().currentUser?.providerData[0].providerID)
+            print(Auth.auth().currentUser?.providerData[0].providerID as Any)
             let promptPopUp = UIAlertController(title: "If you use a Google account, please change your Google account password instead.", message: nil, preferredStyle: .alert)
             
             promptPopUp.addAction(UIAlertAction(title: "Okay", style: .default, handler: { [promptPopUp] (_) in

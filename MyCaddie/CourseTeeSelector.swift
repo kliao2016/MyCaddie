@@ -64,24 +64,24 @@ class CourseTeeSelector: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func createFAB() {
         let floatyNewOptionsButton = Floaty()
-        floatyNewOptionsButton.buttonColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
+        floatyNewOptionsButton.buttonColor = UIColor(red: 0/255, green: 128/255, blue: 64/255, alpha: 1)
         let champOption = FloatyItem()
-        champOption.buttonColor = UIColor(colorLiteralRed: 218/255, green: 165/255, blue: 32/255, alpha: 1)
+        champOption.buttonColor = UIColor(red: 218/255, green: 165/255, blue: 32/255, alpha: 1)
         champOption.title = "Championship Tees"
         champOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showChampCreateCourse)))
         
         let mensOption = FloatyItem()
-        mensOption.buttonColor = UIColor(colorLiteralRed: 0/255, green: 0/255, blue: 205/255, alpha: 1)
+        mensOption.buttonColor = UIColor(red: 0/255, green: 0/255, blue: 205/255, alpha: 1)
         mensOption.title = "Men's Tees"
         mensOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showMensCreateCourse)))
         
         let womensOption = FloatyItem()
-        womensOption.buttonColor = UIColor(colorLiteralRed: 220/255, green: 20/255, blue: 60/255, alpha: 1)
+        womensOption.buttonColor = UIColor(red: 220/255, green: 20/255, blue: 60/255, alpha: 1)
         womensOption.title = "Women's Tees"
         womensOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showWomensCreateCourse)))
         
         let seniorOption = FloatyItem()
-        seniorOption.buttonColor = UIColor(colorLiteralRed: 255/255, green: 255/255, blue: 240/255, alpha: 1)
+        seniorOption.buttonColor = UIColor(red: 255/255, green: 255/255, blue: 240/255, alpha: 1)
         seniorOption.title = "Senior Tees"
         seniorOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showSeniorCreateCourse)))
         
@@ -102,19 +102,19 @@ class CourseTeeSelector: UIViewController, UITableViewDelegate, UITableViewDataS
         return 45
     }
     
-    func showChampCreateCourse() {
+    @objc func showChampCreateCourse() {
         self.performSegue(withIdentifier: "teeToChampCreateSegue", sender: self)
     }
     
-    func showMensCreateCourse() {
+    @objc func showMensCreateCourse() {
         self.performSegue(withIdentifier: "teeToMensCreateSegue", sender: self)
     }
     
-    func showWomensCreateCourse() {
+    @objc func showWomensCreateCourse() {
         self.performSegue(withIdentifier: "teeToWomensCreateSegue", sender: self)
     }
     
-    func showSeniorCreateCourse() {
+    @objc func showSeniorCreateCourse() {
         self.performSegue(withIdentifier: "teeToSeniorCreateSegue", sender: self)
     }
     

@@ -479,6 +479,11 @@ static CGFloat scaledValue( CGFloat v1, CGFloat min2, CGFloat max2, CGFloat min1
     return _view.bounds;
 }
 
+- (void)pauseInteractiveTransition {
+    
+}
+
+
 @end
 
 

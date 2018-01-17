@@ -69,9 +69,9 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func customizeNavBar() {
-        navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
-        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0/255, green: 128/255, blue: 64/255, alpha: 1)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -115,13 +115,13 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func createFAB() {
         let floatyNewOptionsButton = Floaty()
-        floatyNewOptionsButton.buttonColor = UIColor(colorLiteralRed: 0/255, green: 128/255, blue: 64/255, alpha: 1)
+        floatyNewOptionsButton.buttonColor = UIColor(red: 0/255, green: 128/255, blue: 64/255, alpha: 1)
         let newRoundOption = FloatyItem()
         newRoundOption.buttonColor = UIColor.green
         newRoundOption.title = "New Round"
         newRoundOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(displayNewRound)))
         let newCourseOption = FloatyItem()
-        newCourseOption.buttonColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+        newCourseOption.buttonColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
         newCourseOption.title = "Add New Course"
         newCourseOption.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(displayAddNewCourse)))
         floatyNewOptionsButton.addItem(item: newRoundOption)
@@ -129,13 +129,13 @@ class MyCoursesViewController: UIViewController, UITableViewDelegate, UITableVie
         self.view.addSubview(floatyNewOptionsButton)
     }
     
-    func displayNewRound() {
+    @objc func displayNewRound() {
         let courseDatabaseView = storyboard?.instantiateViewController(withIdentifier: "courseDatabaseView")
         courseDatabaseView?.navigationItem.title = "Choose a Course"
         self.show(courseDatabaseView!, sender: self)
     }
     
-    func displayAddNewCourse() {
+    @objc func displayAddNewCourse() {
         self.performSegue(withIdentifier: "myCoursesToCreateSegue", sender: self)
     }
     

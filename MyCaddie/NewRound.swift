@@ -194,7 +194,7 @@ class NewRound: UIViewController {
         self.present(popUp, animated: true, completion: nil)
     }
     
-    func showMainView() {
+    @objc func showMainView() {
         let mainView = storyboard?.instantiateViewController(withIdentifier: "mainMenu")
         self.present(mainView!, animated: true, completion: nil)
     }
@@ -236,7 +236,7 @@ class NewRound: UIViewController {
         self.present(popUp, animated: true, completion: nil)
     }
     
-    func displayScorecard() {
+    @objc func displayScorecard() {
         self.performSegue(withIdentifier: "scorecardSegue", sender: self)
     }
     

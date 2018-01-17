@@ -91,7 +91,7 @@ class SlideBarTableViewController: UITableViewController, UIImagePickerControlle
         }
     }
     
-    func handleSelectProfileImage() {
+    @objc func handleSelectProfileImage() {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
