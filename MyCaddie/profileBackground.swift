@@ -28,7 +28,7 @@ class profileBackground: UIView {
         let grey = UIColor.init(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
         let black = UIColor.black.cgColor
         //let blue = UIColor.blue.cgColor
-        gradLayer.colors = [black, grey]
+        gradLayer.colors = [grey, black]
         
         /*
         // Fade in Animation on Center Text

@@ -2773,7 +2773,6 @@
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7pI-Z1-L7k">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2792,7 +2791,6 @@
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZEN-C6-Faq">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2811,7 +2809,6 @@
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tvA-k1-Caz">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2830,7 +2827,6 @@
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lsE-Zp-IeK">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -5373,7 +5369,7 @@
         <image name="row-7-col-2" width="150" height="138"/>
         <image name="row-7-col-3" width="150" height="138"/>
         <image name="row-7-col-4" width="150" height="138"/>
-        <image name="temp" width="960" height="1280"/>
+        <image name="temp" width="96" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EAd-b9-1jJ"/>

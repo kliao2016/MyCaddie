@@ -22,8 +22,6 @@ class backgroundGradient: UIView {
         
         // Gradient Layer for Circle
         
-    
-        
         layer.addSublayer(gradLayer)
         gradLayer.frame = bounds
         //let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 0.05).cgColor
