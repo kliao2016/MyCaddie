@@ -42,10 +42,6 @@ class mainScreenAnimation: UIView {
         // Text Mask
         gradLayer2.mask = welcomeLabel
         
-//        mainScreenAnimation.animate(withDuration: 4, delay: 4, options: .curveEaseIn, animations: {
-//            self.gradLayer2.opacity = 1
-//        })
-        
         
         // Fade in Animation on Center Text
         
@@ -55,28 +51,11 @@ class mainScreenAnimation: UIView {
         animation.duration = 2
         gradLayer2.add(animation, forKey: nil)
  
-        /*
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.fromValue = [-150,15]
-        animation.toValue = [125,15]
-        animation.duration = 2
-        gradLayer2.add(animation, forKey: nil)
-        gradLayer2.mask = welcomeLabel
- */
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    /*
-     // Only override draw() if you perform custom drawing.
-     // An empty implementation adversely affects performance during animation.
-     override func draw(_ rect: CGRect) {
-     // Drawing code
-     }
-     */
     
 }
 

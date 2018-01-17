@@ -15,7 +15,6 @@ class mainScreenButton: UIView {
     let gradLayer2 = CAGradientLayer()
     let lab = CATextLayer()
     let indicationLabel = CATextLayer()
-    //let label1 = UILabel()
     
     
     init(frame: CGRect, words: String, color1: CGColor, color2: CGColor) {

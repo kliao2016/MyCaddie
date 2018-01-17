@@ -16,10 +16,6 @@ class TextOnProfile: UIView {
     init(frame: CGRect, stat: String) {
         super.init(frame: frame)
         
-        //let orange = UIColor.orange.cgColor
-        //let blue = UIColor.blue.cgColor
-        //let red = UIColor.red.cgColor
-        //let orange = UIColor.orange.cgColor
         let green = UIColor.init(red: 0, green: 128/255, blue: 64/255, alpha: 1).cgColor
         let white = UIColor.white.cgColor
         
@@ -30,7 +26,8 @@ class TextOnProfile: UIView {
         gradLayer2.endPoint = CGPoint(x: 1, y: 1)
         
         lab.contentsScale = UIScreen.main.scale
-        // Second Label Try
+        
+        // Second Label
         lab.string = stat
         lab.frame = bounds
         lab.fontSize = 40
@@ -52,14 +49,5 @@ class TextOnProfile: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    /*
-     // Only override draw() if you perform custom drawing.
-     // An empty implementation adversely affects performance during animation.
-     override func draw(_ rect: CGRect) {
-     // Drawing code
-     }
-     */
     
 }

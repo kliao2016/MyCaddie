@@ -55,7 +55,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // Settings Coordinates
         let xcoord = self.view.frame.size.width
-        let ycoord = self.view.frame.size.height
+        let ycoord = self.view.frame.size.height / 1.5
         
         // Background
         let back = CGRect(x: 0, y: 0, width: xcoord, height: ycoord)

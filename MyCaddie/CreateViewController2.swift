@@ -460,7 +460,6 @@ class CreateViewController2: UIViewController, UIApplicationDelegate, UIPickerVi
         
         if valid == true {
             
-            let uid = Auth.auth().currentUser?.uid
             let generalDataReference = self.ref.child("Golf Course Data")
             
             let ratingData : [String: AnyObject] = ["Rating": courseRating.text as AnyObject, "Slope": slope.text as AnyObject]
