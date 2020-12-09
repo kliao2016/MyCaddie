@@ -11,7 +11,7 @@
 <br />
 <p align="center">
   <a href="https://wmauz677.github.io/MyCaddie-Web/">
-    <img src="images/icon-large.png" alt="Logo" width="80" height="80">
+    <img src="Images/icon-large.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">MyCaddie</h3>
